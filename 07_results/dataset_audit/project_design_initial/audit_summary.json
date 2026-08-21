@@ -1,0 +1,131 @@
+{
+  "dataset_dir": "D:\\.Candra\\Project\\TA\\Sitting Posture Classification.v5i.folder",
+  "total_files_detected": 4813,
+  "valid_images": 4813,
+  "corrupt_images": 0,
+  "class_count": 5,
+  "class_counts": {
+    "leaning_backward": 717,
+    "leaning_forward": 1212,
+    "leaning_left": 887,
+    "leaning_right": 761,
+    "upright": 1236
+  },
+  "split_counts": {
+    "test": 484,
+    "train": 3364,
+    "valid": 965
+  },
+  "class_distribution_by_split": [
+    {
+      "split": "test",
+      "label": "leaning_backward",
+      "count": 72
+    },
+    {
+      "split": "test",
+      "label": "leaning_forward",
+      "count": 391
+    },
+    {
+      "split": "test",
+      "label": "leaning_left",
+      "count": 21
+    },
+    {
+      "split": "train",
+      "label": "leaning_backward",
+      "count": 503
+    },
+    {
+      "split": "train",
+      "label": "leaning_left",
+      "count": 866
+    },
+    {
+      "split": "train",
+      "label": "leaning_right",
+      "count": 759
+    },
+    {
+      "split": "train",
+      "label": "upright",
+      "count": 1236
+    },
+    {
+      "split": "valid",
+      "label": "leaning_backward",
+      "count": 142
+    },
+    {
+      "split": "valid",
+      "label": "leaning_forward",
+      "count": 821
+    },
+    {
+      "split": "valid",
+      "label": "leaning_right",
+      "count": 2
+    }
+  ],
+  "top_resolutions": [
+    {
+      "width": 1080,
+      "height": 720,
+      "count": 4556
+    },
+    {
+      "width": 1080,
+      "height": 718,
+      "count": 93
+    },
+    {
+      "width": 1080,
+      "height": 719,
+      "count": 70
+    },
+    {
+      "width": 1079,
+      "height": 720,
+      "count": 57
+    },
+    {
+      "width": 1078,
+      "height": 720,
+      "count": 27
+    },
+    {
+      "width": 1077,
+      "height": 720,
+      "count": 6
+    },
+    {
+      "width": 1078,
+      "height": 719,
+      "count": 3
+    },
+    {
+      "width": 1077,
+      "height": 719,
+      "count": 1
+    }
+  ],
+  "dark_images_below_threshold": 0,
+  "dark_threshold": 45.0,
+  "potentially_blurry_images_below_threshold": 2,
+  "blur_threshold": 120.0,
+  "low_resolution_images": 0,
+  "minimum_expected_resolution": {
+    "width": 224,
+    "height": 224
+  },
+  "unlabeled_images": 0,
+  "exact_duplicate_groups": 0,
+  "files_in_exact_duplicate_groups": 0,
+  "near_duplicate_pairs": 65237,
+  "cross_split_leakage_pairs": 10755,
+  "warnings": [
+    "Terdapat exact/near duplicate pada split berbeda; ini berpotensi data leakage."
+  ],
+  "class_imbalance_ratio_max_to_min": 1.7238
+}

@@ -1,0 +1,98 @@
+﻿cluster_id,cluster_size,labels,splits,mixed_label,cross_split,edge_count,min_edge_distance,max_edge_distance,mean_edge_distance,suggested_representative,review_priority
+CL00001,431,leaning_forward | leaning_left | leaning_right | upright,test | train | valid,True,True,5396,0,2,1.277,train/upright/extract2080_jpg.rf.247fa46673a00f3b8c8d47d74a06ddb2.jpg,P1_mixed_label_cross_split
+CL00002,426,leaning_backward | leaning_forward | leaning_left | leaning_right | upright,test | train | valid,True,True,3404,0,2,1.316,train/upright/extract3320_jpg.rf.fc565dd8c49cf7d596cb2ba735d03ee1.jpg,P1_mixed_label_cross_split
+CL00003,249,leaning_backward | leaning_forward | leaning_left | upright,test | train | valid,True,True,1731,0,2,1.175,train/upright/extract0990_jpg.rf.def23fd87d8bb2658a1c78d1c963fc8f.jpg,P1_mixed_label_cross_split
+CL00004,154,leaning_backward | upright,test | train | valid,True,True,2239,0,2,0.938,test/leaning_backward/extract2360_jpg.rf.717ae1cb99bcecfef2591d2aa86b28cc.jpg,P1_mixed_label_cross_split
+CL00005,123,leaning_forward | upright,test | train,True,True,811,0,2,1.249,train/upright/extract0196_jpg.rf.9aadb3eed43d3ebdd905b50a1716b26d.jpg,P1_mixed_label_cross_split
+CL00006,87,leaning_backward | leaning_left | leaning_right | upright,test | train | valid,True,True,524,0,2,1.206,train/leaning_left/extract0558_jpg.rf.0bd3e96d3d05c2707d05234542924ca5.jpg,P1_mixed_label_cross_split
+CL00007,72,leaning_forward | upright,test | train | valid,True,True,700,0,2,1.193,valid/leaning_forward/extract0937_jpg.rf.4148d362841ede15c66557e2bc3b4478.jpg,P1_mixed_label_cross_split
+CL00011,57,leaning_forward | leaning_left | leaning_right | upright,test | train | valid,True,True,648,0,2,1.165,valid/leaning_forward/mb20077_jpg.rf.ef01fadcaa277a3f5c6d13c86756b419.jpg,P1_mixed_label_cross_split
+CL00012,50,leaning_backward,test | train | valid,False,True,451,0,2,1.2,train/leaning_backward/extract3250_jpg.rf.1bd9e8a603d6c33902fc5d8b0bff385d.jpg,P2_cross_split
+CL00016,45,leaning_forward | leaning_left | leaning_right | upright,train | valid,True,True,218,0,2,1.431,valid/leaning_forward/mb20196_jpg.rf.b01bcd70521012dcfd174424f3adf398.jpg,P1_mixed_label_cross_split
+CL00017,43,leaning_forward | leaning_left,train | valid,True,True,124,0,2,1.379,train/leaning_left/extract1304_jpg.rf.8d5cc7a6c4b1b0b94d185f193a411a4d.jpg,P1_mixed_label_cross_split
+CL00019,42,leaning_forward | upright,train | valid,True,True,148,0,2,1.257,valid/leaning_forward/extract1576_jpg.rf.6ac8d40ecd55a6702337a7b7f1f0aafa.jpg,P1_mixed_label_cross_split
+CL00020,35,leaning_backward | leaning_forward | leaning_right,test | train | valid,True,True,99,0,2,1.293,train/leaning_backward/mb20250_jpg.rf.03c411e6194f88538c9e21674706c62b.jpg,P1_mixed_label_cross_split
+CL00021,32,leaning_forward | leaning_right | upright,train | valid,True,True,128,0,2,1.227,train/leaning_right/extract0462_jpg.rf.389634219f7b82f0a25325c5ea05dcbb.jpg,P1_mixed_label_cross_split
+CL00023,31,leaning_backward | upright,test | train | valid,True,True,77,0,2,1.26,valid/leaning_backward/extract2412_jpg.rf.2b4a31ea5dd8c7d16e49364ff25ca2fc.jpg,P1_mixed_label_cross_split
+CL00024,31,leaning_forward | leaning_right,train | valid,True,True,97,0,2,1.237,train/leaning_right/extract0711_jpg.rf.2067ce9512aae71e781023091248291d.jpg,P1_mixed_label_cross_split
+CL00028,26,leaning_backward | leaning_forward | leaning_right,test | train | valid,True,True,71,0,2,1.535,train/leaning_backward/mb20279_jpg.rf.4a4711fdb021c6b6aca1b7b986b3c3d3.jpg,P1_mixed_label_cross_split
+CL00030,26,leaning_forward | upright,train | valid,True,True,78,0,2,1.346,train/upright/extract1552_jpg.rf.762ac249dbec2c60ea7ed0d8b75611e8.jpg,P1_mixed_label_cross_split
+CL00036,22,leaning_forward | upright,train | valid,True,True,76,0,2,1.276,train/upright/mb0024_jpg.rf.a448c6eb7449a136bfead2d15b374e37.jpg,P1_mixed_label_cross_split
+CL00038,21,leaning_forward | leaning_left | leaning_right | upright,train | valid,True,True,49,0,2,1.592,train/leaning_right/mb20064_jpg.rf.bb831b0cebda16c58d8fa166105b1e36.jpg,P1_mixed_label_cross_split
+CL00040,20,leaning_backward,test | train | valid,False,True,81,0,2,1.235,test/leaning_backward/extract2363_jpg.rf.341137ff33ff013450b0e3b679dfbf1f.jpg,P2_cross_split
+CL00042,20,leaning_left | upright,train,True,False,76,0,2,1.026,train/leaning_left/extract3147_jpg.rf.3d967ab428c6a2b4f1956654693b4469.jpg,P3_mixed_label
+CL00044,19,leaning_forward,test | valid,False,True,86,0,2,0.709,valid/leaning_forward/extract0330_jpg.rf.49da8baf8da4b5e3e41cb248f7e6cbc5.jpg,P2_cross_split
+CL00046,19,leaning_forward | upright,train | valid,True,True,146,0,2,0.918,train/upright/mb0378_jpg.rf.73c03faee6300d2fd88ec112aaffe096.jpg,P1_mixed_label_cross_split
+CL00049,17,leaning_forward | upright,test | train,True,True,37,0,2,1.378,train/upright/extract2287_jpg.rf.29d5a62af84675b3a6dd8f8c296767f5.jpg,P1_mixed_label_cross_split
+CL00053,16,leaning_forward | upright,test | train,True,True,33,0,2,1.182,train/upright/extract2436_jpg.rf.f4a7f2a54d35f9e6e217074736cab9b5.jpg,P1_mixed_label_cross_split
+CL00054,16,leaning_forward,test | valid,False,True,62,0,2,1.097,valid/leaning_forward/extract2821_jpg.rf.d7e18a7b54fd2a663045ff6438018632.jpg,P2_cross_split
+CL00058,15,leaning_forward | leaning_right,train | valid,True,True,28,0,2,1.071,valid/leaning_forward/extract1376_jpg.rf.947b70c904460328f01feb6c4f0d0daa.jpg,P1_mixed_label_cross_split
+CL00061,14,leaning_right | upright,train,True,False,26,0,2,1.115,train/upright/extract3324_jpg.rf.692a189628466890cfcd5a6cc62c6271.jpg,P3_mixed_label
+CL00064,13,leaning_forward | leaning_right,train | valid,True,True,13,0,2,1.615,valid/leaning_forward/extract1362_jpg.rf.24529febd809c9ae2b58a051a1b1d013.jpg,P1_mixed_label_cross_split
+CL00072,11,leaning_forward | leaning_right,train | valid,True,True,25,0,2,1.12,train/leaning_right/mb20258_jpg.rf.bf9097194f4cceca7151a2796088642f.jpg,P1_mixed_label_cross_split
+CL00075,10,leaning_forward | upright,test | train,True,True,14,0,2,1.5,train/upright/extract2708_jpg.rf.7e33d2d8295220d886f61eec27b088e6.jpg,P1_mixed_label_cross_split
+CL00080,9,leaning_backward,test | train | valid,False,True,15,0,2,0.8,valid/leaning_backward/mb0145_jpg.rf.43a55590fbd0e750d541e9fff62fe67b.jpg,P2_cross_split
+CL00081,9,leaning_left,test | train,False,True,16,0,2,1.25,train/leaning_left/mb20052_jpg.rf.fb1dfa9de38100e0454e2776ada4659f.jpg,P2_cross_split
+CL00082,9,leaning_backward,train | valid,False,True,33,0,2,1.121,train/leaning_backward/extract3264_jpg.rf.7d9284b4385cf049abdca41e36475702.jpg,P2_cross_split
+CL00083,9,leaning_forward | leaning_left,train | valid,True,True,13,0,2,1.462,train/leaning_left/extract1282_jpg.rf.d8ccb287a61bddf98de72ae47d53d7c2.jpg,P1_mixed_label_cross_split
+CL00085,9,leaning_forward | leaning_left | leaning_right,train | valid,True,True,11,0,2,1.455,train/leaning_right/extract3494_jpg.rf.53f45bdd0a544670d621dae809508b75.jpg,P1_mixed_label_cross_split
+CL00086,8,leaning_backward,test | train,False,True,18,0,2,1.389,test/leaning_backward/extract0608_jpg.rf.deac4b3adfc307ba257a188a5d856676.jpg,P2_cross_split
+CL00089,7,leaning_backward | upright,test | train | valid,True,True,15,0,2,1.267,train/upright/mb0486_jpg.rf.10d4d8108b49e5078b0fa2a43bb2a57b.jpg,P1_mixed_label_cross_split
+CL00092,7,leaning_forward | leaning_right,test | train,True,True,13,0,2,1.077,train/leaning_right/extract2690_jpg.rf.64d434dffb5308a032a16658783a9924.jpg,P1_mixed_label_cross_split
+CL00093,7,leaning_left,test | train,False,True,12,0,2,1.5,train/leaning_left/mb20240_jpg.rf.327c8916f72369cb99604fef3808de06.jpg,P2_cross_split
+CL00094,7,leaning_backward,train | valid,False,True,14,0,2,1.571,train/leaning_backward/extract2405_jpg.rf.3393396ab17bdb25e922cb88c0a875e3.jpg,P2_cross_split
+CL00095,7,leaning_backward,train | valid,False,True,19,0,2,0.842,valid/leaning_backward/mb0446_jpg.rf.8923a827d987fa772544bf4ed3036a61.jpg,P2_cross_split
+CL00104,6,leaning_backward,test | train | valid,False,True,12,0,2,1.833,train/leaning_backward/extract0004_jpg.rf.20cadeada9bb923acaa5a40b60011cc6.jpg,P2_cross_split
+CL00107,6,leaning_forward,test | valid,False,True,11,0,2,1.091,valid/leaning_forward/extract2827_jpg.rf.a70bafc12c9ca71683b62239d2812806.jpg,P2_cross_split
+CL00110,6,leaning_backward,train | valid,False,True,7,0,2,1.429,train/leaning_backward/mb0509_jpg.rf.77c944f0d49963fffa990d3d3587cbc6.jpg,P2_cross_split
+CL00111,6,leaning_forward | leaning_left,train | valid,True,True,15,0,2,1.467,valid/leaning_forward/extract1240_jpg.rf.33b5e5db292cb57702c3527cbd69f59f.jpg,P1_mixed_label_cross_split
+CL00112,6,leaning_forward | leaning_left,train | valid,True,True,6,0,2,1.5,train/leaning_left/extract1290_jpg.rf.0180bb9051cc36c59d82d5f34127840c.jpg,P1_mixed_label_cross_split
+CL00123,5,leaning_backward,test | train,False,True,7,0,2,1.286,test/leaning_backward/extract2337_jpg.rf.252b286b6a53e82bd5299eff3e97ea23.jpg,P2_cross_split
+CL00124,5,leaning_backward,test | train | valid,False,True,7,0,2,1.286,train/leaning_backward/mb0259_jpg.rf.9d864851f507616c6728647f4034986a.jpg,P2_cross_split
+CL00125,5,leaning_backward,test | train | valid,False,True,6,0,2,1.667,train/leaning_backward/mb0480_jpg.rf.b6ff7b1b65b68a5b3c83d1a797ba05c6.jpg,P2_cross_split
+CL00126,5,leaning_forward,test | valid,False,True,5,0,2,1.0,valid/leaning_forward/extract2836_jpg.rf.ac1fd8d5e48270939e024b1314254cfa.jpg,P2_cross_split
+CL00128,5,leaning_backward | leaning_forward | upright,train | valid,True,True,10,0,2,0.8,train/upright/mb0133_jpg.rf.a8f9bcef764e01fd715e4eb38bb7de23.jpg,P1_mixed_label_cross_split
+CL00129,5,leaning_backward,train | valid,False,True,7,0,2,1.286,train/leaning_backward/mb20303_jpg.rf.37fd97468750ba72e1b6c417c4eaca9b.jpg,P2_cross_split
+CL00133,5,leaning_forward | leaning_left | upright,train | valid,True,True,4,1,2,1.75,train/upright/mb0535_jpg.rf.ec52c69b22471e9994dc7715a3f02ae1.jpg,P1_mixed_label_cross_split
+CL00139,4,leaning_backward,test | train | valid,False,True,6,0,2,1.0,train/leaning_backward/extract0622_jpg.rf.5d0b909b2b954804241172bf83ab74e0.jpg,P2_cross_split
+CL00140,4,leaning_forward | upright,test | train,True,True,5,1,2,1.4,train/upright/extract0028_jpg.rf.b38da9353b6e3bb27dc0f49edb4a2aff.jpg,P1_mixed_label_cross_split
+CL00141,4,leaning_left,test | train,False,True,6,0,2,1.0,train/leaning_left/mb20127_jpg.rf.92dbc3fc2cbe40f595a8af7f1cb1e950.jpg,P2_cross_split
+CL00143,4,leaning_backward,train | valid,False,True,3,2,2,2.0,train/leaning_backward/extract0616_jpg.rf.ad6e2db3b8f0d480b3bbdce0bab0051d.jpg,P2_cross_split
+CL00144,4,leaning_backward,train | valid,False,True,4,1,2,1.5,train/leaning_backward/extract3245_jpg.rf.727fe21933b253ed95af7801fb75189d.jpg,P2_cross_split
+CL00145,4,leaning_backward | leaning_left,train,True,False,3,1,2,1.667,train/leaning_left/extract3280_jpg.rf.df97b07f708838470d447923b27bbc69.jpg,P3_mixed_label
+CL00146,4,leaning_backward,train | valid,False,True,5,2,2,2.0,train/leaning_backward/mb0073_jpg.rf.f0d3720d35cc68c6728e973eef982a12.jpg,P2_cross_split
+CL00147,4,leaning_backward,train | valid,False,True,4,1,2,1.5,train/leaning_backward/mb0316_jpg.rf.17ea032a97c3203b6b1d8208c7df5bd2.jpg,P2_cross_split
+CL00159,4,leaning_forward | upright,train | valid,True,True,3,2,2,2.0,valid/leaning_forward/VidWebCam_frame_3542_png_jpg.rf.6ce898a1bdc2af7fd60f31de24bbcd5f.jpg,P1_mixed_label_cross_split
+CL00165,3,leaning_backward,test | train,False,True,3,1,2,1.333,train/leaning_backward/extract0016_jpg.rf.518a2cc64514baa0bf909a211e0022be.jpg,P2_cross_split
+CL00176,3,leaning_left,test | train,False,True,2,1,2,1.5,train/leaning_left/VidWebCam_frame_2541_png_jpg.rf.bee91147df1a0f04ad47c213d27fb532.jpg,P2_cross_split
+CL00177,3,leaning_left,test | train,False,True,3,0,2,1.333,train/leaning_left/mb20247_jpg.rf.a48f2d03448682d35f1bba118736f36f.jpg,P2_cross_split
+CL00179,3,leaning_backward,train | valid,False,True,2,2,2,2.0,train/leaning_backward/extract3272_jpg.rf.2c0569bd220b3c6cef6a86321ef2f348.jpg,P2_cross_split
+CL00181,3,leaning_backward | upright,train | valid,True,True,3,0,1,0.667,train/upright/mb0220_jpg.rf.dc6d8492a7423fc497c5a3808224aee1.jpg,P1_mixed_label_cross_split
+CL00182,3,leaning_backward,train | valid,False,True,3,0,2,1.333,train/leaning_backward/mb0447_jpg.rf.6926889af90fe0fcdcd05e0514c4cd47.jpg,P2_cross_split
+CL00184,3,leaning_backward | leaning_forward,train | valid,True,True,3,1,2,1.333,valid/leaning_forward/mb0492_jpg.rf.18fc14327031ecdccbae1b1dd0c10d8d.jpg,P1_mixed_label_cross_split
+CL00185,3,leaning_backward,train | valid,False,True,3,0,2,1.333,train/leaning_backward/mb0532_jpg.rf.3aeb3ff5ee1a609c55d0c647a6fabaab.jpg,P2_cross_split
+CL00190,3,leaning_forward | leaning_left,train | valid,True,True,3,0,0,0.0,train/leaning_left/extract0828_jpg.rf.9722f310574c0c6cea75b305f79b6b04.jpg,P1_mixed_label_cross_split
+CL00191,3,leaning_forward | leaning_left,train | valid,True,True,2,2,2,2.0,train/leaning_left/extract1286_jpg.rf.6120381d87d888fbc69086c4e41e3030.jpg,P1_mixed_label_cross_split
+CL00193,3,leaning_left | leaning_right,train,True,False,2,1,2,1.5,train/leaning_left/extract2594_jpg.rf.9e94117d7c932d06e78ad30983b350f1.jpg,P3_mixed_label
+CL00215,3,leaning_forward | upright,train | valid,True,True,3,1,2,1.333,train/upright/mb0467_jpg.rf.7e27bce0cc59ea6e1c174dd53d859001.jpg,P1_mixed_label_cross_split
+CL00230,2,leaning_backward,test | train,False,True,1,2,2,2.0,test/leaning_backward/extract0005_jpg.rf.b03d4d44d87b4673ecac12fd1e67e1f6.jpg,P2_cross_split
+CL00231,2,leaning_backward,test | valid,False,True,1,0,0,0.0,valid/leaning_backward/mb0318_jpg.rf.b75d1cbe0c575ed4b7fb30a2d5a7beb9.jpg,P2_cross_split
+CL00232,2,leaning_backward,test | valid,False,True,1,1,1,1.0,test/leaning_backward/mb20292_jpg.rf.94fdb17c070ed9adfa3bd1c32b3e1868.jpg,P2_cross_split
+CL00241,2,leaning_forward | upright,test | train,True,True,1,0,0,0.0,train/upright/extract0030_jpg.rf.699e445b9767fb7389e22d489d6de6cb.jpg,P1_mixed_label_cross_split
+CL00250,2,leaning_backward,train | valid,False,True,1,1,1,1.0,valid/leaning_backward/extract0008_jpg.rf.79fb262850f5a06f242ee3634227cc66.jpg,P2_cross_split
+CL00251,2,leaning_backward,train | valid,False,True,1,2,2,2.0,valid/leaning_backward/extract0009_jpg.rf.f5243a54f628b87634dba85d78740515.jpg,P2_cross_split
+CL00252,2,leaning_backward,train | valid,False,True,1,0,0,0.0,train/leaning_backward/extract0012_jpg.rf.3d49efb4bb79a6714466c63f3e21975f.jpg,P2_cross_split
+CL00260,2,leaning_backward,train | valid,False,True,1,2,2,2.0,train/leaning_backward/mb0404_jpg.rf.b5c8213b57054606a73a153a8b74f6c3.jpg,P2_cross_split
+CL00262,2,leaning_backward | leaning_forward,train | valid,True,True,1,1,1,1.0,train/leaning_backward/mb0444_jpg.rf.8ecc2d349d8e062f161f561324bd2d9a.jpg,P1_mixed_label_cross_split
+CL00263,2,leaning_backward,train | valid,False,True,1,1,1,1.0,train/leaning_backward/mb0480_jpg.rf.9c819f73c4ef70ef77bfe7686f24e5f5.jpg,P2_cross_split
+CL00264,2,leaning_backward,train | valid,False,True,1,2,2,2.0,valid/leaning_backward/mb0500_jpg.rf.75a27bc6f61212d4b55bbcb58f6ddb20.jpg,P2_cross_split
+CL00265,2,leaning_backward,train | valid,False,True,1,1,1,1.0,valid/leaning_backward/mb0509_jpg.rf.e28d6dda563db19d3c96bba3e7d123f3.jpg,P2_cross_split
+CL00274,2,leaning_forward | leaning_left,train | valid,True,True,1,2,2,2.0,valid/leaning_forward/extract1347_jpg.rf.3b4251e35520c15358658d00faf8438a.jpg,P1_mixed_label_cross_split
+CL00282,2,leaning_left | leaning_right,train,True,False,1,1,1,1.0,train/leaning_right/extract2593_jpg.rf.596d20f35ae8dd51b6d8d06759767c46.jpg,P3_mixed_label
+CL00284,2,leaning_forward | leaning_left,train | valid,True,True,1,1,1,1.0,valid/leaning_forward/extract3482_jpg.rf.a30adb6e3842ebc18f534ced5822b94c.jpg,P1_mixed_label_cross_split
+CL00291,2,leaning_forward | leaning_left,train | valid,True,True,1,2,2,2.0,train/leaning_left/mb0495_jpg.rf.9744dbe1b00b689102c3dd610634cdf1.jpg,P1_mixed_label_cross_split
+CL00298,2,leaning_forward | leaning_right,train | valid,True,True,1,2,2,2.0,valid/leaning_forward/extract1348_jpg.rf.7fa74c88eb4858732cf240d855b6c021.jpg,P1_mixed_label_cross_split
+CL00309,2,leaning_forward | leaning_right,train | valid,True,True,1,0,0,0.0,train/leaning_right/mb0271_jpg.rf.bfe1a54beee5c5201050845a255913e6.jpg,P1_mixed_label_cross_split
+CL00311,2,leaning_forward | leaning_right,train | valid,True,True,1,0,0,0.0,train/leaning_right/mb0340_jpg.rf.ab1315bbfdc64eb51fdbfe671e5f75d3.jpg,P1_mixed_label_cross_split
+CL00312,2,leaning_forward | leaning_right,train | valid,True,True,1,2,2,2.0,train/leaning_right/mb0452_jpg.rf.fc40350123de4189bb4cf9c3e31191dd.jpg,P1_mixed_label_cross_split
+CL00321,2,leaning_forward | upright,train | valid,True,True,1,2,2,2.0,valid/leaning_forward/extract0764_jpg.rf.4efd1070c068bec9446163e3978946d4.jpg,P1_mixed_label_cross_split

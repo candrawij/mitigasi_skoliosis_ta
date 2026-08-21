@@ -1,0 +1,12 @@
+﻿source_clip,image_count,splits,split_count,classes,class_count,train_count,valid_count,test_count,class_distribution
+WIN_20251004_11_39_25_Pro_mp4,41,train,1,nghieng_phai | thang,2,41,0,0,nghieng_phai:24 | thang:17
+WIN_20251004_11_42_58_Pro_mp4,46,train,1,nghieng_trai | thang,2,46,0,0,nghieng_trai:33 | thang:13
+WIN_20251004_11_45_50_Pro_mp4,45,train,1,nga_trai | thang,2,45,0,0,nga_trai:29 | thang:16
+WIN_20251004_11_46_29_Pro_mp4,41,train,1,nga_phai | nghieng_phai | thang,3,41,0,0,nga_phai:27 | nghieng_phai:1 | thang:13
+WIN_20251107_18_18_07_Pro_mp4,220,valid,1,nga_phai | nga_trai | nghieng_phai | nghieng_trai | thang,5,0,220,0,nga_phai:49 | nga_trai:51 | nghieng_phai:22 | nghieng_trai:32 | thang:66
+WIN_20251109_18_42_31_Pro_mp4,305,train,1,nga_phai | nga_trai | nghieng_phai | nghieng_trai | thang,5,305,0,0,nga_phai:45 | nga_trai:39 | nghieng_phai:47 | nghieng_trai:60 | thang:114
+WIN_20251109_20_43_47_Pro_mp4,316,test,1,nga_phai | nga_trai | nghieng_phai | nghieng_trai | thang,5,0,0,316,nga_phai:53 | nga_trai:45 | nghieng_phai:74 | nghieng_trai:43 | thang:101
+ngaphai_mp4,175,train,1,nga_phai | thang,2,175,0,0,nga_phai:120 | thang:55
+ngatrai_mp4,186,train,1,nga_trai | thang,2,186,0,0,nga_trai:116 | thang:70
+nghiengphai_mp4,163,train,1,nghieng_phai | thang,2,163,0,0,nghieng_phai:105 | thang:58
+nghiengtrai_mp4,156,train,1,nghieng_trai | thang,2,156,0,0,nghieng_trai:114 | thang:42

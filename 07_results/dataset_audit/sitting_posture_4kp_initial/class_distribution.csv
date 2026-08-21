@@ -1,0 +1,7 @@
+﻿split,category,count
+test,Bad,17
+test,Good,10
+train,Bad,366
+train,Good,207
+valid,Bad,37
+valid,Good,18

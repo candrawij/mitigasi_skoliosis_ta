@@ -1,0 +1,11 @@
+﻿split,label,count
+test,leaning_backward,72
+test,leaning_forward,391
+test,leaning_left,21
+train,leaning_backward,503
+train,leaning_left,866
+train,leaning_right,759
+train,upright,1236
+valid,leaning_backward,142
+valid,leaning_forward,821
+valid,leaning_right,2

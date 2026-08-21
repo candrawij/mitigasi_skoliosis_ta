@@ -1,0 +1,5 @@
+﻿keypoint_index,keypoint_name,vis_0_not_labeled,vis_1_occluded,vis_2_visible,total_annotations,visibility_rate_pct
+0,bottom,0,0,655,655,100.0
+1,shoulder,0,0,655,655,100.0
+2,head,0,0,655,655,100.0
+3,back,0,0,655,655,100.0

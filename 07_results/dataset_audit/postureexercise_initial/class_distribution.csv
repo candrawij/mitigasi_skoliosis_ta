@@ -1,0 +1,16 @@
+﻿split,class_id,class_name,object_count
+test,0,nga_phai,53
+test,1,nga_trai,45
+test,2,nghieng_phai,74
+test,3,nghieng_trai,43
+test,4,thang,101
+train,0,nga_phai,192
+train,1,nga_trai,184
+train,2,nghieng_phai,177
+train,3,nghieng_trai,207
+train,4,thang,399
+valid,0,nga_phai,49
+valid,1,nga_trai,51
+valid,2,nghieng_phai,22
+valid,3,nghieng_trai,33
+valid,4,thang,66

@@ -1,0 +1,35 @@
+{
+  "dataset_dir": "D:\\.Candra\\Project\\TA\\02_data\\raw\\Sitting_posture.v17i.yolov8",
+  "yaml_path": "D:\\.Candra\\Project\\TA\\02_data\\raw\\Sitting_posture.v17i.yolov8\\data.yaml",
+  "kpt_shape": [
+    7,
+    3
+  ],
+  "class_names": {
+    "0": "nga_phai",
+    "1": "nga_trai",
+    "2": "nghieng_phai",
+    "3": "nghieng_trai",
+    "4": "thang"
+  },
+  "split_image_counts": {
+    "test": 316,
+    "train": 1158,
+    "valid": 220
+  },
+  "total_images": 1694,
+  "corrupt_images": 0,
+  "missing_labels": 0,
+  "empty_labels": 0,
+  "total_annotation_objects": 1696,
+  "valid_annotation_objects": 1696,
+  "invalid_annotation_objects": 0,
+  "images_with_invalid_objects": 0,
+  "annotation_issue_count": 0,
+  "dark_images": 0,
+  "potentially_blurry_images": 36,
+  "cross_split_exact_duplicate_pairs": 0,
+  "cross_split_near_duplicate_pairs": 0,
+  "near_duplicate_distance": 3,
+  "warnings": []
+}

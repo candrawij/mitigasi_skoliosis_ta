@@ -1,0 +1,13 @@
+﻿split,category,count
+test,good_posture,17
+test,leaning_backward,30
+test,leaning_forward,38
+test,slouch,18
+train,good_posture,74
+train,leaning_backward,91
+train,leaning_forward,67
+train,slouch,30
+valid,good_posture,65
+valid,leaning_backward,33
+valid,leaning_forward,45
+valid,slouch,52

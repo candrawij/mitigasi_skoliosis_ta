@@ -1,0 +1,79 @@
+{
+  "dataset_dir": "D:\\.Candra\\Project\\TA\\02_data\\raw\\sitting posture.v4-sitting_posture_4keypoint.coco",
+  "keypoint_names": [
+    "bottom",
+    "shoulder",
+    "head",
+    "back"
+  ],
+  "num_keypoints": 4,
+  "total_images": 655,
+  "valid_images": 655,
+  "corrupt_images": 0,
+  "unannotated_images": 0,
+  "total_annotations": 655,
+  "invalid_bbox_annotations": 0,
+  "annotations_with_zero_visible_keypoints": 0,
+  "categories": {
+    "0": "human",
+    "1": "Bad",
+    "2": "Good"
+  },
+  "split_counts": {
+    "test": 27,
+    "train": 573,
+    "valid": 55
+  },
+  "class_distribution": [
+    {
+      "split": "test",
+      "category": "Bad",
+      "count": 17
+    },
+    {
+      "split": "test",
+      "category": "Good",
+      "count": 10
+    },
+    {
+      "split": "train",
+      "category": "Bad",
+      "count": 366
+    },
+    {
+      "split": "train",
+      "category": "Good",
+      "count": 207
+    },
+    {
+      "split": "valid",
+      "category": "Bad",
+      "count": 37
+    },
+    {
+      "split": "valid",
+      "category": "Good",
+      "count": 18
+    }
+  ],
+  "class_total": {
+    "Bad": 420,
+    "Good": 235
+  },
+  "dark_images": 0,
+  "dark_threshold": 45.0,
+  "blurry_images": 0,
+  "blur_threshold": 120.0,
+  "low_resolution_images": 0,
+  "min_resolution": {
+    "width": 224,
+    "height": 224
+  },
+  "exact_duplicate_groups": 0,
+  "near_duplicate_pairs": 3551,
+  "cross_split_leakage_pairs": 520,
+  "warnings": [
+    "Terdapat exact/near duplicate pada split berbeda; ini berpotensi data leakage."
+  ],
+  "class_imbalance_ratio": 1.7872
+}

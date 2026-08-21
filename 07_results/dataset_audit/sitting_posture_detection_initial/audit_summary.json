@@ -1,0 +1,106 @@
+{
+  "dataset_dir": "D:\\.Candra\\Project\\TA\\02_data\\raw\\Sitting Posture Detection.v2i.coco",
+  "total_images": 490,
+  "valid_images": 490,
+  "corrupt_images": 0,
+  "unannotated_images": 1,
+  "total_annotations": 560,
+  "invalid_bbox_annotations": 0,
+  "categories": {
+    "0": "People-Sitting-Posture",
+    "1": "good_posture",
+    "2": "leaning_backward",
+    "3": "leaning_forward",
+    "4": "slouch"
+  },
+  "split_counts": {
+    "test": 92,
+    "train": 214,
+    "valid": 184
+  },
+  "class_distribution": [
+    {
+      "split": "test",
+      "category": "good_posture",
+      "count": 17
+    },
+    {
+      "split": "test",
+      "category": "leaning_backward",
+      "count": 30
+    },
+    {
+      "split": "test",
+      "category": "leaning_forward",
+      "count": 38
+    },
+    {
+      "split": "test",
+      "category": "slouch",
+      "count": 18
+    },
+    {
+      "split": "train",
+      "category": "good_posture",
+      "count": 74
+    },
+    {
+      "split": "train",
+      "category": "leaning_backward",
+      "count": 91
+    },
+    {
+      "split": "train",
+      "category": "leaning_forward",
+      "count": 67
+    },
+    {
+      "split": "train",
+      "category": "slouch",
+      "count": 30
+    },
+    {
+      "split": "valid",
+      "category": "good_posture",
+      "count": 65
+    },
+    {
+      "split": "valid",
+      "category": "leaning_backward",
+      "count": 33
+    },
+    {
+      "split": "valid",
+      "category": "leaning_forward",
+      "count": 45
+    },
+    {
+      "split": "valid",
+      "category": "slouch",
+      "count": 52
+    }
+  ],
+  "class_total": {
+    "good_posture": 156,
+    "leaning_backward": 154,
+    "leaning_forward": 150,
+    "slouch": 100
+  },
+  "dark_images": 2,
+  "dark_threshold": 45.0,
+  "blurry_images": 0,
+  "blur_threshold": 120.0,
+  "low_resolution_images": 0,
+  "min_resolution": {
+    "width": 224,
+    "height": 224
+  },
+  "exact_duplicate_groups": 0,
+  "near_duplicate_pairs": 40,
+  "cross_split_leakage_pairs": 17,
+  "warnings": [
+    "Terdapat 1 gambar tanpa anotasi.",
+    "Terdapat exact/near duplicate pada split berbeda; ini berpotensi data leakage."
+  ],
+  "class_imbalance_ratio": 1.56
+}

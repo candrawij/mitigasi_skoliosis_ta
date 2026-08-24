@@ -1,0 +1,34 @@
+{
+  "total_samples": 1694,
+  "splits": {
+    "train": 1158,
+    "valid": 220,
+    "test": 316
+  },
+  "classes": {
+    "thang": 565,
+    "nga_phai": 294,
+    "nga_trai": 280,
+    "nghieng_phai": 273,
+    "nghieng_trai": 282
+  },
+  "keypoint_names": [
+    "left_shoulder",
+    "right_shoulder",
+    "left_eye",
+    "left_ear",
+    "nose",
+    "right_ear",
+    "right_eye"
+  ],
+  "class_names": {
+    "0": "nga_phai",
+    "1": "nga_trai",
+    "2": "nghieng_phai",
+    "3": "nghieng_trai",
+    "4": "thang"
+  },
+  "issues_count": 2,
+  "source_dataset": "D:\\.Candra\\Project\\TA\\02_data\\raw\\Sitting_posture.v17i.yolov8",
+  "cross_split_leakage": "Verified 0 source clips cross-split (from semantic verification)"
+}

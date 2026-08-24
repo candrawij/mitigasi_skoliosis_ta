@@ -1,0 +1,52 @@
+[
+  {
+    "dataset": "IKORN (4-KP, 2-class)",
+    "model": "MLP",
+    "accuracy": 0.9293,
+    "balanced_accuracy": 0.9551,
+    "precision": 0.75,
+    "recall": 1.0,
+    "f1_score": 0.8571,
+    "f1_macro": 0.9051,
+    "confusion_matrix": [
+      [
+        71,
+        7
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "class_names": [
+      "Bad",
+      "Good"
+    ],
+    "timestamp": "2026-08-24T22:01:48.716213"
+  },
+  {
+    "dataset": "IKORN (4-KP, 2-class)",
+    "model": "XGBoost",
+    "accuracy": 0.9697,
+    "balanced_accuracy": 0.9808,
+    "precision": 0.875,
+    "recall": 1.0,
+    "f1_score": 0.9333,
+    "f1_macro": 0.9569,
+    "confusion_matrix": [
+      [
+        75,
+        3
+      ],
+      [
+        0,
+        21
+      ]
+    ],
+    "class_names": [
+      "Bad",
+      "Good"
+    ],
+    "timestamp": "2026-08-24T22:01:48.822933"
+  }
+]

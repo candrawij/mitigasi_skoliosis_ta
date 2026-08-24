@@ -1,0 +1,21 @@
+{
+  "total": 655,
+  "splits": {
+    "train": 458,
+    "test": 99,
+    "valid": 98
+  },
+  "classes": {
+    "Bad": 420,
+    "Good": 235
+  },
+  "keypoint_names": [
+    "bottom",
+    "shoulder",
+    "head",
+    "back"
+  ],
+  "nd_groups_total": 94,
+  "leakage_groups": 0,
+  "split_method": "group-level (near-duplicate aware)"
+}

@@ -318,14 +318,14 @@ dikumpulkan dengan konfigurasi kamera dan kondisi kursi yang terkontrol.
 -   [x] Pipeline keypoint
 -   [x] Pipeline YOLO Pose
 -   [x] Dataset privat sebagai kandidat penting
--   [ ] Mapping 7 keypoint
--   [ ] Arti kelas Postureexercise
--   [ ] Curation `project_design_20242025`
--   [ ] Curation `sitting_posture_detection_initial`
--   [ ] Finalisasi IKORN duplicate clusters
--   [ ] Finalisasi taxonomy kelas
+-   [x] Mapping 7 keypoint — CONFIRMED (nose, 2 eyes, 2 ears, 2 shoulders)
+-   [x] Arti kelas Postureexercise — CONFIRMED (thang/nga/nghieng × phai/trai)
+-   [x] Curation `project_design_20242025` — 912 KEEP, 2419 REVIEW, 1482 EXCLUDE
+-   [x] Curation `sitting_posture_detection_initial` — 490 gambar, group-aware split, 0 leakage
+-   [x] Finalisasi IKORN duplicate clusters — 69 groups, group-aware split, 0 leakage
+-   [x] Finalisasi taxonomy kelas — Binary + Multi-class mapping defined
 -   [ ] Protokol dataset privat
--   [ ] Training baseline
+-   [x] Training baseline — EXP-02 keypoint selesai (MLP+XGBoost); EXP-01 CNN menunggu PyTorch
 -   [ ] YOLO Pose experiment
 -   [ ] Cross-dataset evaluation
 -   [ ] Private dataset evaluation

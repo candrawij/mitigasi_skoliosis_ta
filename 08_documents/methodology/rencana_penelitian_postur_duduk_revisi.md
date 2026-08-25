@@ -324,11 +324,11 @@ dikumpulkan dengan konfigurasi kamera dan kondisi kursi yang terkontrol.
 -   [x] Curation `sitting_posture_detection_initial` — 490 gambar, group-aware split, 0 leakage
 -   [x] Finalisasi IKORN duplicate clusters — 69 groups, group-aware split, 0 leakage
 -   [x] Finalisasi taxonomy kelas — Binary + Multi-class mapping defined
--   [ ] Protokol dataset privat
--   [x] Training baseline — EXP-02 keypoint selesai (MLP+XGBoost); EXP-01 CNN menunggu PyTorch
--   [ ] YOLO Pose experiment
--   [ ] Cross-dataset evaluation
--   [ ] Private dataset evaluation
+-   [x] Training baseline — EXP-01 (EfficientNet-B0: 88.37% PD, 84.93% SPD) & EXP-02 (Keypoint: 87.34% PE, 96.97% IKORN)
+-   [x] YOLO Pose experiment — EXP-03 (YOLOv8 Pose + XGBoost 82.19% SPD, MLP 83.72% PD)
+-   [x] Cross-dataset evaluation — EXP-05 (Unified binary classification: 95.89% Acc, 0.9372 F1)
+-   [ ] Protokol dataset privat — Siap dirumuskan berdasarkan temuan eksperimen publik
+-   [ ] Private dataset evaluation — Dilakukan setelah akuisisi dataset privat selesai
 
 ## 16. Keputusan praktis
 

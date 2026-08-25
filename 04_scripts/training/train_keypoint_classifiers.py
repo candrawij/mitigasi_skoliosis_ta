@@ -21,9 +21,10 @@ from sklearn.metrics import (accuracy_score, precision_score, recall_score,
                              f1_score, balanced_accuracy_score, confusion_matrix,
                              classification_report)
 
-PROCESSED_PE = Path(r"D:\.Candra\Project\TA\02_data\processed\postureexercise")
-PROCESSED_IK = Path(r"D:\.Candra\Project\TA\02_data\processed\ikorn_4kp")
-RESULTS_DIR = Path(r"D:\.Candra\Project\TA\07_results\experiments")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+PROCESSED_PE = PROJECT_ROOT / "02_data" / "processed" / "postureexercise"
+PROCESSED_IK = PROJECT_ROOT / "02_data" / "processed" / "ikorn_4kp"
+RESULTS_DIR = PROJECT_ROOT / "07_results" / "experiments"
 
 
 def load_dataset(proc_dir):

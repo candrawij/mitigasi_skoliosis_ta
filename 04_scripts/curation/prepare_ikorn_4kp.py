@@ -16,10 +16,11 @@ import random
 from pathlib import Path
 from collections import Counter, defaultdict
 
-DATASET_ROOT = Path(r"D:\.Candra\Project\TA\02_data\raw\sitting posture.v4-sitting_posture_4keypoint.coco")
-AUDIT_DIR = Path(r"D:\.Candra\Project\TA\07_results\dataset_audit\sitting_posture_4kp_initial")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\02_data\interim\ikorn_4kp_keypoints")
-SPLIT_OUTPUT = Path(r"D:\.Candra\Project\TA\03_metadata\final_split\ikorn_4kp.csv")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DATASET_ROOT = PROJECT_ROOT / "02_data" / "raw" / "sitting posture.v4-sitting_posture_4keypoint.coco"
+AUDIT_DIR = PROJECT_ROOT / "07_results" / "dataset_audit" / "sitting_posture_4kp_initial"
+OUTPUT_DIR = PROJECT_ROOT / "02_data" / "interim" / "ikorn_4kp_keypoints"
+SPLIT_OUTPUT = PROJECT_ROOT / "03_metadata" / "final_split" / "ikorn_4kp.csv"
 
 KEYPOINT_NAMES = ["bottom", "shoulder", "head", "back"]
 

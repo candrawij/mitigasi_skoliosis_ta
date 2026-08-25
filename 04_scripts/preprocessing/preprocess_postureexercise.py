@@ -17,9 +17,10 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 
-INPUT_CSV = Path(r"D:\.Candra\Project\TA\02_data\interim\postureexercise_keypoints\postureexercise_keypoints.csv")
-SPLIT_CSV = Path(r"D:\.Candra\Project\TA\03_metadata\final_split\postureexercise.csv")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\02_data\processed\postureexercise")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+INPUT_CSV = PROJECT_ROOT / "02_data" / "interim" / "postureexercise_keypoints" / "postureexercise_keypoints.csv"
+SPLIT_CSV = PROJECT_ROOT / "03_metadata" / "final_split" / "postureexercise.csv"
+OUTPUT_DIR = PROJECT_ROOT / "02_data" / "processed" / "postureexercise"
 
 KP_NAMES = ["left_shoulder", "right_shoulder", "left_eye", "left_ear", "nose", "right_ear", "right_eye"]
 

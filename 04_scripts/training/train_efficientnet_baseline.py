@@ -26,19 +26,20 @@ from sklearn.metrics import (accuracy_score, precision_score, recall_score,
                              f1_score, balanced_accuracy_score, confusion_matrix,
                              classification_report)
 
-RESULTS_DIR = Path(r"D:\.Candra\Project\TA\07_results\experiments")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+RESULTS_DIR = PROJECT_ROOT / "07_results" / "experiments"
 
 # Dataset configs
 DATASETS = {
     "project_design": {
-        "image_dir": Path(r"D:\.Candra\Project\TA\02_data\interim\project_design_curated"),
-        "split_csv": Path(r"D:\.Candra\Project\TA\03_metadata\final_split\project_design.csv"),
+        "image_dir": PROJECT_ROOT / "02_data" / "interim" / "project_design_curated",
+        "split_csv": PROJECT_ROOT / "03_metadata" / "final_split" / "project_design.csv",
         "classes": ["leaning_backward", "leaning_forward", "leaning_left", "leaning_right", "upright"],
         "exp_id": "EXP-PD-CNN",
     },
     "sitting_posture_detection": {
-        "image_dir": Path(r"D:\.Candra\Project\TA\02_data\raw\Sitting Posture Detection.v2i.coco"),
-        "split_csv": Path(r"D:\.Candra\Project\TA\03_metadata\final_split\sitting_posture_detection.csv"),
+        "image_dir": PROJECT_ROOT / "02_data" / "raw" / "Sitting Posture Detection.v2i.coco",
+        "split_csv": PROJECT_ROOT / "03_metadata" / "final_split" / "sitting_posture_detection.csv",
         "classes": ["good_posture", "leaning_backward", "leaning_forward", "slouch"],
         "exp_id": "EXP-SPD-CNN",
     },

@@ -13,8 +13,9 @@ try:
 except ImportError:
     raise SystemExit("Requires Pillow: pip install Pillow")
 
-DATASET_ROOT = Path(r"D:\.Candra\Project\TA\02_data\raw\Sitting_posture.v17i.yolov8")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\07_results\dataset_audit\postureexercise_semantics\keypoint_overlay_verification")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DATASET_ROOT = PROJECT_ROOT / "02_data" / "raw" / "Sitting_posture.v17i.yolov8"
+OUTPUT_DIR = PROJECT_ROOT / "07_results" / "dataset_audit" / "postureexercise_semantics" / "keypoint_overlay_verification"
 
 CLASS_NAMES = {0: "nga_phai", 1: "nga_trai", 2: "nghieng_phai", 3: "nghieng_trai", 4: "thang"}
 

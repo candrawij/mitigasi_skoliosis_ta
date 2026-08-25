@@ -19,10 +19,11 @@ import random
 from pathlib import Path
 from collections import Counter, defaultdict
 
-DATASET_ROOT = Path(r"D:\.Candra\Project\TA\02_data\raw\Sitting Posture Detection.v2i.coco")
-AUDIT_DIR = Path(r"D:\.Candra\Project\TA\07_results\dataset_audit\sitting_posture_detection_initial")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\02_data\interim\sitting_posture_detection_curated")
-SPLIT_OUTPUT = Path(r"D:\.Candra\Project\TA\03_metadata\final_split\sitting_posture_detection.csv")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DATASET_ROOT = PROJECT_ROOT / "02_data" / "raw" / "Sitting Posture Detection.v2i.coco"
+AUDIT_DIR = PROJECT_ROOT / "07_results" / "dataset_audit" / "sitting_posture_detection_initial"
+OUTPUT_DIR = PROJECT_ROOT / "02_data" / "interim" / "sitting_posture_detection_curated"
+SPLIT_OUTPUT = PROJECT_ROOT / "03_metadata" / "final_split" / "sitting_posture_detection.csv"
 
 TRAIN_RATIO = 0.70
 VALID_RATIO = 0.15

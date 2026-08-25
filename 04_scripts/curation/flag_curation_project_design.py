@@ -17,9 +17,10 @@ import csv
 from pathlib import Path
 from collections import Counter
 
-INPUT_CSV = Path(r"D:\.Candra\Project\TA\03_metadata\curation\project_design_v1\curation_master.csv")
-OUTPUT_CSV = Path(r"D:\.Candra\Project\TA\03_metadata\curation\project_design_v1\curation_master_flagged.csv")
-REPORT_PATH = Path(r"D:\.Candra\Project\TA\03_metadata\curation\project_design_v1\curation_flags_report.md")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+INPUT_CSV = PROJECT_ROOT / "03_metadata" / "curation" / "project_design_v1" / "curation_master.csv"
+OUTPUT_CSV = PROJECT_ROOT / "03_metadata" / "curation" / "project_design_v1" / "curation_master_flagged.csv"
+REPORT_PATH = PROJECT_ROOT / "03_metadata" / "curation" / "project_design_v1" / "curation_flags_report.md"
 
 
 def main():

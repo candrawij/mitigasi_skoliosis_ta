@@ -21,9 +21,10 @@ import json
 from pathlib import Path
 from collections import Counter
 
-DATASET_ROOT = Path(r"D:\.Candra\Project\TA\02_data\raw\Sitting_posture.v17i.yolov8")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\02_data\interim\postureexercise_keypoints")
-SPLIT_OUTPUT = Path(r"D:\.Candra\Project\TA\03_metadata\final_split\postureexercise.csv")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+DATASET_ROOT = PROJECT_ROOT / "02_data" / "raw" / "Sitting_posture.v17i.yolov8"
+OUTPUT_DIR = PROJECT_ROOT / "02_data" / "interim" / "postureexercise_keypoints"
+SPLIT_OUTPUT = PROJECT_ROOT / "03_metadata" / "final_split" / "postureexercise.csv"
 
 CLASS_NAMES = {0: "nga_phai", 1: "nga_trai", 2: "nghieng_phai", 3: "nghieng_trai", 4: "thang"}
 

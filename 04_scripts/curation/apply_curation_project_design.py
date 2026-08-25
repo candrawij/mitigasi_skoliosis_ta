@@ -14,9 +14,10 @@ import json
 from pathlib import Path
 from collections import Counter
 
-CURATION_CSV = Path(r"D:\.Candra\Project\TA\03_metadata\curation\project_design_v1\curation_master_flagged.csv")
-RAW_ROOT = Path(r"D:\.Candra\Project\TA\02_data\raw\project_design_20242025")
-OUTPUT_DIR = Path(r"D:\.Candra\Project\TA\02_data\interim\project_design_curated")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+CURATION_CSV = PROJECT_ROOT / "03_metadata" / "curation" / "project_design_v1" / "curation_master_flagged.csv"
+RAW_ROOT = PROJECT_ROOT / "02_data" / "raw" / "project_design_20242025"
+OUTPUT_DIR = PROJECT_ROOT / "02_data" / "interim" / "project_design_curated"
 LOG_DIR = OUTPUT_DIR / "_curation_log"
 
 

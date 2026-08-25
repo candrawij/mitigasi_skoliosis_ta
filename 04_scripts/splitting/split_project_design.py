@@ -11,9 +11,10 @@ import random
 from pathlib import Path
 from collections import Counter, defaultdict
 
-CURATION_CSV = Path(r"D:\.Candra\Project\TA\03_metadata\curation\project_design_v1\curation_master_flagged.csv")
-CURATED_DIR = Path(r"D:\.Candra\Project\TA\02_data\interim\project_design_curated")
-SPLIT_OUTPUT = Path(r"D:\.Candra\Project\TA\03_metadata\final_split\project_design.csv")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+CURATION_CSV = PROJECT_ROOT / "03_metadata" / "curation" / "project_design_v1" / "curation_master_flagged.csv"
+CURATED_DIR = PROJECT_ROOT / "02_data" / "interim" / "project_design_curated"
+SPLIT_OUTPUT = PROJECT_ROOT / "03_metadata" / "final_split" / "project_design.csv"
 
 TRAIN_RATIO = 0.70
 VALID_RATIO = 0.15

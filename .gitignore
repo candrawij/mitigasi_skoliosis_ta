@@ -22,3 +22,7 @@ Thumbs.db
 
 # Task artifacts / scratch
 scratch/
+
+# Pretrained weights
+yolov8n-pose.pt
+*.pth

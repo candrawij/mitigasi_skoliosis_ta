@@ -1,0 +1,9 @@
+[
+  {
+    "Train_Dataset": "Postureexercise (Binary)",
+    "Test_Dataset": "Postureexercise (Test)",
+    "Model": "MLP Binary",
+    "Accuracy": 0.9589,
+    "F1_Binary": 0.9372
+  }
+]

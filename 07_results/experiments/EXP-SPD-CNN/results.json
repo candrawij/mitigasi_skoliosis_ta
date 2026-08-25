@@ -1,0 +1,46 @@
+{
+  "dataset": "sitting_posture_detection",
+  "model": "EfficientNet-B0",
+  "accuracy": 0.8493,
+  "balanced_accuracy": 0.838,
+  "precision_macro": 0.8529,
+  "recall_macro": 0.838,
+  "f1_macro": 0.841,
+  "confusion_matrix": [
+    [
+      16,
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      24,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13,
+      0
+    ],
+    [
+      0,
+      2,
+      2,
+      9
+    ]
+  ],
+  "class_names": [
+    "good_posture",
+    "leaning_backward",
+    "leaning_forward",
+    "slouch"
+  ],
+  "best_epoch": 20,
+  "best_valid_acc": 0.6986,
+  "training_time_s": 275.1,
+  "num_epochs": 30,
+  "timestamp": "2026-08-25T20:31:02.083020"
+}

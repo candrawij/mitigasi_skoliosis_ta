@@ -1,0 +1,12 @@
+[
+  {
+    "model": "YOLO-Pose + MLP",
+    "accuracy": 0.8372,
+    "f1_macro": 0.8207
+  },
+  {
+    "model": "YOLO-Pose + XGBoost",
+    "accuracy": 0.7984,
+    "f1_macro": 0.7855
+  }
+]

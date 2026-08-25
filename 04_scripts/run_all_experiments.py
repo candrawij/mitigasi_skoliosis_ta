@@ -12,6 +12,13 @@ from pathlib import Path
 import pandas as pd
 import json
 
+# Ensure utf-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -22,9 +29,9 @@ def run_cmd(cmd, desc):
     print("="*70)
     ret = subprocess.run(cmd, shell=True, cwd=str(PROJECT_ROOT))
     if ret.returncode != 0:
-        print(f"⚠️ Warning: {desc} exited with code {ret.returncode}")
+        print(f"  [WARNING] {desc} exited with code {ret.returncode}")
     else:
-        print(f"✅ Success: {desc}")
+        print(f"  [SUCCESS] {desc}")
     return ret.returncode
 
 
@@ -82,7 +89,7 @@ def generate_master_summary():
             f.write("# Master Summary of All Experiments\n\n")
             f.write(df_sum.to_markdown(index=False))
             f.write("\n")
-        print(f"\n📊 Master Summary generated at:\n  - {csv_path}\n  - {md_path}")
+        print(f"\n[SUMMARY] Master Summary generated at:\n  - {csv_path}\n  - {md_path}")
         print("\n" + df_sum.to_string(index=False))
 
 
@@ -103,24 +110,24 @@ def main():
     # Preprocessing check
     proc_pe = PROJECT_ROOT / "02_data" / "processed" / "postureexercise" / "X_train.npy"
     if not proc_pe.exists() or run_all:
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "preprocessing" / "preprocess_postureexercise.py"}"', "Preprocessing Postureexercise")
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "preprocessing" / "preprocess_ikorn_4kp.py"}"', "Preprocessing IKORN 4-KP")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "preprocessing" / "preprocess_postureexercise.py"}"', "Preprocessing Postureexercise")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "preprocessing" / "preprocess_ikorn_4kp.py"}"', "Preprocessing IKORN 4-KP")
 
     # EXP-02: Keypoint Classifiers (MLP / XGBoost)
     if run_all or (2 in selected_exps):
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "training" / "train_keypoint_classifiers.py"}"', "EXP-02: Keypoint Classifiers")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "training" / "train_keypoint_classifiers.py"}"', "EXP-02: Keypoint Classifiers")
 
     # EXP-01: EfficientNet-B0 Image Baseline
     if run_all or (1 in selected_exps):
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "training" / "train_efficientnet_baseline.py"}"', "EXP-01: EfficientNet-B0 Baseline")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "training" / "train_efficientnet_baseline.py"}"', "EXP-01: EfficientNet-B0 Baseline")
 
     # EXP-03: YOLO Pose + Classifiers
     if run_all or (3 in selected_exps):
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "training" / "train_yolo_pose_classifier.py"}"', "EXP-03: YOLO Pose + Classifiers")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "training" / "train_yolo_pose_classifier.py"}"', "EXP-03: YOLO Pose + Classifiers")
 
     # EXP-05: Cross Dataset Evaluation
     if run_all or (5 in selected_exps):
-        run_cmd(f'python "{PROJECT_ROOT / "04_scripts" / "evaluation" / "evaluate_cross_dataset.py"}"', "EXP-05: Cross Dataset Evaluation")
+        run_cmd(f'"{sys.executable}" "{PROJECT_ROOT / "04_scripts" / "evaluation" / "evaluate_cross_dataset.py"}"', "EXP-05: Cross Dataset Evaluation")
 
     # Summary
     generate_master_summary()

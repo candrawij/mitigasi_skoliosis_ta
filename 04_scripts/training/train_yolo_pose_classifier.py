@@ -34,7 +34,7 @@ COCO_KP = [
 ]
 
 
-def extract_pose_keypoints(image_paths, model_name="yolov8n-pose.pt"):
+def extract_pose_keypoints(image_paths, model_name="yolov8n-pose.pt", batch_size=32):
     """Run YOLO Pose model on a list of images and extract 17 keypoints + confidences."""
     try:
         from ultralytics import YOLO
@@ -45,34 +45,35 @@ def extract_pose_keypoints(image_paths, model_name="yolov8n-pose.pt"):
     model = YOLO(model_name)
 
     all_kps = []
-    print(f"Extracting pose from {len(image_paths)} images...")
+    print(f"Extracting pose from {len(image_paths)} images in batches of {batch_size}...")
     
-    # Run batch inference with progress
-    results = model(image_paths, verbose=False)
+    for i in range(0, len(image_paths), batch_size):
+        batch_paths = image_paths[i:i + batch_size]
+        results = model(batch_paths, verbose=False)
 
-    for i, r in enumerate(results):
-        if r.keypoints is not None and len(r.keypoints.data) > 0:
-            # Take the person detection with highest confidence (index 0 if sorted)
-            kpts_tensor = r.keypoints.data[0].cpu().numpy()  # shape: (17, 3) -> x, y, conf
-            # Get image dimensions for normalization
-            orig_shape = r.orig_shape  # (height, width)
-            h, w = orig_shape[0], orig_shape[1]
+        for r in results:
+            if r.keypoints is not None and len(r.keypoints.data) > 0:
+                # Take the person detection with highest confidence (index 0 if sorted)
+                kpts_tensor = r.keypoints.data[0].cpu().numpy()  # shape: (17, 3) -> x, y, conf
+                # Get image dimensions for normalization
+                orig_shape = r.orig_shape  # (height, width)
+                h, w = orig_shape[0], orig_shape[1]
 
-            kpt_dict = {}
-            for kp_idx, name in enumerate(COCO_KP):
-                kx, ky, conf = kpts_tensor[kp_idx]
-                kpt_dict[f"{name}_x"] = float(kx / w) if w > 0 else 0.0
-                kpt_dict[f"{name}_y"] = float(ky / h) if h > 0 else 0.0
-                kpt_dict[f"{name}_conf"] = float(conf)
-            kpt_dict["pose_detected"] = True
-        else:
-            # No person / pose detected: fill with zeros
-            kpt_dict = {f"{name}_x": 0.0 for name in COCO_KP}
-            kpt_dict.update({f"{name}_y": 0.0 for name in COCO_KP})
-            kpt_dict.update({f"{name}_conf": 0.0 for name in COCO_KP})
-            kpt_dict["pose_detected"] = False
+                kpt_dict = {}
+                for kp_idx, name in enumerate(COCO_KP):
+                    kx, ky, conf = kpts_tensor[kp_idx]
+                    kpt_dict[f"{name}_x"] = float(kx / w) if w > 0 else 0.0
+                    kpt_dict[f"{name}_y"] = float(ky / h) if h > 0 else 0.0
+                    kpt_dict[f"{name}_conf"] = float(conf)
+                kpt_dict["pose_detected"] = True
+            else:
+                # No person / pose detected: fill with zeros
+                kpt_dict = {f"{name}_x": 0.0 for name in COCO_KP}
+                kpt_dict.update({f"{name}_y": 0.0 for name in COCO_KP})
+                kpt_dict.update({f"{name}_conf": 0.0 for name in COCO_KP})
+                kpt_dict["pose_detected"] = False
 
-        all_kps.append(kpt_dict)
+            all_kps.append(kpt_dict)
 
     return pd.DataFrame(all_kps)
 
@@ -162,13 +163,19 @@ def load_dataset_paths(dataset_name):
                 cname = r["class_name"]
                 if cname not in class_to_idx:
                     continue
-                # Look for file
-                for ext in [".jpg", ".jpeg", ".png"]:
-                    p = image_dir / cname / (str(r["image_id"]) + ext)
-                    if p.exists():
-                        paths.append(str(p))
-                        labels.append(class_to_idx[cname])
-                        break
+                # Look for file by filename or image_id
+                img_dir = image_dir / cname
+                filename = str(r.get("filename", "")) if pd.notna(r.get("filename")) else ""
+                if filename and (img_dir / filename).exists():
+                    paths.append(str(img_dir / filename))
+                    labels.append(class_to_idx[cname])
+                else:
+                    for ext in [".jpg", ".jpeg", ".png"]:
+                        p = img_dir / (str(r["image_id"]) + ext)
+                        if p.exists():
+                            paths.append(str(p))
+                            labels.append(class_to_idx[cname])
+                            break
             data_by_split[s] = (paths, np.array(labels), classes)
         return data_by_split
 

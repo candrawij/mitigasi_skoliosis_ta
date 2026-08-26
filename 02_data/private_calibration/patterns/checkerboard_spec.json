@@ -1,0 +1,12 @@
+{
+  "pattern_type": "checkerboard",
+  "inner_corners_cols": 9,
+  "inner_corners_rows": 6,
+  "squares_cols": 10,
+  "squares_rows": 7,
+  "square_size_mm": 25,
+  "square_size_m": 0.025,
+  "dpi": 300,
+  "image_file": "checkerboard_9x6_25mm.png",
+  "guidelines": "Print at 100% scale on flat cardboard or glass backing to prevent warping."
+}

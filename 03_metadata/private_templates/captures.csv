@@ -1,0 +1,8 @@
+capture_id,subject_id,session_id,calibration_id,primary_posture,head_state,shoulder_state,pelvis_state,repetition,subset,quality,notes
+CAP000001,S001,SE01,CAL_001,upright,head_neutral,shoulders_level,pelvis_level,1,controlled,pass,Pose tegak netral repetisi 1
+CAP000002,S001,SE01,CAL_001,leaning_left,head_tilt_left,left_shoulder_high,pelvis_level,1,controlled,pass,Condong kiri repetisi 1
+CAP000003,S001,SE01,CAL_001,leaning_right,head_tilt_right,right_shoulder_high,pelvis_level,1,controlled,pass,Condong kanan repetisi 1
+CAP000004,S001,SE01,CAL_001,leaning_forward,head_forward,shoulders_level,pelvis_level,1,controlled,pass,Condong depan repetisi 1
+CAP000005,S001,SE01,CAL_001,leaning_backward,head_neutral,shoulders_level,pelvis_level,1,controlled,pass,Bersandar belakang repetisi 1
+CAP000006,S001,SE01,CAL_001,slouching,head_forward,shoulders_level,pelvis_level,1,controlled,pass,Bungkuk kifosis repetisi 1
+CAP000007,S001,SE01,CAL_001,forward_head,head_forward,shoulders_level,pelvis_level,1,controlled,pass,Kepala maju leher tertekuk repetisi 1

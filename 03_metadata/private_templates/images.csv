@@ -1,0 +1,3 @@
+image_id,capture_id,camera_id,image_path,timestamp,width,height,blur_score,exposure_status,annotation_status
+S001_SE01_CAP000001_CAM01,CAP000001,CAM01,02_data/private_raw/S001/SE01/CAM01/S001_SE01_CAP000001_CAM01.jpg,2026-08-27T10:00:00.120Z,1920,1080,245.8,good,unannotated
+S001_SE01_CAP000001_CAM02,CAP000001,CAM02,02_data/private_raw/S001/SE01/CAM02/S001_SE01_CAP000001_CAM02.jpg,2026-08-27T10:00:00.125Z,1920,1080,210.5,good,unannotated

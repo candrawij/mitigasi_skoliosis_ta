@@ -1,0 +1,2 @@
+calibration_id,setup_date,camera_count,cam01_intrinsic_file,cam02_intrinsic_file,cam03_intrinsic_file,stereo_cam01_cam02_file,mean_reprojection_error_px,qc_status,notes
+CAL_001,2026-08-27,2,02_data/private_calibration/intrinsic/CAM01_intrinsic.json,02_data/private_calibration/intrinsic/CAM02_intrinsic.json,,02_data/private_calibration/stereo/CAL_001_stereo.json,0.42,passed_target,Setup dual-camera awal (CAM01 Frontal + CAM02 Lateral 90 derajat)

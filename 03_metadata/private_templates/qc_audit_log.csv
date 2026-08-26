@@ -1,0 +1,2 @@
+audit_id,capture_id,view_complete,shoulders_visible,hips_visible,blur_acceptable,label_ambiguous,overall_qc_status,reviewer_notes,timestamp
+QC_000001,CAP000001,yes,yes,yes,yes,no,PASS,Capture sempurna kedua view lengkap dan jelas,2026-08-27T10:15:00Z

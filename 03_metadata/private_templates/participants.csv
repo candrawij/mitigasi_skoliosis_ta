@@ -1,3 +1,5 @@
-subject_id,session_count,consent_rgb,consent_public,notes,age_group,height_cm
-S001,2,yes,no,Contoh subjek pilot 1 (data antropometri opsional),,
-S002,2,yes,no,Contoh subjek pilot 2,,
+subject_id,session_count,consent_rgb,consent_public,height_cm,age_group,gender,notes
+S001,1,true,restricted_research,,,,pilot_participant_n_captures=47
+S002,1,true,restricted_research,,,,pilot_participant_n_captures=35
+S003,1,true,restricted_research,,,,pilot_participant_n_captures=39
+S004,1,true,restricted_research,,,,pilot_participant_n_captures=35

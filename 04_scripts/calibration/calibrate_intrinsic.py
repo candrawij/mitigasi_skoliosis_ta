@@ -166,6 +166,18 @@ def live_capture_calibration(camera_id="CAM01", cam_idx=0, cols=9, rows=6, squar
     frames_dir = PROJECT_ROOT / "02_data" / "private_calibration" / "raw_frames" / camera_id
     frames_dir.mkdir(parents=True, exist_ok=True)
     
+    # Check existing old calibration images
+    old_imgs = list(frames_dir.glob(f"{camera_id}_calib_*.jpg"))
+    if old_imgs:
+        print(f">> Ditemukan {len(old_imgs)} foto kalibrasi lama untuk {camera_id}.")
+        clean_old = input(f"   Apakah ingin MENGHAPUS foto lama dan mulai kalibrasi {camera_id} baru dari awal? (Y/n) [default: Y]: ").strip().lower()
+        if clean_old != "n":
+            for f in old_imgs: f.unlink()
+            print(f"   [OK] Foto lama {camera_id} telah dibersihkan. Memulai dari calib_001.")
+
+    captured_paths = []
+    count = len(list(frames_dir.glob(f"{camera_id}_calib_*.jpg")))
+
     cap = cv2.VideoCapture(cam_idx)
     if not cap.isOpened():
         print(f"[ERROR] Cannot open camera at index {cam_idx}")
@@ -176,9 +188,6 @@ def live_capture_calibration(camera_id="CAM01", cam_idx=0, cols=9, rows=6, squar
     print("  [SPACE] / [C] : Capture current frame (if checkerboard detected)")
     print("  [ENTER] / [Q] : Finish capture and compute intrinsic calibration")
     print("  [ESC]         : Cancel\n")
-
-    captured_paths = []
-    count = 0
 
     while True:
         ret, frame = cap.read()

@@ -1,6 +1,6 @@
 {
-  "cam01_idx": 0,
-  "cam02_idx": 2,
+  "cam01_idx": 2,
+  "cam02_idx": 0,
   "cam03_idx": 1,
   "calibration_id": "CAL_001",
   "resolution_width": 1280,

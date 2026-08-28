@@ -159,15 +159,32 @@ def delete_single_subject(subject_id):
     print(f"[OK] Subjek {subject_id} berhasil dibersihkan dari dataset!\n")
 
 
+def clean_calibration_raw_frames(confirm=False):
+    """Clean temporary checkerboard raw frames and mock frames while keeping JSON configs."""
+    calib_raw = PROJECT_ROOT / "02_data" / "private_calibration" / "raw_frames"
+    calib_mock = PROJECT_ROOT / "02_data" / "private_calibration" / "mock_frames"
+    
+    print("\n[PROSES] Membersihkan foto mentah checkerboard & frame simulasi kalibrasi...")
+    deleted_count = 0
+    for folder in [calib_raw, calib_mock]:
+        if folder.exists():
+            for f in folder.glob("**/*"):
+                if f.is_file() and not f.name.startswith(".gitkeep"):
+                    f.unlink()
+                    deleted_count += 1
+    print(f"[OK] {deleted_count} file citra papan checkerboard sementara berhasil dibersihkan.")
+    print("     (Matriks kalibrasi .json di intrinsic/ dan stereo/ TETAP AMAN & AKTIF).\n")
+
+
 def reset_test_data(confirm=False):
     """Reset all dummy/test captures, leaving clean empty template CSVs."""
     if not confirm:
-        ans = input("\n[PERINGATAN] Anda akan menghapus SELURUH citra mentah di private_raw/ dan mereset captures.csv & images.csv ke keadaan awal bersih.\nKetik 'RESET' untuk mengonfirmasi: ").strip()
+        ans = input("\n[PERINGATAN] Anda akan menghapus SELURUH citra mentah di private_raw/ (S001, S002, dst.) dan mereset captures.csv & images.csv ke keadaan awal bersih.\nKetik 'RESET' untuk mengonfirmasi: ").strip()
         if ans != "RESET":
             print("Reset dibatalkan.")
             return
             
-    print("\n[PROSES] Mereset seluruh data uji mentah...")
+    print("\n[PROSES] Mereset seluruh data subjek uji coba mentah...")
     # 1. Clear raw subfolders
     for item in RAW_DIR.iterdir():
         if item.is_dir() and item.name.startswith("S"):
@@ -183,7 +200,7 @@ def reset_test_data(confirm=False):
     with open(CAPTURES_CSV, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(cap_headers)
-    print(f"  [RESET] {CAPTURES_CSV.name} (Header only)")
+    print(f"  [RESET] {CAPTURES_CSV.name} (Header bersih)")
 
     # 3. Reset images.csv to header only
     img_headers = [
@@ -194,14 +211,14 @@ def reset_test_data(confirm=False):
     with open(IMAGES_CSV, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow(img_headers)
-    print(f"  [RESET] {IMAGES_CSV.name} (Header only)")
+    print(f"  [RESET] {IMAGES_CSV.name} (Header bersih)")
 
     print("\n[OK] Dataset privat telah berhasil direset ke status BERSIH 100%! Siap untuk perekaman subjek Pilot Study.")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Dataset Manager & Audit Tool")
-    parser.add_argument("--action", type=str, choices=["inspect", "delete_capture", "delete_subject", "reset_test_data"], default="inspect")
+    parser.add_argument("--action", type=str, choices=["inspect", "delete_capture", "delete_subject", "reset_test_data", "clean_calib_frames"], default="inspect")
     parser.add_argument("--capture_id", type=str, default=None, help="Capture ID to delete (e.g. CAP000012)")
     parser.add_argument("--subject_id", type=str, default=None, help="Subject ID to delete (e.g. S001)")
     parser.add_argument("--yes", action="store_true", help="Skip confirmation prompt for reset")
@@ -222,6 +239,8 @@ def main():
             delete_single_subject(args.subject_id)
     elif args.action == "reset_test_data":
         reset_test_data(confirm=args.yes)
+    elif args.action == "clean_calib_frames":
+        clean_calibration_raw_frames(confirm=args.yes)
 
 
 if __name__ == "__main__":

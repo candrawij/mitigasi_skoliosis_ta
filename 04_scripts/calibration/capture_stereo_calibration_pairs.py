@@ -62,6 +62,18 @@ def run_stereo_pair_capture(
     print("  5. Tekan [ENTER] setelah selesai untuk langsung memproses kalibrasi otomatis.")
     print("  6. Tekan [ESC] untuk batal.\n")
 
+    # Check old pairs
+    existing_p1 = list(cam01_dir.glob("pair_*.jpg"))
+    if existing_p1:
+        print(f">> Ditemukan {len(existing_p1)} pasang foto kalibrasi lama di folder.")
+        clean_old = input("   Apakah ingin MENGHAPUS foto lama dan mulai kalibrasi baru dari awal? (Y/n) [default: Y]: ").strip().lower()
+        if clean_old != "n":
+            for f in cam01_dir.glob("pair_*.jpg"): f.unlink()
+            for f in cam02_dir.glob("pair_*.jpg"): f.unlink()
+            print("   [OK] Foto kalibrasi lama telah dibersihkan. Memulai sesi baru dari pair_001.")
+
+    pair_count = len(list(cam01_dir.glob("pair_*.jpg")))
+
     cap1 = cv2.VideoCapture(cam01_idx)
     cap2 = cv2.VideoCapture(cam02_idx)
 
@@ -76,8 +88,6 @@ def run_stereo_pair_capture(
     cap1.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
     cap2.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
     cap2.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-
-    pair_count = len(list(cam01_dir.glob("pair_*.jpg")))
 
     while True:
         ret1, frame1 = cap1.read()

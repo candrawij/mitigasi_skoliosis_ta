@@ -503,10 +503,11 @@ def menu_dataset_manager():
     print("  [1] Audit & Cek Kesehatan Dataset (Inspect latensi, resolusi, jumlah pose)")
     print("  [2] Hapus 1 Capture Tertentu (misal salah pose / blur)")
     print("  [3] Hapus 1 Subjek Tertentu (misal S001 uji coba)")
-    print("  [4] Reset Seluruh Data Uji (Bersihkan private_raw/ dan reset captures.csv)")
+    print("  [4] Reset Seluruh Data Uji Subjek (Bersihkan private_raw/ dan reset captures.csv)")
+    print("  [5] Bersihkan Foto Mentah Checkerboard Kalibrasi (raw_frames & mock_frames)")
     print("  [0] Kembali ke menu utama")
     
-    act = input("\nPilihan Anda (0-4) [default: 1]: ").strip() or "1"
+    act = input("\nPilihan Anda (0-5) [default: 1]: ").strip() or "1"
     script = CAPTURE_SCRIPTS_DIR / "dataset_manager.py"
     
     if act == "1":
@@ -521,6 +522,8 @@ def menu_dataset_manager():
             subprocess.run([sys.executable, str(script), "--action", "delete_subject", "--subject_id", sub_id])
     elif act == "4":
         subprocess.run([sys.executable, str(script), "--action", "reset_test_data"])
+    elif act == "5":
+        subprocess.run([sys.executable, str(script), "--action", "clean_calib_frames"])
 
 
 def main():

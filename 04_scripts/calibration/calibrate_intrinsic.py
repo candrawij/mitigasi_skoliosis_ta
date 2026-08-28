@@ -86,7 +86,9 @@ def calibrate_camera_from_images(
     per_view_errors = []
     for i in range(len(objpoints)):
         imgpoints2, _ = cv2.projectPoints(objpoints[i], rvecs[i], tvecs[i], K, dist)
-        error = cv2.norm(imgpoints[i], imgpoints2, cv2.NORM_L2) / len(imgpoints2)
+        pts1 = np.asarray(imgpoints[i], dtype=np.float32).reshape(-1, 2)
+        pts2 = np.asarray(imgpoints2, dtype=np.float32).reshape(-1, 2)
+        error = float(np.mean(np.linalg.norm(pts1 - pts2, axis=1)))
         per_view_errors.append(float(round(error, 4)))
         total_error += error
 

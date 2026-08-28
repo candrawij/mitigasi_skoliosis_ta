@@ -466,12 +466,26 @@ def run_capture_session(
 
 
 def main():
+    config_file = PROJECT_ROOT / "03_metadata" / "camera_config.json"
+    def_cam01 = 0
+    def_cam02 = 2
+    def_cal_id = "CAL_001"
+    if config_file.exists():
+        try:
+            with open(config_file, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+                def_cam01 = cfg.get("cam01_idx", 0)
+                def_cam02 = cfg.get("cam02_idx", 2)
+                def_cal_id = cfg.get("calibration_id", "CAL_001")
+        except Exception:
+            pass
+
     parser = argparse.ArgumentParser(description="Dual-Camera Synchronized Capture")
     parser.add_argument("--subject_id", type=str, default="S001", help="Subject ID (e.g. S001)")
     parser.add_argument("--session_id", type=str, default="SE01", help="Session ID (e.g. SE01)")
-    parser.add_argument("--calibration_id", type=str, default="CAL_001", help="Calibration rig ID")
-    parser.add_argument("--cam01_idx", type=int, default=0, help="Camera device index for CAM01 (Frontal)")
-    parser.add_argument("--cam02_idx", type=int, default=1, help="Camera device index for CAM02 (Lateral)")
+    parser.add_argument("--calibration_id", type=str, default=def_cal_id, help="Calibration rig ID")
+    parser.add_argument("--cam01_idx", type=int, default=def_cam01, help=f"Camera device index for CAM01 (Frontal) (default: {def_cam01})")
+    parser.add_argument("--cam02_idx", type=int, default=def_cam02, help=f"Camera device index for CAM02 (Lateral) (default: {def_cam02})")
     parser.add_argument("--preview_width", type=int, default=1280, help="Total preview window width")
     parser.add_argument("--preview_height", type=int, default=480, help="Preview window height")
 

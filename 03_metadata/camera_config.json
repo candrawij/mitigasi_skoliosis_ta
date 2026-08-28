@@ -1,0 +1,9 @@
+{
+  "cam01_idx": 0,
+  "cam02_idx": 2,
+  "cam03_idx": 1,
+  "calibration_id": "CAL_001",
+  "resolution_width": 1280,
+  "resolution_height": 720,
+  "notes": "CAM01 = Index 0 (Frontal), CAM02 = Index 2 (Lateral), Index 1 = Laptop Webcam (Ignored)"
+}

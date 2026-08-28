@@ -1,0 +1,36 @@
+{
+  "calibration_id": "CAL_MOCK",
+  "validation_timestamp": "2026-08-28T18:19:52.053858",
+  "metrics": {
+    "cam01_reprojection_error_px": 0.2732,
+    "cam02_reprojection_error_px": 0.3067,
+    "stereo_reprojection_error_px": 0.6395,
+    "baseline_distance_mm": 9.24,
+    "baseline_distance_m": 0.0092
+  },
+  "qc_status": "PASSED_TARGET",
+  "qc_comment": "Reprojection error < 1.0 px: Calibration is optimal for 3D posture reconstruction.",
+  "qc_guidelines": {
+    "target_threshold_px": 1.0,
+    "acceptable_threshold_px": 2.0,
+    "review_threshold_px": 3.0
+  },
+  "epipolar_check_image": "CAL_MOCK_rectification_epipolar_check.jpg",
+  "triangulation_tests": {
+    "center_point": {
+      "pt1_2d": [
+        640.0,
+        360.0
+      ],
+      "pt2_2d": [
+        640.0,
+        360.0
+      ],
+      "triangulated_3d_m": {
+        "X": 549118574164001.56,
+        "Y": 220994714641457.53,
+        "Z_depth": -8171481445793.413
+      }
+    }
+  }
+}

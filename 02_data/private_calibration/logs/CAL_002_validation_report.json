@@ -1,0 +1,36 @@
+{
+  "calibration_id": "CAL_002",
+  "validation_timestamp": "2026-08-28T20:46:22.431800",
+  "metrics": {
+    "cam01_reprojection_error_px": 2.6035,
+    "cam02_reprojection_error_px": 2.2539,
+    "stereo_reprojection_error_px": 47.6745,
+    "baseline_distance_mm": 1288.62,
+    "baseline_distance_m": 1.2886
+  },
+  "qc_status": "WARNING_RECHECK",
+  "qc_comment": "Reprojection error > 2.0 px: Frame synchronization or corner detection may have noise.",
+  "qc_guidelines": {
+    "target_threshold_px": 1.0,
+    "acceptable_threshold_px": 2.0,
+    "review_threshold_px": 3.0
+  },
+  "epipolar_check_image": "CAL_002_rectification_epipolar_check.jpg",
+  "triangulation_tests": {
+    "center_point": {
+      "pt1_2d": [
+        640.0,
+        360.0
+      ],
+      "pt2_2d": [
+        640.0,
+        360.0
+      ],
+      "triangulated_3d_m": {
+        "X": 2.0396462924055605e+19,
+        "Y": -5.125070463652512e+18,
+        "Z_depth": 5.619374709046441e+19
+      }
+    }
+  }
+}

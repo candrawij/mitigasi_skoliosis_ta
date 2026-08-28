@@ -496,9 +496,36 @@ def show_system_status():
         print(f"   - {c:<22}: {'TERSEDIA' if p.exists() else 'HILANG'}")
 
 
+def menu_dataset_manager():
+    """Menu 10: Dataset Manager (Inspect, Delete Capture/Subject, Reset Data)."""
+    print_banner("Menu 10: Dataset Manager & Audit Tool")
+    print("Pilih aksi manajemen dataset:")
+    print("  [1] Audit & Cek Kesehatan Dataset (Inspect latensi, resolusi, jumlah pose)")
+    print("  [2] Hapus 1 Capture Tertentu (misal salah pose / blur)")
+    print("  [3] Hapus 1 Subjek Tertentu (misal S001 uji coba)")
+    print("  [4] Reset Seluruh Data Uji (Bersihkan private_raw/ dan reset captures.csv)")
+    print("  [0] Kembali ke menu utama")
+    
+    act = input("\nPilihan Anda (0-4) [default: 1]: ").strip() or "1"
+    script = CAPTURE_SCRIPTS_DIR / "dataset_manager.py"
+    
+    if act == "1":
+        subprocess.run([sys.executable, str(script), "--action", "inspect"])
+    elif act == "2":
+        cap_id = input("Masukkan capture_id yang ingin dihapus (contoh: CAP000012): ").strip()
+        if cap_id:
+            subprocess.run([sys.executable, str(script), "--action", "delete_capture", "--capture_id", cap_id])
+    elif act == "3":
+        sub_id = input("Masukkan subject_id yang ingin dihapus (contoh: S001): ").strip()
+        if sub_id:
+            subprocess.run([sys.executable, str(script), "--action", "delete_subject", "--subject_id", sub_id])
+    elif act == "4":
+        subprocess.run([sys.executable, str(script), "--action", "reset_test_data"])
+
+
 def main():
     parser = argparse.ArgumentParser(description="Master Camera Testing & Calibration Orchestrator")
-    parser.add_argument("--step", type=int, default=None, help="Directly run a specific step (1-9)")
+    parser.add_argument("--step", type=int, default=None, help="Directly run a specific step (1-10)")
     args = parser.parse_args()
     
     if args.step is not None:
@@ -511,11 +538,12 @@ def main():
             7: step7_automated_mock_pipeline,
             8: show_system_status,
             9: menu_camera_settings,
+            10: menu_dataset_manager,
         }
         if args.step in steps:
             steps[args.step]()
         else:
-            print(f"Step {args.step} tidak valid. Pilih 1-9.")
+            print(f"Step {args.step} tidak valid. Pilih 1-10.")
         return
 
     # Interactive loop
@@ -534,9 +562,10 @@ def main():
         print("  [7] DIAG   — Automated Mock Pipeline Test (Uji Seluruh Pipeline Tanpa Kamera Fisik)")
         print("  [8] STATUS — Lihat Status File Kalibrasi & Template Metadata")
         print(f"  [9] SETTINGS — Ubah Default Index Kamera (Saat ini: CAM01={cfg['cam01_idx']}, CAM02={cfg['cam02_idx']})")
+        print("  [10] DATASET MANAGER — Audit, Hapus Data Salah, atau Reset Data Uji")
         print("  [0] KELUAR")
         
-        choice = input("\nMasukkan nomor pilihan (0-9): ").strip()
+        choice = input("\nMasukkan nomor pilihan (0-10): ").strip()
         
         if choice == "1":
             step1_generate_checkerboard()
@@ -563,11 +592,13 @@ def main():
             show_system_status()
         elif choice == "9":
             menu_camera_settings()
+        elif choice == "10":
+            menu_dataset_manager()
         elif choice == "0":
             print("\nTerima kasih. Program selesai.")
             break
         else:
-            print("\nPilihan tidak valid. Silakan masukkan angka 0-9.")
+            print("\nPilihan tidak valid. Silakan masukkan angka 0-10.")
             
         input("\nTekan [ENTER] untuk kembali ke menu utama...")
 

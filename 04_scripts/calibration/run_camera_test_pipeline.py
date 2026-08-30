@@ -19,6 +19,7 @@ Usage:
   python 04_scripts/calibration/run_camera_test_pipeline.py --step 7  (Automated end-to-end dry run)
 """
 import os
+import re
 import sys
 import cv2
 import json
@@ -26,6 +27,7 @@ import time
 import argparse
 import subprocess
 import numpy as np
+import pandas as pd
 from pathlib import Path
 
 # Ensure UTF-8 output encoding for Windows PowerShell/CMD
@@ -71,6 +73,58 @@ def save_camera_config(cfg):
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         json.dump(cfg, f, indent=2)
     print(f"[OK] Konfigurasi kamera berhasil disimpan ke: {CONFIG_FILE}")
+
+
+def get_active_calibration_id():
+    """Get the highest/latest existing calibration ID (e.g. CAL_005)."""
+    calib_dir = DATA_DIR / "private_calibration" / "stereo"
+    cal_ids = []
+    if calib_dir.exists():
+        for p in calib_dir.glob("CAL_*_stereo.json"):
+            m = re.search(r"CAL_(\d+)", p.name)
+            if m:
+                cal_ids.append(int(m.group(1)))
+    if not cal_ids and (META_DIR / "calibration_map.csv").exists():
+        try:
+            df = pd.read_csv(META_DIR / "calibration_map.csv")
+            for cid in df["calibration_id"].dropna():
+                m = re.search(r"CAL_(\d+)", str(cid))
+                if m:
+                    cal_ids.append(int(m.group(1)))
+        except Exception:
+            pass
+    max_cal = max(cal_ids) if cal_ids else 1
+    return f"CAL_{max_cal:03d}"
+
+
+def get_next_calibration_id():
+    """Get the next new calibration ID (e.g. CAL_006)."""
+    cur = get_active_calibration_id()
+    m = re.search(r"CAL_(\d+)", cur)
+    val = int(m.group(1)) + 1 if m else 1
+    return f"CAL_{val:03d}"
+
+
+def get_next_subject_id():
+    """Get the next available subject ID based on raw folder and captures.csv (e.g. S007)."""
+    raw_dir = DATA_DIR / "private_raw"
+    sub_ids = []
+    if raw_dir.exists():
+        for p in raw_dir.glob("S*"):
+            m = re.search(r"S(\d+)", p.name)
+            if m:
+                sub_ids.append(int(m.group(1)))
+    if (META_DIR / "captures.csv").exists():
+        try:
+            df = pd.read_csv(META_DIR / "captures.csv")
+            for sid in df["subject_id"].dropna().unique():
+                m = re.search(r"S(\d+)", str(sid))
+                if m:
+                    sub_ids.append(int(m.group(1)))
+        except Exception:
+            pass
+    max_sub = max(sub_ids) if sub_ids else 0
+    return f"S{max_sub+1:03d}"
 
 
 def print_banner(title):
@@ -264,15 +318,17 @@ def step3_stereo_calibration():
     cfg = load_camera_config()
     def_idx1 = cfg.get("cam01_idx", 0)
     def_idx2 = cfg.get("cam02_idx", 2)
-    def_cal_id = cfg.get("calibration_id", "CAL_001")
+    next_cal_id = get_next_calibration_id()
+    active_cal_id = get_active_calibration_id()
     
     print("Pilih mode kalibrasi stereo:")
     print(f"  [1] Live capture pasangan checkerboard sinkron (CAM01: {def_idx1}, CAM02: {def_idx2}) [Rekomendasi]")
     print("  [2] Hitung kalibrasi stereo dari folder gambar yang sudah ada")
     print("  [3] Lewati langkah ini")
+    print(f"  (Info: Kalibrasi aktif saat ini: {active_cal_id})")
     
     choice = input("\nPilihan Anda (1/2/3) [default: 1]: ").strip() or "1"
-    calib_id = input(f"Masukkan Calibration ID [default: {def_cal_id}]: ").strip() or def_cal_id
+    calib_id = input(f"Masukkan Calibration ID untuk setup baru ini [default: {next_cal_id}]: ").strip() or next_cal_id
     
     if choice == "1":
         idx1 = input(f"Device index CAM01 (Frontal) [default: {def_idx1}]: ").strip() or str(def_idx1)
@@ -314,7 +370,8 @@ def step3_stereo_calibration():
 def step4_validate_calibration():
     """Step 4: Calibration Validator & Epipolar Verification."""
     print_banner("Step 4: Calibration Validation & Triangulation Test")
-    calib_id = input("Masukkan Calibration ID yang ingin divalidasi [default: CAL_001]: ").strip() or "CAL_001"
+    active_cal_id = get_active_calibration_id()
+    calib_id = input(f"Masukkan Calibration ID yang ingin divalidasi [default: {active_cal_id}]: ").strip() or active_cal_id
     
     script = CALIB_SCRIPTS_DIR / "validate_calibration.py"
     subprocess.run([sys.executable, str(script), "--calibration_id", calib_id])
@@ -326,17 +383,18 @@ def step5_test_capture():
     cfg = load_camera_config()
     def_idx1 = cfg.get("cam01_idx", 0)
     def_idx2 = cfg.get("cam02_idx", 2)
-    def_cal_id = cfg.get("calibration_id", "CAL_001")
+    next_sub_id = get_next_subject_id()
+    active_cal_id = get_active_calibration_id()
     
-    print("Pengujian software capture dual-kamera sinkron (uji dummy object):")
+    print("Pengujian software capture dual-kamera sinkron:")
     print(f"  - Membuka live split-screen CAM01 (Index {def_idx1}) + CAM02 (Index {def_idx2}).")
-    print("  - Menghasilkan capture_id tunggal untuk setiap pasang foto.")
-    print("  - Menyimpan otomatis ke format: S001_SE01_CAP000001_CAM01.jpg & CAM02.jpg")
-    print("  - Mencatat log real-time ke captures.csv dan images.csv.\n")
+    print(f"  - Menggunakan kalibrasi aktif terbaru: {active_cal_id}")
+    print(f"  - Target subjek berikutnya: {next_sub_id}")
+    print("  - Menyimpan otomatis ke captures.csv, images.csv, dan folder private_raw.\n")
     
-    sub_id = input("Subject ID [default: S007]: ").strip() or "S007"
+    sub_id = input(f"Subject ID [default: {next_sub_id}]: ").strip() or next_sub_id
     ses_id = input("Session ID [default: SE01]: ").strip() or "SE01"
-    cal_id = input(f"Calibration ID [default: {def_cal_id}]: ").strip() or def_cal_id
+    cal_id = input(f"Calibration ID [default: {active_cal_id}]: ").strip() or active_cal_id
     idx1 = input(f"Device index CAM01 (Frontal) [default: {def_idx1}]: ").strip() or str(def_idx1)
     idx2 = input(f"Device index CAM02 (Lateral) [default: {def_idx2}]: ").strip() or str(def_idx2)
     lat_side = input("Lateral Camera Side (right/left) [default: right]: ").strip().lower() or "right"

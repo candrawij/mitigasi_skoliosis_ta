@@ -334,11 +334,13 @@ def step5_test_capture():
     print("  - Menyimpan otomatis ke format: S001_SE01_CAP000001_CAM01.jpg & CAM02.jpg")
     print("  - Mencatat log real-time ke captures.csv dan images.csv.\n")
     
-    sub_id = input("Subject ID [default: S001]: ").strip() or "S001"
+    sub_id = input("Subject ID [default: S007]: ").strip() or "S007"
     ses_id = input("Session ID [default: SE01]: ").strip() or "SE01"
     cal_id = input(f"Calibration ID [default: {def_cal_id}]: ").strip() or def_cal_id
     idx1 = input(f"Device index CAM01 (Frontal) [default: {def_idx1}]: ").strip() or str(def_idx1)
     idx2 = input(f"Device index CAM02 (Lateral) [default: {def_idx2}]: ").strip() or str(def_idx2)
+    lat_side = input("Lateral Camera Side (right/left) [default: right]: ").strip().lower() or "right"
+    chair_id = input("Chair ID [default: CHR_001]: ").strip() or "CHR_001"
     
     script = CAPTURE_SCRIPTS_DIR / "capture_multicam.py"
     cmd = [
@@ -347,7 +349,9 @@ def step5_test_capture():
         "--session_id", ses_id,
         "--calibration_id", cal_id,
         "--cam01_idx", idx1,
-        "--cam02_idx", idx2
+        "--cam02_idx", idx2,
+        "--lateral_side", lat_side,
+        "--chair_id", chair_id
     ]
     subprocess.run(cmd)
     

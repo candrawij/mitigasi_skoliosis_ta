@@ -195,7 +195,7 @@ def reset_test_data(confirm=False):
     cap_headers = [
         "capture_id", "subject_id", "session_id", "calibration_id",
         "primary_posture", "head_state", "shoulder_state", "pelvis_state",
-        "repetition", "subset", "quality", "notes"
+        "repetition", "subset", "quality", "notes", "chair_id", "lateral_side"
     ]
     with open(CAPTURES_CSV, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
@@ -206,7 +206,7 @@ def reset_test_data(confirm=False):
     img_headers = [
         "image_id", "capture_id", "camera_id", "image_path",
         "timestamp", "width", "height", "blur_score",
-        "exposure_status", "annotation_status"
+        "exposure_status", "annotation_status", "view_role", "lateral_side"
     ]
     with open(IMAGES_CSV, "w", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)

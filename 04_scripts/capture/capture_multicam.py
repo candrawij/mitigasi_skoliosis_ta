@@ -209,6 +209,10 @@ def run_capture_session(
     calibration_id="CAL_001",
     cam01_idx=0,
     cam02_idx=1,
+    cam01_role="frontal",
+    cam02_role="lateral",
+    lateral_side="right",
+    chair_id="CHR_001",
     preview_width=1280,
     preview_height=480
 ):
@@ -326,7 +330,9 @@ def run_capture_session(
                     "repetition": repetition,
                     "subset": "controlled",
                     "quality": "pending",
-                    "notes": ""
+                    "notes": "",
+                    "chair_id": chair_id,
+                    "lateral_side": lateral_side
                 })
                 
                 # Log CAM01 to images.csv
@@ -340,7 +346,9 @@ def run_capture_session(
                     "height": frame1.shape[0],
                     "blur_score": blur1,
                     "exposure_status": "auto",
-                    "annotation_status": "unannotated"
+                    "annotation_status": "unannotated",
+                    "view_role": cam01_role,
+                    "lateral_side": "none" if cam01_role == "frontal" else lateral_side
                 })
                 
                 # Log CAM02 to images.csv
@@ -354,7 +362,9 @@ def run_capture_session(
                     "height": frame2.shape[0],
                     "blur_score": blur2,
                     "exposure_status": "auto",
-                    "annotation_status": "unannotated"
+                    "annotation_status": "unannotated",
+                    "view_role": cam02_role,
+                    "lateral_side": lateral_side if cam02_role == "lateral" else "none"
                 })
                 
                 capture_count += 1
@@ -486,6 +496,10 @@ def main():
     parser.add_argument("--calibration_id", type=str, default=def_cal_id, help="Calibration rig ID")
     parser.add_argument("--cam01_idx", type=int, default=def_cam01, help=f"Camera device index for CAM01 (Frontal) (default: {def_cam01})")
     parser.add_argument("--cam02_idx", type=int, default=def_cam02, help=f"Camera device index for CAM02 (Lateral) (default: {def_cam02})")
+    parser.add_argument("--cam01_role", type=str, default="frontal", help="View role for CAM01 (frontal/lateral)")
+    parser.add_argument("--cam02_role", type=str, default="lateral", help="View role for CAM02 (frontal/lateral)")
+    parser.add_argument("--lateral_side", type=str, default="right", help="Lateral viewpoint side (right/left/none)")
+    parser.add_argument("--chair_id", type=str, default="CHR_001", help="Chair specification ID (e.g. CHR_001)")
     parser.add_argument("--preview_width", type=int, default=1280, help="Total preview window width")
     parser.add_argument("--preview_height", type=int, default=480, help="Preview window height")
 
@@ -496,6 +510,10 @@ def main():
         calibration_id=args.calibration_id,
         cam01_idx=args.cam01_idx,
         cam02_idx=args.cam02_idx,
+        cam01_role=args.cam01_role,
+        cam02_role=args.cam02_role,
+        lateral_side=args.lateral_side,
+        chair_id=args.chair_id,
         preview_width=args.preview_width,
         preview_height=args.preview_height
     )

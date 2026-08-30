@@ -1,0 +1,93 @@
+{
+  "num_subjects": 6,
+  "total_captures": 228,
+  "total_images": 456,
+  "loso_accuracy_pct": 45.909090909090914,
+  "loso_f1_pct": 43.68521278357344,
+  "stage1_accuracy_pct": 100.0,
+  "classes": [
+    "forward_head",
+    "leaning_backward",
+    "leaning_forward",
+    "leaning_left",
+    "leaning_right",
+    "slouching",
+    "upright"
+  ],
+  "confusion_matrix": {
+    "forward_head": {
+      "forward_head": 6,
+      "leaning_backward": 0,
+      "leaning_forward": 14,
+      "leaning_left": 0,
+      "leaning_right": 0,
+      "slouching": 5,
+      "upright": 0
+    },
+    "leaning_backward": {
+      "forward_head": 3,
+      "leaning_backward": 19,
+      "leaning_forward": 6,
+      "leaning_left": 0,
+      "leaning_right": 0,
+      "slouching": 10,
+      "upright": 20
+    },
+    "leaning_forward": {
+      "forward_head": 15,
+      "leaning_backward": 0,
+      "leaning_forward": 6,
+      "leaning_left": 0,
+      "leaning_right": 0,
+      "slouching": 5,
+      "upright": 0
+    },
+    "leaning_left": {
+      "forward_head": 0,
+      "leaning_backward": 0,
+      "leaning_forward": 0,
+      "leaning_left": 30,
+      "leaning_right": 0,
+      "slouching": 0,
+      "upright": 0
+    },
+    "leaning_right": {
+      "forward_head": 0,
+      "leaning_backward": 0,
+      "leaning_forward": 0,
+      "leaning_left": 0,
+      "leaning_right": 30,
+      "slouching": 0,
+      "upright": 0
+    },
+    "slouching": {
+      "forward_head": 4,
+      "leaning_backward": 1,
+      "leaning_forward": 4,
+      "leaning_left": 0,
+      "leaning_right": 0,
+      "slouching": 0,
+      "upright": 5
+    },
+    "upright": {
+      "forward_head": 2,
+      "leaning_backward": 10,
+      "leaning_forward": 5,
+      "leaning_left": 0,
+      "leaning_right": 0,
+      "slouching": 10,
+      "upright": 10
+    }
+  },
+  "feature_columns": [
+    "f_shoulder_slope_front",
+    "f_head_tilt_front",
+    "f_torso_lateral_tilt",
+    "f_shoulder_width_norm",
+    "f_cervical_inclination_lat",
+    "f_trunk_sagittal_inclination",
+    "f_head_forward_dx_norm",
+    "f_has_3d",
+    "f_depth_z_m"
+  ]
+}

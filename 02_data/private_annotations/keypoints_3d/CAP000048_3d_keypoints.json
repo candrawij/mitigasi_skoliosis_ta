@@ -1,5 +1,6 @@
 {
   "capture_id": "CAP000048",
+  "calibration_id": "CAL_001",
   "keypoints_3d_m": [
     [
       1.0145876761529153,
@@ -86,6 +87,5 @@
       NaN,
       NaN
     ]
-  ],
-  "num_valid_joints": 12
+  ]
 }

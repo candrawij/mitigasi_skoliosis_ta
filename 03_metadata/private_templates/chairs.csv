@@ -1,0 +1,2 @@
+chair_id,chair_type,seat_height_cm,seat_depth_cm,seat_width_cm,backrest_height_cm,has_backrest,has_armrests,material,notes
+CHR_001,armless_standard,45.0,42.0,42.0,48.0,true,false,fabric_cushion_steel_frame,Standard lab armless chair used for private posture dataset acquisition

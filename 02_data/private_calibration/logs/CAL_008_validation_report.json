@@ -1,0 +1,18 @@
+{
+  "calibration_id": "CAL_008",
+  "validation_timestamp": "2026-08-31T18:32:41.212726",
+  "metrics": {
+    "cam01_reprojection_error_px": 4.4239,
+    "cam02_reprojection_error_px": 2.9663,
+    "stereo_reprojection_error_px": 18.9162,
+    "baseline_distance_mm": 1319.15,
+    "baseline_distance_m": 1.3192
+  },
+  "qc_status": "WARNING_RECHECK",
+  "qc_comment": "Reprojection error > 2.0 px: Frame synchronization or corner detection may have noise.",
+  "qc_guidelines": {
+    "target_threshold_px": 1.0,
+    "acceptable_threshold_px": 2.0,
+    "review_threshold_px": 3.0
+  }
+}

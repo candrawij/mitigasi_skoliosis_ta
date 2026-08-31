@@ -86,11 +86,11 @@ def run_full_audit():
     subjects = sorted(df_cap["subject_id"].unique().tolist())
     print(f"Subjects ({len(subjects)}): {subjects}")
 
-    # Load Calibration Cache
+    # Load Calibration Cache dynamically
     calib_cache = {}
-    for c_id in ["CAL_001", "CAL_002", "CAL_003", "CAL_004", "CAL_005", "CAL_006", "CAL_007", "CAL_008", "CAL_009"]:
-        fpath = CALIB_DIR / "stereo" / f"{c_id}_stereo.json"
-        if fpath.exists():
+    if (CALIB_DIR / "stereo").exists():
+        for fpath in (CALIB_DIR / "stereo").glob("CAL_*_stereo.json"):
+            c_id = fpath.stem.replace("_stereo", "")
             with open(fpath, "r", encoding="utf-8") as fp:
                 calib_cache[c_id] = json.load(fp)
 

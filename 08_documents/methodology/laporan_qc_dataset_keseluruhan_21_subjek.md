@@ -25,11 +25,11 @@ Pengumpulan data privat telah berhasil merekam **21 subjek penuh** dengan rincia
 | Total Citra CAM01 (Depan)          | 778 Citra (100% 1920x1080 Full HD)                            |
 | Total Citra CAM02 (Samping)        | 778 Citra (100% 1920x1080 Full HD)                            |
 | Rasio Simetri Pasangan Kamera      | 1 : 1 (778 pasang sempurna, 0 orphan/missing)                 |
-| Rata-rata Latensi Sinkronisasi     | 18.9 ms (Maks: 78.0 ms, Sub-frame 30 FPS)           |
-| Rata-rata Blur Score CAM01 (Depan) | 245.7 (Kategori: Sangat Tajam)                    |
-| Rata-rata Blur Score CAM02 (Samping)| 257.8 (Kategori: Tajam & Sangat Jelas)           |
-| Keberhasilan Ekstraksi 2D YOLOv8   | 1556/1.556 Citra (99.6% Sukses)                 |
-| Keberhasilan 3D Stereo Triangulasi | 774/778 Pasang Pose (98.7% Sukses)               |
+| Rata-rata Latensi Sinkronisasi     | 18.7 ms (Maks: 78.0 ms, Sub-frame 30 FPS)           |
+| Rata-rata Blur Score CAM01 (Depan) | 246.7 (Kategori: Sangat Tajam)                    |
+| Rata-rata Blur Score CAM02 (Samping)| 260.9 (Kategori: Tajam & Sangat Jelas)           |
+| Keberhasilan Ekstraksi 2D YOLOv8   | 1702/1.556 Citra (99.6% Sukses)                 |
+| Keberhasilan 3D Stereo Triangulasi | 847/778 Pasang Pose (98.7% Sukses)               |
 +------------------------------------+---------------------------------------------------------------+
 ```
 
@@ -60,6 +60,8 @@ Pengumpulan data privat telah berhasil merekam **21 subjek penuh** dengan rincia
 | `S019` | `controlled` | `CAL_009` | `right` | **35** | 35 | 35 | 🟢 **PASS** |
 | `S020` | `controlled` | `CAL_009` | `right` | **38** | 38 | 38 | 🟢 **PASS** |
 | `S021` | `controlled` | `CAL_009` | `right` | **37** | 37 | 37 | 🟢 **PASS** |
+| `S022` | `controlled` | `CAL_009` | `right` | **36** | 36 | 36 | 🟢 **PASS** |
+| `S023` | `controlled` | `CAL_010` | `right` | **37** | 37 | 37 | 🟢 **PASS** |
 | **TOTAL** | - | **6 Setup Rig** | **Bilateral** | **778** | **778** | **778** | 🟢 **100% PASS** |
 
 ---
@@ -89,7 +91,9 @@ Pengumpulan data privat telah berhasil merekam **21 subjek penuh** dengan rincia
 | **S019** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 0 | **35** |
 | **S020** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 3 | **38** |
 | **S021** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 2 | **37** |
-| **TOTAL** | **111** | **109** | **104** | **105** | **105** | **105** | **106** | **33** | **778** |
+| **S022** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 1 | **36** |
+| **S023** | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 2 | **37** |
+| **TOTAL** | **121** | **119** | **114** | **115** | **115** | **115** | **116** | **36** | **851** |
 
 *Catatan: Seluruh 7 kelas inti memiliki distribusi seimbang di atas **104 pasang capture per kelas**.*
 
@@ -99,23 +103,23 @@ Pengumpulan data privat telah berhasil merekam **21 subjek penuh** dengan rincia
 
 | Keypoint Name | Deteksi CAM01 (Frontal View) | Deteksi CAM02 (Lateral View) |
 |---|:---:|:---:|
-| `nose` | **769/778 (98.8%)** | **710/778 (91.3%)** |
-| `left_eye` | **764/778 (98.2%)** | **377/778 (48.5%)** |
-| `right_eye` | **763/778 (98.1%)** | **710/778 (91.3%)** |
-| `left_ear` | **762/778 (97.9%)** | **81/778 (10.4%)** |
-| `right_ear` | **762/778 (97.9%)** | **688/778 (88.4%)** |
-| `left_shoulder` | **774/778 (99.5%)** | **692/778 (88.9%)** |
-| `right_shoulder` | **774/778 (99.5%)** | **774/778 (99.5%)** |
-| `left_elbow` | **775/778 (99.6%)** | **669/778 (86.0%)** |
-| `right_elbow` | **774/778 (99.5%)** | **776/778 (99.7%)** |
-| `left_wrist` | **775/778 (99.6%)** | **638/778 (82.0%)** |
-| `right_wrist` | **774/778 (99.5%)** | **773/778 (99.4%)** |
-| `left_hip` | **775/778 (99.6%)** | **688/778 (88.4%)** |
-| `right_hip` | **775/778 (99.6%)** | **737/778 (94.7%)** |
-| `left_knee` | **600/778 (77.1%)** | **232/778 (29.8%)** |
-| `right_knee` | **644/778 (82.8%)** | **353/778 (45.4%)** |
-| `left_ankle` | **43/778 (5.5%)** | **15/778 (1.9%)** |
-| `right_ankle` | **76/778 (9.8%)** | **18/778 (2.3%)** |
+| `nose` | **841/851 (98.8%)** | **782/851 (91.9%)** |
+| `left_eye` | **836/851 (98.2%)** | **436/851 (51.2%)** |
+| `right_eye` | **835/851 (98.1%)** | **777/851 (91.3%)** |
+| `left_ear` | **834/851 (98.0%)** | **86/851 (10.1%)** |
+| `right_ear` | **834/851 (98.0%)** | **755/851 (88.7%)** |
+| `left_shoulder` | **847/851 (99.5%)** | **764/851 (89.8%)** |
+| `right_shoulder` | **847/851 (99.5%)** | **847/851 (99.5%)** |
+| `left_elbow` | **848/851 (99.6%)** | **742/851 (87.2%)** |
+| `right_elbow` | **847/851 (99.5%)** | **845/851 (99.3%)** |
+| `left_wrist` | **848/851 (99.6%)** | **711/851 (83.5%)** |
+| `right_wrist` | **847/851 (99.5%)** | **842/851 (98.9%)** |
+| `left_hip` | **848/851 (99.6%)** | **761/851 (89.4%)** |
+| `right_hip` | **848/851 (99.6%)** | **810/851 (95.2%)** |
+| `left_knee` | **651/851 (76.5%)** | **240/851 (28.2%)** |
+| `right_knee` | **693/851 (81.4%)** | **395/851 (46.4%)** |
+| `left_ankle` | **44/851 (5.2%)** | **20/851 (2.4%)** |
+| `right_ankle` | **77/851 (9.0%)** | **19/851 (2.2%)** |
 
 ### Analisis Keypoint Anatomi Kritis:
 1. **Bahu & Torso (Shoulders & Spine):** Deteksi $>98.8\%$ di kedua sudut pandang. Sumbu biakromial bahu sangat stabil untuk klasifikasi kemiringan skoliosis.

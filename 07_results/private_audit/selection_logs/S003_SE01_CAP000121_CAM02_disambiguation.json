@@ -1,0 +1,8 @@
+{
+  "image_id": "S003_SE01_CAP000121_CAM02",
+  "capture_id": "CAP000121",
+  "candidates_count": 1,
+  "baseline_pick_idx": 0,
+  "improved_pick_idx": -1,
+  "decision": "Top candidate composite score (0.112) below threshold (0.22)"
+}

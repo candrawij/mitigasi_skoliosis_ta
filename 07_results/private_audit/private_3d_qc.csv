@@ -1,0 +1,852 @@
+capture_id,subject_id,posture,calibration_id,status,valid_joints_3d,mean_reprojection_err_px,shoulder_width_m,torso_length_m,mean_depth_z_m,reason
+CAP000001,S001,upright,CAL_001,PASS,14,605.7,0.281,0.504,1.351,3D Skeleton and anatomy valid
+CAP000002,S001,upright,CAL_001,PASS,14,605.35,0.273,0.53,1.359,3D Skeleton and anatomy valid
+CAP000003,S001,upright,CAL_001,PASS,14,603.44,0.281,0.498,1.349,3D Skeleton and anatomy valid
+CAP000004,S001,upright,CAL_001,PASS,14,605.24,0.278,0.533,1.361,3D Skeleton and anatomy valid
+CAP000005,S001,upright,CAL_001,PASS,14,604.89,0.293,0.504,1.35,3D Skeleton and anatomy valid
+CAP000006,S001,leaning_forward,CAL_001,PASS,12,620.53,0.17,1.299,1.057,3D Skeleton and anatomy valid
+CAP000007,S001,leaning_forward,CAL_001,PASS,12,621.59,0.157,1.397,1.074,3D Skeleton and anatomy valid
+CAP000008,S001,leaning_forward,CAL_001,PASS,12,620.13,0.162,1.484,1.083,3D Skeleton and anatomy valid
+CAP000009,S001,leaning_forward,CAL_001,PASS,12,621.53,0.155,1.791,1.134,3D Skeleton and anatomy valid
+CAP000010,S001,leaning_forward,CAL_001,PASS,12,621.32,0.153,1.9,1.15,3D Skeleton and anatomy valid
+CAP000011,S001,upright,CAL_001,PASS,12,576.38,0.328,0.66,1.242,3D Skeleton and anatomy valid
+CAP000012,S001,upright,CAL_001,PASS,12,569.69,0.366,0.489,0.961,3D Skeleton and anatomy valid
+CAP000013,S001,upright,CAL_001,PASS,12,573.14,0.366,0.52,0.961,3D Skeleton and anatomy valid
+CAP000014,S001,upright,CAL_001,PASS,12,572.73,0.388,0.533,0.959,3D Skeleton and anatomy valid
+CAP000015,S001,upright,CAL_001,PASS,12,576.82,0.385,0.541,1.362,3D Skeleton and anatomy valid
+CAP000016,S001,leaning_forward,CAL_001,PASS,12,563.01,0.162,2.024,1.051,3D Skeleton and anatomy valid
+CAP000017,S001,leaning_forward,CAL_001,REVIEW,12,649.72,0.09,3.25,1.863,Moderate joint count (12/17) or minor distortion
+CAP000018,S001,leaning_forward,CAL_001,REVIEW,12,667.34,0.123,3.336,1.926,Moderate joint count (12/17) or minor distortion
+CAP000019,S001,leaning_forward,CAL_001,REVIEW,11,667.4,0.107,3.439,2.006,Moderate joint count (11/17) or minor distortion
+CAP000020,S001,leaning_forward,CAL_001,REVIEW,12,665.33,0.123,3.126,1.897,Moderate joint count (12/17) or minor distortion
+CAP000021,S001,leaning_backward,CAL_001,PASS,12,552.26,0.38,0.71,1.242,3D Skeleton and anatomy valid
+CAP000022,S001,leaning_backward,CAL_001,PASS,12,556.85,0.347,1.122,1.378,3D Skeleton and anatomy valid
+CAP000023,S001,leaning_backward,CAL_001,PASS,12,537.56,0.319,1.486,1.388,3D Skeleton and anatomy valid
+CAP000024,S001,leaning_backward,CAL_001,PASS,14,590.42,0.321,1.202,1.491,3D Skeleton and anatomy valid
+CAP000025,S001,leaning_backward,CAL_001,PASS,12,544.18,0.307,1.208,1.317,3D Skeleton and anatomy valid
+CAP000026,S001,leaning_left,CAL_001,PASS,13,574.06,0.189,0.47,1.232,3D Skeleton and anatomy valid
+CAP000027,S001,leaning_left,CAL_001,PASS,14,630.96,0.197,0.469,1.311,3D Skeleton and anatomy valid
+CAP000028,S001,leaning_left,CAL_001,PASS,14,614.52,0.19,0.465,1.325,3D Skeleton and anatomy valid
+CAP000029,S001,leaning_left,CAL_001,PASS,14,612.82,0.187,0.469,1.391,3D Skeleton and anatomy valid
+CAP000030,S001,leaning_left,CAL_001,PASS,14,601.59,0.183,0.443,1.106,3D Skeleton and anatomy valid
+CAP000031,S001,leaning_right,CAL_001,PASS,12,541.31,0.45,2.717,1.592,3D Skeleton and anatomy valid
+CAP000032,S001,leaning_right,CAL_001,PASS,12,545.41,0.446,2.266,1.52,3D Skeleton and anatomy valid
+CAP000033,S001,leaning_right,CAL_001,PASS,12,543.03,0.434,2.083,1.495,3D Skeleton and anatomy valid
+CAP000034,S001,leaning_right,CAL_001,PASS,11,522.61,0.489,2.192,1.303,3D Skeleton and anatomy valid
+CAP000035,S001,leaning_right,CAL_001,PASS,11,516.92,0.487,2.6,1.352,3D Skeleton and anatomy valid
+CAP000036,S001,slouching,CAL_001,REVIEW,12,618.58,0.149,0.942,1.046,Moderate joint count (12/17) or minor distortion
+CAP000037,S001,slouching,CAL_001,REVIEW,14,672.54,0.141,0.642,1.343,Moderate joint count (14/17) or minor distortion
+CAP000038,S001,slouching,CAL_001,REVIEW,12,621.72,0.134,0.608,1.366,Moderate joint count (12/17) or minor distortion
+CAP000039,S001,slouching,CAL_001,REVIEW,14,683.34,0.112,0.609,1.078,Moderate joint count (14/17) or minor distortion
+CAP000040,S001,slouching,CAL_001,REVIEW,14,665.71,0.137,0.446,1.346,Moderate joint count (14/17) or minor distortion
+CAP000041,S001,forward_head,CAL_001,REVIEW,14,670.44,0.142,0.467,1.177,Moderate joint count (14/17) or minor distortion
+CAP000042,S001,forward_head,CAL_001,REVIEW,14,670.73,0.136,0.585,1.266,Moderate joint count (14/17) or minor distortion
+CAP000043,S001,forward_head,CAL_001,REVIEW,14,677.26,0.13,0.572,1.281,Moderate joint count (14/17) or minor distortion
+CAP000044,S001,forward_head,CAL_001,REVIEW,14,674.88,0.124,0.433,1.127,Moderate joint count (14/17) or minor distortion
+CAP000045,S001,forward_head,CAL_001,REVIEW,13,705.22,0.119,0.471,1.218,Moderate joint count (13/17) or minor distortion
+CAP000046,S001,reject,CAL_001,REVIEW,6,465.81,,,1.962,Moderate joint count (6/17) or minor distortion
+CAP000047,S001,reject,CAL_001,PASS,0,,,,,Negative sample properly rejected
+CAP000048,S002,upright,CAL_001,REVIEW,12,580.93,0.271,2.416,1.775,Moderate joint count (12/17) or minor distortion
+CAP000049,S002,upright,CAL_001,REVIEW,12,580.04,0.275,2.063,1.802,Moderate joint count (12/17) or minor distortion
+CAP000050,S002,upright,CAL_001,REVIEW,12,581.34,0.279,2.06,1.805,Moderate joint count (12/17) or minor distortion
+CAP000051,S002,upright,CAL_001,REVIEW,12,586.54,0.245,2.347,1.794,Moderate joint count (12/17) or minor distortion
+CAP000052,S002,upright,CAL_001,REVIEW,12,585.55,0.258,2.42,1.817,Moderate joint count (12/17) or minor distortion
+CAP000053,S002,leaning_forward,CAL_001,REVIEW,12,641.54,0.142,4.053,1.172,Moderate joint count (12/17) or minor distortion
+CAP000054,S002,leaning_forward,CAL_001,PASS,12,635.53,0.219,4.81,1.291,3D Skeleton and anatomy valid
+CAP000055,S002,leaning_forward,CAL_001,PASS,12,635.45,0.23,4.075,1.263,3D Skeleton and anatomy valid
+CAP000056,S002,leaning_forward,CAL_001,PASS,12,634.5,0.226,4.659,1.284,3D Skeleton and anatomy valid
+CAP000057,S002,leaning_forward,CAL_001,PASS,12,636.25,0.226,4.337,1.286,3D Skeleton and anatomy valid
+CAP000058,S002,leaning_backward,CAL_001,PASS,12,530.45,0.265,4.596,1.166,3D Skeleton and anatomy valid
+CAP000059,S002,leaning_backward,CAL_001,PASS,12,531.1,0.25,3.013,1.464,3D Skeleton and anatomy valid
+CAP000060,S002,leaning_backward,CAL_001,PASS,12,531.07,0.255,3.129,1.496,3D Skeleton and anatomy valid
+CAP000061,S002,leaning_backward,CAL_001,PASS,12,531.18,0.253,3.064,1.476,3D Skeleton and anatomy valid
+CAP000062,S002,leaning_backward,CAL_001,PASS,12,532.05,0.259,3.768,1.118,3D Skeleton and anatomy valid
+CAP000063,S002,leaning_left,CAL_001,REVIEW,12,554.65,0.086,1.091,1.455,Moderate joint count (12/17) or minor distortion
+CAP000064,S002,leaning_left,CAL_001,REVIEW,12,562.19,0.105,1.052,1.462,Moderate joint count (12/17) or minor distortion
+CAP000065,S002,leaning_left,CAL_001,REVIEW,12,567.0,0.11,1.087,1.468,Moderate joint count (12/17) or minor distortion
+CAP000066,S002,leaning_left,CAL_001,REVIEW,12,564.82,0.111,1.069,1.47,Moderate joint count (12/17) or minor distortion
+CAP000067,S002,leaning_left,CAL_001,REVIEW,12,563.78,0.112,1.098,1.469,Moderate joint count (12/17) or minor distortion
+CAP000068,S002,leaning_right,CAL_001,PASS,12,573.97,0.446,3.772,1.261,3D Skeleton and anatomy valid
+CAP000069,S002,leaning_right,CAL_001,PASS,12,577.77,0.418,3.925,1.305,3D Skeleton and anatomy valid
+CAP000070,S002,leaning_right,CAL_001,PASS,12,574.46,0.439,4.52,1.211,3D Skeleton and anatomy valid
+CAP000071,S002,leaning_right,CAL_001,PASS,12,575.36,0.436,4.517,1.26,3D Skeleton and anatomy valid
+CAP000072,S002,leaning_right,CAL_001,PASS,12,573.29,0.436,4.442,1.25,3D Skeleton and anatomy valid
+CAP000073,S002,slouching,CAL_001,PASS,12,605.11,0.234,2.559,1.355,3D Skeleton and anatomy valid
+CAP000074,S002,slouching,CAL_001,PASS,12,600.3,0.264,2.873,1.503,3D Skeleton and anatomy valid
+CAP000075,S002,slouching,CAL_001,PASS,12,600.71,0.263,2.943,1.52,3D Skeleton and anatomy valid
+CAP000076,S002,slouching,CAL_001,PASS,12,606.33,0.245,2.909,1.466,3D Skeleton and anatomy valid
+CAP000077,S002,slouching,CAL_001,PASS,12,602.04,0.259,2.777,1.505,3D Skeleton and anatomy valid
+CAP000078,S002,forward_head,CAL_001,REVIEW,12,617.33,0.18,1.778,1.285,Moderate joint count (12/17) or minor distortion
+CAP000079,S002,forward_head,CAL_001,REVIEW,12,616.5,0.168,1.807,1.29,Moderate joint count (12/17) or minor distortion
+CAP000080,S002,forward_head,CAL_001,REVIEW,12,601.57,0.233,2.6,1.43,Moderate joint count (12/17) or minor distortion
+CAP000081,S002,forward_head,CAL_001,REVIEW,12,603.27,0.229,2.513,1.425,Moderate joint count (12/17) or minor distortion
+CAP000082,S002,forward_head,CAL_001,REVIEW,12,607.7,0.221,1.623,1.268,Moderate joint count (12/17) or minor distortion
+CAP000083,S003,upright,CAL_004,REVIEW,14,6270.74,0.906,0.806,1.272,Moderate joint count (14/17) or minor distortion
+CAP000084,S003,upright,CAL_004,REVIEW,14,6304.0,0.913,0.8,1.271,Moderate joint count (14/17) or minor distortion
+CAP000085,S003,upright,CAL_004,REVIEW,14,6293.08,0.909,0.796,1.27,Moderate joint count (14/17) or minor distortion
+CAP000086,S003,upright,CAL_004,REVIEW,14,6297.82,0.914,0.802,1.272,Moderate joint count (14/17) or minor distortion
+CAP000087,S003,upright,CAL_004,REVIEW,14,6290.0,0.906,0.797,1.272,Moderate joint count (14/17) or minor distortion
+CAP000088,S003,leaning_forward,CAL_004,PASS,14,8378.55,0.845,0.831,1.228,3D Skeleton and anatomy valid
+CAP000089,S003,leaning_forward,CAL_004,PASS,14,7060.77,0.843,0.828,1.23,3D Skeleton and anatomy valid
+CAP000090,S003,leaning_forward,CAL_004,PASS,13,11106.57,0.84,0.841,1.213,3D Skeleton and anatomy valid
+CAP000091,S003,leaning_forward,CAL_004,PASS,14,9452.49,0.837,0.824,1.227,3D Skeleton and anatomy valid
+CAP000092,S003,leaning_forward,CAL_004,PASS,14,6664.84,0.843,0.827,1.228,3D Skeleton and anatomy valid
+CAP000093,S003,leaning_backward,CAL_004,PASS,14,9736.22,1.027,0.822,1.297,3D Skeleton and anatomy valid
+CAP000094,S003,leaning_backward,CAL_004,PASS,15,13441.44,1.028,0.804,1.254,3D Skeleton and anatomy valid
+CAP000095,S003,leaning_backward,CAL_004,PASS,14,10393.7,1.028,0.802,1.292,3D Skeleton and anatomy valid
+CAP000096,S003,leaning_backward,CAL_004,PASS,14,8592.44,1.025,0.811,1.299,3D Skeleton and anatomy valid
+CAP000097,S003,leaning_backward,CAL_004,PASS,14,16989.27,1.035,0.814,1.297,3D Skeleton and anatomy valid
+CAP000098,S003,leaning_left,CAL_004,PASS,12,5025.27,0.476,0.716,1.278,3D Skeleton and anatomy valid
+CAP000099,S003,leaning_left,CAL_004,PASS,13,5145.86,0.472,0.718,1.248,3D Skeleton and anatomy valid
+CAP000100,S003,leaning_left,CAL_004,PASS,13,5151.4,0.472,0.719,1.246,3D Skeleton and anatomy valid
+CAP000101,S003,leaning_left,CAL_004,PASS,12,5035.72,0.473,0.717,1.273,3D Skeleton and anatomy valid
+CAP000102,S003,leaning_left,CAL_004,PASS,12,5029.98,0.479,0.715,1.276,3D Skeleton and anatomy valid
+CAP000103,S003,leaning_right,CAL_004,PASS,14,12381.49,0.955,0.68,1.186,3D Skeleton and anatomy valid
+CAP000104,S003,leaning_right,CAL_004,PASS,14,17353.04,0.943,0.67,1.12,3D Skeleton and anatomy valid
+CAP000105,S003,leaning_right,CAL_004,PASS,14,14224.78,0.951,0.676,1.183,3D Skeleton and anatomy valid
+CAP000106,S003,leaning_right,CAL_004,PASS,14,11120.81,0.957,0.662,1.176,3D Skeleton and anatomy valid
+CAP000107,S003,leaning_right,CAL_004,PASS,14,10500.05,0.955,0.672,1.181,3D Skeleton and anatomy valid
+CAP000108,S003,slouching,CAL_004,PASS,12,5840.45,0.852,0.934,1.226,3D Skeleton and anatomy valid
+CAP000109,S003,slouching,CAL_004,PASS,12,5855.09,0.846,0.921,1.224,3D Skeleton and anatomy valid
+CAP000110,S003,slouching,CAL_004,PASS,12,5833.95,0.842,0.905,1.221,3D Skeleton and anatomy valid
+CAP000111,S003,slouching,CAL_004,PASS,12,5848.66,0.849,0.898,1.22,3D Skeleton and anatomy valid
+CAP000112,S003,slouching,CAL_004,PASS,12,5883.24,0.866,0.916,1.222,3D Skeleton and anatomy valid
+CAP000113,S003,forward_head,CAL_004,REVIEW,14,6067.36,0.841,0.818,1.176,Moderate joint count (14/17) or minor distortion
+CAP000114,S003,forward_head,CAL_004,REVIEW,14,5933.31,0.822,0.83,1.188,Moderate joint count (14/17) or minor distortion
+CAP000115,S003,forward_head,CAL_004,REVIEW,14,5985.18,0.834,0.828,1.185,Moderate joint count (14/17) or minor distortion
+CAP000116,S003,forward_head,CAL_004,REVIEW,14,5936.9,0.823,0.833,1.187,Moderate joint count (14/17) or minor distortion
+CAP000117,S003,forward_head,CAL_004,REVIEW,13,5933.53,0.812,0.838,1.175,Moderate joint count (13/17) or minor distortion
+CAP000118,S003,reject,CAL_004,PASS,12,5839.94,0.266,0.99,1.111,3D Skeleton and anatomy valid
+CAP000119,S003,reject,CAL_004,PASS,9,6418.53,0.312,0.724,0.849,3D Skeleton and anatomy valid
+CAP000120,S003,reject,CAL_004,PASS,12,5253.01,0.399,0.758,1.147,3D Skeleton and anatomy valid
+CAP000121,S003,reject,CAL_004,PASS,0,,,,,Negative sample properly rejected
+CAP000122,S004,upright,CAL_004,REVIEW,14,9313.51,0.958,0.819,1.054,Moderate joint count (14/17) or minor distortion
+CAP000123,S004,upright,CAL_004,REVIEW,14,9579.35,0.966,0.826,1.061,Moderate joint count (14/17) or minor distortion
+CAP000124,S004,upright,CAL_004,REVIEW,14,8369.61,0.939,0.828,1.061,Moderate joint count (14/17) or minor distortion
+CAP000125,S004,upright,CAL_004,REVIEW,14,8837.81,0.949,0.818,1.054,Moderate joint count (14/17) or minor distortion
+CAP000126,S004,upright,CAL_004,REVIEW,14,12018.42,0.989,0.851,1.055,Moderate joint count (14/17) or minor distortion
+CAP000127,S004,leaning_forward,CAL_004,PASS,14,7094.95,0.773,0.815,1.113,3D Skeleton and anatomy valid
+CAP000128,S004,leaning_forward,CAL_004,PASS,14,6905.92,0.759,0.814,1.078,3D Skeleton and anatomy valid
+CAP000129,S004,leaning_forward,CAL_004,PASS,14,7118.26,0.779,0.815,1.072,3D Skeleton and anatomy valid
+CAP000130,S004,leaning_forward,CAL_004,PASS,14,7088.94,0.777,0.82,1.076,3D Skeleton and anatomy valid
+CAP000131,S004,leaning_forward,CAL_004,PASS,14,6886.36,0.744,0.806,1.14,3D Skeleton and anatomy valid
+CAP000132,S004,leaning_backward,CAL_004,PASS,14,5385.59,0.515,0.682,1.152,3D Skeleton and anatomy valid
+CAP000133,S004,leaning_backward,CAL_004,PASS,14,5375.63,0.51,0.68,1.157,3D Skeleton and anatomy valid
+CAP000134,S004,leaning_backward,CAL_004,PASS,14,5383.74,0.507,0.687,1.154,3D Skeleton and anatomy valid
+CAP000135,S004,leaning_backward,CAL_004,PASS,14,5385.46,0.496,0.675,1.152,3D Skeleton and anatomy valid
+CAP000136,S004,leaning_backward,CAL_004,PASS,14,5382.95,0.502,0.682,1.155,3D Skeleton and anatomy valid
+CAP000137,S004,leaning_left,CAL_004,PASS,13,5954.36,0.451,0.645,0.957,3D Skeleton and anatomy valid
+CAP000138,S004,leaning_left,CAL_004,PASS,13,5965.39,0.446,0.643,0.957,3D Skeleton and anatomy valid
+CAP000139,S004,leaning_left,CAL_004,PASS,13,5922.37,0.475,0.661,0.97,3D Skeleton and anatomy valid
+CAP000140,S004,leaning_left,CAL_004,PASS,13,5934.84,0.449,0.654,0.966,3D Skeleton and anatomy valid
+CAP000141,S004,leaning_left,CAL_004,PASS,13,5982.78,0.46,0.642,0.952,3D Skeleton and anatomy valid
+CAP000142,S004,leaning_right,CAL_004,PASS,13,7134.15,0.818,0.607,0.988,3D Skeleton and anatomy valid
+CAP000143,S004,leaning_right,CAL_004,PASS,14,7463.93,0.812,0.59,0.987,3D Skeleton and anatomy valid
+CAP000144,S004,leaning_right,CAL_004,PASS,14,7574.11,0.813,0.598,0.987,3D Skeleton and anatomy valid
+CAP000145,S004,leaning_right,CAL_004,PASS,14,7524.47,0.822,0.61,0.989,3D Skeleton and anatomy valid
+CAP000146,S004,leaning_right,CAL_004,PASS,14,7570.58,0.81,0.602,0.991,3D Skeleton and anatomy valid
+CAP000147,S004,slouching,CAL_004,PASS,14,6983.89,1.138,0.839,1.081,3D Skeleton and anatomy valid
+CAP000148,S004,slouching,CAL_004,PASS,14,7197.92,0.849,0.766,1.033,3D Skeleton and anatomy valid
+CAP000149,S004,slouching,CAL_004,PASS,13,7675.14,0.871,0.785,1.013,3D Skeleton and anatomy valid
+CAP000150,S004,slouching,CAL_004,PASS,14,7827.38,0.889,0.783,1.032,3D Skeleton and anatomy valid
+CAP000151,S004,slouching,CAL_004,PASS,13,9404.3,0.927,0.806,1.012,3D Skeleton and anatomy valid
+CAP000152,S004,forward_head,CAL_004,REVIEW,13,7605.13,1.106,0.955,1.113,Moderate joint count (13/17) or minor distortion
+CAP000153,S004,forward_head,CAL_004,PASS,12,5600.22,0.564,0.658,1.08,3D Skeleton and anatomy valid
+CAP000154,S004,forward_head,CAL_004,REVIEW,12,6635.39,1.189,0.955,1.047,Moderate joint count (12/17) or minor distortion
+CAP000155,S004,forward_head,CAL_004,REVIEW,13,6408.18,1.209,0.966,1.066,Moderate joint count (13/17) or minor distortion
+CAP000156,S004,forward_head,CAL_004,PASS,13,5541.41,0.573,0.663,1.095,3D Skeleton and anatomy valid
+CAP000157,S005,upright,CAL_005,REVIEW,14,1308.72,0.581,2.103,3.064,Moderate joint count (14/17) or minor distortion
+CAP000158,S005,upright,CAL_005,REVIEW,14,1313.55,0.598,2.178,3.072,Moderate joint count (14/17) or minor distortion
+CAP000159,S005,upright,CAL_005,REVIEW,14,1300.76,0.581,2.17,3.085,Moderate joint count (14/17) or minor distortion
+CAP000160,S005,upright,CAL_005,REVIEW,14,1304.05,0.591,2.139,3.076,Moderate joint count (14/17) or minor distortion
+CAP000161,S005,upright,CAL_005,REVIEW,14,1303.73,0.591,2.187,3.079,Moderate joint count (14/17) or minor distortion
+CAP000162,S005,leaning_forward,CAL_005,PASS,11,1002.82,0.734,2.276,4.152,3D Skeleton and anatomy valid
+CAP000163,S005,leaning_forward,CAL_005,PASS,13,1052.67,0.746,1.808,4.031,3D Skeleton and anatomy valid
+CAP000164,S005,leaning_forward,CAL_005,PASS,13,1052.66,0.801,1.824,4.042,3D Skeleton and anatomy valid
+CAP000165,S005,leaning_forward,CAL_005,PASS,12,1088.06,0.998,2.0,4.081,3D Skeleton and anatomy valid
+CAP000166,S005,leaning_forward,CAL_005,PASS,12,1085.05,0.919,1.876,4.056,3D Skeleton and anatomy valid
+CAP000167,S005,leaning_backward,CAL_005,PASS,14,1313.28,0.518,1.058,2.953,3D Skeleton and anatomy valid
+CAP000168,S005,leaning_backward,CAL_005,PASS,14,1300.18,0.506,1.228,3.01,3D Skeleton and anatomy valid
+CAP000169,S005,leaning_backward,CAL_005,PASS,14,1354.19,0.611,1.146,3.089,3D Skeleton and anatomy valid
+CAP000170,S005,leaning_backward,CAL_005,PASS,14,1333.39,0.606,1.2,2.928,3D Skeleton and anatomy valid
+CAP000171,S005,leaning_backward,CAL_005,PASS,14,1340.56,0.592,1.239,3.004,3D Skeleton and anatomy valid
+CAP000172,S005,leaning_left,CAL_005,PASS,14,998.21,0.52,1.489,3.244,3D Skeleton and anatomy valid
+CAP000173,S005,leaning_left,CAL_005,PASS,14,997.82,0.491,1.364,3.454,3D Skeleton and anatomy valid
+CAP000174,S005,leaning_left,CAL_005,PASS,14,979.2,0.444,1.581,3.236,3D Skeleton and anatomy valid
+CAP000175,S005,leaning_left,CAL_005,PASS,14,974.69,0.462,1.536,3.234,3D Skeleton and anatomy valid
+CAP000176,S005,leaning_left,CAL_005,PASS,14,986.3,0.435,1.38,3.156,3D Skeleton and anatomy valid
+CAP000177,S005,leaning_right,CAL_005,PASS,14,1511.54,0.625,2.076,2.834,3D Skeleton and anatomy valid
+CAP000178,S005,leaning_right,CAL_005,PASS,14,1475.31,0.642,2.076,2.827,3D Skeleton and anatomy valid
+CAP000179,S005,leaning_right,CAL_005,PASS,14,1460.48,0.63,2.224,2.874,3D Skeleton and anatomy valid
+CAP000180,S005,leaning_right,CAL_005,PASS,14,1479.32,0.659,2.13,2.82,3D Skeleton and anatomy valid
+CAP000181,S005,leaning_right,CAL_005,PASS,14,1502.25,0.663,2.085,2.807,3D Skeleton and anatomy valid
+CAP000182,S005,slouching,CAL_005,PASS,14,1182.8,0.496,1.489,2.979,3D Skeleton and anatomy valid
+CAP000183,S005,slouching,CAL_005,PASS,14,1180.22,0.502,1.581,2.997,3D Skeleton and anatomy valid
+CAP000184,S005,slouching,CAL_005,PASS,14,1171.12,0.508,1.519,2.982,3D Skeleton and anatomy valid
+CAP000185,S005,slouching,CAL_005,PASS,14,1172.47,0.492,1.587,2.994,3D Skeleton and anatomy valid
+CAP000186,S005,slouching,CAL_005,PASS,14,1178.87,0.483,1.511,2.997,3D Skeleton and anatomy valid
+CAP000187,S005,forward_head,CAL_005,REVIEW,14,1064.25,0.725,1.056,3.897,Moderate joint count (14/17) or minor distortion
+CAP000188,S005,forward_head,CAL_005,REVIEW,14,1057.17,0.974,0.978,3.883,Moderate joint count (14/17) or minor distortion
+CAP000189,S005,forward_head,CAL_005,REVIEW,14,1062.27,0.765,1.109,3.895,Moderate joint count (14/17) or minor distortion
+CAP000190,S005,forward_head,CAL_005,REVIEW,14,1057.83,0.849,1.094,3.892,Moderate joint count (14/17) or minor distortion
+CAP000191,S005,forward_head,CAL_005,REVIEW,14,1062.11,0.734,1.115,3.887,Moderate joint count (14/17) or minor distortion
+CAP000192,S005,reject,CAL_005,PASS,0,,,,,Negative sample properly rejected
+CAP000193,S006,upright,CAL_005,REVIEW,14,1036.37,0.385,3.282,3.575,Moderate joint count (14/17) or minor distortion
+CAP000194,S006,upright,CAL_005,REVIEW,14,1030.46,0.487,3.177,3.593,Moderate joint count (14/17) or minor distortion
+CAP000195,S006,upright,CAL_005,REVIEW,14,1029.2,0.578,3.191,3.634,Moderate joint count (14/17) or minor distortion
+CAP000196,S006,upright,CAL_005,REVIEW,13,1054.13,0.829,2.954,3.652,Moderate joint count (13/17) or minor distortion
+CAP000197,S006,upright,CAL_005,REVIEW,13,1044.41,0.723,3.072,3.666,Moderate joint count (13/17) or minor distortion
+CAP000198,S006,leaning_forward,CAL_005,REVIEW,13,968.47,1.328,2.418,4.179,Moderate joint count (13/17) or minor distortion
+CAP000199,S006,leaning_forward,CAL_005,PASS,14,913.18,1.182,3.065,4.372,3D Skeleton and anatomy valid
+CAP000200,S006,leaning_forward,CAL_005,PASS,14,910.05,1.065,2.997,4.344,3D Skeleton and anatomy valid
+CAP000201,S006,leaning_forward,CAL_005,REVIEW,14,915.56,1.392,2.795,4.34,Moderate joint count (14/17) or minor distortion
+CAP000202,S006,leaning_forward,CAL_005,REVIEW,14,918.63,1.365,2.309,4.239,Moderate joint count (14/17) or minor distortion
+CAP000203,S006,leaning_backward,CAL_005,PASS,14,1114.65,0.346,3.033,3.034,3D Skeleton and anatomy valid
+CAP000204,S006,leaning_backward,CAL_005,PASS,14,1128.87,0.354,2.856,2.982,3D Skeleton and anatomy valid
+CAP000205,S006,leaning_backward,CAL_005,PASS,14,1124.23,0.344,3.101,3.026,3D Skeleton and anatomy valid
+CAP000206,S006,leaning_backward,CAL_005,PASS,14,1136.35,0.356,2.927,2.979,3D Skeleton and anatomy valid
+CAP000207,S006,leaning_backward,CAL_005,PASS,14,1133.41,0.357,2.912,2.98,3D Skeleton and anatomy valid
+CAP000208,S006,leaning_left,CAL_005,PASS,14,932.79,0.295,2.565,3.197,3D Skeleton and anatomy valid
+CAP000209,S006,leaning_left,CAL_005,PASS,14,901.3,0.265,2.89,3.373,3D Skeleton and anatomy valid
+CAP000210,S006,leaning_left,CAL_005,PASS,14,922.67,0.269,2.999,3.334,3D Skeleton and anatomy valid
+CAP000211,S006,leaning_left,CAL_005,PASS,14,926.3,0.276,3.058,3.368,3D Skeleton and anatomy valid
+CAP000212,S006,leaning_left,CAL_005,PASS,14,960.04,0.286,3.132,3.301,3D Skeleton and anatomy valid
+CAP000213,S006,leaning_right,CAL_005,PASS,13,1171.28,1.023,3.298,3.734,3D Skeleton and anatomy valid
+CAP000214,S006,leaning_right,CAL_005,REVIEW,13,1176.26,1.201,3.326,3.578,Moderate joint count (13/17) or minor distortion
+CAP000215,S006,leaning_right,CAL_005,REVIEW,13,1184.7,1.562,3.403,3.536,Moderate joint count (13/17) or minor distortion
+CAP000216,S006,leaning_right,CAL_005,PASS,13,1174.73,0.808,3.519,3.656,3D Skeleton and anatomy valid
+CAP000217,S006,leaning_right,CAL_005,PASS,13,1192.11,0.507,3.502,3.646,3D Skeleton and anatomy valid
+CAP000218,S006,slouching,CAL_005,PASS,13,1059.87,0.357,3.619,3.559,3D Skeleton and anatomy valid
+CAP000219,S006,slouching,CAL_005,PASS,14,1023.52,0.358,3.53,3.514,3D Skeleton and anatomy valid
+CAP000220,S006,slouching,CAL_005,PASS,14,1016.17,0.32,3.436,3.529,3D Skeleton and anatomy valid
+CAP000221,S006,slouching,CAL_005,PASS,14,1023.71,0.331,3.335,3.498,3D Skeleton and anatomy valid
+CAP000222,S006,slouching,CAL_005,PASS,14,1014.9,0.332,3.444,3.532,3D Skeleton and anatomy valid
+CAP000223,S006,forward_head,CAL_005,REVIEW,13,999.63,0.609,2.738,3.664,Moderate joint count (13/17) or minor distortion
+CAP000224,S006,forward_head,CAL_005,REVIEW,13,1001.81,0.618,2.858,3.714,Moderate joint count (13/17) or minor distortion
+CAP000225,S006,forward_head,CAL_005,REVIEW,13,1008.63,0.644,2.785,3.676,Moderate joint count (13/17) or minor distortion
+CAP000226,S006,forward_head,CAL_005,REVIEW,14,959.41,0.622,3.024,3.797,Moderate joint count (14/17) or minor distortion
+CAP000227,S006,forward_head,CAL_005,REVIEW,13,1004.92,0.632,2.824,3.681,Moderate joint count (13/17) or minor distortion
+CAP000228,S006,reject,CAL_005,PASS,13,1875.22,1.048,1.969,2.933,3D Skeleton and anatomy valid
+CAP000229,S007,upright,CAL_006,REVIEW,12,1638.12,15.176,10.311,4.577,Moderate joint count (12/17) or minor distortion
+CAP000230,S007,upright,CAL_006,REVIEW,12,1929.02,15.222,10.312,4.18,Moderate joint count (12/17) or minor distortion
+CAP000231,S007,upright,CAL_006,REVIEW,12,1775.8,15.907,10.757,4.521,Moderate joint count (12/17) or minor distortion
+CAP000232,S007,upright,CAL_006,REVIEW,12,1610.51,14.923,10.032,4.5,Moderate joint count (12/17) or minor distortion
+CAP000233,S007,upright,CAL_006,REVIEW,12,1613.88,14.602,10.025,4.503,Moderate joint count (12/17) or minor distortion
+CAP000234,S007,upright,CAL_006,REVIEW,12,1619.9,13.932,9.543,4.537,Moderate joint count (12/17) or minor distortion
+CAP000235,S007,leaning_forward,CAL_006,REVIEW,12,1802.81,40.477,24.954,4.36,Moderate joint count (12/17) or minor distortion
+CAP000236,S007,leaning_forward,CAL_006,REVIEW,12,1798.73,40.298,24.924,4.39,Moderate joint count (12/17) or minor distortion
+CAP000237,S007,leaning_forward,CAL_006,REVIEW,12,1807.33,39.018,24.201,4.364,Moderate joint count (12/17) or minor distortion
+CAP000238,S007,leaning_forward,CAL_006,REVIEW,12,1823.03,40.394,24.778,4.375,Moderate joint count (12/17) or minor distortion
+CAP000239,S007,leaning_forward,CAL_006,REVIEW,12,1814.28,38.161,23.6,4.354,Moderate joint count (12/17) or minor distortion
+CAP000240,S007,leaning_backward,CAL_006,REVIEW,14,1291.93,9.749,6.32,4.451,Moderate joint count (14/17) or minor distortion
+CAP000241,S007,leaning_backward,CAL_006,REVIEW,14,1291.63,9.611,6.101,4.418,Moderate joint count (14/17) or minor distortion
+CAP000242,S007,leaning_backward,CAL_006,REVIEW,14,1289.53,9.806,6.261,4.432,Moderate joint count (14/17) or minor distortion
+CAP000243,S007,leaning_backward,CAL_006,REVIEW,14,1288.37,9.415,6.148,4.422,Moderate joint count (14/17) or minor distortion
+CAP000244,S007,leaning_backward,CAL_006,REVIEW,14,1284.3,9.536,6.202,4.43,Moderate joint count (14/17) or minor distortion
+CAP000245,S007,leaning_left,CAL_006,REVIEW,14,1288.31,24.797,10.346,3.828,Moderate joint count (14/17) or minor distortion
+CAP000246,S007,leaning_left,CAL_006,REVIEW,14,1263.66,9.633,14.846,4.103,Moderate joint count (14/17) or minor distortion
+CAP000247,S007,leaning_left,CAL_006,REVIEW,14,1282.89,20.753,7.808,3.796,Moderate joint count (14/17) or minor distortion
+CAP000248,S007,leaning_left,CAL_006,REVIEW,14,1263.7,15.931,6.525,3.92,Moderate joint count (14/17) or minor distortion
+CAP000249,S007,leaning_left,CAL_006,REVIEW,14,1265.46,17.146,8.198,4.036,Moderate joint count (14/17) or minor distortion
+CAP000250,S007,leaning_right,CAL_006,REVIEW,14,1735.3,10.719,4.817,3.959,Moderate joint count (14/17) or minor distortion
+CAP000251,S007,leaning_right,CAL_006,REVIEW,13,1693.81,9.106,4.073,3.948,Moderate joint count (13/17) or minor distortion
+CAP000252,S007,leaning_right,CAL_006,REVIEW,13,1710.04,8.179,3.49,3.921,Moderate joint count (13/17) or minor distortion
+CAP000253,S007,leaning_right,CAL_006,REVIEW,13,1702.96,5.765,2.069,4.389,Moderate joint count (13/17) or minor distortion
+CAP000254,S007,leaning_right,CAL_006,REVIEW,13,1716.67,7.943,3.111,4.116,Moderate joint count (13/17) or minor distortion
+CAP000255,S007,slouching,CAL_006,REVIEW,13,1416.69,13.13,5.953,4.09,Moderate joint count (13/17) or minor distortion
+CAP000256,S007,slouching,CAL_006,REVIEW,13,1418.61,13.624,4.862,3.969,Moderate joint count (13/17) or minor distortion
+CAP000257,S007,slouching,CAL_006,REVIEW,13,1414.23,11.896,5.565,4.11,Moderate joint count (13/17) or minor distortion
+CAP000258,S007,slouching,CAL_006,REVIEW,14,1448.08,12.148,5.264,4.062,Moderate joint count (14/17) or minor distortion
+CAP000259,S007,slouching,CAL_006,REVIEW,14,1455.11,11.845,5.363,4.067,Moderate joint count (14/17) or minor distortion
+CAP000260,S007,forward_head,CAL_006,REVIEW,13,1547.63,32.178,20.035,4.694,Moderate joint count (13/17) or minor distortion
+CAP000261,S007,forward_head,CAL_006,REVIEW,13,1533.57,31.528,19.682,4.713,Moderate joint count (13/17) or minor distortion
+CAP000262,S007,forward_head,CAL_006,REVIEW,13,1528.31,33.438,20.775,4.72,Moderate joint count (13/17) or minor distortion
+CAP000263,S007,forward_head,CAL_006,REVIEW,13,1537.03,34.841,21.52,4.719,Moderate joint count (13/17) or minor distortion
+CAP000264,S007,forward_head,CAL_006,REVIEW,13,1542.22,33.348,20.749,4.693,Moderate joint count (13/17) or minor distortion
+CAP000265,S007,reject,CAL_006,REVIEW,13,79521.45,3.43,28.086,4.527,Moderate joint count (13/17) or minor distortion
+CAP000266,S007,reject,CAL_006,REVIEW,13,797.12,4.185,50.586,,Moderate joint count (13/17) or minor distortion
+CAP000267,S007,reject,CAL_006,REVIEW,11,2153.14,1.562,16.236,4.441,Moderate joint count (11/17) or minor distortion
+CAP000268,S008,upright,CAL_008,PASS,12,4461.83,0.408,0.361,0.614,3D Skeleton and anatomy valid
+CAP000269,S008,upright,CAL_008,PASS,12,4475.67,0.404,0.358,0.61,3D Skeleton and anatomy valid
+CAP000270,S008,upright,CAL_008,PASS,12,4507.61,0.401,0.365,0.63,3D Skeleton and anatomy valid
+CAP000271,S008,upright,CAL_008,PASS,12,4497.2,0.415,0.361,0.616,3D Skeleton and anatomy valid
+CAP000272,S008,upright,CAL_008,PASS,12,4525.56,0.402,0.363,0.633,3D Skeleton and anatomy valid
+CAP000273,S008,leaning_forward,CAL_008,PASS,12,4380.41,0.497,0.344,0.651,3D Skeleton and anatomy valid
+CAP000274,S008,leaning_forward,CAL_008,PASS,13,4470.1,0.479,0.314,0.637,3D Skeleton and anatomy valid
+CAP000275,S008,leaning_forward,CAL_008,PASS,12,4348.03,0.502,0.308,0.65,3D Skeleton and anatomy valid
+CAP000276,S008,leaning_forward,CAL_008,PASS,12,4347.05,0.495,0.312,0.65,3D Skeleton and anatomy valid
+CAP000277,S008,leaning_forward,CAL_008,PASS,12,4342.54,0.492,0.31,0.648,3D Skeleton and anatomy valid
+CAP000278,S008,leaning_backward,CAL_008,PASS,13,4517.59,0.318,0.316,0.59,3D Skeleton and anatomy valid
+CAP000279,S008,leaning_backward,CAL_008,PASS,12,4550.04,0.32,0.307,0.584,3D Skeleton and anatomy valid
+CAP000280,S008,leaning_backward,CAL_008,PASS,13,4560.9,0.322,0.314,0.586,3D Skeleton and anatomy valid
+CAP000281,S008,leaning_backward,CAL_008,PASS,13,4606.16,0.324,0.312,0.589,3D Skeleton and anatomy valid
+CAP000282,S008,leaning_backward,CAL_008,PASS,13,4586.64,0.323,0.313,0.575,3D Skeleton and anatomy valid
+CAP000283,S008,leaning_left,CAL_008,PASS,13,6156.65,0.296,0.337,0.581,3D Skeleton and anatomy valid
+CAP000284,S008,leaning_left,CAL_008,PASS,13,6204.19,0.283,0.339,0.576,3D Skeleton and anatomy valid
+CAP000285,S008,leaning_left,CAL_008,PASS,13,6225.38,0.286,0.334,0.601,3D Skeleton and anatomy valid
+CAP000286,S008,leaning_left,CAL_008,PASS,13,6181.19,0.288,0.334,0.603,3D Skeleton and anatomy valid
+CAP000287,S008,leaning_left,CAL_008,PASS,13,6130.46,0.291,0.341,0.581,3D Skeleton and anatomy valid
+CAP000288,S008,leaning_right,CAL_008,PASS,12,3547.42,0.467,0.329,0.695,3D Skeleton and anatomy valid
+CAP000289,S008,leaning_right,CAL_008,PASS,13,3608.69,0.463,0.329,0.715,3D Skeleton and anatomy valid
+CAP000290,S008,leaning_right,CAL_008,PASS,12,3574.44,0.462,0.319,0.715,3D Skeleton and anatomy valid
+CAP000291,S008,leaning_right,CAL_008,PASS,12,3681.41,0.46,0.315,0.731,3D Skeleton and anatomy valid
+CAP000292,S008,leaning_right,CAL_008,PASS,12,3525.18,0.461,0.314,0.739,3D Skeleton and anatomy valid
+CAP000293,S008,slouching,CAL_008,PASS,11,4453.25,0.368,0.327,0.614,3D Skeleton and anatomy valid
+CAP000294,S008,slouching,CAL_008,PASS,12,4526.2,0.369,0.309,0.608,3D Skeleton and anatomy valid
+CAP000295,S008,slouching,CAL_008,PASS,12,4382.3,0.373,0.306,0.603,3D Skeleton and anatomy valid
+CAP000296,S008,slouching,CAL_008,PASS,12,4397.24,0.372,0.31,0.626,3D Skeleton and anatomy valid
+CAP000297,S008,slouching,CAL_008,PASS,11,4503.77,0.372,0.31,0.609,3D Skeleton and anatomy valid
+CAP000298,S008,forward_head,CAL_008,PASS,12,3996.88,0.538,0.507,0.678,3D Skeleton and anatomy valid
+CAP000299,S008,forward_head,CAL_008,PASS,12,4007.79,0.468,0.339,0.66,3D Skeleton and anatomy valid
+CAP000300,S008,forward_head,CAL_008,PASS,12,3985.18,0.567,0.381,0.675,3D Skeleton and anatomy valid
+CAP000301,S008,forward_head,CAL_008,PASS,12,4010.65,0.504,0.392,0.667,3D Skeleton and anatomy valid
+CAP000302,S008,forward_head,CAL_008,PASS,13,3985.01,0.536,0.369,0.676,3D Skeleton and anatomy valid
+CAP000303,S008,reject,CAL_008,PASS,9,1708.39,,0.93,1.449,3D Skeleton and anatomy valid
+CAP000304,S009,upright,CAL_008,PASS,12,4396.39,0.436,0.411,0.702,3D Skeleton and anatomy valid
+CAP000305,S009,upright,CAL_008,PASS,12,4499.46,0.448,0.415,0.702,3D Skeleton and anatomy valid
+CAP000306,S009,upright,CAL_008,PASS,12,4498.78,0.44,0.409,0.732,3D Skeleton and anatomy valid
+CAP000307,S009,upright,CAL_008,PASS,12,4512.65,0.438,0.407,0.732,3D Skeleton and anatomy valid
+CAP000308,S009,upright,CAL_008,PASS,12,4512.87,0.441,0.409,0.735,3D Skeleton and anatomy valid
+CAP000309,S009,leaning_forward,CAL_008,PASS,12,4413.4,0.544,0.417,0.793,3D Skeleton and anatomy valid
+CAP000310,S009,leaning_forward,CAL_008,PASS,12,4178.5,0.535,0.413,0.771,3D Skeleton and anatomy valid
+CAP000311,S009,leaning_forward,CAL_008,PASS,12,4192.47,0.535,0.41,0.768,3D Skeleton and anatomy valid
+CAP000312,S009,leaning_forward,CAL_008,PASS,12,4170.67,0.533,0.41,0.768,3D Skeleton and anatomy valid
+CAP000313,S009,leaning_forward,CAL_008,PASS,12,4178.56,0.535,0.411,0.771,3D Skeleton and anatomy valid
+CAP000314,S009,leaning_backward,CAL_008,PASS,12,4278.48,0.421,0.413,0.748,3D Skeleton and anatomy valid
+CAP000315,S009,leaning_backward,CAL_008,PASS,12,4337.47,0.415,0.411,0.74,3D Skeleton and anatomy valid
+CAP000316,S009,leaning_backward,CAL_008,PASS,12,4342.06,0.411,0.408,0.731,3D Skeleton and anatomy valid
+CAP000317,S009,leaning_backward,CAL_008,PASS,12,4343.4,0.413,0.406,0.732,3D Skeleton and anatomy valid
+CAP000318,S009,leaning_backward,CAL_008,PASS,12,4346.92,0.422,0.406,0.741,3D Skeleton and anatomy valid
+CAP000319,S009,leaning_left,CAL_008,PASS,13,6805.52,0.392,0.418,0.701,3D Skeleton and anatomy valid
+CAP000320,S009,leaning_left,CAL_008,PASS,13,6953.31,0.37,0.416,0.754,3D Skeleton and anatomy valid
+CAP000321,S009,leaning_left,CAL_008,PASS,12,7302.06,0.38,0.418,0.76,3D Skeleton and anatomy valid
+CAP000322,S009,leaning_left,CAL_008,PASS,13,6996.66,0.371,0.403,0.779,3D Skeleton and anatomy valid
+CAP000323,S009,leaning_left,CAL_008,PASS,13,7046.0,0.377,0.397,0.825,3D Skeleton and anatomy valid
+CAP000324,S009,leaning_right,CAL_008,PASS,12,3577.39,0.523,0.436,0.808,3D Skeleton and anatomy valid
+CAP000325,S009,leaning_right,CAL_008,PASS,11,3581.98,0.519,0.448,0.818,3D Skeleton and anatomy valid
+CAP000326,S009,leaning_right,CAL_008,PASS,11,3590.62,0.525,0.588,0.784,3D Skeleton and anatomy valid
+CAP000327,S009,leaning_right,CAL_008,PASS,11,3525.73,0.536,0.444,0.842,3D Skeleton and anatomy valid
+CAP000328,S009,leaning_right,CAL_008,PASS,11,3463.72,0.534,0.443,0.863,3D Skeleton and anatomy valid
+CAP000329,S009,slouching,CAL_008,PASS,13,4095.16,0.444,0.357,0.671,3D Skeleton and anatomy valid
+CAP000330,S009,slouching,CAL_008,PASS,13,4121.13,0.452,0.361,0.701,3D Skeleton and anatomy valid
+CAP000331,S009,slouching,CAL_008,PASS,13,4163.72,0.446,0.367,0.696,3D Skeleton and anatomy valid
+CAP000332,S009,slouching,CAL_008,PASS,13,4118.9,0.421,0.362,0.668,3D Skeleton and anatomy valid
+CAP000333,S009,slouching,CAL_008,PASS,13,4181.91,0.447,0.363,0.691,3D Skeleton and anatomy valid
+CAP000334,S009,forward_head,CAL_008,PASS,12,4365.78,0.536,0.366,0.734,3D Skeleton and anatomy valid
+CAP000335,S009,forward_head,CAL_008,PASS,12,4295.47,0.481,0.364,0.697,3D Skeleton and anatomy valid
+CAP000336,S009,forward_head,CAL_008,REVIEW,12,4252.3,0.838,0.49,0.756,Moderate joint count (12/17) or minor distortion
+CAP000337,S009,forward_head,CAL_008,REVIEW,12,4313.95,0.896,0.515,0.756,Moderate joint count (12/17) or minor distortion
+CAP000338,S009,forward_head,CAL_008,REVIEW,12,4356.27,0.861,0.502,0.754,Moderate joint count (12/17) or minor distortion
+CAP000339,S009,reject,CAL_008,PASS,8,4169.45,,0.515,0.938,3D Skeleton and anatomy valid
+CAP000340,S009,reject,CAL_008,PASS,11,17363.12,0.347,0.297,,3D Skeleton and anatomy valid
+CAP000341,S010,upright,CAL_008,PASS,12,3951.61,0.397,0.369,0.624,3D Skeleton and anatomy valid
+CAP000342,S010,upright,CAL_008,PASS,12,3994.55,0.383,0.367,0.617,3D Skeleton and anatomy valid
+CAP000343,S010,upright,CAL_008,PASS,12,4008.61,0.386,0.368,0.613,3D Skeleton and anatomy valid
+CAP000344,S010,upright,CAL_008,PASS,12,3982.2,0.387,0.366,0.624,3D Skeleton and anatomy valid
+CAP000345,S010,upright,CAL_008,PASS,12,3976.36,0.39,0.37,0.621,3D Skeleton and anatomy valid
+CAP000346,S010,leaning_forward,CAL_008,PASS,11,3841.55,0.483,0.367,0.662,3D Skeleton and anatomy valid
+CAP000347,S010,leaning_forward,CAL_008,PASS,11,3837.32,0.486,0.366,0.662,3D Skeleton and anatomy valid
+CAP000348,S010,leaning_forward,CAL_008,PASS,11,3821.0,0.547,0.42,0.667,3D Skeleton and anatomy valid
+CAP000349,S010,leaning_forward,CAL_008,PASS,12,3807.09,0.508,0.396,0.667,3D Skeleton and anatomy valid
+CAP000350,S010,leaning_forward,CAL_008,PASS,12,3805.56,0.512,0.4,0.665,3D Skeleton and anatomy valid
+CAP000351,S010,leaning_backward,CAL_008,PASS,11,4176.69,0.331,0.333,0.615,3D Skeleton and anatomy valid
+CAP000352,S010,leaning_backward,CAL_008,PASS,12,4091.28,0.336,0.329,0.602,3D Skeleton and anatomy valid
+CAP000353,S010,leaning_backward,CAL_008,PASS,12,4049.45,0.344,0.334,0.611,3D Skeleton and anatomy valid
+CAP000354,S010,leaning_backward,CAL_008,PASS,12,3998.68,0.353,0.338,0.618,3D Skeleton and anatomy valid
+CAP000355,S010,leaning_backward,CAL_008,PASS,12,3957.55,0.356,0.338,0.623,3D Skeleton and anatomy valid
+CAP000356,S010,leaning_left,CAL_008,PASS,11,4110.96,0.353,0.36,0.652,3D Skeleton and anatomy valid
+CAP000357,S010,leaning_left,CAL_008,PASS,12,4059.34,0.365,0.347,0.627,3D Skeleton and anatomy valid
+CAP000358,S010,leaning_left,CAL_008,PASS,13,4090.01,0.363,0.344,0.641,3D Skeleton and anatomy valid
+CAP000359,S010,leaning_left,CAL_008,PASS,13,3794.59,0.399,0.362,0.757,3D Skeleton and anatomy valid
+CAP000360,S010,leaning_left,CAL_008,PASS,13,4022.0,0.38,0.378,0.753,3D Skeleton and anatomy valid
+CAP000361,S010,leaning_right,CAL_008,PASS,14,3353.77,0.355,0.344,0.745,3D Skeleton and anatomy valid
+CAP000362,S010,leaning_right,CAL_008,PASS,11,3154.97,0.364,0.358,0.686,3D Skeleton and anatomy valid
+CAP000363,S010,leaning_right,CAL_008,PASS,13,3474.09,0.412,0.333,0.727,3D Skeleton and anatomy valid
+CAP000364,S010,leaning_right,CAL_008,PASS,13,3419.81,0.391,0.349,0.709,3D Skeleton and anatomy valid
+CAP000365,S010,leaning_right,CAL_008,PASS,14,3620.0,0.392,0.333,0.844,3D Skeleton and anatomy valid
+CAP000366,S010,leaning_right,CAL_008,PASS,14,3722.36,0.393,0.33,0.706,3D Skeleton and anatomy valid
+CAP000367,S010,slouching,CAL_008,PASS,12,3834.93,0.395,0.329,0.627,3D Skeleton and anatomy valid
+CAP000368,S010,slouching,CAL_008,PASS,11,3896.05,0.392,0.335,0.658,3D Skeleton and anatomy valid
+CAP000369,S010,slouching,CAL_008,PASS,11,3885.1,0.386,0.334,0.654,3D Skeleton and anatomy valid
+CAP000370,S010,slouching,CAL_008,PASS,12,3857.59,0.385,0.335,0.659,3D Skeleton and anatomy valid
+CAP000371,S010,slouching,CAL_008,PASS,13,3871.62,0.407,0.319,0.66,3D Skeleton and anatomy valid
+CAP000372,S010,forward_head,CAL_008,PASS,12,3622.19,0.42,0.355,0.646,3D Skeleton and anatomy valid
+CAP000373,S010,forward_head,CAL_008,PASS,12,3597.21,0.404,0.356,0.638,3D Skeleton and anatomy valid
+CAP000374,S010,forward_head,CAL_008,PASS,12,3593.01,0.394,0.343,0.64,3D Skeleton and anatomy valid
+CAP000375,S010,forward_head,CAL_008,PASS,12,3585.94,0.397,0.333,0.643,3D Skeleton and anatomy valid
+CAP000376,S010,forward_head,CAL_008,PASS,12,3618.03,0.404,0.341,0.64,3D Skeleton and anatomy valid
+CAP000377,S010,reject,CAL_008,PASS,10,5572.81,0.217,0.454,0.962,3D Skeleton and anatomy valid
+CAP000378,S010,reject,CAL_008,PASS,13,4426.01,0.314,0.345,0.644,3D Skeleton and anatomy valid
+CAP000379,S011,upright,CAL_009,REVIEW,12,34488.18,0.489,2.299,2.836,Moderate joint count (12/17) or minor distortion
+CAP000380,S011,upright,CAL_009,REVIEW,10,35218.39,0.496,2.255,2.616,Moderate joint count (10/17) or minor distortion
+CAP000381,S011,upright,CAL_009,REVIEW,12,34477.02,0.536,2.284,2.841,Moderate joint count (12/17) or minor distortion
+CAP000382,S011,upright,CAL_009,REVIEW,12,34418.21,0.512,2.294,2.843,Moderate joint count (12/17) or minor distortion
+CAP000383,S011,upright,CAL_009,REVIEW,12,34436.0,0.508,2.29,2.846,Moderate joint count (12/17) or minor distortion
+CAP000384,S011,leaning_forward,CAL_009,PASS,10,33971.45,0.526,1.208,3.39,3D Skeleton and anatomy valid
+CAP000385,S011,leaning_forward,CAL_009,PASS,9,34778.77,0.549,1.185,3.287,3D Skeleton and anatomy valid
+CAP000386,S011,leaning_forward,CAL_009,PASS,9,34718.15,0.543,1.2,3.283,3D Skeleton and anatomy valid
+CAP000387,S011,leaning_forward,CAL_009,PASS,9,34733.35,0.559,1.231,3.273,3D Skeleton and anatomy valid
+CAP000388,S011,leaning_forward,CAL_009,PASS,10,34153.64,0.645,1.175,3.351,3D Skeleton and anatomy valid
+CAP000389,S011,leaning_backward,CAL_009,PASS,12,33452.35,0.427,2.365,2.673,3D Skeleton and anatomy valid
+CAP000390,S011,leaning_backward,CAL_009,PASS,12,33686.18,0.434,2.371,2.686,3D Skeleton and anatomy valid
+CAP000391,S011,leaning_backward,CAL_009,PASS,12,33682.88,0.414,2.371,2.677,3D Skeleton and anatomy valid
+CAP000392,S011,leaning_backward,CAL_009,PASS,12,33684.07,0.44,2.345,2.683,3D Skeleton and anatomy valid
+CAP000393,S011,leaning_backward,CAL_009,PASS,12,33595.4,0.424,2.345,2.677,3D Skeleton and anatomy valid
+CAP000394,S011,leaning_left,CAL_009,PASS,11,29616.78,0.255,2.177,3.121,3D Skeleton and anatomy valid
+CAP000395,S011,leaning_left,CAL_009,PASS,11,29563.79,0.271,2.176,3.146,3D Skeleton and anatomy valid
+CAP000396,S011,leaning_left,CAL_009,PASS,11,29859.84,0.247,2.171,3.124,3D Skeleton and anatomy valid
+CAP000397,S011,leaning_left,CAL_009,PASS,11,29906.63,0.248,2.17,3.116,3D Skeleton and anatomy valid
+CAP000398,S011,leaning_left,CAL_009,PASS,12,29844.3,0.252,2.153,3.053,3D Skeleton and anatomy valid
+CAP000399,S011,leaning_right,CAL_009,PASS,10,22763.95,0.696,1.774,3.024,3D Skeleton and anatomy valid
+CAP000400,S011,leaning_right,CAL_009,PASS,11,22117.74,0.702,1.775,3.228,3D Skeleton and anatomy valid
+CAP000401,S011,leaning_right,CAL_009,PASS,11,22106.53,0.694,1.78,3.184,3D Skeleton and anatomy valid
+CAP000402,S011,leaning_right,CAL_009,PASS,11,22216.9,0.714,1.769,3.087,3D Skeleton and anatomy valid
+CAP000403,S011,leaning_right,CAL_009,PASS,10,21359.01,0.705,1.764,3.098,3D Skeleton and anatomy valid
+CAP000404,S011,slouching,CAL_009,PASS,12,34329.92,0.539,2.114,2.89,3D Skeleton and anatomy valid
+CAP000405,S011,slouching,CAL_009,PASS,12,34241.71,0.573,2.149,2.901,3D Skeleton and anatomy valid
+CAP000406,S011,slouching,CAL_009,PASS,12,34318.63,0.592,2.145,2.897,3D Skeleton and anatomy valid
+CAP000407,S011,slouching,CAL_009,PASS,12,34352.65,0.529,2.137,2.885,3D Skeleton and anatomy valid
+CAP000408,S011,slouching,CAL_009,PASS,12,34438.77,0.535,2.144,2.87,3D Skeleton and anatomy valid
+CAP000409,S011,forward_head,CAL_009,REVIEW,10,33256.79,0.811,1.754,3.194,Moderate joint count (10/17) or minor distortion
+CAP000410,S011,forward_head,CAL_009,REVIEW,10,33555.44,0.654,1.93,2.984,Moderate joint count (10/17) or minor distortion
+CAP000411,S011,forward_head,CAL_009,REVIEW,10,34176.45,0.864,1.922,2.883,Moderate joint count (10/17) or minor distortion
+CAP000412,S011,forward_head,CAL_009,REVIEW,11,33506.74,0.832,1.946,3.022,Moderate joint count (11/17) or minor distortion
+CAP000413,S011,forward_head,CAL_009,REVIEW,11,33488.58,0.841,1.951,3.024,Moderate joint count (11/17) or minor distortion
+CAP000414,S011,reject,CAL_009,PASS,11,32237.31,0.452,1.889,3.061,3D Skeleton and anatomy valid
+CAP000415,S011,reject,CAL_009,REVIEW,11,30332.99,1.986,1.449,3.341,Moderate joint count (11/17) or minor distortion
+CAP000416,S012,upright,CAL_009,REVIEW,11,34750.62,0.442,2.597,3.161,Moderate joint count (11/17) or minor distortion
+CAP000417,S012,upright,CAL_009,REVIEW,12,35050.48,0.43,2.591,3.108,Moderate joint count (12/17) or minor distortion
+CAP000418,S012,upright,CAL_009,REVIEW,11,34571.06,0.432,2.633,3.175,Moderate joint count (11/17) or minor distortion
+CAP000419,S012,upright,CAL_009,REVIEW,11,34512.96,0.432,2.602,3.181,Moderate joint count (11/17) or minor distortion
+CAP000420,S012,upright,CAL_009,REVIEW,10,35323.03,0.437,2.596,3.03,Moderate joint count (10/17) or minor distortion
+CAP000421,S012,leaning_forward,CAL_009,PASS,12,33695.92,0.629,2.263,3.282,3D Skeleton and anatomy valid
+CAP000422,S012,leaning_forward,CAL_009,PASS,12,34312.0,0.539,2.421,3.162,3D Skeleton and anatomy valid
+CAP000423,S012,leaning_forward,CAL_009,PASS,12,33757.59,0.735,2.281,3.275,3D Skeleton and anatomy valid
+CAP000424,S012,leaning_forward,CAL_009,PASS,12,33584.5,0.62,2.281,3.301,3D Skeleton and anatomy valid
+CAP000425,S012,leaning_forward,CAL_009,PASS,12,33702.93,0.645,2.292,3.292,3D Skeleton and anatomy valid
+CAP000426,S012,leaning_backward,CAL_009,PASS,12,35127.79,0.363,2.395,2.786,3D Skeleton and anatomy valid
+CAP000427,S012,leaning_backward,CAL_009,PASS,12,34881.83,0.348,2.363,2.789,3D Skeleton and anatomy valid
+CAP000428,S012,leaning_backward,CAL_009,PASS,12,34939.97,0.363,2.358,2.782,3D Skeleton and anatomy valid
+CAP000429,S012,leaning_backward,CAL_009,PASS,12,35044.36,0.36,2.346,2.772,3D Skeleton and anatomy valid
+CAP000430,S012,leaning_backward,CAL_009,PASS,12,35160.98,0.356,2.387,2.757,3D Skeleton and anatomy valid
+CAP000431,S012,leaning_left,CAL_009,PASS,11,34126.38,0.289,2.626,2.636,3D Skeleton and anatomy valid
+CAP000432,S012,leaning_left,CAL_009,PASS,12,33251.8,0.285,2.63,2.808,3D Skeleton and anatomy valid
+CAP000433,S012,leaning_left,CAL_009,PASS,12,33067.46,0.289,2.67,2.827,3D Skeleton and anatomy valid
+CAP000434,S012,leaning_left,CAL_009,PASS,12,33145.83,0.294,2.654,2.823,3D Skeleton and anatomy valid
+CAP000435,S012,leaning_left,CAL_009,PASS,12,33071.65,0.299,2.659,2.821,3D Skeleton and anatomy valid
+CAP000436,S012,leaning_right,CAL_009,REVIEW,12,33955.81,1.478,2.368,2.819,Moderate joint count (12/17) or minor distortion
+CAP000437,S012,leaning_right,CAL_009,REVIEW,12,34017.03,1.589,2.355,2.824,Moderate joint count (12/17) or minor distortion
+CAP000438,S012,leaning_right,CAL_009,REVIEW,12,34321.58,2.05,2.383,2.863,Moderate joint count (12/17) or minor distortion
+CAP000439,S012,leaning_right,CAL_009,PASS,12,36565.77,0.393,2.541,2.725,3D Skeleton and anatomy valid
+CAP000440,S012,leaning_right,CAL_009,PASS,12,36465.81,0.389,2.58,2.741,3D Skeleton and anatomy valid
+CAP000441,S012,slouching,CAL_009,PASS,12,34243.18,0.437,2.575,2.922,3D Skeleton and anatomy valid
+CAP000442,S012,slouching,CAL_009,PASS,12,33963.73,0.456,2.54,2.947,3D Skeleton and anatomy valid
+CAP000443,S012,slouching,CAL_009,PASS,12,33963.21,0.466,2.547,2.957,3D Skeleton and anatomy valid
+CAP000444,S012,slouching,CAL_009,PASS,12,33943.66,0.449,2.542,2.95,3D Skeleton and anatomy valid
+CAP000445,S012,slouching,CAL_009,PASS,12,33987.16,0.452,2.532,2.942,3D Skeleton and anatomy valid
+CAP000446,S012,forward_head,CAL_009,REVIEW,11,32286.29,0.47,2.384,3.312,Moderate joint count (11/17) or minor distortion
+CAP000447,S012,forward_head,CAL_009,REVIEW,12,32544.68,0.448,2.412,3.259,Moderate joint count (12/17) or minor distortion
+CAP000448,S012,forward_head,CAL_009,REVIEW,11,32570.82,0.432,2.432,3.252,Moderate joint count (11/17) or minor distortion
+CAP000449,S012,forward_head,CAL_009,REVIEW,11,32614.59,0.467,2.431,3.237,Moderate joint count (11/17) or minor distortion
+CAP000450,S012,forward_head,CAL_009,REVIEW,11,32692.21,0.444,2.449,3.22,Moderate joint count (11/17) or minor distortion
+CAP000451,S012,reject,CAL_009,REVIEW,13,25461.74,1.332,0.761,3.928,Moderate joint count (13/17) or minor distortion
+CAP000452,S012,reject,CAL_009,PASS,9,33871.36,,2.948,3.047,3D Skeleton and anatomy valid
+CAP000453,S013,upright,CAL_009,REVIEW,11,32283.37,2.094,1.991,2.585,Moderate joint count (11/17) or minor distortion
+CAP000454,S013,upright,CAL_009,REVIEW,11,38094.13,0.342,2.067,2.45,Moderate joint count (11/17) or minor distortion
+CAP000455,S013,upright,CAL_009,REVIEW,13,31609.28,0.768,2.127,3.067,Moderate joint count (13/17) or minor distortion
+CAP000456,S013,upright,CAL_009,REVIEW,13,31499.86,0.753,2.09,3.07,Moderate joint count (13/17) or minor distortion
+CAP000457,S013,upright,CAL_009,REVIEW,13,31676.67,0.782,2.103,3.09,Moderate joint count (13/17) or minor distortion
+CAP000458,S013,leaning_forward,CAL_009,REVIEW,12,27351.19,3.492,1.153,3.763,Moderate joint count (12/17) or minor distortion
+CAP000459,S013,leaning_forward,CAL_009,REVIEW,10,25137.7,3.718,1.307,3.629,Moderate joint count (10/17) or minor distortion
+CAP000460,S013,leaning_forward,CAL_009,REVIEW,10,24865.57,4.904,1.441,3.499,Moderate joint count (10/17) or minor distortion
+CAP000461,S013,leaning_forward,CAL_009,REVIEW,9,23592.63,4.546,1.324,3.598,Moderate joint count (9/17) or minor distortion
+CAP000462,S013,leaning_forward,CAL_009,REVIEW,10,25476.1,4.054,1.146,3.559,Moderate joint count (10/17) or minor distortion
+CAP000463,S013,leaning_backward,CAL_009,PASS,13,32193.32,0.828,2.302,3.134,3D Skeleton and anatomy valid
+CAP000464,S013,leaning_backward,CAL_009,PASS,13,31987.23,0.916,2.297,2.904,3D Skeleton and anatomy valid
+CAP000465,S013,leaning_backward,CAL_009,PASS,13,32103.24,0.821,2.317,2.9,3D Skeleton and anatomy valid
+CAP000466,S013,leaning_backward,CAL_009,PASS,13,32386.29,0.765,2.234,3.1,3D Skeleton and anatomy valid
+CAP000467,S013,leaning_left,CAL_009,PASS,11,30878.16,0.306,1.843,2.473,3D Skeleton and anatomy valid
+CAP000468,S013,leaning_left,CAL_009,PASS,11,31598.62,0.338,1.845,2.361,3D Skeleton and anatomy valid
+CAP000469,S013,leaning_left,CAL_009,PASS,13,31402.73,0.293,2.133,2.949,3D Skeleton and anatomy valid
+CAP000470,S013,leaning_left,CAL_009,PASS,11,31516.62,0.315,1.929,2.378,3D Skeleton and anatomy valid
+CAP000471,S013,leaning_left,CAL_009,PASS,11,34671.3,0.304,1.633,2.28,3D Skeleton and anatomy valid
+CAP000472,S013,leaning_right,CAL_009,PASS,11,27588.7,0.557,1.953,3.006,3D Skeleton and anatomy valid
+CAP000473,S013,leaning_right,CAL_009,PASS,11,27366.32,0.561,1.98,2.982,3D Skeleton and anatomy valid
+CAP000474,S013,leaning_right,CAL_009,PASS,13,28298.32,0.561,2.09,3.162,3D Skeleton and anatomy valid
+CAP000475,S013,leaning_right,CAL_009,PASS,13,28256.3,0.598,2.132,3.232,3D Skeleton and anatomy valid
+CAP000476,S013,leaning_right,CAL_009,PASS,12,28189.33,0.582,2.013,3.161,3D Skeleton and anatomy valid
+CAP000477,S013,slouching,CAL_009,PASS,11,31775.61,1.033,2.064,2.459,3D Skeleton and anatomy valid
+CAP000478,S013,slouching,CAL_009,PASS,11,31455.13,1.096,1.992,2.5,3D Skeleton and anatomy valid
+CAP000479,S013,slouching,CAL_009,PASS,11,31451.86,1.113,2.055,2.696,3D Skeleton and anatomy valid
+CAP000480,S013,slouching,CAL_009,PASS,11,31560.15,0.929,2.133,2.733,3D Skeleton and anatomy valid
+CAP000481,S013,slouching,CAL_009,PASS,11,31543.7,0.939,1.94,2.558,3D Skeleton and anatomy valid
+CAP000482,S013,forward_head,CAL_009,REVIEW,6,24507.84,4.829,1.652,3.09,Moderate joint count (6/17) or minor distortion
+CAP000483,S013,forward_head,CAL_009,REVIEW,7,22982.21,,3.972,3.716,Moderate joint count (7/17) or minor distortion
+CAP000484,S013,forward_head,CAL_009,REVIEW,6,21664.64,,4.504,3.414,Moderate joint count (6/17) or minor distortion
+CAP000485,S013,forward_head,CAL_009,REVIEW,8,24426.19,,4.094,3.678,Moderate joint count (8/17) or minor distortion
+CAP000486,S013,forward_head,CAL_009,REVIEW,6,18066.14,,3.501,3.544,Moderate joint count (6/17) or minor distortion
+CAP000487,S013,reject,CAL_009,REVIEW,7,27220.9,,15.902,3.708,Moderate joint count (7/17) or minor distortion
+CAP000488,S014,upright,CAL_009,REVIEW,11,32418.44,1.005,1.864,2.693,Moderate joint count (11/17) or minor distortion
+CAP000489,S014,upright,CAL_009,REVIEW,11,32418.58,1.11,1.914,2.708,Moderate joint count (11/17) or minor distortion
+CAP000490,S014,upright,CAL_009,REVIEW,11,32544.88,1.087,1.979,2.674,Moderate joint count (11/17) or minor distortion
+CAP000491,S014,upright,CAL_009,REVIEW,11,33000.44,1.045,1.849,2.624,Moderate joint count (11/17) or minor distortion
+CAP000492,S014,upright,CAL_009,REVIEW,11,32275.31,1.15,1.905,2.722,Moderate joint count (11/17) or minor distortion
+CAP000493,S014,leaning_forward,CAL_009,REVIEW,11,30152.96,1.373,1.403,2.992,Moderate joint count (11/17) or minor distortion
+CAP000494,S014,leaning_forward,CAL_009,REVIEW,11,30164.77,1.369,1.35,3.035,Moderate joint count (11/17) or minor distortion
+CAP000495,S014,leaning_forward,CAL_009,REVIEW,11,30201.84,1.297,1.421,2.96,Moderate joint count (11/17) or minor distortion
+CAP000496,S014,leaning_forward,CAL_009,REVIEW,11,30023.91,1.393,1.434,3.035,Moderate joint count (11/17) or minor distortion
+CAP000497,S014,leaning_backward,CAL_009,REVIEW,11,30876.48,1.802,1.951,2.842,Moderate joint count (11/17) or minor distortion
+CAP000498,S014,leaning_backward,CAL_009,REVIEW,11,30395.02,1.583,1.886,2.862,Moderate joint count (11/17) or minor distortion
+CAP000499,S014,leaning_backward,CAL_009,REVIEW,11,30419.78,1.518,1.741,2.796,Moderate joint count (11/17) or minor distortion
+CAP000500,S014,leaning_backward,CAL_009,REVIEW,11,30622.43,1.315,1.852,2.766,Moderate joint count (11/17) or minor distortion
+CAP000501,S014,leaning_backward,CAL_009,REVIEW,11,30574.03,1.541,1.883,2.801,Moderate joint count (11/17) or minor distortion
+CAP000502,S014,leaning_left,CAL_009,PASS,12,33022.83,0.286,2.032,2.727,3D Skeleton and anatomy valid
+CAP000503,S014,leaning_left,CAL_009,PASS,12,33074.08,0.296,1.995,2.704,3D Skeleton and anatomy valid
+CAP000504,S014,leaning_left,CAL_009,PASS,12,34046.9,0.293,2.138,2.421,3D Skeleton and anatomy valid
+CAP000505,S014,leaning_left,CAL_009,PASS,12,33920.38,0.289,2.142,2.556,3D Skeleton and anatomy valid
+CAP000506,S014,leaning_left,CAL_009,PASS,12,33746.32,0.283,2.091,2.563,3D Skeleton and anatomy valid
+CAP000507,S014,leaning_right,CAL_009,PASS,11,28146.92,0.493,2.325,3.339,3D Skeleton and anatomy valid
+CAP000508,S014,leaning_right,CAL_009,PASS,11,28315.35,0.504,2.336,3.352,3D Skeleton and anatomy valid
+CAP000509,S014,leaning_right,CAL_009,PASS,11,28130.33,0.503,2.285,3.285,3D Skeleton and anatomy valid
+CAP000510,S014,leaning_right,CAL_009,PASS,11,28136.3,0.498,2.326,3.334,3D Skeleton and anatomy valid
+CAP000511,S014,slouching,CAL_009,PASS,11,31040.11,1.096,2.129,2.582,3D Skeleton and anatomy valid
+CAP000512,S014,slouching,CAL_009,PASS,11,31094.05,1.091,2.059,2.569,3D Skeleton and anatomy valid
+CAP000513,S014,slouching,CAL_009,PASS,11,30980.41,1.005,2.157,2.608,3D Skeleton and anatomy valid
+CAP000514,S014,slouching,CAL_009,PASS,11,31098.63,0.997,2.035,2.57,3D Skeleton and anatomy valid
+CAP000515,S014,slouching,CAL_009,PASS,11,30947.46,1.084,2.041,2.55,3D Skeleton and anatomy valid
+CAP000516,S014,forward_head,CAL_009,REVIEW,11,31742.37,1.153,2.067,2.42,Moderate joint count (11/17) or minor distortion
+CAP000517,S014,forward_head,CAL_009,REVIEW,11,30885.92,1.131,2.092,2.735,Moderate joint count (11/17) or minor distortion
+CAP000518,S014,forward_head,CAL_009,REVIEW,9,27547.92,1.371,2.048,3.065,Moderate joint count (9/17) or minor distortion
+CAP000519,S014,forward_head,CAL_009,REVIEW,11,30473.03,1.155,2.081,2.755,Moderate joint count (11/17) or minor distortion
+CAP000520,S014,forward_head,CAL_009,REVIEW,11,30855.05,1.025,2.028,2.681,Moderate joint count (11/17) or minor distortion
+CAP000521,S014,reject,CAL_009,REVIEW,9,28004.05,1.878,1.403,3.337,Moderate joint count (9/17) or minor distortion
+CAP000522,S014,reject,CAL_009,REVIEW,9,29226.7,1.756,1.285,3.141,Moderate joint count (9/17) or minor distortion
+CAP000523,S015,upright,CAL_009,REVIEW,11,35365.15,0.309,2.348,2.781,Moderate joint count (11/17) or minor distortion
+CAP000524,S015,upright,CAL_009,REVIEW,11,35332.46,0.311,2.34,2.778,Moderate joint count (11/17) or minor distortion
+CAP000525,S015,upright,CAL_009,REVIEW,11,35391.86,0.307,2.383,2.813,Moderate joint count (11/17) or minor distortion
+CAP000526,S015,upright,CAL_009,REVIEW,12,35897.99,0.299,2.443,2.787,Moderate joint count (12/17) or minor distortion
+CAP000527,S015,upright,CAL_009,REVIEW,11,35321.13,0.311,2.404,2.795,Moderate joint count (11/17) or minor distortion
+CAP000528,S015,leaning_forward,CAL_009,PASS,11,34221.55,0.58,2.331,3.044,3D Skeleton and anatomy valid
+CAP000529,S015,leaning_forward,CAL_009,PASS,11,34195.22,0.648,2.331,2.995,3D Skeleton and anatomy valid
+CAP000530,S015,leaning_forward,CAL_009,PASS,11,34285.4,0.58,2.386,3.023,3D Skeleton and anatomy valid
+CAP000531,S015,leaning_forward,CAL_009,PASS,11,34251.06,0.639,2.401,3.02,3D Skeleton and anatomy valid
+CAP000532,S015,leaning_forward,CAL_009,PASS,11,34315.41,0.621,2.357,2.977,3D Skeleton and anatomy valid
+CAP000533,S015,leaning_backward,CAL_009,PASS,11,35758.2,0.403,2.363,2.681,3D Skeleton and anatomy valid
+CAP000534,S015,leaning_backward,CAL_009,PASS,12,36636.91,0.452,2.203,2.545,3D Skeleton and anatomy valid
+CAP000535,S015,leaning_backward,CAL_009,PASS,11,35878.28,0.456,2.279,2.601,3D Skeleton and anatomy valid
+CAP000536,S015,leaning_backward,CAL_009,PASS,11,35900.73,0.465,2.265,2.589,3D Skeleton and anatomy valid
+CAP000537,S015,leaning_backward,CAL_009,PASS,11,35859.76,0.447,2.282,2.603,3D Skeleton and anatomy valid
+CAP000538,S015,leaning_left,CAL_009,PASS,12,32552.08,0.237,2.533,2.943,3D Skeleton and anatomy valid
+CAP000539,S015,leaning_left,CAL_009,PASS,12,32582.23,0.237,2.519,2.924,3D Skeleton and anatomy valid
+CAP000540,S015,leaning_left,CAL_009,PASS,12,32348.7,0.236,2.594,2.954,3D Skeleton and anatomy valid
+CAP000541,S015,leaning_left,CAL_009,PASS,12,32426.55,0.237,2.543,2.925,3D Skeleton and anatomy valid
+CAP000542,S015,leaning_left,CAL_009,PASS,12,32330.47,0.244,2.55,2.951,3D Skeleton and anatomy valid
+CAP000543,S015,leaning_right,CAL_009,PASS,12,32256.26,0.772,2.42,2.776,3D Skeleton and anatomy valid
+CAP000544,S015,leaning_right,CAL_009,PASS,12,32601.92,0.672,2.31,2.746,3D Skeleton and anatomy valid
+CAP000545,S015,leaning_right,CAL_009,PASS,12,32438.79,0.633,2.301,2.733,3D Skeleton and anatomy valid
+CAP000546,S015,leaning_right,CAL_009,PASS,12,32139.72,0.749,2.418,2.791,3D Skeleton and anatomy valid
+CAP000547,S015,leaning_right,CAL_009,PASS,11,30623.95,0.802,2.352,2.876,3D Skeleton and anatomy valid
+CAP000548,S015,slouching,CAL_009,PASS,11,35382.75,0.362,2.176,2.962,3D Skeleton and anatomy valid
+CAP000549,S015,slouching,CAL_009,PASS,11,35630.88,0.345,2.282,2.897,3D Skeleton and anatomy valid
+CAP000550,S015,slouching,CAL_009,PASS,10,35820.7,0.349,2.366,2.814,3D Skeleton and anatomy valid
+CAP000551,S015,slouching,CAL_009,PASS,10,35888.44,0.344,2.359,2.79,3D Skeleton and anatomy valid
+CAP000552,S015,slouching,CAL_009,PASS,11,34751.84,0.364,2.391,3.014,3D Skeleton and anatomy valid
+CAP000553,S015,forward_head,CAL_009,REVIEW,8,31199.09,0.64,1.791,3.05,Moderate joint count (8/17) or minor distortion
+CAP000554,S015,forward_head,CAL_009,REVIEW,9,34119.84,0.651,1.86,3.272,Moderate joint count (9/17) or minor distortion
+CAP000555,S015,forward_head,CAL_009,REVIEW,9,34070.32,0.703,1.898,3.248,Moderate joint count (9/17) or minor distortion
+CAP000556,S015,forward_head,CAL_009,REVIEW,8,34911.67,0.712,1.757,3.158,Moderate joint count (8/17) or minor distortion
+CAP000557,S015,forward_head,CAL_009,REVIEW,9,34083.05,0.577,1.726,3.319,Moderate joint count (9/17) or minor distortion
+CAP000558,S015,forward_head,CAL_009,REVIEW,8,34926.42,0.635,1.766,3.159,Moderate joint count (8/17) or minor distortion
+CAP000559,S015,reject,CAL_009,REVIEW,9,30001.22,1.225,1.054,3.652,Moderate joint count (9/17) or minor distortion
+CAP000560,S015,reject,CAL_009,REVIEW,11,33539.93,3.463,3.282,2.484,Moderate joint count (11/17) or minor distortion
+CAP000561,S016,upright,CAL_009,REVIEW,14,31393.52,0.308,2.609,2.822,Moderate joint count (14/17) or minor distortion
+CAP000562,S016,upright,CAL_009,REVIEW,14,31369.74,0.312,2.59,2.857,Moderate joint count (14/17) or minor distortion
+CAP000563,S016,upright,CAL_009,REVIEW,14,31315.58,0.313,2.596,2.864,Moderate joint count (14/17) or minor distortion
+CAP000564,S016,upright,CAL_009,REVIEW,14,31338.88,0.315,2.618,2.87,Moderate joint count (14/17) or minor distortion
+CAP000565,S016,upright,CAL_009,REVIEW,14,31251.85,0.316,2.599,2.85,Moderate joint count (14/17) or minor distortion
+CAP000566,S016,leaning_forward,CAL_009,PASS,13,30974.41,0.425,2.5,3.272,3D Skeleton and anatomy valid
+CAP000567,S016,leaning_forward,CAL_009,PASS,13,31162.6,0.385,2.584,3.233,3D Skeleton and anatomy valid
+CAP000568,S016,leaning_forward,CAL_009,PASS,14,30351.87,0.39,2.559,3.24,3D Skeleton and anatomy valid
+CAP000569,S016,leaning_forward,CAL_009,PASS,14,30363.73,0.458,2.523,3.248,3D Skeleton and anatomy valid
+CAP000570,S016,leaning_forward,CAL_009,PASS,13,31317.78,0.425,2.54,3.247,3D Skeleton and anatomy valid
+CAP000571,S016,leaning_backward,CAL_009,PASS,14,30373.18,0.306,2.369,2.84,3D Skeleton and anatomy valid
+CAP000572,S016,leaning_backward,CAL_009,PASS,14,30718.66,0.324,2.317,2.785,3D Skeleton and anatomy valid
+CAP000573,S016,leaning_backward,CAL_009,PASS,14,30692.75,0.323,2.358,2.803,3D Skeleton and anatomy valid
+CAP000574,S016,leaning_backward,CAL_009,PASS,14,30610.37,0.325,2.356,2.818,3D Skeleton and anatomy valid
+CAP000575,S016,leaning_backward,CAL_009,PASS,14,30559.4,0.327,2.348,2.799,3D Skeleton and anatomy valid
+CAP000576,S016,leaning_left,CAL_009,PASS,14,29079.96,0.267,2.594,2.837,3D Skeleton and anatomy valid
+CAP000577,S016,leaning_left,CAL_009,PASS,14,29222.39,0.269,2.609,2.829,3D Skeleton and anatomy valid
+CAP000578,S016,leaning_left,CAL_009,PASS,14,29339.22,0.269,2.586,2.822,3D Skeleton and anatomy valid
+CAP000579,S016,leaning_left,CAL_009,PASS,14,29270.12,0.271,2.588,2.826,3D Skeleton and anatomy valid
+CAP000580,S016,leaning_left,CAL_009,PASS,14,29280.76,0.265,2.59,2.818,3D Skeleton and anatomy valid
+CAP000581,S016,leaning_right,CAL_009,PASS,13,36160.37,0.351,2.438,2.771,3D Skeleton and anatomy valid
+CAP000582,S016,leaning_right,CAL_009,PASS,13,36649.54,0.34,2.406,2.697,3D Skeleton and anatomy valid
+CAP000583,S016,leaning_right,CAL_009,PASS,13,36487.58,0.346,2.403,2.686,3D Skeleton and anatomy valid
+CAP000584,S016,leaning_right,CAL_009,PASS,13,36535.93,0.355,2.439,2.698,3D Skeleton and anatomy valid
+CAP000585,S016,leaning_right,CAL_009,PASS,13,36575.17,0.349,2.426,2.685,3D Skeleton and anatomy valid
+CAP000586,S016,slouching,CAL_009,PASS,14,29551.49,0.555,2.407,3.238,3D Skeleton and anatomy valid
+CAP000587,S016,slouching,CAL_009,PASS,13,29030.83,0.53,2.388,3.346,3D Skeleton and anatomy valid
+CAP000588,S016,slouching,CAL_009,PASS,14,29360.65,0.524,2.407,3.292,3D Skeleton and anatomy valid
+CAP000589,S016,slouching,CAL_009,PASS,14,29366.07,0.499,2.457,3.288,3D Skeleton and anatomy valid
+CAP000590,S016,slouching,CAL_009,PASS,14,29311.53,0.504,2.463,3.304,3D Skeleton and anatomy valid
+CAP000591,S016,forward_head,CAL_009,REVIEW,14,28303.37,0.654,2.029,3.678,Moderate joint count (14/17) or minor distortion
+CAP000592,S016,forward_head,CAL_009,REVIEW,14,28087.38,0.566,2.011,3.76,Moderate joint count (14/17) or minor distortion
+CAP000593,S016,forward_head,CAL_009,REVIEW,14,28052.52,0.576,1.975,3.763,Moderate joint count (14/17) or minor distortion
+CAP000594,S016,forward_head,CAL_009,REVIEW,14,28145.63,0.56,1.976,3.767,Moderate joint count (14/17) or minor distortion
+CAP000595,S016,forward_head,CAL_009,REVIEW,14,28159.59,0.539,1.967,3.743,Moderate joint count (14/17) or minor distortion
+CAP000596,S016,reject,CAL_009,PASS,13,36847.64,0.432,1.843,2.839,3D Skeleton and anatomy valid
+CAP000597,S017,upright,CAL_009,REVIEW,9,36734.66,0.554,2.506,2.577,Moderate joint count (9/17) or minor distortion
+CAP000598,S017,upright,CAL_009,REVIEW,9,35881.67,0.581,2.468,2.884,Moderate joint count (9/17) or minor distortion
+CAP000599,S017,upright,CAL_009,REVIEW,9,35770.39,0.587,2.45,2.918,Moderate joint count (9/17) or minor distortion
+CAP000600,S017,upright,CAL_009,REVIEW,10,35266.65,0.583,2.41,3.02,Moderate joint count (10/17) or minor distortion
+CAP000601,S017,upright,CAL_009,REVIEW,9,35680.32,0.545,2.442,2.913,Moderate joint count (9/17) or minor distortion
+CAP000602,S017,leaning_forward,CAL_009,PASS,9,34141.67,0.749,1.89,3.316,3D Skeleton and anatomy valid
+CAP000603,S017,leaning_forward,CAL_009,PASS,10,33176.76,0.617,1.869,3.438,3D Skeleton and anatomy valid
+CAP000604,S017,leaning_forward,CAL_009,PASS,11,32713.05,0.62,1.864,3.417,3D Skeleton and anatomy valid
+CAP000605,S017,leaning_forward,CAL_009,PASS,11,32842.14,0.634,2.023,3.356,3D Skeleton and anatomy valid
+CAP000606,S017,leaning_forward,CAL_009,PASS,11,32636.48,0.598,2.061,3.399,3D Skeleton and anatomy valid
+CAP000607,S017,leaning_backward,CAL_009,PASS,9,36510.62,0.418,2.529,2.623,3D Skeleton and anatomy valid
+CAP000608,S017,leaning_backward,CAL_009,PASS,9,36487.58,0.362,2.602,2.655,3D Skeleton and anatomy valid
+CAP000609,S017,leaning_backward,CAL_009,PASS,9,36505.55,0.397,2.551,2.66,3D Skeleton and anatomy valid
+CAP000610,S017,leaning_backward,CAL_009,PASS,10,35357.12,0.387,2.56,2.689,3D Skeleton and anatomy valid
+CAP000611,S017,leaning_backward,CAL_009,PASS,9,36479.15,0.364,2.619,2.656,3D Skeleton and anatomy valid
+CAP000612,S017,leaning_left,CAL_009,PASS,12,30322.17,0.582,2.411,3.251,3D Skeleton and anatomy valid
+CAP000613,S017,leaning_left,CAL_009,PASS,11,30584.69,0.492,2.454,3.2,3D Skeleton and anatomy valid
+CAP000614,S017,leaning_left,CAL_009,PASS,10,30766.69,0.524,2.53,3.195,3D Skeleton and anatomy valid
+CAP000615,S017,leaning_left,CAL_009,PASS,11,30428.45,0.45,2.474,3.313,3D Skeleton and anatomy valid
+CAP000616,S017,leaning_left,CAL_009,PASS,11,30391.11,0.521,2.454,3.292,3D Skeleton and anatomy valid
+CAP000617,S017,leaning_right,CAL_009,REVIEW,7,27086.4,1.405,2.007,3.204,Moderate joint count (7/17) or minor distortion
+CAP000618,S017,leaning_right,CAL_009,REVIEW,7,23199.03,1.355,2.044,3.164,Moderate joint count (7/17) or minor distortion
+CAP000619,S017,leaning_right,CAL_009,REVIEW,7,23480.09,1.263,2.051,3.116,Moderate joint count (7/17) or minor distortion
+CAP000620,S017,leaning_right,CAL_009,REVIEW,7,23434.81,1.303,2.036,3.089,Moderate joint count (7/17) or minor distortion
+CAP000621,S017,leaning_right,CAL_009,REVIEW,7,22864.4,1.281,2.035,3.101,Moderate joint count (7/17) or minor distortion
+CAP000622,S017,slouching,CAL_009,PASS,10,33868.75,0.619,2.343,3.115,3D Skeleton and anatomy valid
+CAP000623,S017,slouching,CAL_009,PASS,9,33931.96,0.603,2.368,3.032,3D Skeleton and anatomy valid
+CAP000624,S017,slouching,CAL_009,PASS,9,34130.89,0.574,2.344,3.01,3D Skeleton and anatomy valid
+CAP000625,S017,slouching,CAL_009,PASS,9,33995.94,0.586,2.392,3.03,3D Skeleton and anatomy valid
+CAP000626,S017,slouching,CAL_009,PASS,9,34011.06,0.621,2.372,3.041,3D Skeleton and anatomy valid
+CAP000627,S017,forward_head,CAL_009,REVIEW,10,33363.92,0.606,1.99,3.207,Moderate joint count (10/17) or minor distortion
+CAP000628,S017,forward_head,CAL_009,REVIEW,10,33899.86,0.683,2.063,3.315,Moderate joint count (10/17) or minor distortion
+CAP000629,S017,forward_head,CAL_009,REVIEW,9,33687.27,0.64,1.89,3.247,Moderate joint count (9/17) or minor distortion
+CAP000630,S017,forward_head,CAL_009,REVIEW,7,35047.97,0.584,1.729,3.177,Moderate joint count (7/17) or minor distortion
+CAP000631,S017,forward_head,CAL_009,REVIEW,9,33759.19,0.631,1.869,3.368,Moderate joint count (9/17) or minor distortion
+CAP000632,S017,reject,CAL_009,PASS,13,40745.46,0.466,1.456,2.433,3D Skeleton and anatomy valid
+CAP000633,S018,upright,CAL_009,REVIEW,12,34789.89,0.375,2.487,2.904,Moderate joint count (12/17) or minor distortion
+CAP000634,S018,upright,CAL_009,REVIEW,12,34670.37,0.388,2.436,2.949,Moderate joint count (12/17) or minor distortion
+CAP000635,S018,upright,CAL_009,REVIEW,12,34813.21,0.382,2.465,2.893,Moderate joint count (12/17) or minor distortion
+CAP000636,S018,upright,CAL_009,REVIEW,12,34857.59,0.371,2.462,2.926,Moderate joint count (12/17) or minor distortion
+CAP000637,S018,upright,CAL_009,REVIEW,12,34822.03,0.375,2.477,2.924,Moderate joint count (12/17) or minor distortion
+CAP000638,S018,leaning_forward,CAL_009,PASS,12,29459.4,0.374,2.398,2.928,3D Skeleton and anatomy valid
+CAP000639,S018,leaning_forward,CAL_009,PASS,13,30240.65,0.472,2.295,3.432,3D Skeleton and anatomy valid
+CAP000640,S018,leaning_forward,CAL_009,PASS,12,30047.69,0.393,2.337,3.409,3D Skeleton and anatomy valid
+CAP000641,S018,leaning_forward,CAL_009,PASS,12,31230.74,0.408,2.387,2.857,3D Skeleton and anatomy valid
+CAP000642,S018,leaning_forward,CAL_009,PASS,11,31005.76,0.415,2.376,2.803,3D Skeleton and anatomy valid
+CAP000643,S018,leaning_backward,CAL_009,PASS,12,34535.15,0.313,2.532,2.797,3D Skeleton and anatomy valid
+CAP000644,S018,leaning_backward,CAL_009,PASS,13,34750.86,0.309,2.542,2.709,3D Skeleton and anatomy valid
+CAP000645,S018,leaning_backward,CAL_009,PASS,12,34555.34,0.304,2.543,2.636,3D Skeleton and anatomy valid
+CAP000646,S018,leaning_backward,CAL_009,PASS,12,34555.59,0.306,2.526,2.61,3D Skeleton and anatomy valid
+CAP000647,S018,leaning_backward,CAL_009,PASS,14,33725.11,0.309,2.523,2.883,3D Skeleton and anatomy valid
+CAP000648,S018,leaning_left,CAL_009,PASS,12,30544.42,0.328,2.148,3.119,3D Skeleton and anatomy valid
+CAP000649,S018,leaning_left,CAL_009,PASS,12,30813.35,0.345,2.168,3.134,3D Skeleton and anatomy valid
+CAP000650,S018,leaning_left,CAL_009,PASS,12,30621.04,0.376,2.161,3.183,3D Skeleton and anatomy valid
+CAP000651,S018,leaning_left,CAL_009,PASS,12,30565.36,0.396,2.124,3.177,3D Skeleton and anatomy valid
+CAP000652,S018,leaning_left,CAL_009,PASS,13,30457.12,0.392,2.126,3.136,3D Skeleton and anatomy valid
+CAP000653,S018,leaning_right,CAL_009,PASS,11,27909.34,0.471,2.287,3.241,3D Skeleton and anatomy valid
+CAP000654,S018,leaning_right,CAL_009,PASS,11,27887.49,0.471,2.275,3.241,3D Skeleton and anatomy valid
+CAP000655,S018,leaning_right,CAL_009,PASS,11,27908.24,0.478,2.23,3.293,3D Skeleton and anatomy valid
+CAP000656,S018,leaning_right,CAL_009,PASS,12,29197.47,0.476,2.212,3.232,3D Skeleton and anatomy valid
+CAP000657,S018,leaning_right,CAL_009,PASS,12,31372.41,0.487,2.252,2.905,3D Skeleton and anatomy valid
+CAP000658,S018,slouching,CAL_009,PASS,12,33571.39,0.421,2.181,3.04,3D Skeleton and anatomy valid
+CAP000659,S018,slouching,CAL_009,PASS,12,33588.25,0.447,2.142,3.052,3D Skeleton and anatomy valid
+CAP000660,S018,slouching,CAL_009,PASS,12,33538.74,0.477,2.156,3.068,3D Skeleton and anatomy valid
+CAP000661,S018,slouching,CAL_009,PASS,12,33651.44,0.475,2.142,3.043,3D Skeleton and anatomy valid
+CAP000662,S018,slouching,CAL_009,PASS,12,33587.98,0.478,2.16,3.055,3D Skeleton and anatomy valid
+CAP000663,S018,forward_head,CAL_009,REVIEW,11,33465.27,0.515,1.952,3.327,Moderate joint count (11/17) or minor distortion
+CAP000664,S018,forward_head,CAL_009,REVIEW,11,33518.41,0.563,1.994,3.296,Moderate joint count (11/17) or minor distortion
+CAP000665,S018,forward_head,CAL_009,REVIEW,11,33518.62,0.559,2.016,3.307,Moderate joint count (11/17) or minor distortion
+CAP000666,S018,forward_head,CAL_009,REVIEW,11,33581.35,0.542,1.988,3.309,Moderate joint count (11/17) or minor distortion
+CAP000667,S018,forward_head,CAL_009,REVIEW,11,33476.2,0.553,1.972,3.305,Moderate joint count (11/17) or minor distortion
+CAP000668,S018,reject,CAL_009,PASS,12,36616.26,0.351,1.403,2.364,3D Skeleton and anatomy valid
+CAP000669,S019,upright,CAL_009,REVIEW,11,30449.72,1.236,2.132,3.007,Moderate joint count (11/17) or minor distortion
+CAP000670,S019,upright,CAL_009,REVIEW,12,31549.81,1.054,2.148,2.891,Moderate joint count (12/17) or minor distortion
+CAP000671,S019,upright,CAL_009,REVIEW,11,30626.99,1.147,2.141,2.954,Moderate joint count (11/17) or minor distortion
+CAP000672,S019,upright,CAL_009,REVIEW,11,30606.18,1.209,2.175,2.965,Moderate joint count (11/17) or minor distortion
+CAP000673,S019,upright,CAL_009,REVIEW,12,31488.95,1.064,2.17,2.892,Moderate joint count (12/17) or minor distortion
+CAP000674,S019,leaning_forward,CAL_009,PASS,13,28162.98,0.246,2.845,3.365,3D Skeleton and anatomy valid
+CAP000675,S019,leaning_forward,CAL_009,PASS,13,28357.44,0.249,2.834,3.351,3D Skeleton and anatomy valid
+CAP000676,S019,leaning_forward,CAL_009,PASS,13,27975.48,0.301,2.694,3.454,3D Skeleton and anatomy valid
+CAP000677,S019,leaning_forward,CAL_009,PASS,13,28110.41,0.301,2.732,3.444,3D Skeleton and anatomy valid
+CAP000678,S019,leaning_forward,CAL_009,PASS,13,28218.15,0.288,2.767,3.429,3D Skeleton and anatomy valid
+CAP000679,S019,leaning_backward,CAL_009,PASS,13,28118.45,0.233,2.744,3.021,3D Skeleton and anatomy valid
+CAP000680,S019,leaning_backward,CAL_009,PASS,13,28153.17,0.235,2.723,3.039,3D Skeleton and anatomy valid
+CAP000681,S019,leaning_backward,CAL_009,PASS,12,28396.58,0.226,2.794,2.897,3D Skeleton and anatomy valid
+CAP000682,S019,leaning_backward,CAL_009,PASS,13,28086.81,0.226,2.764,3.056,3D Skeleton and anatomy valid
+CAP000683,S019,leaning_backward,CAL_009,PASS,13,28102.95,0.232,2.781,3.048,3D Skeleton and anatomy valid
+CAP000684,S019,leaning_left,CAL_009,PASS,12,26761.36,0.212,2.777,3.06,3D Skeleton and anatomy valid
+CAP000685,S019,leaning_left,CAL_009,PASS,13,26761.84,0.208,2.803,3.194,3D Skeleton and anatomy valid
+CAP000686,S019,leaning_left,CAL_009,PASS,13,26857.5,0.211,2.764,3.175,3D Skeleton and anatomy valid
+CAP000687,S019,leaning_left,CAL_009,PASS,13,26868.6,0.212,2.785,3.189,3D Skeleton and anatomy valid
+CAP000688,S019,leaning_left,CAL_009,PASS,13,26894.59,0.21,2.768,3.178,3D Skeleton and anatomy valid
+CAP000689,S019,leaning_right,CAL_009,PASS,12,30589.04,0.254,2.926,2.955,3D Skeleton and anatomy valid
+CAP000690,S019,leaning_right,CAL_009,PASS,12,30516.41,0.248,2.975,2.97,3D Skeleton and anatomy valid
+CAP000691,S019,leaning_right,CAL_009,PASS,12,30518.05,0.249,2.946,2.963,3D Skeleton and anatomy valid
+CAP000692,S019,leaning_right,CAL_009,PASS,12,30565.75,0.254,2.929,2.957,3D Skeleton and anatomy valid
+CAP000693,S019,leaning_right,CAL_009,PASS,12,30551.31,0.253,2.94,2.964,3D Skeleton and anatomy valid
+CAP000694,S019,slouching,CAL_009,PASS,12,29068.95,0.251,2.872,2.946,3D Skeleton and anatomy valid
+CAP000695,S019,slouching,CAL_009,PASS,12,29173.81,0.248,2.849,2.938,3D Skeleton and anatomy valid
+CAP000696,S019,slouching,CAL_009,PASS,12,29176.56,0.248,2.931,2.963,3D Skeleton and anatomy valid
+CAP000697,S019,slouching,CAL_009,PASS,12,29180.98,0.245,2.889,2.958,3D Skeleton and anatomy valid
+CAP000698,S019,slouching,CAL_009,PASS,12,29139.03,0.242,2.923,2.967,3D Skeleton and anatomy valid
+CAP000699,S019,forward_head,CAL_009,REVIEW,12,28980.69,0.269,2.867,3.023,Moderate joint count (12/17) or minor distortion
+CAP000700,S019,forward_head,CAL_009,REVIEW,12,28997.69,0.278,2.874,3.054,Moderate joint count (12/17) or minor distortion
+CAP000701,S019,forward_head,CAL_009,REVIEW,12,28990.1,0.273,2.897,3.049,Moderate joint count (12/17) or minor distortion
+CAP000702,S019,forward_head,CAL_009,REVIEW,12,28970.87,0.281,2.879,3.051,Moderate joint count (12/17) or minor distortion
+CAP000703,S019,forward_head,CAL_009,REVIEW,12,28983.76,0.284,2.881,3.051,Moderate joint count (12/17) or minor distortion
+CAP000704,S020,upright,CAL_009,REVIEW,12,27310.54,0.25,2.9,3.018,Moderate joint count (12/17) or minor distortion
+CAP000705,S020,upright,CAL_009,REVIEW,11,27725.53,0.229,3.084,3.239,Moderate joint count (11/17) or minor distortion
+CAP000706,S020,upright,CAL_009,REVIEW,12,28109.67,0.227,3.117,3.143,Moderate joint count (12/17) or minor distortion
+CAP000707,S020,upright,CAL_009,REVIEW,12,28138.95,0.232,3.045,3.122,Moderate joint count (12/17) or minor distortion
+CAP000708,S020,upright,CAL_009,REVIEW,12,28118.68,0.232,3.14,3.134,Moderate joint count (12/17) or minor distortion
+CAP000709,S020,leaning_forward,CAL_009,PASS,13,25499.45,0.358,2.406,3.612,3D Skeleton and anatomy valid
+CAP000710,S020,leaning_forward,CAL_009,PASS,11,26714.33,0.291,2.902,3.477,3D Skeleton and anatomy valid
+CAP000711,S020,leaning_forward,CAL_009,PASS,11,26703.42,0.291,2.81,3.296,3D Skeleton and anatomy valid
+CAP000712,S020,leaning_forward,CAL_009,PASS,11,26622.8,0.306,2.844,3.46,3D Skeleton and anatomy valid
+CAP000713,S020,leaning_forward,CAL_009,PASS,13,26659.15,0.279,2.804,3.568,3D Skeleton and anatomy valid
+CAP000714,S020,leaning_backward,CAL_009,PASS,13,27762.36,0.229,2.91,3.128,3D Skeleton and anatomy valid
+CAP000715,S020,leaning_backward,CAL_009,PASS,12,28047.79,0.228,2.937,2.977,3D Skeleton and anatomy valid
+CAP000716,S020,leaning_backward,CAL_009,PASS,12,28047.28,0.224,2.932,2.97,3D Skeleton and anatomy valid
+CAP000717,S020,leaning_backward,CAL_009,PASS,12,28021.7,0.222,2.938,2.978,3D Skeleton and anatomy valid
+CAP000718,S020,leaning_backward,CAL_009,PASS,12,28041.91,0.226,2.937,2.985,3D Skeleton and anatomy valid
+CAP000719,S020,leaning_left,CAL_009,PASS,13,24844.11,0.203,2.661,3.342,3D Skeleton and anatomy valid
+CAP000720,S020,leaning_left,CAL_009,PASS,13,24905.08,0.209,2.726,3.327,3D Skeleton and anatomy valid
+CAP000721,S020,leaning_left,CAL_009,PASS,13,24907.67,0.271,2.732,3.361,3D Skeleton and anatomy valid
+CAP000722,S020,leaning_left,CAL_009,PASS,13,24858.79,0.251,2.762,3.358,3D Skeleton and anatomy valid
+CAP000723,S020,leaning_left,CAL_009,PASS,13,25045.73,0.383,2.751,3.337,3D Skeleton and anatomy valid
+CAP000724,S020,leaning_right,CAL_009,PASS,11,29232.88,0.442,3.137,3.337,3D Skeleton and anatomy valid
+CAP000725,S020,leaning_right,CAL_009,PASS,11,29129.88,0.435,3.184,3.348,3D Skeleton and anatomy valid
+CAP000726,S020,leaning_right,CAL_009,PASS,11,29056.31,0.396,3.165,3.33,3D Skeleton and anatomy valid
+CAP000727,S020,leaning_right,CAL_009,PASS,11,28938.65,0.374,3.157,3.329,3D Skeleton and anatomy valid
+CAP000728,S020,leaning_right,CAL_009,PASS,12,29448.88,0.386,3.146,3.23,3D Skeleton and anatomy valid
+CAP000729,S020,slouching,CAL_009,PASS,12,27591.47,0.234,2.871,3.005,3D Skeleton and anatomy valid
+CAP000730,S020,slouching,CAL_009,PASS,13,27553.67,0.231,3.034,3.312,3D Skeleton and anatomy valid
+CAP000731,S020,slouching,CAL_009,PASS,13,27395.88,0.233,3.024,3.308,3D Skeleton and anatomy valid
+CAP000732,S020,slouching,CAL_009,PASS,13,27413.22,0.229,2.994,3.301,3D Skeleton and anatomy valid
+CAP000733,S020,slouching,CAL_009,PASS,13,27524.14,0.22,2.992,3.291,3D Skeleton and anatomy valid
+CAP000734,S020,forward_head,CAL_009,REVIEW,13,26596.1,0.267,2.917,3.366,Moderate joint count (13/17) or minor distortion
+CAP000735,S020,forward_head,CAL_009,REVIEW,13,26606.78,0.24,2.847,3.395,Moderate joint count (13/17) or minor distortion
+CAP000736,S020,forward_head,CAL_009,REVIEW,13,26552.17,0.255,2.823,3.446,Moderate joint count (13/17) or minor distortion
+CAP000737,S020,forward_head,CAL_009,REVIEW,13,26462.27,0.25,2.829,3.489,Moderate joint count (13/17) or minor distortion
+CAP000738,S020,forward_head,CAL_009,REVIEW,13,26371.37,0.253,2.837,3.495,Moderate joint count (13/17) or minor distortion
+CAP000739,S020,reject,CAL_009,PASS,14,32910.03,0.348,0.656,2.46,3D Skeleton and anatomy valid
+CAP000740,S020,reject,CAL_009,PASS,14,33475.03,0.427,0.696,2.51,3D Skeleton and anatomy valid
+CAP000741,S020,reject,CAL_009,PASS,13,34299.75,0.7,0.886,2.474,3D Skeleton and anatomy valid
+CAP000742,S021,upright,CAL_009,REVIEW,11,32175.44,1.477,2.095,2.757,Moderate joint count (11/17) or minor distortion
+CAP000743,S021,upright,CAL_009,REVIEW,12,32458.65,1.378,2.03,2.764,Moderate joint count (12/17) or minor distortion
+CAP000744,S021,upright,CAL_009,REVIEW,11,34426.16,0.404,2.298,2.628,Moderate joint count (11/17) or minor distortion
+CAP000745,S021,upright,CAL_009,REVIEW,12,34545.26,0.445,2.137,2.589,Moderate joint count (12/17) or minor distortion
+CAP000746,S021,upright,CAL_009,REVIEW,11,31665.62,1.47,2.192,2.823,Moderate joint count (11/17) or minor distortion
+CAP000747,S021,leaning_forward,CAL_009,PASS,11,31881.82,1.186,2.3,3.152,3D Skeleton and anatomy valid
+CAP000748,S021,leaning_forward,CAL_009,REVIEW,11,31619.39,1.462,2.343,2.934,Moderate joint count (11/17) or minor distortion
+CAP000749,S021,leaning_forward,CAL_009,PASS,11,31723.85,1.192,2.358,2.991,3D Skeleton and anatomy valid
+CAP000750,S021,leaning_forward,CAL_009,REVIEW,11,31670.67,1.357,2.357,2.932,Moderate joint count (11/17) or minor distortion
+CAP000751,S021,leaning_forward,CAL_009,REVIEW,11,31585.09,1.3,2.375,3.023,Moderate joint count (11/17) or minor distortion
+CAP000752,S021,leaning_backward,CAL_009,REVIEW,11,32298.52,2.159,2.073,2.739,Moderate joint count (11/17) or minor distortion
+CAP000753,S021,leaning_backward,CAL_009,PASS,11,34866.72,0.441,2.144,2.502,3D Skeleton and anatomy valid
+CAP000754,S021,leaning_backward,CAL_009,REVIEW,11,32331.49,2.314,1.996,2.958,Moderate joint count (11/17) or minor distortion
+CAP000755,S021,leaning_backward,CAL_009,REVIEW,12,33609.55,2.112,2.053,2.601,Moderate joint count (12/17) or minor distortion
+CAP000756,S021,leaning_backward,CAL_009,REVIEW,11,32519.38,2.311,2.053,2.672,Moderate joint count (11/17) or minor distortion
+CAP000757,S021,leaning_left,CAL_009,PASS,11,33941.44,0.401,2.585,2.985,3D Skeleton and anatomy valid
+CAP000758,S021,leaning_left,CAL_009,PASS,11,33822.58,0.372,2.64,2.984,3D Skeleton and anatomy valid
+CAP000759,S021,leaning_left,CAL_009,PASS,11,34081.48,0.352,2.505,2.895,3D Skeleton and anatomy valid
+CAP000760,S021,leaning_left,CAL_009,PASS,11,34010.38,0.36,2.606,2.958,3D Skeleton and anatomy valid
+CAP000761,S021,leaning_left,CAL_009,PASS,11,33953.52,0.359,2.628,2.965,3D Skeleton and anatomy valid
+CAP000762,S021,leaning_right,CAL_009,PASS,11,31086.48,0.414,2.164,3.123,3D Skeleton and anatomy valid
+CAP000763,S021,leaning_right,CAL_009,PASS,11,30964.82,0.425,2.201,3.14,3D Skeleton and anatomy valid
+CAP000764,S021,leaning_right,CAL_009,PASS,11,30870.29,0.413,2.157,3.168,3D Skeleton and anatomy valid
+CAP000765,S021,leaning_right,CAL_009,PASS,11,30820.3,0.414,2.163,3.171,3D Skeleton and anatomy valid
+CAP000766,S021,leaning_right,CAL_009,PASS,11,30654.2,0.418,2.17,3.187,3D Skeleton and anatomy valid
+CAP000767,S021,slouching,CAL_009,PASS,12,31049.85,0.877,2.295,2.981,3D Skeleton and anatomy valid
+CAP000768,S021,slouching,CAL_009,PASS,12,31073.77,0.7,2.23,2.921,3D Skeleton and anatomy valid
+CAP000769,S021,slouching,CAL_009,PASS,11,30360.54,0.616,2.3,3.023,3D Skeleton and anatomy valid
+CAP000770,S021,slouching,CAL_009,PASS,11,31613.91,0.646,2.221,2.809,3D Skeleton and anatomy valid
+CAP000771,S021,slouching,CAL_009,PASS,12,31280.23,0.669,2.229,2.934,3D Skeleton and anatomy valid
+CAP000772,S021,forward_head,CAL_009,REVIEW,11,29473.28,1.043,2.164,3.157,Moderate joint count (11/17) or minor distortion
+CAP000773,S021,forward_head,CAL_009,REVIEW,11,29425.94,1.217,2.136,3.119,Moderate joint count (11/17) or minor distortion
+CAP000774,S021,forward_head,CAL_009,REVIEW,11,29680.96,1.613,2.193,3.167,Moderate joint count (11/17) or minor distortion
+CAP000775,S021,forward_head,CAL_009,REVIEW,11,29765.81,0.717,2.125,3.109,Moderate joint count (11/17) or minor distortion
+CAP000776,S021,forward_head,CAL_009,REVIEW,11,29642.29,0.899,2.167,3.123,Moderate joint count (11/17) or minor distortion
+CAP000777,S021,reject,CAL_009,PASS,8,35121.76,,1.446,2.611,3D Skeleton and anatomy valid
+CAP000778,S021,reject,CAL_009,PASS,10,34776.0,0.756,1.499,2.676,3D Skeleton and anatomy valid
+CAP000779,S022,upright,CAL_009,REVIEW,13,31952.25,0.571,3.022,3.156,Moderate joint count (13/17) or minor distortion
+CAP000780,S022,upright,CAL_009,REVIEW,13,31943.12,0.519,2.983,3.143,Moderate joint count (13/17) or minor distortion
+CAP000781,S022,upright,CAL_009,REVIEW,13,31974.59,0.602,2.991,3.134,Moderate joint count (13/17) or minor distortion
+CAP000782,S022,upright,CAL_009,REVIEW,13,31920.08,0.573,2.963,3.151,Moderate joint count (13/17) or minor distortion
+CAP000783,S022,upright,CAL_009,REVIEW,13,31980.18,0.555,3.012,3.157,Moderate joint count (13/17) or minor distortion
+CAP000784,S022,leaning_forward,CAL_009,PASS,13,30338.75,0.544,2.748,3.437,3D Skeleton and anatomy valid
+CAP000785,S022,leaning_forward,CAL_009,PASS,13,30350.28,0.58,2.74,3.459,3D Skeleton and anatomy valid
+CAP000786,S022,leaning_forward,CAL_009,PASS,13,30324.3,0.546,2.719,3.469,3D Skeleton and anatomy valid
+CAP000787,S022,leaning_forward,CAL_009,PASS,13,30342.59,0.513,2.749,3.456,3D Skeleton and anatomy valid
+CAP000788,S022,leaning_forward,CAL_009,PASS,13,30293.11,0.511,2.669,3.467,3D Skeleton and anatomy valid
+CAP000789,S022,leaning_backward,CAL_009,PASS,13,32465.21,0.353,2.936,2.98,3D Skeleton and anatomy valid
+CAP000790,S022,leaning_backward,CAL_009,PASS,13,32399.63,0.348,2.962,3.015,3D Skeleton and anatomy valid
+CAP000791,S022,leaning_backward,CAL_009,PASS,14,31391.56,0.357,2.942,2.994,3D Skeleton and anatomy valid
+CAP000792,S022,leaning_backward,CAL_009,PASS,14,31348.23,0.343,2.948,2.981,3D Skeleton and anatomy valid
+CAP000793,S022,leaning_backward,CAL_009,PASS,14,31284.07,0.338,2.954,3.001,3D Skeleton and anatomy valid
+CAP000794,S022,leaning_left,CAL_009,PASS,14,29074.63,0.29,2.909,3.033,3D Skeleton and anatomy valid
+CAP000795,S022,leaning_left,CAL_009,PASS,14,29033.42,0.284,2.884,3.041,3D Skeleton and anatomy valid
+CAP000796,S022,leaning_left,CAL_009,PASS,14,29057.07,0.287,2.856,3.033,3D Skeleton and anatomy valid
+CAP000797,S022,leaning_left,CAL_009,PASS,13,29951.24,0.287,2.9,3.065,3D Skeleton and anatomy valid
+CAP000798,S022,leaning_left,CAL_009,PASS,13,30001.76,0.287,2.884,3.049,3D Skeleton and anatomy valid
+CAP000799,S022,leaning_right,CAL_009,PASS,12,34514.42,0.4,2.997,2.949,3D Skeleton and anatomy valid
+CAP000800,S022,leaning_right,CAL_009,PASS,13,34385.61,0.391,3.001,3.032,3D Skeleton and anatomy valid
+CAP000801,S022,leaning_right,CAL_009,PASS,13,34373.13,0.396,2.993,3.012,3D Skeleton and anatomy valid
+CAP000802,S022,leaning_right,CAL_009,PASS,13,34381.89,0.427,2.968,3.003,3D Skeleton and anatomy valid
+CAP000803,S022,leaning_right,CAL_009,PASS,13,34364.56,0.41,2.984,3.021,3D Skeleton and anatomy valid
+CAP000804,S022,slouching,CAL_009,PASS,13,31534.96,0.457,2.834,3.171,3D Skeleton and anatomy valid
+CAP000805,S022,slouching,CAL_009,PASS,13,31288.83,0.463,2.771,3.161,3D Skeleton and anatomy valid
+CAP000806,S022,slouching,CAL_009,PASS,13,31419.54,0.496,2.796,3.173,3D Skeleton and anatomy valid
+CAP000807,S022,slouching,CAL_009,PASS,13,31416.76,0.523,2.789,3.167,3D Skeleton and anatomy valid
+CAP000808,S022,slouching,CAL_009,PASS,13,31479.89,0.465,2.803,3.155,3D Skeleton and anatomy valid
+CAP000809,S022,forward_head,CAL_009,REVIEW,12,28625.65,0.634,2.479,3.758,Moderate joint count (12/17) or minor distortion
+CAP000810,S022,forward_head,CAL_009,REVIEW,11,28516.89,0.612,2.501,3.723,Moderate joint count (11/17) or minor distortion
+CAP000811,S022,forward_head,CAL_009,REVIEW,12,28781.07,0.664,2.444,3.724,Moderate joint count (12/17) or minor distortion
+CAP000812,S022,forward_head,CAL_009,REVIEW,12,28751.73,0.709,2.442,3.749,Moderate joint count (12/17) or minor distortion
+CAP000813,S022,forward_head,CAL_009,REVIEW,13,28867.71,0.655,2.437,3.726,Moderate joint count (13/17) or minor distortion
+CAP000814,S022,reject,CAL_009,REVIEW,7,30961.69,,2.045,2.042,Moderate joint count (7/17) or minor distortion
+CAP000815,S023,upright,CAL_010,REVIEW,12,6417.23,2.89,32.039,1.06,Moderate joint count (12/17) or minor distortion
+CAP000816,S023,upright,CAL_010,REVIEW,12,5539.19,2.977,31.497,1.289,Moderate joint count (12/17) or minor distortion
+CAP000817,S023,upright,CAL_010,REVIEW,12,5405.66,3.094,31.537,0.813,Moderate joint count (12/17) or minor distortion
+CAP000818,S023,upright,CAL_010,REVIEW,12,5354.52,2.784,32.254,0.773,Moderate joint count (12/17) or minor distortion
+CAP000819,S023,upright,CAL_010,REVIEW,12,5321.02,3.0,31.684,1.203,Moderate joint count (12/17) or minor distortion
+CAP000820,S023,leaning_forward,CAL_010,REVIEW,12,5241.77,2.267,33.26,,Moderate joint count (12/17) or minor distortion
+CAP000821,S023,leaning_forward,CAL_010,REVIEW,13,5263.82,2.246,33.327,,Moderate joint count (13/17) or minor distortion
+CAP000822,S023,leaning_forward,CAL_010,REVIEW,12,5248.26,2.044,33.523,,Moderate joint count (12/17) or minor distortion
+CAP000823,S023,leaning_forward,CAL_010,REVIEW,12,5262.29,2.052,33.69,,Moderate joint count (12/17) or minor distortion
+CAP000824,S023,leaning_forward,CAL_010,REVIEW,12,5228.22,2.138,33.582,,Moderate joint count (12/17) or minor distortion
+CAP000825,S023,leaning_backward,CAL_010,REVIEW,13,5852.22,5.246,29.433,,Moderate joint count (13/17) or minor distortion
+CAP000826,S023,leaning_backward,CAL_010,REVIEW,12,5824.53,3.501,29.379,,Moderate joint count (12/17) or minor distortion
+CAP000827,S023,leaning_backward,CAL_010,REVIEW,13,5988.55,3.714,30.223,,Moderate joint count (13/17) or minor distortion
+CAP000828,S023,leaning_backward,CAL_010,REVIEW,13,5800.29,4.369,29.282,,Moderate joint count (13/17) or minor distortion
+CAP000829,S023,leaning_backward,CAL_010,REVIEW,12,5967.05,5.173,29.242,,Moderate joint count (12/17) or minor distortion
+CAP000830,S023,leaning_left,CAL_010,REVIEW,12,5319.69,1.594,34.774,,Moderate joint count (12/17) or minor distortion
+CAP000831,S023,leaning_left,CAL_010,REVIEW,12,5703.98,1.548,34.248,,Moderate joint count (12/17) or minor distortion
+CAP000832,S023,leaning_left,CAL_010,REVIEW,12,5623.11,1.445,33.758,,Moderate joint count (12/17) or minor distortion
+CAP000833,S023,leaning_left,CAL_010,REVIEW,12,5541.48,1.502,33.706,,Moderate joint count (12/17) or minor distortion
+CAP000834,S023,leaning_left,CAL_010,REVIEW,12,5532.0,1.511,33.539,,Moderate joint count (12/17) or minor distortion
+CAP000835,S023,leaning_right,CAL_010,REVIEW,12,6390.52,4.915,31.935,,Moderate joint count (12/17) or minor distortion
+CAP000836,S023,leaning_right,CAL_010,REVIEW,12,6682.22,5.229,31.711,,Moderate joint count (12/17) or minor distortion
+CAP000837,S023,leaning_right,CAL_010,REVIEW,13,6630.97,5.918,30.798,,Moderate joint count (13/17) or minor distortion
+CAP000838,S023,leaning_right,CAL_010,REVIEW,13,6699.69,5.316,31.042,,Moderate joint count (13/17) or minor distortion
+CAP000839,S023,leaning_right,CAL_010,REVIEW,13,6551.01,4.937,31.939,,Moderate joint count (13/17) or minor distortion
+CAP000840,S023,slouching,CAL_010,REVIEW,13,5780.31,4.047,30.472,,Moderate joint count (13/17) or minor distortion
+CAP000841,S023,slouching,CAL_010,REVIEW,13,5582.41,3.607,30.384,,Moderate joint count (13/17) or minor distortion
+CAP000842,S023,slouching,CAL_010,REVIEW,13,5570.76,3.438,31.497,,Moderate joint count (13/17) or minor distortion
+CAP000843,S023,slouching,CAL_010,REVIEW,13,5545.77,3.774,31.402,,Moderate joint count (13/17) or minor distortion
+CAP000844,S023,slouching,CAL_010,REVIEW,13,5606.18,3.999,29.677,,Moderate joint count (13/17) or minor distortion
+CAP000845,S023,forward_head,CAL_010,REVIEW,12,5499.28,3.758,26.627,,Moderate joint count (12/17) or minor distortion
+CAP000846,S023,forward_head,CAL_010,REVIEW,12,5568.16,3.598,26.452,,Moderate joint count (12/17) or minor distortion
+CAP000847,S023,forward_head,CAL_010,REVIEW,12,5528.4,3.043,26.229,,Moderate joint count (12/17) or minor distortion
+CAP000848,S023,forward_head,CAL_010,REVIEW,12,5490.44,3.046,26.448,,Moderate joint count (12/17) or minor distortion
+CAP000849,S023,forward_head,CAL_010,REVIEW,12,5463.6,2.17,25.966,,Moderate joint count (12/17) or minor distortion
+CAP000850,S023,reject,CAL_010,REVIEW,12,5628.67,1.592,12.423,,Moderate joint count (12/17) or minor distortion
+CAP000851,S023,reject,CAL_010,REVIEW,12,8337.84,7.228,15.031,,Moderate joint count (12/17) or minor distortion

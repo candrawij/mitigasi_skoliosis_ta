@@ -1,0 +1,5 @@
+Metrik Evaluasi,Baseline (Default YOLO),Target-Person Selection (Improved),Peningkatan (Delta)
+Correct Target Selected (Subjek Benar),1591 (93.48%),1693 (99.47%),+5.99%
+Wrong Person / False Selection (Salah Orang),108 (6.35%),6 (0.35%),-5.99% (Turun)
+No Target / Clean Rejection (Reject Valid),3 (0.18%),3 (0.18%),Terkendali (Filter Sesuai)
+Rata-rata Keypoint Valid per Citra Target,13.69 / 17 joint,13.55 / 17 joint,+-0.14 joint

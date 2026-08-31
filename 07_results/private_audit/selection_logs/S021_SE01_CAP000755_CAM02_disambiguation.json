@@ -1,0 +1,8 @@
+{
+  "image_id": "S021_SE01_CAP000755_CAM02",
+  "capture_id": "CAP000755",
+  "candidates_count": 6,
+  "baseline_pick_idx": 0,
+  "improved_pick_idx": 1,
+  "decision": "Target selected with composite score 0.937 (Area=1.00, Center=0.94, Torso=1.00)"
+}

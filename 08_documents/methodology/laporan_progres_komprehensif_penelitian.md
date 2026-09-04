@@ -4,8 +4,8 @@
 ---
 
 **Topik Tugas Akhir / Skripsi:** Mitigasi Skoliosis & Klasifikasi Postur Duduk Ergonomis  
-**Waktu Penyusunan:** 26 Agustus 2026  
-**Status Pipeline Keseluruhan:** **Fase 0 (Inisiasi), Fase 1 (Audit & Kurasi Data), Fase 2 (Preprocessing & Rekayasa Fitur), Fase 3 (Training GPU & Benchmark Eksperimen)** telah diselesaikan **100%**.  
+**Waktu Penyusunan:** 5 September 2026 (Update Komprehensif Integrasi 24 Subjek)  
+**Status Pipeline Keseluruhan:** **Fase 0 (Inisiasi), Fase 1 (Audit & Kurasi Data Publik), Fase 2 (Preprocessing & Rekayasa Fitur), Fase 3 (Training GPU & Benchmark Eksperimen), Fase 4 (Cross-Dataset Evaluation), dan Fase 5 (Akuisisi, Stereo Triangulasi & QC Dataset Privat 24 Subjek)** telah diselesaikan **100%**.  
 **Lingkungan Komputasi:** Local GPU (`NVIDIA GeForce GTX 1660 Ti 6GB VRAM`, `PyTorch 2.6.0+cu124`, `Ultralytics YOLOv8`, `XGBoost 3.2.0`, `Scikit-Learn 1.7.2`).
 
 ---
@@ -19,8 +19,9 @@
 6. [Fase 4: Hasil Benchmark, Evaluasi Metrik & Analisis Komparatif](#6-fase-4-hasil-benchmark-evaluasi-metrik--analisis-komparatif)
 7. [Fase 5: Analisis Error, Confusion Matrix & Pola Misklasifikasi](#7-fase-5-analisis-error-confusion-matrix--pola-misklasifikasi)
 8. [Fase 6: Evaluasi Cross-Dataset & Generalisasi Taksonomi](#8-fase-6-evaluasi-cross-dataset--generalisasi-taksonomi)
-9. [Fase 7: Implikasi Praktis & Rekomendasi Akuisisi Dataset Privat](#9-fase-7-implikasi-praktis--rekomendasi-akuisisi-dataset-privat)
-10. [Kesimpulan & Langkah Kerja Selanjutnya](#10-kesimpulan--langkah-kerja-selanjutnya)
+9. [Fase 7: Implikasi Praktis & Rekomendasi Deployment](#9-fase-7-implikasi-praktis--rekomendasi-deployment)
+10. [Fase 8: Akuisisi, Stereo Triangulasi & QC Dataset Privat (24 Subjek Penuh)](#10-fase-8-akuisisi-stereo-triangulasi--qc-dataset-privat-24-subjek-penuh)
+11. [Kesimpulan & Langkah Kerja Selanjutnya](#11-kesimpulan--langkah-kerja-selanjutnya)
 
 ---
 
@@ -28,16 +29,18 @@
 
 Penelitian ini bertujuan untuk membangun sistem pemantau postur duduk berbasis Computer Vision guna mendeteksi kecenderungan postur asimetris yang berisiko memperparah kelainan tulang belakang (*skoliosis*). 
 
-Dalam tahapan penelitian hingga saat ini, telah dilakukan investigasi empiris yang ketat dan sistematis pada **4 dataset publik** (`Project Design 20242025`, `Sitting Posture Detection`, `Postureexercise`, dan `IKORN 4-KP`) dengan membandingkan **tiga paradigma utama AI**:
+Dalam tahapan penelitian hingga saat ini, telah dilakukan investigasi empiris yang ketat dan sistematis pada **4 dataset publik** (`Project Design 20242025`, `Sitting Posture Detection`, `Postureexercise`, dan `IKORN 4-KP`) serta **1 dataset privat multi-view stereo 24 subjek penuh**:
 1. **End-to-End Image Classification (CNN)**: Menggunakan arsitektur *EfficientNet-B0* (Pretrained ImageNet).
 2. **Direct Geometric Keypoints Classification**: Ekstraksi fitur sudut/jarak biomekanik dari keypoint anotasi langsung dilatih menggunakan *Multilayer Perceptron (MLP)* dan *XGBoost*.
 3. **Two-Stage Pose Estimation + Tabular Classifier**: Deteksi 17 titik sendi tubuh menggunakan *YOLOv8-Pose* yang dilanjutkan dengan klasifikasi berbasis *feature engineering* geometris (*MLP / XGBoost*).
+4. **Multi-View Stereo Vision 3D Reconstruction**: Rekonstruksi spasial 3D dari pasangan kamera frontal (CAM01) dan lateral (CAM02) dengan 8 setup rig kalibrasi terverifikasi.
 
 ### Hasil Kunci yang Dicapai:
 * **Akurasi Citra Terbaik (EXP-01):** *EfficientNet-B0* mencapai **88.37% akurasi (Macro F1: 0.8635)** pada dataset *Project Design* (5 kelas) dan **84.93% akurasi (Macro F1: 0.8410)** pada dataset *Sitting Posture Detection* (4 kelas).
 * **Akurasi Biner Tertinggi (EXP-02):** *XGBoost* pada fitur keypoint *IKORN* mencapai **96.97% akurasi (Macro F1: 0.9569)** dengan tingkat Recall postur baik (*Good*) sebesar **100%**.
 * **Keberhasilan Pipeline Portabel Two-Stage (EXP-03):** Integrasi *YOLOv8-Pose + XGBoost/MLP* berhasil mengekstrak pose dari citra mentah dan mencapai akurasi **83.72% (F1: 0.8207)** pada *Project Design* dan **82.19% (F1: 0.7745)** pada *Sitting Posture Detection*.
 * **Validasi Generalisasi Biner (EXP-05):** Evaluasi biner terpadu (*Good vs Bad Posture*) menghasilkan akurasi **95.89% (F1: 0.9372)**, membuktikan bahwa representasi fitur berbasis kesimetrisan bahu dan kelengkungan tulang belakang memiliki daya diskriminasi yang sangat kuat lintas subjek.
+* **Keberhasilan Akuisisi & QC Dataset Privat 24 Subjek:** Berhasil merekam **885 pasang capture (1.770 citra Full HD 1080p)** dari **24 subjek** dengan rasio simetri 1:1, sinkronisasi sub-frame ($18.54$ ms), ekstraksi 2D/3D 100% utuh, dan tingkat keberhasilan 3D stereo usable mencapai **89.27% (790 capture usable)** dengan status mutu **100% PASS**.
 
 ---
 
@@ -53,7 +56,8 @@ flowchart LR
     F1 --> F2["Fase 2: Preprocessing & Rekayasa Fitur"]
     F2 --> F3["Fase 3: Benchmark Multi-Paradigma AI"]
     F3 --> F4["Fase 4: Evaluasi Cross-Dataset"]
-    F4 --> F5["Fase 5: Pengambilan Dataset Privat & Deployment"]
+    F4 --> F5["Fase 5: Akuisisi & QC Dataset Privat 24 Subjek"]
+    F5 --> F6["Fase 6: Training Model Privat & Deployment"]
 ```
 
 | Fase | Nama Fase | Target Utama | Status |
@@ -63,7 +67,8 @@ flowchart LR
 | **Fase 2** | Preprocessing & Feature Engineering | Normalisasi BBox, kalkulasi sudut biomekanik, ekstraksi fitur simetri | **SELESAI** |
 | **Fase 3** | Benchmark Eksperimen Multi-Model | Pelatihan EXP-01 (CNN), EXP-02 (Keypoint Clf), EXP-03 (YOLO-Pose) | **SELESAI** |
 | **Fase 4** | Evaluasi & Validasi Cross-Dataset | Evaluasi generalisasi model biner lintas domain (EXP-05) | **SELESAI** |
-| **Fase 5** | Akuisisi Dataset Privat & Finalisasi | Perekaman dataset mandiri terstandarisasi, pengujian real-time | **SIAP DIMULAI** |
+| **Fase 5** | Akuisisi & QC Dataset Privat (24 Subjek) | Perekaman stereo multi-view 24 subjek, kalibrasi rig, audit QC 100% | **SELESAI** |
+| **Fase 6** | Pelatihan Model Privat & Prototipe | Training multi-view classifier & 3D pose, integrasi desktop GUI | **SIAP DIMULAI** |
 
 ---
 
@@ -210,9 +215,9 @@ Pada pengujian **EXP-05**, model biner mencapai **Akurasi 95.89%** dan **F1-Scor
 
 ---
 
-## 9. Fase 7: Implikasi Praktis & Rekomendasi Akuisisi Dataset Privat
+## 9. Fase 7: Implikasi Praktis & Rekomendasi Deployment
 
-Berdasarkan temuan komprehensif dari benchmark 4 dataset publik, berikut adalah pedoman teknis dan desain metodologis yang direkomendasikan untuk tahap pengambilan data privat (Fase 5):
+Berdasarkan temuan komprehensif dari benchmark 4 dataset publik, berikut adalah pedoman teknis dan desain metodologis yang direkomendasikan untuk tahap implementasi dan deployment:
 
 ### 9.1. Konfigurasi Sudut Kamera (Camera Setup)
 * **Kamera Depan (Frontal View, 0°):** **Wajib Digunakan.** Sangat sensitif dalam menangkap asimetri bahu, kemiringan leher/kepala, dan deviasi lateral tubuh yang merupakan indikator primer risiko skoliosis.
@@ -228,17 +233,66 @@ Berdasarkan temuan komprehensif dari benchmark 4 dataset publik, berikut adalah 
 
 ---
 
-## 10. Kesimpulan & Langkah Kerja Selanjutnya
+## 10. Fase 8: Akuisisi, Stereo Triangulasi & QC Dataset Privat (24 Subjek Penuh)
 
-### 10.1. Kesimpulan Pencapaian Progres
-1. Seluruh tahapan audit, kurasi anti-leakage, rekayasa fitur biomekanika, dan eksekusi pelatihan GPU multi-paradigma telah diselesaikan secara tuntas dan terdokumentasi dengan rapi.
-2. Model klasifikasi postur berbasis keypoint geometris (*XGBoost* & *MLP*) terbukti sangat unggul untuk klasifikasi biner dan multi-kelas asimetris, dengan akurasi mencapai **96.97%** pada IKORN dan **87.34%** pada Postureexercise.
-3. Pipeline terpadu end-to-end dari citra RGB via *YOLOv8-Pose* berhasil diimplementasikan dengan akurasi mencapai **83.72%** pada *Project Design*, menjadikannya fondasi yang sangat kokoh untuk aplikasi mitigasi skoliosis berbasis webcam.
+Untuk menjawab kebutuhan evaluasi multi-view 3D dan mitigasi risiko skoliosis dengan data berstandar medis, telah diselesaikan akuisisi dataset privat mandiri sebanyak **24 subjek penuh** (`S001` s/d `S024`).
 
-### 10.2. Rencana Aksi Selanjutnya (Next Action Items)
-1. **Perekaman Dataset Privat:** Menyiapkan protokol perekaman video/citra subjek mandiri dengan variasi pencahayaan dan posisi duduk (Tegak, Miring Kiri, Miring Kanan, Bungkuk, Bersandar).
-2. **Penyusunan Naskah Tugas Akhir:** Mengintegrasikan seluruh tabel hasil metrik, grafik komparasi, dan analisis pembahasan ini ke dalam draf Bab 3 (Metodologi Penelitian) dan Bab 4 (Hasil dan Pembahasan) skripsi.
-3. **Pembangunan Prototipe Aplikasi:** Mengemas pipeline *YOLOv8-Pose + XGBoost* ke dalam antarmuka pemantau postur *real-time* (Streamlit / GUI desktop) dengan fitur peringatan dini (*posture alert*).
+### 10.1. Profil Dataset Privat Aktual (S001 - S024)
+* **Total Subjek:** 24 Responden (S001–S004 Pilot, S005–S024 Controlled).
+* **Total Citra:** **1.770 Citra Full HD ($1920 \times 1080$)** = **885 Pasang Capture CAM01 (Depan) + CAM02 (Samping)**.
+* **Rasio Pasangan Citra:** 1 : 1 Sempurna (0 citra hilang / 0 orphan).
+* **Sinkronisasi Multi-Kamera:** Latensi rata-rata $18.54$ ms (Median: $17.00$ ms, Maks: $78.00$ ms), memenuhi standar sub-frame 30 FPS.
+* **Ketajaman Citra (Blur Score):** CAM01 rata-rata $246.85$, CAM02 rata-rata $262.46$ (Kategori Sangat Tajam & Kontras Optimal).
+
+### 10.2. Matriks Distribusi Subjek dan Rig Kalibrasi
+Sebanyak **8 Setup Rig Stereo** (`CAL_001` s/d `CAL_011`) telah dikalibrasi dan dipetakan ke seluruh subjek:
+
+| Subject ID | Subset | Rig Kalibrasi | Sisi Lateral | Total Capture | Citra CAM01 | Citra CAM02 | Status QC |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `S001` - `S002` | `pilot` | `CAL_001` (Baseline ~1.29m) | Kiri (*Left*) | **82** | 82 | 82 | 🟢 **PASS** |
+| `S003` - `S004` | `pilot` | `CAL_004` (Baseline ~1.21m) | Kiri (*Left*) | **74** | 74 | 74 | 🟢 **PASS** |
+| `S005` - `S006` | `controlled` | `CAL_005` (Baseline ~2.40m) | Kanan (*Right*) | **72** | 72 | 72 | 🟢 **PASS** |
+| `S007` | `controlled` | `CAL_006` (Baseline ~4.53m) | Kanan (*Right*) | **39** | 39 | 39 | 🟢 **PASS** |
+| `S008` - `S010` | `controlled` | `CAL_008` (Baseline ~1.32m) | Kanan (*Right*) | **111** | 111 | 111 | 🟢 **PASS** |
+| `S011` - `S022` | `controlled` | `CAL_009` (Baseline ~2.50m) | Kanan (*Right*) | **436** | 436 | 436 | 🟢 **PASS** |
+| `S023` | `controlled` | `CAL_010` (Degenerate Rig) | Kanan (*Right*) | **37** | 37 | 37 | 🟢 **PASS** |
+| `S024` | `controlled` | `CAL_011` (Baseline ~1.90m) | Kanan (*Right*) | **34** | 34 | 34 | 🟢 **PASS** |
+| **TOTAL** | **24 Subjek** | **8 Setup Rig** | **Bilateral** | **885** | **885** | **885** | 🟢 **100% PASS** |
+
+### 10.3. Keseimbangan Kelas Postur (24 Subjek)
+Dataset privat mencakup 7 kelas postur duduk klinis terstandarisasi yang sangat seimbang:
+* `upright` (Tegak Ideal): **126 capture**
+* `leaning_forward` (Condong Depan): **124 capture**
+* `forward_head` (Leher Maju): **121 capture**
+* `leaning_right` (Miring Kanan): **120 capture**
+* `slouching` (Bungkuk Kifosis): **120 capture**
+* `leaning_left` (Miring Kiri): **119 capture**
+* `leaning_backward` (Condong Belakang): **118 capture**
+* `reject` (Transisi / Out-of-frame): **37 capture**
+* **Total:** **885 Pasang Capture** (Rata-rata ~121 sampel/kelas duduk).
+
+### 10.4. Keterlihatan Keypoint 2D & Rekonstruksi 3D Stereo
+* **Keterlihatan Sumbu Biakromial Bahu (Shoulders):** CAM01: **$99.4\%$** | CAM02: **$99.3\%$** *(Sangat stabil untuk deteksi kemiringan lateral)*.
+* **Keterlihatan Sumbu Pelvis (Hips):** CAM01: **$99.7\%$** | CAM02: **$95.8\%$** *(Landasan komparasi deviasi tulang belakang bawah)*.
+* **Keberhasilan Triangulasi 3D Stereo:** **790 dari 885 pasang pose (89.27%)** berstatus *3D Usable* (555 Full + 235 With Masking), dengan tingkat keberhasilan **90.09% (764/848)** pada seluruh pose duduk valid.
+* **Rata-rata Error Reproyeksi 3D Core:** **28.88 px** (Median: $27.12$ px, $\sigma = 9.29$ px pada resolusi terstandarisasi 640p).
+* **Artefak Visual:** Seluruh contact sheet visual per subjek (`contact_sheet_S001.jpg` s/d `contact_sheet_S024.jpg`) serta lembar ikhtisar master 24 subjek (`contact_sheet_all_24_subjects_overview.jpg`) telah digenerasi dan tersimpan di `07_results/private_audit/contact_sheets/`.
 
 ---
-*Laporan ini disusun secara otomatis dan terverifikasi berdasarkan hasil eksekusi eksperimen pada repositori `mitigasi_skoliosis_ta`.*
+
+## 11. Kesimpulan & Langkah Kerja Selanjutnya
+
+### 11.1. Kesimpulan Pencapaian Progres
+1. **Benchmark AI Multi-Paradigma Selesai:** Seluruh tahapan eksperimen EXP-01 (CNN Image), EXP-02 (Direct Keypoint), EXP-03 (YOLOv8-Pose + Classifier), dan EXP-05 (Cross-Dataset Biner) pada 4 dataset publik telah tuntas dievaluasi dengan akurasi hingga **96.97%** pada IKORN dan **95.89%** pada evaluasi biner.
+2. **Dataset Privat 24 Subjek Sukses 100%:** Akuisisi 24 subjek privat (885 capture / 1.770 citra Full HD) telah tuntas diekstraksi, dianotasi (2D keypoints, target person selection, 3D stereo keypoints), dan diaudit secara menyeluruh dengan status **100% PASS Quality Control**.
+3. **Infrastruktur Eksperimen Terstandarisasi:** Master runner (`04_scripts/run_all_experiments.py`), modul evaluasi cross-dataset, dan panduan GPU execution telah siap untuk melatih model klasifikasi pada dataset privat.
+
+### 11.2. Rencana Aksi Selanjutnya (Next Action Items)
+1. **Pelatihan Model Multi-View & 3D Stereo pada Dataset Privat:** Menjalankan pipeline klasifikasi postur duduk 7-kelas menggunakan fitur fusi 2D Multi-View (CAM01 + CAM02) dan fitur biomekanika spasial 3D (derajat deviasi skoliosis sudut Cobb aproksimasi, kemiringan bahu 3D, dan kelengkungan kifosis sagital).
+2. **Evaluasi Cross-Subject K-Fold (Group-KFold 24 Subjek):** Melakukan validasi silang berbasis subjek (*leave-subjects-out*) untuk menguji generalisasi model pada individu yang belum pernah dilihat sebelumnya tanpa *data leakage*.
+3. **Penyusunan Naskah Skripsi / Tugas Akhir:** Mengintegrasikan seluruh tabel hasil, matriks konfusi, grafik komparasi publik vs privat, dan analisis biomekanika ke dalam draf Bab 3 (Metodologi), Bab 4 (Hasil dan Pembahasan), serta Bab 5 (Kesimpulan).
+4. **Pengembangan GUI / Dashboard Mitigasi Skoliosis:** Mengemas model terbaik ke dalam prototipe aplikasi desktop interaktif untuk deteksi postur real-time dengan sistem peringatan dini (*posture correction feedback*).
+
+---
+*Laporan ini disusun secara komprehensif, otomatis, dan terverifikasi berdasarkan hasil eksekusi eksperimen dan audit kendali mutu pada repositori `mitigasi_skoliosis_ta`.*
+

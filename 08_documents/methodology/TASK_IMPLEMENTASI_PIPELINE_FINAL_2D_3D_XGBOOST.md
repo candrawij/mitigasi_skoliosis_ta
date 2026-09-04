@@ -15,10 +15,10 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
   - [x] Buat `04_scripts/preprocessing/private_feature_common.py` (Fungsi normalisasi, canonicalization, fitur 2D & 3D)
   - [x] Buat `04_scripts/preprocessing/build_private_6class_manifest.py`
   - [x] Eksekusi & Audit Manifest: Lolos assertion `N == 727` captures
-- [ ] **Fase 2: Ekstraksi Fitur 2D Multi-View (36 Fitur) & Audit**
-  - [ ] Buat `04_scripts/preprocessing/extract_private_2d_features.py`
-  - [ ] Eksekusi ekstraksi 2D $\rightarrow$ `private_features_2d.csv`
-  - [ ] Audit fitur 2D $\rightarrow$ `feature_2d_audit.csv`
+- [x] **Fase 2: Ekstraksi Fitur 2D Multi-View (36 Fitur) & Audit**
+  - [x] Buat `04_scripts/preprocessing/extract_private_2d_features.py`
+  - [x] Eksekusi ekstraksi 2D $\rightarrow$ `private_features_2d.csv` (704 usable / 96.84%)
+  - [x] Audit fitur 2D $\rightarrow$ `feature_2d_audit.csv` (0 inf/-inf, 0 duplicate, 0.57% NaN nose)
 - [ ] **Fase 3: Ekstraksi Fitur Stereo 3D (25 Fitur) & Audit**
   - [ ] Buat `04_scripts/preprocessing/extract_private_3d_features.py`
   - [ ] Eksekusi ekstraksi 3D $\rightarrow$ `private_features_3d.csv`

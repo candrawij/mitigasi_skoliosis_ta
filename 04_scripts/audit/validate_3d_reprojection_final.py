@@ -37,7 +37,7 @@ COCO_KEYPOINTS = [
 ]
 
 # Set of rigs actually used by S001-S023
-ACTIVE_RIGS = ["CAL_001", "CAL_004", "CAL_005", "CAL_006", "CAL_008", "CAL_009", "CAL_010"]
+ACTIVE_RIGS = ["CAL_001", "CAL_004", "CAL_005", "CAL_006", "CAL_008", "CAL_009", "CAL_010", "CAL_011"]
 
 
 def run_final_3d_validation():

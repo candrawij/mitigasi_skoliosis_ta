@@ -48,6 +48,14 @@ def audit_yolo_detections():
 
     print(f"Total images to audit: {len(df_img)} across {df_cap['subject_id'].nunique()} subjects")
 
+    out_csv = RESULTS_DIR / "private_yolo_detection_audit.csv"
+    existing_records = {}
+    if out_csv.exists():
+        df_exist = pd.read_csv(out_csv)
+        for _, r in df_exist.iterrows():
+            existing_records[r["image_id"]] = r.to_dict()
+        print(f"Loaded {len(existing_records)} existing audit records from {out_csv.name}")
+
     # Load YOLOv8-Pose model
     model = YOLO("yolov8n-pose.pt")
 
@@ -65,6 +73,10 @@ def audit_yolo_detections():
         cap_row = df_cap[df_cap["capture_id"] == cap_id].iloc[0]
         posture = cap_row["primary_posture"]
         subject_id = cap_row["subject_id"]
+
+        if img_id in existing_records:
+            audit_records.append(existing_records[img_id])
+            continue
 
         if not img_path.exists():
             audit_records.append({

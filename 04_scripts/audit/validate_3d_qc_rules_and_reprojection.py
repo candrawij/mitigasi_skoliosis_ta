@@ -39,7 +39,7 @@ ANNOT_3D_DIR = PROJECT_ROOT / "02_data" / "private_annotations" / "keypoints_3d"
 ANNOT_3D_DIR.mkdir(parents=True, exist_ok=True)
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-ACTIVE_RIGS = ["CAL_001", "CAL_004", "CAL_005", "CAL_006", "CAL_008", "CAL_009", "CAL_010"]
+ACTIVE_RIGS = ["CAL_001", "CAL_004", "CAL_005", "CAL_006", "CAL_008", "CAL_009", "CAL_010", "CAL_011"]
 DEGENERATE_RIGS = ["CAL_006", "CAL_010"]
 
 # Joint-level error threshold for masking (in 640p space)

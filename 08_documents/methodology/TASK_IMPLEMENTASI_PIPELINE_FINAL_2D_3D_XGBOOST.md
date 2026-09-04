@@ -7,14 +7,14 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
 
 ## 📌 Checklist Progres Keseluruhan
 
-- [ ] **Fase 0: Freeze Status & Update Metadata Keputusan**
-  - [ ] Git commit & Tag checkpoint (`private-24subj-before-final-pipeline`)
-  - [ ] Update `03_metadata/taxonomy_kelas.md` (Definisi 6-class, eksklusi forward_head, reject gate)
-  - [ ] Update `03_metadata/dataset_decisions.md` (Keputusan final pembimbing)
-- [ ] **Fase 1: Modul Feature Common & Manifest 6-Class**
-  - [ ] Buat `04_scripts/preprocessing/private_feature_common.py` (Fungsi normalisasi, canonicalization, fitur 2D & 3D)
-  - [ ] Buat `04_scripts/preprocessing/build_private_6class_manifest.py`
-  - [ ] Eksekusi & Audit Manifest: Lolos assertion `N == 727` captures
+- [x] **Fase 0: Freeze Status & Update Metadata Keputusan**
+  - [x] Git commit & Tag checkpoint (`private-24subj-before-final-pipeline`)
+  - [x] Update `03_metadata/taxonomy_kelas.md` (Definisi 6-class, eksklusi forward_head, reject gate)
+  - [x] Update `03_metadata/dataset_decisions.md` (Keputusan final pembimbing)
+- [x] **Fase 1: Modul Feature Common & Manifest 6-Class**
+  - [x] Buat `04_scripts/preprocessing/private_feature_common.py` (Fungsi normalisasi, canonicalization, fitur 2D & 3D)
+  - [x] Buat `04_scripts/preprocessing/build_private_6class_manifest.py`
+  - [x] Eksekusi & Audit Manifest: Lolos assertion `N == 727` captures
 - [ ] **Fase 2: Ekstraksi Fitur 2D Multi-View (36 Fitur) & Audit**
   - [ ] Buat `04_scripts/preprocessing/extract_private_2d_features.py`
   - [ ] Eksekusi ekstraksi 2D $\rightarrow$ `private_features_2d.csv`

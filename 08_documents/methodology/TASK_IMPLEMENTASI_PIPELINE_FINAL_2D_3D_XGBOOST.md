@@ -23,11 +23,11 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
   - [x] Buat `04_scripts/preprocessing/extract_private_3d_features.py`
   - [x] Eksekusi ekstraksi 3D $\rightarrow$ `private_features_3d.csv` (403 usable / 55.43%)
   - [x] Audit fitur 3D $\rightarrow$ `feature_3d_audit.csv` (0 inf/-inf, 0 duplicate, 7.69% NaN nose)
-- [ ] **Fase 4: Dataset Intersection & Partisi Grouped 5-Fold**
-  - [ ] Buat `04_scripts/preprocessing/build_private_intersection.py`
-  - [ ] Eksekusi pembentukan intersection manifest & feature tables
-  - [ ] Buat `04_scripts/evaluation/create_private_subject_folds.py`
-  - [ ] Eksekusi Stratified Group 5-Fold & validasi zero-leakage subject overlap
+- [x] **Fase 4: Dataset Intersection & Partisi Grouped 5-Fold**
+  - [x] Buat `04_scripts/preprocessing/build_private_intersection.py`
+  - [x] Eksekusi pembentukan intersection manifest & feature tables (403 captures / 18 subjects)
+  - [x] Buat `04_scripts/evaluation/create_private_subject_folds.py`
+  - [x] Eksekusi Stratified Group 5-Fold & validasi zero-leakage subject overlap (Overlap = 0)
 - [ ] **Fase 5: Benchmark & Evaluasi Ilmiah XGBoost 2D vs 3D**
   - [ ] Buat `04_scripts/training/train_private_xgboost_2d.py` (Grouped 5-Fold, OOF predictions)
   - [ ] Eksekusi training & evaluasi XGBoost 2D

@@ -1,0 +1,7 @@
+{
+  "reference_frame": "CAM01_camera_frame",
+  "axis_x": "lateral_horizontal_pointing_right",
+  "axis_y": "vertical_pointing_downwards",
+  "axis_z": "depth_optical_axis_pointing_forward",
+  "units": "meters_before_normalization"
+}

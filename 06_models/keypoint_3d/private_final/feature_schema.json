@@ -1,0 +1,131 @@
+{
+  "representation": "3d",
+  "n_features": 25,
+  "features": [
+    {
+      "index": 0,
+      "name": "nose_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 1,
+      "name": "nose_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 2,
+      "name": "nose_z",
+      "dtype": "float64"
+    },
+    {
+      "index": 3,
+      "name": "left_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 4,
+      "name": "left_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 5,
+      "name": "left_shoulder_z",
+      "dtype": "float64"
+    },
+    {
+      "index": 6,
+      "name": "right_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 7,
+      "name": "right_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 8,
+      "name": "right_shoulder_z",
+      "dtype": "float64"
+    },
+    {
+      "index": 9,
+      "name": "left_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 10,
+      "name": "left_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 11,
+      "name": "left_hip_z",
+      "dtype": "float64"
+    },
+    {
+      "index": 12,
+      "name": "right_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 13,
+      "name": "right_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 14,
+      "name": "right_hip_z",
+      "dtype": "float64"
+    },
+    {
+      "index": 15,
+      "name": "shoulder_roll_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 16,
+      "name": "hip_roll_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 17,
+      "name": "torso_lateral_lean_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 18,
+      "name": "torso_sagittal_lean_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 19,
+      "name": "torso_3d_inclination_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 20,
+      "name": "head_torso_angle_3d_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 21,
+      "name": "head_depth_offset_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 22,
+      "name": "head_lateral_offset_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 23,
+      "name": "shoulder_depth_asymmetry_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 24,
+      "name": "hip_depth_asymmetry_norm",
+      "dtype": "float64"
+    }
+  ]
+}

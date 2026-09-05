@@ -1,0 +1,186 @@
+{
+  "representation": "2d",
+  "n_features": 36,
+  "features": [
+    {
+      "index": 0,
+      "name": "cam01_nose_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 1,
+      "name": "cam01_nose_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 2,
+      "name": "cam01_left_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 3,
+      "name": "cam01_left_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 4,
+      "name": "cam01_right_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 5,
+      "name": "cam01_right_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 6,
+      "name": "cam01_left_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 7,
+      "name": "cam01_left_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 8,
+      "name": "cam01_right_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 9,
+      "name": "cam01_right_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 10,
+      "name": "cam01_shoulder_slope_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 11,
+      "name": "cam01_hip_slope_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 12,
+      "name": "cam01_torso_inclination_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 13,
+      "name": "cam01_head_torso_angle_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 14,
+      "name": "cam01_head_to_shoulder_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 15,
+      "name": "cam01_torso_length_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 16,
+      "name": "cam01_head_horizontal_offset_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 17,
+      "name": "cam01_torso_horizontal_offset_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 18,
+      "name": "cam02_nose_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 19,
+      "name": "cam02_nose_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 20,
+      "name": "cam02_left_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 21,
+      "name": "cam02_left_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 22,
+      "name": "cam02_right_shoulder_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 23,
+      "name": "cam02_right_shoulder_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 24,
+      "name": "cam02_left_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 25,
+      "name": "cam02_left_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 26,
+      "name": "cam02_right_hip_x",
+      "dtype": "float64"
+    },
+    {
+      "index": 27,
+      "name": "cam02_right_hip_y",
+      "dtype": "float64"
+    },
+    {
+      "index": 28,
+      "name": "cam02_shoulder_slope_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 29,
+      "name": "cam02_hip_slope_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 30,
+      "name": "cam02_torso_inclination_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 31,
+      "name": "cam02_head_torso_angle_deg",
+      "dtype": "float64"
+    },
+    {
+      "index": 32,
+      "name": "cam02_head_to_shoulder_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 33,
+      "name": "cam02_torso_length_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 34,
+      "name": "cam02_head_horizontal_offset_norm",
+      "dtype": "float64"
+    },
+    {
+      "index": 35,
+      "name": "cam02_torso_horizontal_offset_norm",
+      "dtype": "float64"
+    }
+  ]
+}

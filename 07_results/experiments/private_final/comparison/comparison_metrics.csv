@@ -1,0 +1,10 @@
+Metric,2D Multi-View,Stereo 3D,Delta (3D - 2D),Note
+Accuracy (OOF),64.02%,59.31%,-4.71%,Overall out-of-fold
+Macro Precision (OOF),0.6518,0.6092,-0.0426,Unweighted class average
+Macro Recall (OOF),0.6562,0.5943,-0.0619,Unweighted class average
+Macro F1 (OOF),0.6526,0.5947,-0.0580,Primary metric
+5-Fold Mean Accuracy,65.26% ± 8.14%,60.43% ± 8.03%,-4.83%,Paired t-test p=0.3096
+5-Fold Mean Macro F1,0.6537 ± 0.1135,0.5669 ± 0.0420,-0.0868,Paired t-test p=0.1265
+Feature Count,36 features,25 features,-11 features,"2D: 18x2 views, 3D: spatial"
+Usable Dataset Coverage,704/727 (96.84%),403/727 (55.43%),-41.40%,Secondary operational metric
+Evaluated Captures,403,403,0 (Fair Intersection),Exact same 403 captures

@@ -1,0 +1,27 @@
+{
+  "class_to_id": {
+    "upright": 0,
+    "leaning_forward": 1,
+    "leaning_backward": 2,
+    "leaning_left": 3,
+    "leaning_right": 4,
+    "slouching": 5
+  },
+  "id_to_class": {
+    "0": "upright",
+    "1": "leaning_forward",
+    "2": "leaning_backward",
+    "3": "leaning_left",
+    "4": "leaning_right",
+    "5": "slouching"
+  },
+  "classes": [
+    "upright",
+    "leaning_forward",
+    "leaning_backward",
+    "leaning_left",
+    "leaning_right",
+    "slouching"
+  ],
+  "num_classes": 6
+}

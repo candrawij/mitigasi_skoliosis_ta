@@ -28,16 +28,16 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
   - [x] Eksekusi pembentukan intersection manifest & feature tables (403 captures / 18 subjects)
   - [x] Buat `04_scripts/evaluation/create_private_subject_folds.py`
   - [x] Eksekusi Stratified Group 5-Fold & validasi zero-leakage subject overlap (Overlap = 0)
-- [ ] **Fase 5: Benchmark & Evaluasi Ilmiah XGBoost 2D vs 3D**
-  - [ ] Buat `04_scripts/training/train_private_xgboost_2d.py` (Grouped 5-Fold, OOF predictions)
-  - [ ] Eksekusi training & evaluasi XGBoost 2D
-  - [ ] Buat `04_scripts/training/train_private_xgboost_3d.py` (Grouped 5-Fold, OOF predictions)
-  - [ ] Eksekusi training & evaluasi XGBoost 3D
-  - [ ] Buat `04_scripts/evaluation/evaluate_private_2d_vs_3d.py`
-  - [ ] Eksekusi komparasi formal 2D vs 3D & failure analysis
-- [ ] **Fase 6: Serialisasi Model Deployment & Metadata**
-  - [ ] Buat `04_scripts/training/fit_private_deployment_models.py`
-  - [ ] Eksekusi fitting model deployment 2D & 3D (pkl, scaler, schemas, metadata)
+- [x] **Fase 5: Benchmark & Evaluasi Ilmiah XGBoost 2D vs 3D**
+  - [x] Buat `04_scripts/training/train_private_xgboost_2d.py` (Grouped 5-Fold, OOF predictions)
+  - [x] Eksekusi training & evaluasi XGBoost 2D $\rightarrow$ Acc 64.02%, Macro F1 0.6526 (5-Fold: 65.26% ± 8.14%)
+  - [x] Buat `04_scripts/training/train_private_xgboost_3d.py` (Grouped 5-Fold, OOF predictions)
+  - [x] Eksekusi training & evaluasi XGBoost 3D $\rightarrow$ Acc 59.31%, Macro F1 0.5947 (5-Fold: 60.43% ± 8.03%)
+  - [x] Buat `04_scripts/evaluation/evaluate_private_2d_vs_3d.py`
+  - [x] Eksekusi komparasi formal 2D vs 3D & failure analysis $\rightarrow$ `comparison_metrics.csv`, `per_class_comparison.csv`, `paired_capture_predictions.csv`, `confusion_matrix_comparison.png`, `interpretation_analysis.md`
+- [x] **Fase 6: Serialisasi Model Deployment & Metadata**
+  - [x] Buat `04_scripts/training/fit_private_deployment_models.py`
+  - [x] Eksekusi fitting model deployment 2D & 3D $\rightarrow$ `06_models/keypoint_2d/private_final/` (704 usable samples, train acc 99.72%, CV F1 0.7310) & `06_models/keypoint_3d/private_final/` (403 usable samples, train acc 99.50%, CV F1 0.6462) lengkap dengan model.pkl, pipeline.pkl, scaler.pkl, feature_schema.json, class_map.json, model_metadata.json, coordinate_convention.json
 - [ ] **Fase 7: Modul Inferensi Offline & Single Capture**
   - [ ] Buat `04_scripts/evaluation/test_private_single_capture.py` (Single capture & subject batch test)
   - [ ] Buat `04_scripts/inference/infer_private_pair_2d.py` (Inference 2D pasang citra baru)

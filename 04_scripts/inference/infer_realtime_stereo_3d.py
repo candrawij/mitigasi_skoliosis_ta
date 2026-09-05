@@ -50,13 +50,9 @@ from private_inference_common import (
 class ThreadedCamera:
     """Thread-safe camera grabber for low-latency live streaming."""
     def __init__(self, cam_idx: int, width: int = 640, height: int = 480):
-        self.cam_idx = cam_idx
-        if sys.platform.startswith("win"):
+        self.cap = cv2.VideoCapture(cam_idx)
+        if not self.cap.isOpened() and sys.platform.startswith("win"):
             self.cap = cv2.VideoCapture(cam_idx, cv2.CAP_DSHOW)
-            if not self.cap.isOpened():
-                self.cap = cv2.VideoCapture(cam_idx)
-        else:
-            self.cap = cv2.VideoCapture(cam_idx)
 
         if not self.cap.isOpened():
             raise RuntimeError(f"Cannot open camera index {cam_idx}")

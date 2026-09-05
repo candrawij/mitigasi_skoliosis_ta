@@ -454,3 +454,145 @@ def infer_pair_3d(
         "probabilities": {MAIN_CLASSES[i]: float(y_prob[i]) for i in range(NUM_CLASSES)},
         "features_count": 25
     }
+
+
+# ==============================================================================
+# 6. SINGLE-CAMERA DESK-MODE HELPERS
+# ==============================================================================
+
+CANONICAL_NEUTRAL_CAM02_FEATURES = {
+    "cam02_nose_x": 0.1622,
+    "cam02_nose_y": -0.9837,
+    "cam02_left_shoulder_x": -0.0576,
+    "cam02_left_shoulder_y": -0.7358,
+    "cam02_right_shoulder_x": -0.0049,
+    "cam02_right_shoulder_y": -0.7030,
+    "cam02_left_hip_x": -0.0144,
+    "cam02_left_hip_y": -0.0261,
+    "cam02_right_hip_x": 0.0144,
+    "cam02_right_hip_y": 0.0261,
+    "cam02_shoulder_slope_deg": 44.3802,
+    "cam02_hip_slope_deg": 76.6574,
+    "cam02_torso_inclination_deg": 6.7579,
+    "cam02_head_torso_angle_deg": 48.3779,
+    "cam02_head_to_shoulder_norm": 0.3573,
+    "cam02_torso_length_norm": 0.7271,
+    "cam02_head_horizontal_offset_norm": 0.1934,
+    "cam02_torso_horizontal_offset_norm": -0.0312
+}
+
+
+def extrapolate_hips_if_needed(
+    kpts: np.ndarray,
+    confs: np.ndarray,
+    frame_h: int
+) -> Tuple[np.ndarray, np.ndarray, bool]:
+    """
+    If seated at a desk/laptop where hips (11, 12) are occluded by desk or frame boundary,
+    extrapolates hip locations anatomically based on detected shoulders.
+    """
+    kpts_out = kpts.copy()
+    confs_out = confs.copy()
+    extrapolated = False
+
+    ls_conf = confs[COCO_LEFT_SHOULDER]
+    rs_conf = confs[COCO_RIGHT_SHOULDER]
+    lh_conf = confs[COCO_LEFT_HIP]
+    rh_conf = confs[COCO_RIGHT_HIP]
+
+    if ls_conf >= 0.25 and rs_conf >= 0.25:
+        if lh_conf < 0.25 or rh_conf < 0.25 or np.isnan(kpts[COCO_LEFT_HIP, 0]) or np.isnan(kpts[COCO_RIGHT_HIP, 0]):
+            ls = kpts[COCO_LEFT_SHOULDER]
+            rs = kpts[COCO_RIGHT_SHOULDER]
+            sh_w = max(20.0, float(np.linalg.norm(rs - ls)))
+            sh_c = (ls + rs) / 2.0
+            torso_h = max(1.15 * sh_w, 70.0)
+            hip_y = min(float(frame_h - 10), sh_c[1] + torso_h)
+            half_w = 0.45 * sh_w
+            kpts_out[COCO_LEFT_HIP] = np.array([sh_c[0] - half_w, hip_y])
+            kpts_out[COCO_RIGHT_HIP] = np.array([sh_c[0] + half_w, hip_y])
+            confs_out[COCO_LEFT_HIP] = 0.85
+            confs_out[COCO_RIGHT_HIP] = 0.85
+            extrapolated = True
+
+    return kpts_out, confs_out, extrapolated
+
+
+def infer_single_cam_2d(
+    img_cam01: np.ndarray,
+    desk_mode: bool = True
+) -> Dict[str, Any]:
+    """
+    2D Single-Camera Inference for interactive desk testing.
+    Uses live webcam as CAM01 (Frontal), with desk-mode hip extrapolation and canonical lateral view.
+    """
+    h, w = img_cam01.shape[:2]
+    ok1, kpts1, confs1, meta1 = detect_target_person_keypoints(img_cam01, view_role="frontal")
+
+    if not ok1 or kpts1 is None:
+        return {
+            "status": "REJECTED",
+            "reason": "REJECT_NO_PERSON_DETECTED",
+            "prediction": "REJECT",
+            "confidence": 0.0,
+            "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+            "kpts": None,
+            "is_extrapolated": False
+        }
+
+    is_extrapolated = False
+    if desk_mode:
+        kpts1, confs1, is_extrapolated = extrapolate_hips_if_needed(kpts1, confs1, frame_h=h)
+
+    # Check frontal landmarks
+    for idx in [COCO_LEFT_SHOULDER, COCO_RIGHT_SHOULDER, COCO_LEFT_HIP, COCO_RIGHT_HIP]:
+        if confs1[idx] < 0.25:
+            return {
+                "status": "REJECTED",
+                "reason": f"REJECT_CAM01_LOW_CONF_JOINT_{idx}",
+                "prediction": "REJECT",
+                "confidence": 0.0,
+                "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+                "kpts": kpts1,
+                "is_extrapolated": is_extrapolated
+            }
+
+    c1_feat, c1_ok, c1_msg = extract_single_view_2d_features(
+        kpts1, confs1, view_role="frontal", lateral_side="right"
+    )
+    if not c1_ok or c1_feat is None:
+        return {
+            "status": "REJECTED",
+            "reason": f"REJECT_2D_FEATURE_EXTRACTION_FAILED: {c1_msg}",
+            "prediction": "REJECT",
+            "confidence": 0.0,
+            "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+            "kpts": kpts1,
+            "is_extrapolated": is_extrapolated
+        }
+
+    # Combine with canonical lateral view
+    combined_dict = {f"cam01_{k}": v for k, v in c1_feat.items()}
+    combined_dict.update(CANONICAL_NEUTRAL_CAM02_FEATURES)
+
+    f36 = np.array([combined_dict[fn] for fn in FEATURE_NAMES_2D], dtype=np.float64)
+
+    pipeline, meta = load_deployment_pipeline("2d")
+    x_input = f36.reshape(1, -1)
+    y_pred = int(pipeline.predict(x_input)[0])
+    y_prob = pipeline.predict_proba(x_input)[0]
+
+    pred_class = ID_TO_CLASS[y_pred]
+    conf = float(y_prob[y_pred])
+
+    return {
+        "status": "VALID",
+        "reason": "OK",
+        "prediction": pred_class,
+        "confidence": conf,
+        "class_id": y_pred,
+        "probabilities": {MAIN_CLASSES[i]: float(y_prob[i]) for i in range(NUM_CLASSES)},
+        "kpts": kpts1,
+        "is_extrapolated": is_extrapolated,
+        "features_count": 36
+    }

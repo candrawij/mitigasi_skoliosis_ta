@@ -19,10 +19,10 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
   - [x] Buat `04_scripts/preprocessing/extract_private_2d_features.py`
   - [x] Eksekusi ekstraksi 2D $\rightarrow$ `private_features_2d.csv` (704 usable / 96.84%)
   - [x] Audit fitur 2D $\rightarrow$ `feature_2d_audit.csv` (0 inf/-inf, 0 duplicate, 0.57% NaN nose)
-- [ ] **Fase 3: Ekstraksi Fitur Stereo 3D (25 Fitur) & Audit**
-  - [ ] Buat `04_scripts/preprocessing/extract_private_3d_features.py`
-  - [ ] Eksekusi ekstraksi 3D $\rightarrow$ `private_features_3d.csv`
-  - [ ] Audit fitur 3D $\rightarrow$ `feature_3d_audit.csv`
+- [x] **Fase 3: Ekstraksi Fitur Stereo 3D (25 Fitur) & Audit**
+  - [x] Buat `04_scripts/preprocessing/extract_private_3d_features.py`
+  - [x] Eksekusi ekstraksi 3D $\rightarrow$ `private_features_3d.csv` (403 usable / 55.43%)
+  - [x] Audit fitur 3D $\rightarrow$ `feature_3d_audit.csv` (0 inf/-inf, 0 duplicate, 7.69% NaN nose)
 - [ ] **Fase 4: Dataset Intersection & Partisi Grouped 5-Fold**
   - [ ] Buat `04_scripts/preprocessing/build_private_intersection.py`
   - [ ] Eksekusi pembentukan intersection manifest & feature tables

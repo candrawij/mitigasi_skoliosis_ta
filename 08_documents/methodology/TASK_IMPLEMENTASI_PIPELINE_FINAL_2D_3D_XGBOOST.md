@@ -38,10 +38,11 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
 - [x] **Fase 6: Serialisasi Model Deployment & Metadata**
   - [x] Buat `04_scripts/training/fit_private_deployment_models.py`
   - [x] Eksekusi fitting model deployment 2D & 3D $\rightarrow$ `06_models/keypoint_2d/private_final/` (704 usable samples, train acc 99.72%, CV F1 0.7310) & `06_models/keypoint_3d/private_final/` (403 usable samples, train acc 99.50%, CV F1 0.6462) lengkap dengan model.pkl, pipeline.pkl, scaler.pkl, feature_schema.json, class_map.json, model_metadata.json, coordinate_convention.json
-- [ ] **Fase 7: Modul Inferensi Offline & Single Capture**
-  - [ ] Buat `04_scripts/evaluation/test_private_single_capture.py` (Single capture & subject batch test)
-  - [ ] Buat `04_scripts/inference/infer_private_pair_2d.py` (Inference 2D pasang citra baru)
-  - [ ] Buat `04_scripts/inference/infer_private_pair_3d.py` (Inference 3D + Reject Gate)
+- [x] **Fase 7: Modul Inferensi Offline & Single Capture**
+  - [x] Buat `04_scripts/evaluation/test_private_single_capture.py` (Single capture & subject batch test terverifikasi pada S024 100% dan mode OOF)
+  - [x] Buat `04_scripts/inference/private_inference_common.py` (Engine inferensi umum: YOLOv8-pose, TargetPersonSelector, Reject Gate, Stereo Triangulation, Normalisasi)
+  - [x] Buat `04_scripts/inference/infer_private_pair_2d.py` (Inference 2D pasang citra baru terverifikasi pada raw Full HD image)
+  - [x] Buat `04_scripts/inference/infer_private_pair_3d.py` (Inference 3D + Reject Gate terverifikasi untuk QC Valid dan QC Rejection)
 - [ ] **Fase 8: Prototipe Inferensi Real-Time Dual-Kamera**
   - [ ] Buat `04_scripts/inference/infer_realtime_2d.py`
   - [ ] Buat `04_scripts/inference/infer_realtime_stereo_3d.py`

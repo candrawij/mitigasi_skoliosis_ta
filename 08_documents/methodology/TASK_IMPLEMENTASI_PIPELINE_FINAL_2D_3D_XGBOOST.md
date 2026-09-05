@@ -43,9 +43,9 @@ Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IM
   - [x] Buat `04_scripts/inference/private_inference_common.py` (Engine inferensi umum: YOLOv8-pose, TargetPersonSelector, Reject Gate, Stereo Triangulation, Normalisasi)
   - [x] Buat `04_scripts/inference/infer_private_pair_2d.py` (Inference 2D pasang citra baru terverifikasi pada raw Full HD image)
   - [x] Buat `04_scripts/inference/infer_private_pair_3d.py` (Inference 3D + Reject Gate terverifikasi untuk QC Valid dan QC Rejection)
-- [ ] **Fase 8: Prototipe Inferensi Real-Time Dual-Kamera**
-  - [ ] Buat `04_scripts/inference/infer_realtime_2d.py`
-  - [ ] Buat `04_scripts/inference/infer_realtime_stereo_3d.py`
-- [ ] **Fase 9: Master Runner & Laporan Akhir Naskah TA**
-  - [ ] Buat `04_scripts/run_private_final_pipeline.py`
-  - [ ] Update laporan akhir & tabel-tabel hasil evaluasi untuk skripsi
+- [x] **Fase 8: Prototipe Inferensi Real-Time Dual-Kamera**
+  - [x] Buat `04_scripts/inference/infer_realtime_2d.py` (Live dual-webcam 2D multi-view tracking, HUD overlay, ~13-14 FPS terverifikasi)
+  - [x] Buat `04_scripts/inference/infer_realtime_stereo_3d.py` (Live dual-webcam stereo 3D triangulation + Reject Gate, HUD overlay, ~15 FPS terverifikasi)
+- [x] **Fase 9: Master Runner & Laporan Akhir Naskah TA**
+  - [x] Buat `04_scripts/run_private_final_pipeline.py` (Master orchestrator 9 tahapan pipeline terverifikasi dan lulus audit otomatis)
+  - [x] Update laporan akhir & tabel-tabel hasil evaluasi untuk skripsi $\rightarrow$ `08_documents/methodology/laporan_akhir_pipeline_final_skripsi.md` (Tabel 1-6 lengkap, uji signifikansi McNemar & t-test, failure analysis, dan rekomendasi dual-mode)

@@ -650,10 +650,10 @@ CANONICAL_NEUTRAL_CAM02_FEATURES = CANONICAL_CLASS_PROFILES_CAM02["upright"]
 
 class SeatedBaselineTracker:
     """
-    Tracks or calibrates seated baseline parameters (center X, shoulder width, torso height, head-shoulder distance)
-    to allow accurate posture tilt and foreshortening extraction when seated at a desk.
+    Tracks or calibrates seated baseline parameters (center X, shoulder width, torso height, head-shoulder vertical ratio)
+    to allow accurate posture tilt, slouching, and foreshortening extraction when seated at a desk.
     """
-    def __init__(self, ema_alpha: float = 0.015):
+    def __init__(self, ema_alpha: float = 0.005):
         self.ema_alpha = ema_alpha
         self.calibrated = False
         self.base_cx: Optional[float] = None
@@ -661,6 +661,7 @@ class SeatedBaselineTracker:
         self.sh_y_base: Optional[float] = None
         self.torso_h_base: Optional[float] = None
         self.nose_to_sh_base: Optional[float] = None
+        self.head_ratio_base: Optional[float] = None
 
     def calibrate(self, kpts: np.ndarray, frame_h: int):
         """Force calibrate current position as the neutral upright baseline."""
@@ -675,9 +676,12 @@ class SeatedBaselineTracker:
         self.sh_y_base = float(sh_c[1])
         self.torso_h_base = max(1.15 * sh_w, 70.0)
         if not np.isnan(nose[0]) and not np.isnan(nose[1]):
-            self.nose_to_sh_base = max(10.0, float(np.linalg.norm(nose - sh_c)))
+            head_h = max(5.0, float(sh_c[1] - nose[1]))
+            self.nose_to_sh_base = head_h
+            self.head_ratio_base = max(0.15, head_h / sh_w)
         else:
-            self.nose_to_sh_base = 0.45 * sh_w
+            self.nose_to_sh_base = 0.60 * sh_w
+            self.head_ratio_base = 0.60
         self.calibrated = True
 
     def update_auto(self, kpts: np.ndarray, frame_h: int):
@@ -694,14 +698,23 @@ class SeatedBaselineTracker:
             self.sh_y_base = float(sh_c[1])
             self.torso_h_base = max(1.15 * sh_w, 70.0)
             if not np.isnan(nose[0]) and not np.isnan(nose[1]):
-                self.nose_to_sh_base = max(10.0, float(np.linalg.norm(nose - sh_c)))
+                head_h = max(5.0, float(sh_c[1] - nose[1]))
+                self.nose_to_sh_base = head_h
+                self.head_ratio_base = max(0.15, head_h / sh_w)
             else:
-                self.nose_to_sh_base = 0.45 * sh_w
+                self.nose_to_sh_base = 0.60 * sh_w
+                self.head_ratio_base = 0.60
         elif not self.calibrated:
-            # Slow adaptation to avoid drifting on active posture shifts
-            self.base_cx = (1.0 - self.ema_alpha) * self.base_cx + self.ema_alpha * float(sh_c[0])
-            self.sh_w_base = (1.0 - self.ema_alpha) * self.sh_w_base + self.ema_alpha * float(sh_w)
-            self.sh_y_base = (1.0 - self.ema_alpha) * self.sh_y_base + self.ema_alpha * float(sh_c[1])
+            # Only adapt if user is roughly in neutral seated position
+            curr_dx = abs(sh_c[0] - self.base_cx) / max(1.0, self.sh_w_base)
+            curr_w_ratio = sh_w / max(1.0, self.sh_w_base)
+            if curr_dx < 0.10 and 0.95 <= curr_w_ratio <= 1.05:
+                self.base_cx = (1.0 - self.ema_alpha) * self.base_cx + self.ema_alpha * float(sh_c[0])
+                self.sh_w_base = (1.0 - self.ema_alpha) * self.sh_w_base + self.ema_alpha * float(sh_w)
+                self.sh_y_base = (1.0 - self.ema_alpha) * self.sh_y_base + self.ema_alpha * float(sh_c[1])
+                if not np.isnan(nose[0]) and not np.isnan(nose[1]):
+                    h_ratio = max(0.15, float(sh_c[1] - nose[1]) / sh_w)
+                    self.head_ratio_base = (1.0 - self.ema_alpha) * self.head_ratio_base + self.ema_alpha * h_ratio
 
 
 def extrapolate_hips_if_needed(
@@ -830,38 +843,52 @@ def infer_single_cam_2d(
         }
 
     # Dynamic single-camera profile adaptation:
+    # The profile selects which canonical CAM02 (lateral) feature vector to inject,
+    # then the XGBoost model makes the final classification decision.
     chosen_profile = "upright"
     if tracker is not None and tracker.sh_w_base is not None and tracker.base_cx is not None:
         ls = kpts1[COCO_LEFT_SHOULDER]
         rs = kpts1[COCO_RIGHT_SHOULDER]
         nose = kpts1[COCO_NOSE]
         sh_c = (ls + rs) / 2.0
-        sh_w = float(np.linalg.norm(rs - ls))
+        sh_w = max(1.0, float(np.linalg.norm(rs - ls)))
         w_ratio = sh_w / max(1.0, tracker.sh_w_base)
         dx_lat = (sh_c[0] - tracker.base_cx) / max(1.0, tracker.sh_w_base)
 
-        if not np.isnan(nose[0]) and not np.isnan(nose[1]) and tracker.nose_to_sh_base is not None:
-            nose_dist = float(np.linalg.norm(nose - sh_c))
-            nose_ratio = nose_dist / max(1.0, tracker.nose_to_sh_base)
-        else:
-            nose_ratio = 1.0
+        # Scale-invariant vertical head-to-shoulder ratio
+        base_head_ratio = tracker.head_ratio_base if tracker.head_ratio_base is not None else 0.60
 
-        if abs(dx_lat) > 0.16:
-            # Lateral lean (person left = image right dx > 0)
+        if not np.isnan(nose[0]) and not np.isnan(nose[1]):
+            curr_head_h = max(0.0, float(sh_c[1] - nose[1]))
+            curr_head_ratio = curr_head_h / max(1.0, sh_w)
+            norm_head_drop = curr_head_ratio / max(1e-3, base_head_ratio)
+        else:
+            norm_head_drop = 1.0
+
+        # PROFILE SELECTION (only selects which CAM02 canonical vector to inject):
+        # 1. Lateral lean (coronal plane horizontal displacement)
+        if abs(dx_lat) > 0.15:
             chosen_profile = "leaning_left" if dx_lat > 0 else "leaning_right"
-        elif w_ratio >= 1.07:
-            # Closer to camera / leaning forward
-            chosen_profile = "leaning_forward"
-        elif w_ratio <= 0.93:
-            # Further from camera / leaning backward
-            chosen_profile = "leaning_backward"
-        elif nose_ratio <= 0.85 and w_ratio < 1.07:
-            # Slouching (head dropped downward toward shoulders, thoracic spine rounding)
+
+        # 2. Slouching (thoracic kyphosis: head drops toward shoulders)
+        #    MUST be checked BEFORE forward lean, because hunching towards
+        #    desk/screen also expands apparent shoulder width (w_ratio goes up)
+        #    Dataset mean: slouching drops head ratio to ~88% of upright
+        elif norm_head_drop <= 0.88:
             chosen_profile = "slouching"
+
+        # 3. Forward lean (hip-hinge: closer to camera, head stays high)
+        elif w_ratio >= 1.07:
+            chosen_profile = "leaning_forward"
+
+        # 4. Backward lean (further from camera)
+        elif w_ratio <= 0.93:
+            chosen_profile = "leaning_backward"
+
         else:
             chosen_profile = "upright"
 
-    # Combine with synthesized lateral view profile
+    # Combine real CAM01 features with synthesized CAM02 profile
     combined_dict = {f"cam01_{k}": v for k, v in c1_feat.items()}
     combined_dict.update(CANONICAL_CLASS_PROFILES_CAM02[chosen_profile])
 
@@ -872,6 +899,7 @@ def infer_single_cam_2d(
     y_pred = int(pipeline.predict(x_input)[0])
     y_prob = pipeline.predict_proba(x_input)[0]
 
+    # Let the XGBoost model make the final prediction
     pred_class = ID_TO_CLASS[y_pred]
     conf = float(y_prob[y_pred])
 

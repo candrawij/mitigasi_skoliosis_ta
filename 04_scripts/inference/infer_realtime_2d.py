@@ -501,7 +501,8 @@ def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
             if frame_count % 20 == 0:
                 pred_str = result.get("prediction", "REJECT")
                 conf_str = f"{result.get('confidence', 0.0)*100:.1f}%" if result.get('status') == 'VALID' else result.get('reason')
-                print(f"[Frame {frame_count:04d}] Posture: {pred_str:<16} | Conf: {conf_str:<15} | FPS: {avg_fps:4.1f}")
+                prof_str = result.get("profile", "-")
+                print(f"[Frame {frame_count:04d}] Posture: {pred_str:<16} | Profile: {prof_str:<16} | Conf: {conf_str:<10} | FPS: {avg_fps:4.1f}")
 
             cv2.imshow(window_name, hud_frame)
             key = cv2.waitKey(1) & 0xFF
@@ -513,7 +514,7 @@ def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
                 if kpts is not None:
                     tracker.calibrate(kpts, frame_h=frame.shape[0])
                     print("\n>>> [KALIBRASI] Posisi duduk netral tegak berhasil direkam!")
-                    print(f"    Baseline: CX={tracker.base_cx:.1f}px, ShWidth={tracker.sh_w_base:.1f}px, NoseToSh={tracker.nose_to_sh_base:.1f}px")
+                    print(f"    Baseline: CX={tracker.base_cx:.1f}px, ShWidth={tracker.sh_w_base:.1f}px, HeadRatio={tracker.head_ratio_base:.3f}")
                 else:
                     print("\n>>> [KALIBRASI] Peringatan: Keypoint tubuh belum terdeteksi sempurna.")
             elif key in [ord('d'), ord('D')]:

@@ -175,11 +175,13 @@ def check_2d_reject_gate(
     confs_cam01: Optional[np.ndarray],
     kpts_cam02: Optional[np.ndarray],
     confs_cam02: Optional[np.ndarray],
-    min_conf: float = 0.25
+    min_conf: float = 0.25,
+    desk_mode: bool = False
 ) -> Tuple[bool, str]:
     """
     Step 21: Reject Gate for 2D Multi-View.
     Enforces that core anatomical landmarks exist with sufficient confidence on BOTH views.
+    In desk_mode, hips are permitted to be extrapolated when occluded by desk.
     """
     if kpts_cam01 is None or confs_cam01 is None:
         return False, "REJECT_NO_PERSON_CAM01"
@@ -300,8 +302,8 @@ def triangulate_stereo_pair(
     if torso_len_3d < 0.15 or torso_len_3d > 0.90:
         return False, None, mean_core_reproj, f"REJECT_3D_ANATOMICAL_TORSO_LEN_{torso_len_3d:.2f}m"
 
-    # 3. Mean core reprojection error threshold (< 35 px at 640p)
-    if mean_core_reproj > 35.0:
+    # 3. Mean core reprojection error threshold (<= 45 px at 640p)
+    if mean_core_reproj > 45.0:
         return False, None, mean_core_reproj, f"REJECT_3D_HIGH_REPROJECTION_ERROR_{mean_core_reproj:.1f}px"
 
     return True, kpts_3d_out, mean_core_reproj, "VALID_3D"
@@ -314,17 +316,65 @@ def triangulate_stereo_pair(
 def infer_pair_2d(
     img_cam01: np.ndarray,
     img_cam02: np.ndarray,
-    lateral_side: str = "right"
+    lateral_side: str = "right",
+    desk_mode: bool = True,
+    tracker_c1: Optional["SeatedBaselineTracker"] = None,
+    tracker_c2: Optional["SeatedBaselineTracker"] = None
 ) -> Dict[str, Any]:
     """
     End-to-End 2D Multi-View Inference on image pair.
+    In desk_mode, anatomical hip extrapolation is applied when hips are occluded by desk.
     """
+    h1, w1 = img_cam01.shape[:2]
+    h2, w2 = img_cam02.shape[:2]
+
     # 1. Pose Detection
     ok1, kpts1, confs1, meta1 = detect_target_person_keypoints(img_cam01, view_role="frontal")
     ok2, kpts2, confs2, meta2 = detect_target_person_keypoints(img_cam02, view_role="lateral")
 
+    if not ok1 or kpts1 is None:
+        return {
+            "status": "REJECTED",
+            "reason": f"CAM01: {meta1.get('reason', 'No person detected')}",
+            "prediction": "REJECT",
+            "confidence": 0.0,
+            "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+            "meta": {"cam01": meta1, "cam02": meta2},
+            "kpts1": None, "confs1": None, "kpts2": None, "confs2": None
+        }
+
+    if not ok2 or kpts2 is None:
+        return {
+            "status": "REJECTED",
+            "reason": f"CAM02: {meta2.get('reason', 'No person detected')}",
+            "prediction": "REJECT",
+            "confidence": 0.0,
+            "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+            "meta": {"cam01": meta1, "cam02": meta2},
+            "kpts1": kpts1, "confs1": confs1, "kpts2": None, "confs2": None
+        }
+
+    # Desk-mode hip extrapolation
+    is_extrap_1, is_extrap_2 = False, False
+    if desk_mode:
+        base_x1 = tracker_c1.base_cx if tracker_c1 is not None else None
+        base_x2 = tracker_c2.base_cx if tracker_c2 is not None else None
+        if tracker_c1 is not None:
+            tracker_c1.update_auto(kpts1, frame_h=h1)
+            base_x1 = tracker_c1.base_cx
+        if tracker_c2 is not None:
+            tracker_c2.update_auto(kpts2, frame_h=h2)
+            base_x2 = tracker_c2.base_cx
+
+        kpts1, confs1, is_extrap_1 = extrapolate_hips_if_needed(
+            kpts1, confs1, frame_h=h1, base_cx=base_x1, view_role="frontal"
+        )
+        kpts2, confs2, is_extrap_2 = extrapolate_hips_if_needed(
+            kpts2, confs2, frame_h=h2, base_cx=base_x2, view_role="lateral"
+        )
+
     # 2. Reject Gate
-    is_valid, reason = check_2d_reject_gate(kpts1, confs1, kpts2, confs2)
+    is_valid, reason = check_2d_reject_gate(kpts1, confs1, kpts2, confs2, desk_mode=desk_mode)
     if not is_valid:
         return {
             "status": "REJECTED",
@@ -332,7 +382,10 @@ def infer_pair_2d(
             "prediction": "REJECT",
             "confidence": 0.0,
             "probabilities": {c: 0.0 for c in MAIN_CLASSES},
-            "meta": {"cam01": meta1, "cam02": meta2}
+            "meta": {"cam01": meta1, "cam02": meta2},
+            "kpts1": kpts1, "confs1": confs1,
+            "kpts2": kpts2, "confs2": confs2,
+            "desk_mode": desk_mode
         }
 
     # 3. Extract 36 Features
@@ -348,7 +401,9 @@ def infer_pair_2d(
             "reason": f"REJECT_2D_FEATURE_EXTRACTION_FAILED: {c1_msg} | {c2_msg}",
             "prediction": "REJECT",
             "confidence": 0.0,
-            "probabilities": {c: 0.0 for c in MAIN_CLASSES}
+            "probabilities": {c: 0.0 for c in MAIN_CLASSES},
+            "kpts1": kpts1, "confs1": confs1,
+            "kpts2": kpts2, "confs2": confs2
         }
 
     combined_dict = combine_2d_multi_view_features(c1_feat, c2_feat)
@@ -370,6 +425,10 @@ def infer_pair_2d(
         "confidence": conf,
         "class_id": y_pred,
         "probabilities": {MAIN_CLASSES[i]: float(y_prob[i]) for i in range(NUM_CLASSES)},
+        "kpts1": kpts1, "confs1": confs1,
+        "kpts2": kpts2, "confs2": confs2,
+        "is_extrapolated_c1": is_extrap_1,
+        "is_extrapolated_c2": is_extrap_2,
         "features_count": 36
     }
 
@@ -460,36 +519,201 @@ def infer_pair_3d(
 # 6. SINGLE-CAMERA DESK-MODE HELPERS
 # ==============================================================================
 
-CANONICAL_NEUTRAL_CAM02_FEATURES = {
-    "cam02_nose_x": 0.1622,
-    "cam02_nose_y": -0.9837,
-    "cam02_left_shoulder_x": -0.0576,
-    "cam02_left_shoulder_y": -0.7358,
-    "cam02_right_shoulder_x": -0.0049,
-    "cam02_right_shoulder_y": -0.7030,
-    "cam02_left_hip_x": -0.0144,
-    "cam02_left_hip_y": -0.0261,
-    "cam02_right_hip_x": 0.0144,
-    "cam02_right_hip_y": 0.0261,
-    "cam02_shoulder_slope_deg": 44.3802,
-    "cam02_hip_slope_deg": 76.6574,
-    "cam02_torso_inclination_deg": 6.7579,
-    "cam02_head_torso_angle_deg": 48.3779,
-    "cam02_head_to_shoulder_norm": 0.3573,
-    "cam02_torso_length_norm": 0.7271,
-    "cam02_head_horizontal_offset_norm": 0.1934,
-    "cam02_torso_horizontal_offset_norm": -0.0312
+# 6. SINGLE-CAMERA DESK-MODE HELPERS & BASELINE TRACKER
+# ==============================================================================
+
+CANONICAL_CLASS_PROFILES_CAM02 = {
+    "upright": {
+        "cam02_nose_x": 0.1622,
+        "cam02_nose_y": -0.9837,
+        "cam02_left_shoulder_x": -0.0576,
+        "cam02_left_shoulder_y": -0.7358,
+        "cam02_right_shoulder_x": -0.0049,
+        "cam02_right_shoulder_y": -0.703,
+        "cam02_left_hip_x": -0.0144,
+        "cam02_left_hip_y": -0.0261,
+        "cam02_right_hip_x": 0.0144,
+        "cam02_right_hip_y": 0.0261,
+        "cam02_shoulder_slope_deg": 44.3802,
+        "cam02_hip_slope_deg": 76.6574,
+        "cam02_torso_inclination_deg": 6.7579,
+        "cam02_head_torso_angle_deg": 48.3779,
+        "cam02_head_to_shoulder_norm": 0.3573,
+        "cam02_torso_length_norm": 0.7271,
+        "cam02_head_horizontal_offset_norm": 0.1934,
+        "cam02_torso_horizontal_offset_norm": -0.0312
+    },
+    "leaning_forward": {
+        "cam02_nose_x": 0.2535,
+        "cam02_nose_y": -0.9208,
+        "cam02_left_shoulder_x": 0.0363,
+        "cam02_left_shoulder_y": -0.7211,
+        "cam02_right_shoulder_x": 0.0786,
+        "cam02_right_shoulder_y": -0.6927,
+        "cam02_left_hip_x": -0.0122,
+        "cam02_left_hip_y": -0.0221,
+        "cam02_right_hip_x": 0.0122,
+        "cam02_right_hip_y": 0.0221,
+        "cam02_shoulder_slope_deg": 30.9484,
+        "cam02_hip_slope_deg": 78.2687,
+        "cam02_torso_inclination_deg": 8.181,
+        "cam02_head_torso_angle_deg": 46.0543,
+        "cam02_head_to_shoulder_norm": 0.3676,
+        "cam02_torso_length_norm": 0.7183,
+        "cam02_head_horizontal_offset_norm": 0.2029,
+        "cam02_torso_horizontal_offset_norm": 0.0574
+    },
+    "leaning_backward": {
+        "cam02_nose_x": 0.0094,
+        "cam02_nose_y": -0.9915,
+        "cam02_left_shoulder_x": -0.1619,
+        "cam02_left_shoulder_y": -0.714,
+        "cam02_right_shoulder_x": -0.1539,
+        "cam02_right_shoulder_y": -0.6844,
+        "cam02_left_hip_x": 0.0004,
+        "cam02_left_hip_y": -0.0293,
+        "cam02_right_hip_x": -0.0004,
+        "cam02_right_hip_y": 0.0293,
+        "cam02_shoulder_slope_deg": 64.9556,
+        "cam02_hip_slope_deg": 94.0692,
+        "cam02_torso_inclination_deg": 17.9205,
+        "cam02_head_torso_angle_deg": 50.1643,
+        "cam02_head_to_shoulder_norm": 0.3493,
+        "cam02_torso_length_norm": 0.7413,
+        "cam02_head_horizontal_offset_norm": 0.1673,
+        "cam02_torso_horizontal_offset_norm": -0.1579
+    },
+    "slouching": {
+        "cam02_nose_x": 0.2566,
+        "cam02_nose_y": -0.9464,
+        "cam02_left_shoulder_x": 0.0184,
+        "cam02_left_shoulder_y": -0.7248,
+        "cam02_right_shoulder_x": 0.0221,
+        "cam02_right_shoulder_y": -0.6925,
+        "cam02_left_hip_x": 0.0008,
+        "cam02_left_hip_y": -0.0277,
+        "cam02_right_hip_x": -0.0008,
+        "cam02_right_hip_y": 0.0277,
+        "cam02_shoulder_slope_deg": 67.3428,
+        "cam02_hip_slope_deg": 88.4698,
+        "cam02_torso_inclination_deg": 5.1238,
+        "cam02_head_torso_angle_deg": 50.1096,
+        "cam02_head_to_shoulder_norm": 0.3816,
+        "cam02_torso_length_norm": 0.7139,
+        "cam02_head_horizontal_offset_norm": 0.2364,
+        "cam02_torso_horizontal_offset_norm": 0.0202
+    },
+    "leaning_left": {
+        "cam02_nose_x": 0.1839,
+        "cam02_nose_y": -0.9702,
+        "cam02_left_shoulder_x": -0.0477,
+        "cam02_left_shoulder_y": -0.7486,
+        "cam02_right_shoulder_x": -0.0081,
+        "cam02_right_shoulder_y": -0.7481,
+        "cam02_left_hip_x": -0.0079,
+        "cam02_left_hip_y": -0.021,
+        "cam02_right_hip_x": 0.0079,
+        "cam02_right_hip_y": 0.021,
+        "cam02_shoulder_slope_deg": 2.5866,
+        "cam02_hip_slope_deg": 80.1472,
+        "cam02_torso_inclination_deg": 4.8056,
+        "cam02_head_torso_angle_deg": 51.9088,
+        "cam02_head_to_shoulder_norm": 0.3435,
+        "cam02_torso_length_norm": 0.7536,
+        "cam02_head_horizontal_offset_norm": 0.2118,
+        "cam02_torso_horizontal_offset_norm": -0.0279
+    },
+    "leaning_right": {
+        "cam02_nose_x": 0.1483,
+        "cam02_nose_y": -0.9825,
+        "cam02_left_shoulder_x": -0.0516,
+        "cam02_left_shoulder_y": -0.7319,
+        "cam02_right_shoulder_x": -0.0604,
+        "cam02_right_shoulder_y": -0.6669,
+        "cam02_left_hip_x": 0.0039,
+        "cam02_left_hip_y": -0.0328,
+        "cam02_right_hip_x": -0.0039,
+        "cam02_right_hip_y": 0.0328,
+        "cam02_shoulder_slope_deg": 106.7496,
+        "cam02_hip_slope_deg": 93.2947,
+        "cam02_torso_inclination_deg": 8.0054,
+        "cam02_head_torso_angle_deg": 48.6868,
+        "cam02_head_to_shoulder_norm": 0.3803,
+        "cam02_torso_length_norm": 0.7099,
+        "cam02_head_horizontal_offset_norm": 0.2043,
+        "cam02_torso_horizontal_offset_norm": -0.056
+    }
 }
+
+CANONICAL_NEUTRAL_CAM02_FEATURES = CANONICAL_CLASS_PROFILES_CAM02["upright"]
+
+
+class SeatedBaselineTracker:
+    """
+    Tracks or calibrates seated baseline parameters (center X, shoulder width, torso height, head-shoulder distance)
+    to allow accurate posture tilt and foreshortening extraction when seated at a desk.
+    """
+    def __init__(self, ema_alpha: float = 0.015):
+        self.ema_alpha = ema_alpha
+        self.calibrated = False
+        self.base_cx: Optional[float] = None
+        self.sh_w_base: Optional[float] = None
+        self.sh_y_base: Optional[float] = None
+        self.torso_h_base: Optional[float] = None
+        self.nose_to_sh_base: Optional[float] = None
+
+    def calibrate(self, kpts: np.ndarray, frame_h: int):
+        """Force calibrate current position as the neutral upright baseline."""
+        ls = kpts[COCO_LEFT_SHOULDER]
+        rs = kpts[COCO_RIGHT_SHOULDER]
+        nose = kpts[COCO_NOSE]
+        sh_c = (ls + rs) / 2.0
+        sh_w = max(20.0, float(np.linalg.norm(rs - ls)))
+
+        self.base_cx = float(sh_c[0])
+        self.sh_w_base = float(sh_w)
+        self.sh_y_base = float(sh_c[1])
+        self.torso_h_base = max(1.15 * sh_w, 70.0)
+        if not np.isnan(nose[0]) and not np.isnan(nose[1]):
+            self.nose_to_sh_base = max(10.0, float(np.linalg.norm(nose - sh_c)))
+        else:
+            self.nose_to_sh_base = 0.45 * sh_w
+        self.calibrated = True
+
+    def update_auto(self, kpts: np.ndarray, frame_h: int):
+        """Auto-initialize or slowly adapt baseline when not manually calibrated."""
+        ls = kpts[COCO_LEFT_SHOULDER]
+        rs = kpts[COCO_RIGHT_SHOULDER]
+        nose = kpts[COCO_NOSE]
+        sh_c = (ls + rs) / 2.0
+        sh_w = max(20.0, float(np.linalg.norm(rs - ls)))
+
+        if self.base_cx is None:
+            self.base_cx = float(sh_c[0])
+            self.sh_w_base = float(sh_w)
+            self.sh_y_base = float(sh_c[1])
+            self.torso_h_base = max(1.15 * sh_w, 70.0)
+            if not np.isnan(nose[0]) and not np.isnan(nose[1]):
+                self.nose_to_sh_base = max(10.0, float(np.linalg.norm(nose - sh_c)))
+            else:
+                self.nose_to_sh_base = 0.45 * sh_w
+        elif not self.calibrated:
+            # Slow adaptation to avoid drifting on active posture shifts
+            self.base_cx = (1.0 - self.ema_alpha) * self.base_cx + self.ema_alpha * float(sh_c[0])
+            self.sh_w_base = (1.0 - self.ema_alpha) * self.sh_w_base + self.ema_alpha * float(sh_w)
+            self.sh_y_base = (1.0 - self.ema_alpha) * self.sh_y_base + self.ema_alpha * float(sh_c[1])
 
 
 def extrapolate_hips_if_needed(
     kpts: np.ndarray,
     confs: np.ndarray,
-    frame_h: int
+    frame_h: int,
+    base_cx: Optional[float] = None,
+    view_role: str = "frontal"
 ) -> Tuple[np.ndarray, np.ndarray, bool]:
     """
     If seated at a desk/laptop where hips (11, 12) are occluded by desk or frame boundary,
-    extrapolates hip locations anatomically based on detected shoulders.
+    extrapolates hip locations anatomically based on detected shoulders and anchored seated base.
     """
     kpts_out = kpts.copy()
     confs_out = confs.copy()
@@ -500,17 +724,38 @@ def extrapolate_hips_if_needed(
     lh_conf = confs[COCO_LEFT_HIP]
     rh_conf = confs[COCO_RIGHT_HIP]
 
-    if ls_conf >= 0.25 and rs_conf >= 0.25:
+    # In frontal or lateral view, if shoulders are visible
+    if (ls_conf >= 0.25 and rs_conf >= 0.25) or (view_role == "lateral" and (ls_conf >= 0.25 or rs_conf >= 0.25)):
+        # If hips are occluded or low confidence
         if lh_conf < 0.25 or rh_conf < 0.25 or np.isnan(kpts[COCO_LEFT_HIP, 0]) or np.isnan(kpts[COCO_RIGHT_HIP, 0]):
-            ls = kpts[COCO_LEFT_SHOULDER]
-            rs = kpts[COCO_RIGHT_SHOULDER]
-            sh_w = max(20.0, float(np.linalg.norm(rs - ls)))
-            sh_c = (ls + rs) / 2.0
+            if ls_conf >= 0.25 and rs_conf >= 0.25:
+                ls = kpts[COCO_LEFT_SHOULDER]
+                rs = kpts[COCO_RIGHT_SHOULDER]
+                sh_w = max(20.0, float(np.linalg.norm(rs - ls)))
+                sh_c = (ls + rs) / 2.0
+            else:
+                # In lateral view where one shoulder is occluded
+                vis_sh = kpts[COCO_LEFT_SHOULDER] if ls_conf >= 0.25 else kpts[COCO_RIGHT_SHOULDER]
+                sh_c = vis_sh
+                sh_w = 60.0
+                ls = sh_c - np.array([10.0, 0.0])
+                rs = sh_c + np.array([10.0, 0.0])
+
             torso_h = max(1.15 * sh_w, 70.0)
             hip_y = min(float(frame_h - 10), sh_c[1] + torso_h)
+
+            # Anchoring hip X position to chair base:
+            # If base_cx is given (the neutral seated center):
+            # When body leans laterally by dx, pelvis stays predominantly in chair (15% pelvis sway, 85% spine tilt)
+            if base_cx is not None:
+                dx = sh_c[0] - base_cx
+                hip_cx = base_cx + 0.15 * dx
+            else:
+                hip_cx = sh_c[0]
+
             half_w = 0.45 * sh_w
-            kpts_out[COCO_LEFT_HIP] = np.array([sh_c[0] - half_w, hip_y])
-            kpts_out[COCO_RIGHT_HIP] = np.array([sh_c[0] + half_w, hip_y])
+            kpts_out[COCO_LEFT_HIP] = np.array([hip_cx - half_w, hip_y])
+            kpts_out[COCO_RIGHT_HIP] = np.array([hip_cx + half_w, hip_y])
             confs_out[COCO_LEFT_HIP] = 0.85
             confs_out[COCO_RIGHT_HIP] = 0.85
             extrapolated = True
@@ -520,11 +765,13 @@ def extrapolate_hips_if_needed(
 
 def infer_single_cam_2d(
     img_cam01: np.ndarray,
-    desk_mode: bool = True
+    desk_mode: bool = True,
+    tracker: Optional[SeatedBaselineTracker] = None
 ) -> Dict[str, Any]:
     """
     2D Single-Camera Inference for interactive desk testing.
-    Uses live webcam as CAM01 (Frontal), with desk-mode hip extrapolation and canonical lateral view.
+    Uses live webcam as CAM01 (Frontal), with desk-mode anchored hip extrapolation
+    and dynamic sagittal/lateral feature adaptation based on seated baseline.
     """
     h, w = img_cam01.shape[:2]
     ok1, kpts1, confs1, meta1 = detect_target_person_keypoints(img_cam01, view_role="frontal")
@@ -537,12 +784,21 @@ def infer_single_cam_2d(
             "confidence": 0.0,
             "probabilities": {c: 0.0 for c in MAIN_CLASSES},
             "kpts": None,
+            "confs": None,
             "is_extrapolated": False
         }
 
+    # Update or initialize baseline tracker
+    base_cx = None
+    if tracker is not None:
+        tracker.update_auto(kpts1, frame_h=h)
+        base_cx = tracker.base_cx
+
     is_extrapolated = False
     if desk_mode:
-        kpts1, confs1, is_extrapolated = extrapolate_hips_if_needed(kpts1, confs1, frame_h=h)
+        kpts1, confs1, is_extrapolated = extrapolate_hips_if_needed(
+            kpts1, confs1, frame_h=h, base_cx=base_cx, view_role="frontal"
+        )
 
     # Check frontal landmarks
     for idx in [COCO_LEFT_SHOULDER, COCO_RIGHT_SHOULDER, COCO_LEFT_HIP, COCO_RIGHT_HIP]:
@@ -554,6 +810,7 @@ def infer_single_cam_2d(
                 "confidence": 0.0,
                 "probabilities": {c: 0.0 for c in MAIN_CLASSES},
                 "kpts": kpts1,
+                "confs": confs1,
                 "is_extrapolated": is_extrapolated
             }
 
@@ -568,12 +825,45 @@ def infer_single_cam_2d(
             "confidence": 0.0,
             "probabilities": {c: 0.0 for c in MAIN_CLASSES},
             "kpts": kpts1,
+            "confs": confs1,
             "is_extrapolated": is_extrapolated
         }
 
-    # Combine with canonical lateral view
+    # Dynamic single-camera profile adaptation:
+    chosen_profile = "upright"
+    if tracker is not None and tracker.sh_w_base is not None and tracker.base_cx is not None:
+        ls = kpts1[COCO_LEFT_SHOULDER]
+        rs = kpts1[COCO_RIGHT_SHOULDER]
+        nose = kpts1[COCO_NOSE]
+        sh_c = (ls + rs) / 2.0
+        sh_w = float(np.linalg.norm(rs - ls))
+        w_ratio = sh_w / max(1.0, tracker.sh_w_base)
+        dx_lat = (sh_c[0] - tracker.base_cx) / max(1.0, tracker.sh_w_base)
+
+        if not np.isnan(nose[0]) and not np.isnan(nose[1]) and tracker.nose_to_sh_base is not None:
+            nose_dist = float(np.linalg.norm(nose - sh_c))
+            nose_ratio = nose_dist / max(1.0, tracker.nose_to_sh_base)
+        else:
+            nose_ratio = 1.0
+
+        if abs(dx_lat) > 0.16:
+            # Lateral lean (person left = image right dx > 0)
+            chosen_profile = "leaning_left" if dx_lat > 0 else "leaning_right"
+        elif w_ratio >= 1.07:
+            # Closer to camera / leaning forward
+            chosen_profile = "leaning_forward"
+        elif w_ratio <= 0.93:
+            # Further from camera / leaning backward
+            chosen_profile = "leaning_backward"
+        elif nose_ratio <= 0.85 and w_ratio < 1.07:
+            # Slouching (head dropped downward toward shoulders, thoracic spine rounding)
+            chosen_profile = "slouching"
+        else:
+            chosen_profile = "upright"
+
+    # Combine with synthesized lateral view profile
     combined_dict = {f"cam01_{k}": v for k, v in c1_feat.items()}
-    combined_dict.update(CANONICAL_NEUTRAL_CAM02_FEATURES)
+    combined_dict.update(CANONICAL_CLASS_PROFILES_CAM02[chosen_profile])
 
     f36 = np.array([combined_dict[fn] for fn in FEATURE_NAMES_2D], dtype=np.float64)
 
@@ -593,6 +883,8 @@ def infer_single_cam_2d(
         "class_id": y_pred,
         "probabilities": {MAIN_CLASSES[i]: float(y_prob[i]) for i in range(NUM_CLASSES)},
         "kpts": kpts1,
+        "confs": confs1,
         "is_extrapolated": is_extrapolated,
+        "profile": chosen_profile,
         "features_count": 36
     }

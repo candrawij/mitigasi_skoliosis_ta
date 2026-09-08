@@ -287,6 +287,11 @@ def run_realtime_stereo_3d(
                 if key in [ord('q'), ord('Q'), 27]:
                     print("\nExit key detected. Closing real-time stream...")
                     break
+                elif key in [ord('s'), ord('S')]:
+                    if cam1 is not None and cam2 is not None:
+                        cam1, cam2 = cam2, cam1
+                        cam01_idx, cam02_idx = cam02_idx, cam01_idx
+                        print(f"\n>>> [SWAP] Kamera 3D ditukar! CAM01: Port [{cam01_idx}] <-> CAM02: Port [{cam02_idx}]")
             except cv2.error:
                 if frame_count >= 30:
                     print("[HEADLESS] Completed 30 sample inference iterations successfully.")

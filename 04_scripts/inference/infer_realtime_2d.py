@@ -38,6 +38,7 @@ from private_inference_common import (
     infer_single_cam_2d,
     detect_target_person_keypoints,
     check_2d_reject_gate,
+    SeatedBaselineTracker,
     MAIN_CLASSES,
     CLASS_TO_ID,
     ID_TO_CLASS,
@@ -49,7 +50,7 @@ from private_inference_common import (
 )
 
 
-def scan_available_cameras(max_check: int = 4) -> List[Tuple[int, int, int]]:
+def scan_available_cameras(max_check: int = 6) -> List[Tuple[int, int, int]]:
     """Scan and return list of available camera tuples: (index, width, height)."""
     available = []
     print("Memindai port kamera yang terhubung...")
@@ -65,6 +66,152 @@ def scan_available_cameras(max_check: int = 4) -> List[Tuple[int, int, int]]:
                 available.append((idx, w, h))
             cap.release()
     return available
+
+
+def preview_cameras_grid(available_cams: List[Tuple[int, int, int]]):
+    """
+    Opens a quick visual preview window showing all detected cameras with their index numbers
+    so the user can immediately see which camera corresponds to which index.
+    """
+    if not available_cams:
+        return
+
+    print("\n[PREVIEW] Membuka jendela pratinjau kamera...")
+    print(">>> Lihat nomor port pada setiap kamera pada jendela 'Pratinjau Kamera'.")
+    print(">>> Tekan SEMBARANG TOMBOL atau [ESC] pada jendela video untuk lanjut memilih...\n")
+
+    caps = []
+    for idx, _, _ in available_cams:
+        c = cv2.VideoCapture(idx)
+        if not c.isOpened() and sys.platform.startswith("win"):
+            c = cv2.VideoCapture(idx, cv2.CAP_DSHOW)
+        caps.append(c)
+
+    win_name = "Pratinjau Kamera - Tekan Sembarang Tombol untuk Memilih"
+    cv2.namedWindow(win_name, cv2.WINDOW_NORMAL)
+
+    try:
+        start_time = time.time()
+        while time.time() - start_time < 30.0:  # 30s timeout
+            frames = []
+            for i, (idx, _, _) in enumerate(available_cams):
+                cap = caps[i]
+                if cap.isOpened():
+                    ret, f = cap.read()
+                    if ret and f is not None:
+                        f_small = cv2.resize(f, (320, 240))
+                        # Draw label badge
+                        cv2.rectangle(f_small, (0, 0), (320, 42), (20, 20, 20), -1)
+                        cv2.putText(f_small, f"KAMERA PORT [{idx}]", (15, 28),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.70, (0, 255, 255), 2)
+                        frames.append(f_small)
+                    else:
+                        placeholder = np.zeros((240, 320, 3), dtype=np.uint8)
+                        cv2.putText(placeholder, f"Port [{idx}] No Frame", (20, 120),
+                                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+                        frames.append(placeholder)
+
+            if frames:
+                composite = np.hstack(frames)
+                cv2.imshow(win_name, composite)
+
+            key = cv2.waitKey(30) & 0xFF
+            if key != 255:
+                break
+    finally:
+        for c in caps:
+            c.release()
+        cv2.destroyWindow(win_name)
+
+
+def interactive_camera_selection() -> Dict[str, Any]:
+    """Interactive CLI menu to choose frontal, lateral cameras, and lateral side."""
+    print("=" * 75)
+    print("         SISTEM PEMILIHAN KAMERA DETEKSI POSTUR REAL-TIME")
+    print("=" * 75)
+
+    cams = scan_available_cameras(max_check=6)
+    if not cams:
+        print("\n[PERINGATAN] Tidak ada kamera yang terdeteksi.")
+        print("Pastikan kabel USB kamera terpasang dan driver kamera aktif.")
+        input("\nTekan Enter untuk keluar...")
+        sys.exit(1)
+
+    print(f"\nDitemukan {len(cams)} kamera pada komputer:")
+    for idx, w, h in cams:
+        print(f"  - Port [{idx}] : Resolusi {w}x{h} px")
+
+    # If only 1 camera is detected
+    if len(cams) == 1:
+        c_idx = cams[0][0]
+        print(f"\n[INFO] Hanya 1 kamera fisik terdeteksi (Port [{c_idx}]).")
+        print("Aplikasi otomatis menjalankan mode SINGLE-CAMERA (Frontal / Meja Kerja).")
+        input("Tekan Enter untuk memulai live video...")
+        return {
+            "mode": "single",
+            "cam01_idx": c_idx,
+            "cam02_idx": None,
+            "lateral_side": "right"
+        }
+
+    # If multiple cameras: offer preview first
+    print("\nIngin melihat jendela pratinjau (preview) semua kamera terlebih dahulu?")
+    show_prev = input("Tampilkan preview kamera? (y/n) [Default: y]: ").strip().lower()
+    if show_prev == "" or show_prev.startswith("y"):
+        preview_cameras_grid(cams)
+
+    print("\n" + "-" * 75)
+    print("PILIHAN MODE DETEKSI:")
+    print("  [1] DUAL-CAMERA (Kamera Depan + Kamera Samping) [Rekomendasi]")
+    print("  [2] SINGLE-CAMERA (Hanya 1 Kamera Depan / Webcam Laptop)")
+    print("-" * 75)
+
+    m_choice = input("Pilih mode (1/2) [Default: 1]: ").strip()
+    if m_choice == "2":
+        cam_in = input(f"Pilih Nomor Port Kamera untuk Frontal (Pilihan: {[c[0] for c in cams]}) [Default: {cams[0][0]}]: ").strip()
+        cam_idx = int(cam_in) if cam_in.isdigit() and int(cam_in) in [c[0] for c in cams] else cams[0][0]
+        return {
+            "mode": "single",
+            "cam01_idx": cam_idx,
+            "cam02_idx": None,
+            "lateral_side": "right"
+        }
+
+    # Dual-camera selection
+    default_c1 = cams[0][0]
+    default_c2 = cams[1][0] if len(cams) > 1 else cams[0][0]
+
+    print("\n--- Konfigurasi Kamera Ganda ---")
+    c1_in = input(f"Pilih Port Kamera FRONTAL (Depan)  (Pilihan: {[c[0] for c in cams]}) [Default: {default_c1}]: ").strip()
+    c1_idx = int(c1_in) if c1_in.isdigit() and int(c1_in) in [c[0] for c in cams] else default_c1
+
+    c2_in = input(f"Pilih Port Kamera LATERAL (Samping) (Pilihan: {[c[0] for c in cams]}) [Default: {default_c2}]: ").strip()
+    c2_idx = int(c2_in) if c2_in.isdigit() and int(c2_in) in [c[0] for c in cams] else default_c2
+
+    if c1_idx == c2_idx:
+        print("[INFO] Port kamera depan dan samping sama. Mengatur port samping secara otomatis ke port lain...")
+        for c in cams:
+            if c[0] != c1_idx:
+                c2_idx = c[0]
+                break
+
+    lat_in = input("Posisikan kamera samping di sisi mana tubuh? (r = Kanan, l = Kiri) [Default: r (Kanan)]: ").strip().lower()
+    lateral_side = "left" if lat_in.startswith("l") else "right"
+
+    print("\n" + "=" * 75)
+    print("KONFIGURASI KAMERA AKTIF:")
+    print(f"  CAM01 (Frontal/Depan)  : Port [{c1_idx}]")
+    print(f"  CAM02 (Lateral/Samping): Port [{c2_idx}] (Sisi: {lateral_side.upper()})")
+    print("  *TIPS: Jika kamera tertukar saat streaming, cukup tekan tombol [S] untuk SWAP seketika!")
+    print("  *TIPS: Tekan tombol [L] untuk mengubah sisi samping (Kanan <-> Kiri).")
+    print("=" * 75 + "\n")
+
+    return {
+        "mode": "dual",
+        "cam01_idx": c1_idx,
+        "cam02_idx": c2_idx,
+        "lateral_side": lateral_side
+    }
 
 
 class ThreadedCamera:
@@ -138,7 +285,9 @@ def draw_skeleton_overlay(image: np.ndarray, kpts: Optional[np.ndarray], color=(
 def build_hud_single_cam(
     frame: np.ndarray,
     result: dict,
-    fps: float
+    fps: float,
+    cam_idx: int = 0,
+    desk_mode: bool = True
 ) -> np.ndarray:
     """Compose single-camera full-screen display with modern graphical HUD."""
     h, w = frame.shape[:2]
@@ -179,13 +328,20 @@ def build_hud_single_cam(
         conf_text = f"REASON: {result.get('reason', 'QC Gate')}"
 
     # Header texts
-    cv2.putText(canvas, "LIVE WEBCAM (FRONTAL)", (15, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 255), 1)
+    cv2.putText(canvas, f"CAM01 (FRONTAL) [PORT {cam_idx}]", (15, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 255, 200), 2)
     if is_extrap:
-        cv2.putText(canvas, "[Desk Mode: Hips Extrapolated]", (220, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.50, (180, 220, 100), 1)
+        cv2.putText(canvas, "[Desk Mode]", (250, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.48, (180, 220, 100), 1)
+
+    prof = result.get("profile")
+    if prof:
+        cv2.putText(canvas, f"[{prof.upper()}]", (350, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (100, 200, 255), 1)
+
+    # Controls hint
+    cv2.putText(canvas, "[C] Kalibrasi  |  [D] Desk-Mode  |  [Q] Keluar", (w - 370, 22), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (0, 255, 255), 1)
 
     cv2.putText(canvas, status_text, (15, 58), cv2.FONT_HERSHEY_SIMPLEX, 0.85, badge_color, 2)
-    cv2.putText(canvas, conf_text, (min(w - 280, 350), 58), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 1)
-    cv2.putText(canvas, f"FPS: {fps:4.1f}", (w - 110, 32), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 255, 255), 2)
+    cv2.putText(canvas, conf_text, (min(w - 280, 360), 58), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 1)
+    cv2.putText(canvas, f"FPS: {fps:4.1f}", (w - 110, 58), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 255, 255), 2)
 
     # Bottom HUD: Probabilities Bar Chart
     probs = result.get("probabilities", {})
@@ -214,7 +370,10 @@ def build_hud_dual_cam(
     frame_cam02: np.ndarray,
     result: dict,
     fps: float,
-    lateral_side: str
+    lateral_side: str,
+    cam01_idx: int = 0,
+    cam02_idx: int = 1,
+    desk_mode: bool = True
 ) -> np.ndarray:
     """Compose dual-camera split-screen display with modern graphical HUD overlay."""
     h1, w1 = frame_cam01.shape[:2]
@@ -226,6 +385,22 @@ def build_hud_dual_cam(
 
     c1_resized = cv2.resize(frame_cam01, (w1_r, target_h))
     c2_resized = cv2.resize(frame_cam02, (w2_r, target_h))
+
+    # Draw skeleton overlay on CAM01 if keypoints available
+    kpts1 = result.get("kpts1")
+    if kpts1 is not None:
+        k1_scaled = kpts1.copy()
+        k1_scaled[:, 0] *= (w1_r / float(w1))
+        k1_scaled[:, 1] *= (target_h / float(h1))
+        c1_resized = draw_skeleton_overlay(c1_resized, k1_scaled, color=(0, 255, 0))
+
+    # Draw skeleton overlay on CAM02 if keypoints available
+    kpts2 = result.get("kpts2")
+    if kpts2 is not None:
+        k2_scaled = kpts2.copy()
+        k2_scaled[:, 0] *= (w2_r / float(w2))
+        k2_scaled[:, 1] *= (target_h / float(h2))
+        c2_resized = draw_skeleton_overlay(c2_resized, k2_scaled, color=(0, 200, 255))
 
     canvas = np.hstack([c1_resized, c2_resized])
     canvas_w = w1_r + w2_r
@@ -239,8 +414,9 @@ def build_hud_dual_cam(
     cv2.rectangle(overlay, (0, target_h - bot_h), (canvas_w, target_h), (20, 20, 20), -1)
     cv2.addWeighted(overlay, 0.75, canvas, 0.25, 0, canvas)
 
-    cv2.putText(canvas, "CAM01: FRONTAL LIVE", (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (200, 200, 200), 1)
-    cv2.putText(canvas, f"CAM02: LATERAL LIVE ({lateral_side.upper()})", (w1_r + 15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (200, 200, 200), 1)
+    desk_badge = " [Desk-Mode]" if desk_mode else ""
+    cv2.putText(canvas, f"CAM01 (FRONTAL) [PORT {cam01_idx}]{desk_badge}", (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.52, (0, 255, 200), 2)
+    cv2.putText(canvas, f"CAM02 (LATERAL {lateral_side.upper()}) [PORT {cam02_idx}]", (w1_r + 15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.52, (0, 200, 255), 2)
 
     status = result.get("status", "REJECTED")
     pred = result.get("prediction", "REJECT")
@@ -256,9 +432,12 @@ def build_hud_dual_cam(
         conf_text = f"REASON: {result.get('reason', 'QC Gate')}"
 
     cv2.putText(canvas, status_text, (15, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.85, badge_color, 2)
-    cv2.putText(canvas, conf_text, (380, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 1)
-    cv2.putText(canvas, f"FPS: {fps:4.1f}", (canvas_w - 120, 35), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 255, 255), 2)
-    cv2.putText(canvas, "MODE: Dual-Camera Live 2D", (canvas_w - 260, 58), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (180, 180, 180), 1)
+    cv2.putText(canvas, conf_text, (370, 55), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 1)
+    cv2.putText(canvas, f"FPS: {fps:4.1f}", (canvas_w - 110, 35), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (0, 255, 255), 2)
+
+    # Hotkey hints
+    cv2.putText(canvas, "[C] KALIBRASI  |  [D] DESK-MODE  |  [S] TUKAR  |  [L] SISI  |  [Q] KELUAR",
+                (canvas_w - 530, 58), cv2.FONT_HERSHEY_SIMPLEX, 0.42, (0, 255, 255), 1)
 
     # Probabilities
     probs = result.get("probabilities", {})
@@ -281,18 +460,22 @@ def build_hud_dual_cam(
     return canvas
 
 
-def run_single_cam_live(cam_idx: int = 0):
+def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
     print("=" * 80)
     print("  MEMBUKA MODE SINGLE-CAMERA (LIVE WEBCAM ANDA)")
     print("=" * 80)
-    print(f"Kamera Index      : {cam_idx}")
-    print("Desk Mode         : AKTIF (Posisi panggul terestimasi jika tertutup meja)")
-    print("Tekan [Q] atau [ESC] pada jendela video untuk keluar.\n")
+    print(f"Kamera Index      : Port [{cam_idx}]")
+    print(f"Desk Mode         : {'AKTIF' if desk_mode else 'NONAKTIF'} (Posisi panggul terestimasi)")
+    print("Hotkeys Interaktif:")
+    print("  [C] : Kalibrasi Posisi Duduk Tegak Netral (Tekan saat duduk tegak)")
+    print("  [D] : Aktifkan / Nonaktifkan Desk-Mode (Ekstrapolasi Panggul)")
+    print("  [Q] / [ESC] : Keluar dari live video.\n")
 
     cam = ThreadedCamera(cam_idx, width=640, height=480)
+    tracker = SeatedBaselineTracker()
     fps_tracker = []
     frame_count = 0
-    window_name = "Mitigasi Skoliosis — Live Webcam (Single Camera Mode)"
+    window_name = f"Mitigasi Skoliosis — Live Webcam [Port {cam_idx}]"
 
     try:
         while True:
@@ -302,8 +485,8 @@ def run_single_cam_live(cam_idx: int = 0):
                 time.sleep(0.005)
                 continue
 
-            # Run single camera inference with desk mode extrapolation
-            result = infer_single_cam_2d(frame, desk_mode=True)
+            # Run single camera inference with baseline tracking & desk mode
+            result = infer_single_cam_2d(frame, desk_mode=desk_mode, tracker=tracker)
 
             t_elapsed = time.time() - t_start
             inst_fps = 1.0 / max(1e-4, t_elapsed)
@@ -312,7 +495,7 @@ def run_single_cam_live(cam_idx: int = 0):
                 fps_tracker.pop(0)
             avg_fps = float(np.mean(fps_tracker))
 
-            hud_frame = build_hud_single_cam(frame, result, avg_fps)
+            hud_frame = build_hud_single_cam(frame, result, avg_fps, cam_idx=cam_idx, desk_mode=desk_mode)
 
             frame_count += 1
             if frame_count % 20 == 0:
@@ -325,6 +508,17 @@ def run_single_cam_live(cam_idx: int = 0):
             if key in [ord('q'), ord('Q'), 27]:
                 print("\nKeluar dari live webcam...")
                 break
+            elif key in [ord('c'), ord('C')]:
+                kpts = result.get("kpts")
+                if kpts is not None:
+                    tracker.calibrate(kpts, frame_h=frame.shape[0])
+                    print("\n>>> [KALIBRASI] Posisi duduk netral tegak berhasil direkam!")
+                    print(f"    Baseline: CX={tracker.base_cx:.1f}px, ShWidth={tracker.sh_w_base:.1f}px, NoseToSh={tracker.nose_to_sh_base:.1f}px")
+                else:
+                    print("\n>>> [KALIBRASI] Peringatan: Keypoint tubuh belum terdeteksi sempurna.")
+            elif key in [ord('d'), ord('D')]:
+                desk_mode = not desk_mode
+                print(f"\n>>> [DESK MODE] Ekstrapolasi panggul diubah: {'AKTIF' if desk_mode else 'NONAKTIF'}")
 
     finally:
         cam.release()
@@ -335,13 +529,22 @@ def run_dual_cam_live(cam01_idx: int = 0, cam02_idx: int = 1, lateral_side: str 
     print("=" * 80)
     print("  MEMBUKA MODE DUAL-CAMERA REAL-TIME")
     print("=" * 80)
-    print(f"CAM01 (Frontal) Index : {cam01_idx}")
-    print(f"CAM02 (Lateral) Index : {cam02_idx}")
-    print(f"Lateral Side          : {lateral_side}")
-    print("Tekan [Q] atau [ESC] pada jendela video untuk keluar.\n")
+    print(f"CAM01 (Frontal) : Port [{cam01_idx}]")
+    print(f"CAM02 (Lateral) : Port [{cam02_idx}]")
+    print(f"Sisi Lateral    : {lateral_side.upper()}")
+    print("Hotkeys Interaktif:")
+    print("  [C] : Kalibrasi Posisi Duduk Tegak Netral (Tekan saat duduk tegak)")
+    print("  [D] : Aktifkan / Nonaktifkan Desk-Mode (Ekstrapolasi Panggul Meja)")
+    print("  [S] : SWAP kamera! (Tukar posisi Kamera Frontal <-> Lateral seketika)")
+    print("  [L] : Ganti sisi kamera samping (Kanan <-> Kiri)")
+    print("  [Q] / [ESC] : Keluar dari dual webcam.\n")
 
     cam1 = ThreadedCamera(cam01_idx, width=640, height=480)
     cam2 = ThreadedCamera(cam02_idx, width=640, height=480)
+
+    tracker_c1 = SeatedBaselineTracker()
+    tracker_c2 = SeatedBaselineTracker()
+    desk_mode = True
 
     fps_tracker = []
     frame_count = 0
@@ -356,7 +559,13 @@ def run_dual_cam_live(cam01_idx: int = 0, cam02_idx: int = 1, lateral_side: str 
                 time.sleep(0.005)
                 continue
 
-            result = infer_pair_2d(f1, f2, lateral_side=lateral_side)
+            result = infer_pair_2d(
+                f1, f2,
+                lateral_side=lateral_side,
+                desk_mode=desk_mode,
+                tracker_c1=tracker_c1,
+                tracker_c2=tracker_c2
+            )
 
             t_elapsed = time.time() - t_start
             inst_fps = 1.0 / max(1e-4, t_elapsed)
@@ -365,19 +574,46 @@ def run_dual_cam_live(cam01_idx: int = 0, cam02_idx: int = 1, lateral_side: str 
                 fps_tracker.pop(0)
             avg_fps = float(np.mean(fps_tracker))
 
-            hud_frame = build_hud_dual_cam(f1, f2, result, avg_fps, lateral_side)
+            hud_frame = build_hud_dual_cam(
+                f1, f2, result, avg_fps, lateral_side,
+                cam01_idx=cam01_idx, cam02_idx=cam02_idx,
+                desk_mode=desk_mode
+            )
 
             frame_count += 1
             if frame_count % 20 == 0:
                 pred_str = result.get("prediction", "REJECT")
                 conf_str = f"{result.get('confidence', 0.0)*100:.1f}%" if result.get('status') == 'VALID' else result.get('reason')
-                print(f"[Frame {frame_count:04d}] Posture: {pred_str:<16} | Conf: {conf_str:<15} | FPS: {avg_fps:4.1f}")
+                print(f"[Frame {frame_count:04d}] Frontal[Port {cam01_idx}] | Lateral[Port {cam02_idx}] | Posture: {pred_str:<16} | Conf: {conf_str:<15} | FPS: {avg_fps:4.1f}")
 
             cv2.imshow(window_name, hud_frame)
             key = cv2.waitKey(1) & 0xFF
             if key in [ord('q'), ord('Q'), 27]:
                 print("\nKeluar dari dual webcam...")
                 break
+            elif key in [ord('c'), ord('C')]:
+                k1 = result.get("kpts1")
+                k2 = result.get("kpts2")
+                if k1 is not None and k2 is not None:
+                    tracker_c1.calibrate(k1, frame_h=f1.shape[0])
+                    tracker_c2.calibrate(k2, frame_h=f2.shape[0])
+                    print("\n>>> [KALIBRASI] Posisi duduk frontal & lateral berhasil direkam!")
+                else:
+                    print("\n>>> [KALIBRASI] Peringatan: Pastikan kedua kamera melihat tubuh partisipan.")
+            elif key in [ord('d'), ord('D')]:
+                desk_mode = not desk_mode
+                print(f"\n>>> [DESK MODE] Ekstrapolasi panggul meja diubah: {'AKTIF' if desk_mode else 'NONAKTIF'}")
+            elif key in [ord('s'), ord('S')]:
+                # SWAP cameras on the fly!
+                cam1, cam2 = cam2, cam1
+                cam01_idx, cam02_idx = cam02_idx, cam01_idx
+                tracker_c1, tracker_c2 = tracker_c2, tracker_c1
+                print(f"\n>>> [SWAP] Kamera berhasil ditukar!")
+                print(f"    CAM01 (Frontal) sekarang : Port [{cam01_idx}]")
+                print(f"    CAM02 (Lateral) sekarang : Port [{cam02_idx}]")
+            elif key in [ord('l'), ord('L')]:
+                lateral_side = "left" if lateral_side == "right" else "right"
+                print(f"\n>>> [LATERAL] Sisi kamera lateral diubah ke: {lateral_side.upper()}")
 
     finally:
         cam1.release()
@@ -387,9 +623,10 @@ def run_dual_cam_live(cam01_idx: int = 0, cam02_idx: int = 1, lateral_side: str 
 
 def main():
     parser = argparse.ArgumentParser(description="Real-Time 2D Posture Inference Prototype")
+    parser.add_argument("--select", action="store_true", help="Pilih kamera secara interaktif melalui menu terminal dan visual preview")
     parser.add_argument("--single-cam", action="store_true", help="Gunakan mode satu kamera (Live Laptop/Desk Testing)")
-    parser.add_argument("--cam01-idx", type=int, default=0, help="Index kamera CAM01 (Frontal)")
-    parser.add_argument("--cam02-idx", type=int, default=1, help="Index kamera CAM02 (Lateral)")
+    parser.add_argument("--cam01-idx", type=int, default=None, help="Index kamera CAM01 (Frontal)")
+    parser.add_argument("--cam02-idx", type=int, default=None, help="Index kamera CAM02 (Lateral)")
     parser.add_argument("--lateral-side", type=str, default="right", choices=["left", "right"], help="Sisi lateral kamera CAM02")
     parser.add_argument("--scan-cameras", action="store_true", help="Pindai kamera yang terhubung ke PC")
 
@@ -400,22 +637,41 @@ def main():
         if cams:
             print("\nKamera yang terdeteksi pada PC Anda:")
             for idx, w, h in cams:
-                print(f"  - Kamera Index [{idx}]: Resolusi {w}x{h}")
+                print(f"  - Kamera Index [{idx}]: Resolusi {w}x{h} px")
         else:
             print("Tidak ada kamera yang terdeteksi.")
         return
 
+    # If --select or no explicit camera args given:
+    if args.select or (not args.single_cam and args.cam01_idx is None and args.cam02_idx is None):
+        cfg = interactive_camera_selection()
+        if cfg["mode"] == "single":
+            run_single_cam_live(cam_idx=cfg["cam01_idx"])
+        else:
+            run_dual_cam_live(
+                cam01_idx=cfg["cam01_idx"],
+                cam02_idx=cfg["cam02_idx"],
+                lateral_side=cfg["lateral_side"]
+            )
+        return
+
+    # Explicit single-cam
     if args.single_cam:
-        run_single_cam_live(cam_idx=args.cam01_idx)
-    else:
-        # Check if both cameras can be opened, else offer single cam
-        try:
-            run_dual_cam_live(cam01_idx=args.cam01_idx, cam02_idx=args.cam02_idx, lateral_side=args.lateral_side)
-        except Exception as e:
-            print(f"\n[INFO] Gagal membuka kamera ganda ({e}).")
-            print(">>> Membuka otomatis dalam mode SINGLE-CAMERA (Webcam Anda)...")
-            run_single_cam_live(cam_idx=args.cam01_idx)
+        c1 = args.cam01_idx if args.cam01_idx is not None else 0
+        run_single_cam_live(cam_idx=c1)
+        return
+
+    # Explicit dual-cam
+    c1 = args.cam01_idx if args.cam01_idx is not None else 0
+    c2 = args.cam02_idx if args.cam02_idx is not None else 1
+    try:
+        run_dual_cam_live(cam01_idx=c1, cam02_idx=c2, lateral_side=args.lateral_side)
+    except Exception as e:
+        print(f"\n[INFO] Gagal membuka kamera ganda Port {c1} & {c2}: {e}")
+        print(f">>> Membuka otomatis dalam mode SINGLE-CAMERA (Port {c1})...")
+        run_single_cam_live(cam_idx=c1)
 
 
 if __name__ == "__main__":
     main()
+

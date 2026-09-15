@@ -469,13 +469,36 @@ def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
     print("Hotkeys Interaktif:")
     print("  [C] : Kalibrasi Posisi Duduk Tegak Netral (Tekan saat duduk tegak)")
     print("  [D] : Aktifkan / Nonaktifkan Desk-Mode (Ekstrapolasi Panggul)")
-    print("  [Q] / [ESC] : Keluar dari live video.\n")
+    print("  [Q] / [ESC] : Keluar dari live video.")
+    print("")
+    print("  === PENGUMPULAN DATA PENGUJIAN ===")
+    print("  [1] = Rekam postur UPRIGHT (Tegak)")
+    print("  [2] = Rekam postur LEANING FORWARD (Condong Depan)")
+    print("  [3] = Rekam postur LEANING BACKWARD (Condong Belakang)")
+    print("  [4] = Rekam postur LEANING LEFT (Miring Kiri)")
+    print("  [5] = Rekam postur LEANING RIGHT (Miring Kanan)")
+    print("  [6] = Rekam postur SLOUCHING (Bungkuk)")
+    print("  [0] = Berhenti merekam (Idle)")
+    print("")
+
+    GT_KEY_MAP = {
+        ord('1'): "upright",
+        ord('2'): "leaning_forward",
+        ord('3'): "leaning_backward",
+        ord('4'): "leaning_left",
+        ord('5'): "leaning_right",
+        ord('6'): "slouching",
+    }
 
     cam = ThreadedCamera(cam_idx, width=640, height=480)
     tracker = SeatedBaselineTracker()
     fps_tracker = []
     frame_count = 0
     window_name = f"Mitigasi Skoliosis — Live Webcam [Port {cam_idx}]"
+
+    # Data collection state
+    current_gt_label: Optional[str] = None
+    collected_rows: List[Dict[str, Any]] = []
 
     try:
         while True:
@@ -497,12 +520,43 @@ def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
 
             hud_frame = build_hud_single_cam(frame, result, avg_fps, cam_idx=cam_idx, desk_mode=desk_mode)
 
+            # Draw recording indicator on HUD
+            h_frame, w_frame = hud_frame.shape[:2]
+            if current_gt_label is not None:
+                gt_display = current_gt_label.upper().replace("_", " ")
+                # Red recording badge
+                cv2.rectangle(hud_frame, (w_frame - 320, 65), (w_frame, 95), (0, 0, 180), -1)
+                cv2.putText(hud_frame, f"REC GT: {gt_display}", (w_frame - 315, 87),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.55, (255, 255, 255), 2)
+                # Blinking red circle
+                if frame_count % 30 < 20:
+                    cv2.circle(hud_frame, (w_frame - 330, 80), 6, (0, 0, 255), -1)
+
+            # Collect data if recording
+            if current_gt_label is not None and result.get("status") == "VALID":
+                row = {
+                    "frame": frame_count,
+                    "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "ground_truth": current_gt_label,
+                    "prediction": result.get("prediction", "REJECT"),
+                    "profile": result.get("profile", "upright"),
+                    "confidence": round(result.get("confidence", 0.0), 4),
+                    "correct": 1 if result.get("prediction") == current_gt_label else 0,
+                }
+                # Add individual class probabilities
+                probs = result.get("probabilities", {})
+                for c_name in MAIN_CLASSES:
+                    row[f"prob_{c_name}"] = round(probs.get(c_name, 0.0), 4)
+                collected_rows.append(row)
+
             frame_count += 1
             if frame_count % 20 == 0:
                 pred_str = result.get("prediction", "REJECT")
                 conf_str = f"{result.get('confidence', 0.0)*100:.1f}%" if result.get('status') == 'VALID' else result.get('reason')
                 prof_str = result.get("profile", "-")
-                print(f"[Frame {frame_count:04d}] Posture: {pred_str:<16} | Profile: {prof_str:<16} | Conf: {conf_str:<10} | FPS: {avg_fps:4.1f}")
+                gt_str = current_gt_label if current_gt_label else "IDLE"
+                rec_count = len(collected_rows)
+                print(f"[Frame {frame_count:04d}] GT: {gt_str:<16} | Pred: {pred_str:<16} | Profile: {prof_str:<16} | Conf: {conf_str:<10} | Rec: {rec_count} | FPS: {avg_fps:4.1f}")
 
             cv2.imshow(window_name, hud_frame)
             key = cv2.waitKey(1) & 0xFF
@@ -520,10 +574,62 @@ def run_single_cam_live(cam_idx: int = 0, desk_mode: bool = True):
             elif key in [ord('d'), ord('D')]:
                 desk_mode = not desk_mode
                 print(f"\n>>> [DESK MODE] Ekstrapolasi panggul diubah: {'AKTIF' if desk_mode else 'NONAKTIF'}")
+            elif key in GT_KEY_MAP:
+                current_gt_label = GT_KEY_MAP[key]
+                print(f"\n>>> [REKAM] Ground truth diset: {current_gt_label.upper()} — Lakukan postur ini sekarang!")
+            elif key == ord('0'):
+                current_gt_label = None
+                print(f"\n>>> [REKAM] Perekaman dihentikan (IDLE). Total data terkumpul: {len(collected_rows)} frame.")
 
     finally:
         cam.release()
         cv2.destroyAllWindows()
+
+        # Save collected data to CSV
+        if collected_rows:
+            import csv
+            from datetime import datetime
+            timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+            out_dir = PROJECT_ROOT / "07_results" / "live_camera_tests"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_path = out_dir / f"live_test_{timestamp_str}.csv"
+
+            fieldnames = list(collected_rows[0].keys())
+            with open(out_path, "w", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(collected_rows)
+
+            # Print summary
+            import pandas as pd
+            df = pd.DataFrame(collected_rows)
+            total = len(df)
+            correct = df["correct"].sum()
+            accuracy = correct / total * 100 if total > 0 else 0.0
+
+            print("\n" + "=" * 80)
+            print("  RINGKASAN HASIL PENGUJIAN LIVE CAMERA")
+            print("=" * 80)
+            print(f"  Total frame terekam  : {total}")
+            print(f"  Benar (correct)      : {correct}")
+            print(f"  Akurasi keseluruhan  : {accuracy:.1f}%")
+            print(f"  File disimpan di     : {out_path}")
+            print("")
+
+            # Per-class breakdown
+            print("  Per-Kelas Postur:")
+            print(f"  {'Postur':<20} {'Total':>6} {'Benar':>6} {'Akurasi':>8}")
+            print("  " + "-" * 42)
+            for label in MAIN_CLASSES:
+                df_c = df[df["ground_truth"] == label]
+                if len(df_c) > 0:
+                    c_total = len(df_c)
+                    c_correct = df_c["correct"].sum()
+                    c_acc = c_correct / c_total * 100
+                    print(f"  {label:<20} {c_total:>6} {c_correct:>6} {c_acc:>7.1f}%")
+            print("=" * 80)
+        else:
+            print("\n[INFO] Tidak ada data pengujian yang direkam.")
 
 
 def run_dual_cam_live(cam01_idx: int = 0, cam02_idx: int = 1, lateral_side: str = "right"):

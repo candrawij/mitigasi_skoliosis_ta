@@ -870,11 +870,12 @@ def infer_single_cam_2d(
         if abs(dx_lat) > 0.15:
             chosen_profile = "leaning_left" if dx_lat > 0 else "leaning_right"
 
-        # 2. Slouching (thoracic kyphosis: head drops toward shoulders)
-        #    MUST be checked BEFORE forward lean, because hunching towards
-        #    desk/screen also expands apparent shoulder width (w_ratio goes up)
-        #    Dataset mean: slouching drops head ratio to ~88% of upright
-        elif norm_head_drop <= 0.88:
+        # 2. Slouching (thoracic kyphosis = shoulder protraction + head drop)
+        #    Key biomechanical insight: real slouching protracts the scapulae,
+        #    which widens apparent shoulder width (w_ratio > 1.03) in frontal view.
+        #    Pure head tilt (menunduk) does NOT change shoulder width.
+        #    So we require BOTH: shoulders widen AND head drops.
+        elif w_ratio >= 1.03 and norm_head_drop <= 0.92:
             chosen_profile = "slouching"
 
         # 3. Forward lean (hip-hinge: closer to camera, head stays high)

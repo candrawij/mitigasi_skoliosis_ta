@@ -1,0 +1,12 @@
+                  precision    recall  f1-score   support
+
+         upright     0.6462    0.5122    0.5714        82
+ leaning_forward     0.4928    0.4533    0.4722        75
+leaning_backward     0.8085    0.6552    0.7238        58
+    leaning_left     0.9062    0.9355    0.9206        62
+   leaning_right     0.9531    1.0000    0.9760        61
+       slouching     0.5106    0.7385    0.6038        65
+
+        accuracy                         0.6973       403
+       macro avg     0.7196    0.7158    0.7113       403
+    weighted avg     0.7056    0.6973    0.6951       403

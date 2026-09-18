@@ -1,0 +1,12 @@
+{
+  "overall_accuracy": 0.6973,
+  "overall_macro_precision": 0.7196,
+  "overall_macro_recall": 0.7158,
+  "overall_macro_f1": 0.7113,
+  "augmentation_config": {
+    "n_augment_samples": 120,
+    "noise_level": 0.015,
+    "slouch_class_weight": 1.5,
+    "lean_fwd_weight": 1.3
+  }
+}

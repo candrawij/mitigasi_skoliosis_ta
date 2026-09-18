@@ -73,14 +73,19 @@ def get_target_selector():
     return _SELECTOR_CACHE
 
 
-def load_deployment_pipeline(mode: str):
+def load_deployment_pipeline(mode: str, model_version: str = "private_augmented"):
     """Load cached deployment pipeline (scaler + XGBoost) and metadata."""
     global _DEPLOYMENT_CACHE
     mode = mode.lower()
-    if mode in _DEPLOYMENT_CACHE:
-        return _DEPLOYMENT_CACHE[mode]
+    cache_key = f"{mode}_{model_version}"
+    if cache_key in _DEPLOYMENT_CACHE:
+        return _DEPLOYMENT_CACHE[cache_key]
 
-    m_dir = MODELS_DIR / f"keypoint_{mode}" / "private_final"
+    # Try requested version first, fallback to private_final
+    m_dir = MODELS_DIR / f"keypoint_{mode}" / model_version
+    if not (m_dir / "pipeline.pkl").exists():
+        m_dir = MODELS_DIR / f"keypoint_{mode}" / "private_final"
+
     pipeline_path = m_dir / "pipeline.pkl"
     meta_path = m_dir / "model_metadata.json"
 
@@ -92,7 +97,7 @@ def load_deployment_pipeline(mode: str):
     with open(meta_path, "r", encoding="utf-8") as f:
         metadata = json.load(f)
 
-    _DEPLOYMENT_CACHE[mode] = (pipeline, metadata)
+    _DEPLOYMENT_CACHE[cache_key] = (pipeline, metadata)
     return pipeline, metadata
 
 
@@ -176,27 +181,38 @@ def check_2d_reject_gate(
     kpts_cam02: Optional[np.ndarray],
     confs_cam02: Optional[np.ndarray],
     min_conf: float = 0.25,
-    desk_mode: bool = False
+    desk_mode: bool = False,
+    is_extrap_c1: bool = False,
+    is_extrap_c2: bool = False
 ) -> Tuple[bool, str]:
     """
     Step 21: Reject Gate for 2D Multi-View.
     Enforces that core anatomical landmarks exist with sufficient confidence on BOTH views.
-    In desk_mode, hips are permitted to be extrapolated when occluded by desk.
+    In desk_mode with hip extrapolation active, hip keypoints on the extrapolated view
+    are exempt from confidence checks (they are synthetic with conf=0.85 by design).
+    The lateral camera (CAM02) is also given a relaxed degenerate-torso threshold because
+    from the side view, left/right hip x-coordinates are close together (narrow spread).
     """
     if kpts_cam01 is None or confs_cam01 is None:
         return False, "REJECT_NO_PERSON_CAM01"
     if kpts_cam02 is None or confs_cam02 is None:
         return False, "REJECT_NO_PERSON_CAM02"
 
+    HIP_INDICES = {COCO_LEFT_HIP, COCO_RIGHT_HIP}
+
     # Check mandatory core keypoints: Left/Right Shoulder (5,6) and Left/Right Hip (11,12)
     for idx in MANDATORY_KP_INDICES:
-        if confs_cam01[idx] < min_conf:
-            return False, f"REJECT_CAM01_LOW_CONF_JOINT_{idx}"
+        # CAM01 checks
+        if not (desk_mode and is_extrap_c1 and idx in HIP_INDICES):
+            if confs_cam01[idx] < min_conf:
+                return False, f"REJECT_CAM01_LOW_CONF_JOINT_{idx}"
         if np.isnan(kpts_cam01[idx, 0]) or np.isnan(kpts_cam01[idx, 1]):
             return False, f"REJECT_CAM01_NAN_JOINT_{idx}"
 
-        if confs_cam02[idx] < min_conf:
-            return False, f"REJECT_CAM02_LOW_CONF_JOINT_{idx}"
+        # CAM02 checks — lateral camera hips are often occluded, skip conf if extrapolated
+        if not (desk_mode and is_extrap_c2 and idx in HIP_INDICES):
+            if confs_cam02[idx] < min_conf:
+                return False, f"REJECT_CAM02_LOW_CONF_JOINT_{idx}"
         if np.isnan(kpts_cam02[idx, 0]) or np.isnan(kpts_cam02[idx, 1]):
             return False, f"REJECT_CAM02_NAN_JOINT_{idx}"
 
@@ -207,10 +223,13 @@ def check_2d_reject_gate(
     if s1 < 5.0:  # in pixels
         return False, "REJECT_CAM01_DEGENERATE_TORSO_SCALE"
 
+    # CAM02 lateral: from the side the two hip points are close horizontally,
+    # so torso length is measured vertically (shoulder_y → hip_y), which is valid.
+    # Use a relaxed pixel threshold of 3px to avoid false rejects.
     sh_c_2 = (kpts_cam02[COCO_LEFT_SHOULDER] + kpts_cam02[COCO_RIGHT_SHOULDER]) / 2.0
     hip_c_2 = (kpts_cam02[COCO_LEFT_HIP] + kpts_cam02[COCO_RIGHT_HIP]) / 2.0
     s2 = np.linalg.norm(sh_c_2 - hip_c_2)
-    if s2 < 5.0:
+    if s2 < 3.0:
         return False, "REJECT_CAM02_DEGENERATE_TORSO_SCALE"
 
     return True, "VALID_2D"
@@ -374,7 +393,12 @@ def infer_pair_2d(
         )
 
     # 2. Reject Gate
-    is_valid, reason = check_2d_reject_gate(kpts1, confs1, kpts2, confs2, desk_mode=desk_mode)
+    is_valid, reason = check_2d_reject_gate(
+        kpts1, confs1, kpts2, confs2,
+        desk_mode=desk_mode,
+        is_extrap_c1=is_extrap_1,
+        is_extrap_c2=is_extrap_2
+    )
     if not is_valid:
         return {
             "status": "REJECTED",
@@ -385,6 +409,8 @@ def infer_pair_2d(
             "meta": {"cam01": meta1, "cam02": meta2},
             "kpts1": kpts1, "confs1": confs1,
             "kpts2": kpts2, "confs2": confs2,
+            "is_extrapolated_c1": is_extrap_1,
+            "is_extrapolated_c2": is_extrap_2,
             "desk_mode": desk_mode
         }
 

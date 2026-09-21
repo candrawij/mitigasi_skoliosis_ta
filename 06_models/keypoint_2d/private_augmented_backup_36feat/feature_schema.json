@@ -1,6 +1,6 @@
 {
   "representation": "2d_augmented",
-  "n_features": 42,
+  "n_features": 36,
   "features": [
     {
       "index": 0,
@@ -94,122 +94,92 @@
     },
     {
       "index": 18,
-      "name": "cam01_ear_shoulder_horizontal_norm",
-      "dtype": "float64"
-    },
-    {
-      "index": 19,
-      "name": "cam01_ear_shoulder_vertical_norm",
-      "dtype": "float64"
-    },
-    {
-      "index": 20,
-      "name": "cam01_ear_neck_angle_deg",
-      "dtype": "float64"
-    },
-    {
-      "index": 21,
       "name": "cam02_nose_x",
       "dtype": "float64"
     },
     {
-      "index": 22,
+      "index": 19,
       "name": "cam02_nose_y",
       "dtype": "float64"
     },
     {
-      "index": 23,
+      "index": 20,
       "name": "cam02_left_shoulder_x",
       "dtype": "float64"
     },
     {
-      "index": 24,
+      "index": 21,
       "name": "cam02_left_shoulder_y",
       "dtype": "float64"
     },
     {
-      "index": 25,
+      "index": 22,
       "name": "cam02_right_shoulder_x",
       "dtype": "float64"
     },
     {
-      "index": 26,
+      "index": 23,
       "name": "cam02_right_shoulder_y",
       "dtype": "float64"
     },
     {
-      "index": 27,
+      "index": 24,
       "name": "cam02_left_hip_x",
       "dtype": "float64"
     },
     {
-      "index": 28,
+      "index": 25,
       "name": "cam02_left_hip_y",
       "dtype": "float64"
     },
     {
-      "index": 29,
+      "index": 26,
       "name": "cam02_right_hip_x",
       "dtype": "float64"
     },
     {
-      "index": 30,
+      "index": 27,
       "name": "cam02_right_hip_y",
       "dtype": "float64"
     },
     {
-      "index": 31,
+      "index": 28,
       "name": "cam02_shoulder_slope_deg",
       "dtype": "float64"
     },
     {
-      "index": 32,
+      "index": 29,
       "name": "cam02_hip_slope_deg",
       "dtype": "float64"
     },
     {
-      "index": 33,
+      "index": 30,
       "name": "cam02_torso_inclination_deg",
       "dtype": "float64"
     },
     {
-      "index": 34,
+      "index": 31,
       "name": "cam02_head_torso_angle_deg",
       "dtype": "float64"
     },
     {
-      "index": 35,
+      "index": 32,
       "name": "cam02_head_to_shoulder_norm",
       "dtype": "float64"
     },
     {
-      "index": 36,
+      "index": 33,
       "name": "cam02_torso_length_norm",
       "dtype": "float64"
     },
     {
-      "index": 37,
+      "index": 34,
       "name": "cam02_head_horizontal_offset_norm",
       "dtype": "float64"
     },
     {
-      "index": 38,
+      "index": 35,
       "name": "cam02_torso_horizontal_offset_norm",
-      "dtype": "float64"
-    },
-    {
-      "index": 39,
-      "name": "cam02_ear_shoulder_horizontal_norm",
-      "dtype": "float64"
-    },
-    {
-      "index": 40,
-      "name": "cam02_ear_shoulder_vertical_norm",
-      "dtype": "float64"
-    },
-    {
-      "index": 41,
-      "name": "cam02_ear_neck_angle_deg",
       "dtype": "float64"
     }
   ]

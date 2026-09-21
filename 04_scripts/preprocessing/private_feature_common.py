@@ -61,7 +61,8 @@ COCO_RIGHT_ANKLE = 16
 CORE_KP_INDICES = [COCO_NOSE, COCO_LEFT_SHOULDER, COCO_RIGHT_SHOULDER, COCO_LEFT_HIP, COCO_RIGHT_HIP]
 MANDATORY_KP_INDICES = [COCO_LEFT_SHOULDER, COCO_RIGHT_SHOULDER, COCO_LEFT_HIP, COCO_RIGHT_HIP]
 
-# 2D Feature schema (18 per view, 36 total)
+# 2D Feature schema (18 base per view + 3 lateral ear features = 39 total)
+# The 3 ear features are only extracted from CAM02 (lateral) and set to NaN for CAM01.
 BASE_2D_FEATURES = [
     "nose_x", "nose_y",
     "left_shoulder_x", "left_shoulder_y",
@@ -75,10 +76,16 @@ BASE_2D_FEATURES = [
     "head_to_shoulder_norm",
     "torso_length_norm",
     "head_horizontal_offset_norm",
-    "torso_horizontal_offset_norm"
+    "torso_horizontal_offset_norm",
+    # --- Ear-based sagittal features (Plan B) ---
+    # Only meaningful from CAM02 (lateral view); set NaN for CAM01.
+    "ear_shoulder_horizontal_norm",   # (ear_x - shoulder_x) / shoulder_width — kyphosis indicator
+    "ear_shoulder_vertical_norm",     # (shoulder_y - ear_y) / shoulder_width — head-drop indicator
+    "ear_neck_angle_deg",             # angle(ear→neck→shoulder midpoint) — neck flexion
 ]
 
 FEATURE_NAMES_2D = [f"cam01_{f}" for f in BASE_2D_FEATURES] + [f"cam02_{f}" for f in BASE_2D_FEATURES]
+# Note: cam01_ear_* features will always be NaN (frontal camera cannot measure sagittal ear offset reliably)
 
 # 3D Feature schema (25 total)
 FEATURE_NAMES_3D = [
@@ -175,8 +182,12 @@ def extract_single_view_2d_features(
     eps: float = 1e-6
 ) -> Tuple[Optional[Dict[str, float]], bool, str]:
     """
-    Extract 18 normalized 2D features for a single view (CAM01 or CAM02).
+    Extract 21 normalized 2D features for a single view (CAM01 or CAM02).
     Applies lateral canonicalization for CAM02 when lateral_side == 'left'.
+    
+    Feature breakdown:
+      - 18 base features (coordinates, slopes, angles) — both views
+      - 3 ear-based sagittal features — only CAM02 (lateral); NaN for CAM01
     """
     is_valid, reason, valid_nose = validate_core_keypoints_2d(keypoints_17, confidences_17, conf_thresh)
     if not is_valid:
@@ -257,6 +268,58 @@ def extract_single_view_2d_features(
         head_to_shoulder_norm = float("nan")
         head_horizontal_offset_norm = float("nan")
 
+    # -----------------------------------------------------------------------
+    # Ear-based sagittal features (Plan B) — only meaningful for CAM02 lateral
+    # For CAM01 (frontal), these are always NaN (sagittal plane is not visible)
+    # -----------------------------------------------------------------------
+    ear_shoulder_horizontal_norm = float("nan")
+    ear_shoulder_vertical_norm = float("nan")
+    ear_neck_angle_deg = float("nan")
+
+    if view_role == "lateral":
+        # Choose the most visible ear in the lateral view
+        l_ear_conf = confidences_17[COCO_LEFT_EAR]
+        r_ear_conf = confidences_17[COCO_RIGHT_EAR]
+        best_ear_conf = max(l_ear_conf, r_ear_conf)
+
+        if best_ear_conf >= conf_thresh:
+            # Use the more visible ear; apply same centering + canonicalization as body kpts
+            raw_ear_kp = (
+                keypoints_17[COCO_LEFT_EAR].copy() if l_ear_conf >= r_ear_conf
+                else keypoints_17[COCO_RIGHT_EAR].copy()
+            )
+            # Center (subtract raw hip_center — same as body normalization)
+            raw_hip_center = (keypoints_17[COCO_LEFT_HIP] + keypoints_17[COCO_RIGHT_HIP]) / 2.0
+            ear_centered = raw_ear_kp - raw_hip_center
+            if view_role == "lateral" and lateral_side == "left":
+                ear_centered[0] = -ear_centered[0]
+            ear_norm = ear_centered / scale_s  # use same scale_s as body normalization
+
+            # Shoulder midpoint in normalized space
+            sh_mid = shoulder_center  # already computed above
+            sh_width = float(np.linalg.norm(r_sh - l_sh))
+            sh_width = max(sh_width, eps)
+
+            # Feature 1: Ear-Shoulder horizontal offset
+            # Positive = ear is in FRONT of shoulder = kyphosis indicator (slouching)
+            # Negative = ear is BEHIND shoulder = leaning backward
+            ear_shoulder_horizontal_norm = float((ear_norm[0] - sh_mid[0]) / sh_width)
+
+            # Feature 2: Ear-Shoulder vertical offset
+            # In image coords Y↓, so shoulder_y > ear_y means ear is ABOVE shoulder (normal/upright)
+            # Larger value = ear higher relative to shoulder = more upright head
+            ear_shoulder_vertical_norm = float((sh_mid[1] - ear_norm[1]) / sh_width)
+
+            # Feature 3: Ear–Neck–Shoulder angle (neck flexion angle)
+            # Neck midpoint approximated as midpoint between nose and shoulder center
+            if valid_nose:
+                neck_approx = (nose_p + sh_mid) / 2.0
+                v_ear_to_neck = neck_approx - ear_norm
+                v_shoulder_to_neck = neck_approx - sh_mid
+                ear_neck_angle_deg = angle_between_vectors_2d(v_ear_to_neck, v_shoulder_to_neck)
+            else:
+                ear_neck_angle_deg = float("nan")
+
     feat_dict = {
         "nose_x": float(nose_p[0]),
         "nose_y": float(nose_p[1]),
@@ -275,7 +338,11 @@ def extract_single_view_2d_features(
         "head_to_shoulder_norm": head_to_shoulder_norm,
         "torso_length_norm": torso_length_norm,
         "head_horizontal_offset_norm": head_horizontal_offset_norm,
-        "torso_horizontal_offset_norm": torso_horizontal_offset_norm
+        "torso_horizontal_offset_norm": torso_horizontal_offset_norm,
+        # Ear-based sagittal features (NaN for CAM01/frontal)
+        "ear_shoulder_horizontal_norm": ear_shoulder_horizontal_norm,
+        "ear_shoulder_vertical_norm": ear_shoulder_vertical_norm,
+        "ear_neck_angle_deg": ear_neck_angle_deg,
     }
 
     return feat_dict, True, "Success"

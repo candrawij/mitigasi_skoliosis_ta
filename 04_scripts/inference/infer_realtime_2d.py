@@ -43,6 +43,8 @@ from private_inference_common import (
     CLASS_TO_ID,
     ID_TO_CLASS,
     COCO_NOSE,
+    COCO_LEFT_EAR,
+    COCO_RIGHT_EAR,
     COCO_LEFT_SHOULDER,
     COCO_RIGHT_SHOULDER,
     COCO_LEFT_HIP,
@@ -278,6 +280,14 @@ def draw_skeleton_overlay(image: np.ndarray, kpts: Optional[np.ndarray], color=(
         cv2.line(image, (sh_c[0], sh_c[1]), (hip_c[0], hip_c[1]), (255, 255, 0), 3)
         if not np.isnan(nose[0]):
             cv2.line(image, (int(nose[0]), int(nose[1])), (sh_c[0], sh_c[1]), (0, 255, 255), 2)
+
+        # Draw ear keypoints and sagittal ear-to-shoulder connection
+        for ear_idx in [COCO_LEFT_EAR, COCO_RIGHT_EAR]:
+            pt = kpts[ear_idx]
+            if not np.isnan(pt[0]) and not np.isnan(pt[1]):
+                cv2.circle(image, (int(pt[0]), int(pt[1])), 5, (255, 100, 255), -1)
+                cv2.circle(image, (int(pt[0]), int(pt[1])), 7, (255, 255, 255), 1)
+                cv2.line(image, (int(pt[0]), int(pt[1])), (sh_c[0], sh_c[1]), (255, 100, 255), 2)
 
     return image
 

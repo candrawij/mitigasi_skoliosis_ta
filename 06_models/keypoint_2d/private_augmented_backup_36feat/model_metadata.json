@@ -12,7 +12,7 @@
     "slouching"
   ],
   "pose_estimator": "yolov8n-pose.pt",
-  "n_features": 42,
+  "n_features": 36,
   "feature_names": [
     "cam01_nose_x",
     "cam01_nose_y",
@@ -32,9 +32,6 @@
     "cam01_torso_length_norm",
     "cam01_head_horizontal_offset_norm",
     "cam01_torso_horizontal_offset_norm",
-    "cam01_ear_shoulder_horizontal_norm",
-    "cam01_ear_shoulder_vertical_norm",
-    "cam01_ear_neck_angle_deg",
     "cam02_nose_x",
     "cam02_nose_y",
     "cam02_left_shoulder_x",
@@ -52,12 +49,9 @@
     "cam02_head_to_shoulder_norm",
     "cam02_torso_length_norm",
     "cam02_head_horizontal_offset_norm",
-    "cam02_torso_horizontal_offset_norm",
-    "cam02_ear_shoulder_horizontal_norm",
-    "cam02_ear_shoulder_vertical_norm",
-    "cam02_ear_neck_angle_deg"
+    "cam02_torso_horizontal_offset_norm"
   ],
-  "training_dataset": "02_data\\private_processed\\features\\private_features_2d_v2.csv",
+  "training_dataset": "02_data\\private_processed\\features\\private_features_2d.csv",
   "n_samples_orig": 704,
   "n_samples_augmented": 1004,
   "augmentation_config": {
@@ -93,10 +87,10 @@
     "S023",
     "S024"
   ],
-  "trained_timestamp": "2026-09-21T23:53:02.559860",
+  "trained_timestamp": "2026-09-18T17:19:47.484468",
   "tree_method": "hist",
   "device": "cpu",
-  "best_cv_macro_f1": 0.7482,
+  "best_cv_macro_f1": 0.7458,
   "original_data_accuracy": 0.9957,
   "original_data_macro_f1": 0.9958,
   "hyperparameters": {

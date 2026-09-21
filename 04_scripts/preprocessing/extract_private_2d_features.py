@@ -1,5 +1,5 @@
 """
-extract_private_2d_features.py — Extract 36 Normalized 2D Multi-View Features (CAM01 + CAM02)
+extract_private_2d_features.py — Extract 42 Normalized 2D Multi-View Features (CAM01 + CAM02)
 for Private Dataset 6-Class Postures.
 
 Pipeline:
@@ -7,9 +7,12 @@ Pipeline:
   2. Load 2D keypoints and confidences from selected_person annotations
   3. Apply CAM02 lateral canonicalization (flip horizontal coords if lateral_side == 'left')
   4. Perform hip-centered pose normalization and scale by S
-  5. Extract 18 geometric features for CAM01 and 18 for CAM02 (Total 36 features)
+  5. Extract 21 geometric features for CAM01 and 21 for CAM02 (Total 42 features):
+       - 18 base features (coordinates, slopes, angles) per camera
+       - 3 ear-based sagittal features (ear_shoulder_horizontal_norm, ear_shoulder_vertical_norm,
+         ear_neck_angle_deg) — only extracted from CAM02 lateral, NaN for CAM01
   6. Perform data integrity audit and check stop conditions
-  7. Save private_features_2d.csv and feature_2d_audit.csv
+  7. Save private_features_2d_v2.csv and feature_2d_v2_audit.csv
 """
 
 import os
@@ -76,8 +79,9 @@ def load_person_annotation(image_path_str: str) -> Tuple[Optional[np.ndarray], O
 
 def run_extraction():
     print("=" * 80)
-    print("  STEP 5: EXTRACT 36 2D MULTI-VIEW FEATURES (727 CAPTURES)")
-    print("=" * 80)
+    print("  STEP 5 (v2): EXTRACT 42 2D MULTI-VIEW FEATURES — WITH EAR SAGITTAL FEATURES")
+    print("  Features: 18 base per camera + 3 ear features (CAM02 lateral only) = 42 total")
+    print("="* 80)
 
     manifest_file = MANIFESTS_DIR / "private_6class_all.csv"
     if not manifest_file.exists():
@@ -208,7 +212,7 @@ def run_extraction():
     # Check 4: No inf or -inf in numeric feature columns
     feat_matrix = df_features_2d[FEATURE_NAMES_2D].values
     assert not np.isinf(feat_matrix).any(), "Violation: inf or -inf found in feature values!"
-    print("  ✓ Acceptance Passed: Zero inf/-inf values across all 36 features")
+    print("  ✓ Acceptance Passed: Zero inf/-inf values across all 42 features")
 
     # Check 5: Class distribution of usable samples
     df_usable = df_features_2d[df_features_2d["status_2d"] == "USABLE"]
@@ -228,15 +232,15 @@ def run_extraction():
         for f_name, rate in nan_features.items():
             print(f"  - {f_name:32s}: {rate:5.2f}% NaN (acceptable if nose occluded in lateral view)")
 
-    # Save outputs
-    out_features_csv = FEATURES_DIR / "private_features_2d.csv"
-    out_audit_csv = AUDIT_DIR / "feature_2d_audit.csv"
+    # Save outputs — v2 includes ear features (42-feature schema)
+    out_features_csv = FEATURES_DIR / "private_features_2d_v2.csv"
+    out_audit_csv = AUDIT_DIR / "feature_2d_v2_audit.csv"
 
     df_features_2d.to_csv(out_features_csv, index=False)
     df_audit_2d.to_csv(out_audit_csv, index=False)
 
-    print(f"\n[SAVED] 2D Feature Table saved to: {out_features_csv}")
-    print(f"[SAVED] 2D Audit Log saved to:    {out_audit_csv}")
+    print(f"\n[SAVED] 2D Feature Table (42 feats) saved to: {out_features_csv}")
+    print(f"[SAVED] 2D Audit Log saved to:                 {out_audit_csv}")
 
     return df_features_2d, df_audit_2d
 

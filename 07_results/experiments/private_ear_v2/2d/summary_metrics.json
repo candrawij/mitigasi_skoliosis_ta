@@ -1,0 +1,12 @@
+{
+  "overall_accuracy": 0.6774,
+  "overall_macro_precision": 0.6876,
+  "overall_macro_recall": 0.6904,
+  "overall_macro_f1": 0.6873,
+  "n_features": 42,
+  "ear_features_added": [
+    "cam02_ear_shoulder_horizontal_norm",
+    "cam02_ear_shoulder_vertical_norm",
+    "cam02_ear_neck_angle_deg"
+  ]
+}

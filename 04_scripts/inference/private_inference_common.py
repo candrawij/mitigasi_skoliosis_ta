@@ -12,10 +12,13 @@ import os
 import sys
 import json
 import pickle
+import warnings
 import cv2
 import numpy as np
 from pathlib import Path
 from typing import Dict, Any, Tuple, Optional
+
+warnings.filterwarnings("ignore")
 
 # Ensure project root and preprocessing/processing in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -30,6 +33,8 @@ from private_feature_common import (
     FEATURE_NAMES_2D,
     FEATURE_NAMES_3D,
     COCO_NOSE,
+    COCO_LEFT_EAR,
+    COCO_RIGHT_EAR,
     COCO_LEFT_SHOULDER,
     COCO_RIGHT_SHOULDER,
     COCO_LEFT_HIP,
@@ -455,7 +460,7 @@ def infer_pair_2d(
         "kpts2": kpts2, "confs2": confs2,
         "is_extrapolated_c1": is_extrap_1,
         "is_extrapolated_c2": is_extrap_2,
-        "features_count": 36
+        "features_count": len(FEATURE_NAMES_2D)
     }
 
 
@@ -567,7 +572,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3573,
         "cam02_torso_length_norm": 0.7271,
         "cam02_head_horizontal_offset_norm": 0.1934,
-        "cam02_torso_horizontal_offset_norm": -0.0312
+        "cam02_torso_horizontal_offset_norm": -0.0312,
+        "cam02_ear_shoulder_horizontal_norm": 1.2313,
+        "cam02_ear_shoulder_vertical_norm": 4.5309,
+        "cam02_ear_neck_angle_deg": 119.5911
     },
     "leaning_forward": {
         "cam02_nose_x": 0.2535,
@@ -587,7 +595,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3676,
         "cam02_torso_length_norm": 0.7183,
         "cam02_head_horizontal_offset_norm": 0.2029,
-        "cam02_torso_horizontal_offset_norm": 0.0574
+        "cam02_torso_horizontal_offset_norm": 0.0574,
+        "cam02_ear_shoulder_horizontal_norm": 1.8776,
+        "cam02_ear_shoulder_vertical_norm": 4.4247,
+        "cam02_ear_neck_angle_deg": 121.3679
     },
     "leaning_backward": {
         "cam02_nose_x": 0.0094,
@@ -607,7 +618,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3493,
         "cam02_torso_length_norm": 0.7413,
         "cam02_head_horizontal_offset_norm": 0.1673,
-        "cam02_torso_horizontal_offset_norm": -0.1579
+        "cam02_torso_horizontal_offset_norm": -0.1579,
+        "cam02_ear_shoulder_horizontal_norm": 0.3437,
+        "cam02_ear_shoulder_vertical_norm": 3.5647,
+        "cam02_ear_neck_angle_deg": 117.1729
     },
     "slouching": {
         "cam02_nose_x": 0.2566,
@@ -627,7 +641,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3816,
         "cam02_torso_length_norm": 0.7139,
         "cam02_head_horizontal_offset_norm": 0.2364,
-        "cam02_torso_horizontal_offset_norm": 0.0202
+        "cam02_torso_horizontal_offset_norm": 0.0202,
+        "cam02_ear_shoulder_horizontal_norm": 1.6125,
+        "cam02_ear_shoulder_vertical_norm": 4.7514,
+        "cam02_ear_neck_angle_deg": 117.0210
     },
     "leaning_left": {
         "cam02_nose_x": 0.1839,
@@ -647,7 +664,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3435,
         "cam02_torso_length_norm": 0.7536,
         "cam02_head_horizontal_offset_norm": 0.2118,
-        "cam02_torso_horizontal_offset_norm": -0.0279
+        "cam02_torso_horizontal_offset_norm": -0.0279,
+        "cam02_ear_shoulder_horizontal_norm": 1.4757,
+        "cam02_ear_shoulder_vertical_norm": 4.7478,
+        "cam02_ear_neck_angle_deg": 113.4874
     },
     "leaning_right": {
         "cam02_nose_x": 0.1483,
@@ -667,7 +687,10 @@ CANONICAL_CLASS_PROFILES_CAM02 = {
         "cam02_head_to_shoulder_norm": 0.3803,
         "cam02_torso_length_norm": 0.7099,
         "cam02_head_horizontal_offset_norm": 0.2043,
-        "cam02_torso_horizontal_offset_norm": -0.056
+        "cam02_torso_horizontal_offset_norm": -0.056,
+        "cam02_ear_shoulder_horizontal_norm": 0.8904,
+        "cam02_ear_shoulder_vertical_norm": 3.2695,
+        "cam02_ear_neck_angle_deg": 118.6081
     }
 }
 
@@ -941,5 +964,5 @@ def infer_single_cam_2d(
         "confs": confs1,
         "is_extrapolated": is_extrapolated,
         "profile": chosen_profile,
-        "features_count": 36
+        "features_count": len(FEATURE_NAMES_2D)
     }

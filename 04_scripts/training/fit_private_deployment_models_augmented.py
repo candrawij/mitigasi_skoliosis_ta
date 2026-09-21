@@ -26,6 +26,7 @@ from pathlib import Path
 
 import xgboost as xgb
 from sklearn.preprocessing import StandardScaler
+from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import StratifiedGroupKFold, RandomizedSearchCV
 from sklearn.metrics import accuracy_score, f1_score, classification_report
@@ -112,10 +113,15 @@ def fit_augmented_deployment_model(
 
     print(f"Augmented dataset total size: {len(X_aug)} samples (+{len(X_aug)-len(X_raw)} synthetic samples)")
 
-    # Fit StandardScaler on augmented data
+    # Impute missing values (e.g. cam01 ear features) and Scale on augmented data
+    imputer = SimpleImputer(strategy="median")
+    X_imp_aug = imputer.fit_transform(X_aug)
+
     scaler = StandardScaler()
-    X_scaled_aug = scaler.fit_transform(X_aug)
-    X_scaled_orig = scaler.transform(X_raw)
+    X_scaled_aug = scaler.fit_transform(X_imp_aug)
+
+    X_imp_orig = imputer.transform(X_raw)
+    X_scaled_orig = scaler.transform(X_imp_orig)
 
     # Hyperparameter tuning using StratifiedGroupKFold on original subjects
     param_dist = {
@@ -180,8 +186,9 @@ def fit_augmented_deployment_model(
     print("\nDetailed Report on Original Data:")
     print(classification_report(y_raw, y_pred_real, target_names=MAIN_CLASSES, digits=4, zero_division=0))
 
-    # Build Pipeline object
+    # Build Pipeline object: [imputer -> scaler -> xgb]
     pipeline = Pipeline([
+        ("imputer", imputer),
         ("scaler", scaler),
         ("xgb", final_model)
     ])
@@ -192,6 +199,7 @@ def fit_augmented_deployment_model(
     model_alias_path = out_dir / "model.pkl"
     pipeline_path = out_dir / "pipeline.pkl"
     scaler_path = out_dir / "scaler.pkl"
+    imputer_path = out_dir / "imputer.pkl"
 
     with open(model_path, "wb") as f:
         pickle.dump(final_model, f)
@@ -201,11 +209,14 @@ def fit_augmented_deployment_model(
         pickle.dump(pipeline, f)
     with open(scaler_path, "wb") as f:
         pickle.dump(scaler, f)
+    with open(imputer_path, "wb") as f:
+        pickle.dump(imputer, f)
 
     print(f"[SAVED] Deployment Model:  {model_path}")
     print(f"[SAVED] Model Alias:       {model_alias_path}")
     print(f"[SAVED] Pipeline:          {pipeline_path}")
     print(f"[SAVED] Scaler:            {scaler_path}")
+    print(f"[SAVED] Imputer:           {imputer_path}")
 
     # 2. Save Feature Schema
     schema_data = {
@@ -274,7 +285,7 @@ def main():
     device_type = get_xgb_device()
     print(f"XGBoost acceleration device: {device_type.upper()}")
 
-    feat_2d_file = DATA_DIR / "private_features_2d.csv"
+    feat_2d_file = DATA_DIR / "private_features_2d_v2.csv"
     fit_augmented_deployment_model(
         feature_file=feat_2d_file,
         feature_names=FEATURE_NAMES_2D,

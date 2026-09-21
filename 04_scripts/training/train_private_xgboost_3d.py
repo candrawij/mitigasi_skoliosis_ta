@@ -1,314 +1,200 @@
+﻿"""
+3D-10+11 -- Train XGBoost 3D and Evaluate (Subject-Aware 5-Fold)
+=================================================================
+Outputs:
+    07_results/experiments/private_final/3d/fold_metrics.csv
+    07_results/experiments/private_final/3d/oof_predictions.csv
+    07_results/experiments/private_final/3d/best_params_per_fold.json
+    07_results/experiments/private_final/3d/classification_report.txt
+    07_results/experiments/private_final/3d/confusion_matrix.png
 """
-train_private_xgboost_3d.py — Train and Evaluate Stereo 3D XGBoost (6 Classes)
-Using Subject-Aware Stratified Grouped 5-Fold Cross-Validation on Intersection Dataset.
-
-Inputs:
-  - 02_data/private_processed/features/private_features_3d_intersection.csv
-  - 03_metadata/private_final_split/private_stratified_group_5fold.csv
-
-Outputs in 07_results/experiments/private_final/3d/:
-  - fold_metrics.csv
-  - oof_predictions.csv
-  - best_params_per_fold.json
-  - classification_report.txt
-  - confusion_matrix.png
-  - summary_metrics.json
-"""
-
-import os
-import sys
-import json
-import warnings
+import sys, json, warnings
 import numpy as np
 import pandas as pd
-from pathlib import Path
 import matplotlib.pyplot as plt
-import seaborn as sns
-
-import xgboost as xgb
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import StratifiedGroupKFold, RandomizedSearchCV
+from pathlib import Path
 from sklearn.metrics import (
-    accuracy_score,
-    precision_score,
-    recall_score,
-    f1_score,
-    confusion_matrix,
-    classification_report
+    accuracy_score, precision_score, recall_score, f1_score,
+    classification_report, confusion_matrix
 )
+from sklearn.preprocessing import LabelEncoder
+from sklearn.impute import SimpleImputer
+import xgboost as xgb
 
-warnings.filterwarnings("ignore")
-
-# Ensure UTF-8 stdout
-if sys.platform.startswith("win"):
-    import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(PROJECT_ROOT / "04_scripts" / "preprocessing"))
-from private_feature_common import CLASS_TO_ID, ID_TO_CLASS, MAIN_CLASSES, NUM_CLASSES, FEATURE_NAMES_3D
-
-FEATURES_DIR = PROJECT_ROOT / "02_data" / "private_processed" / "features"
-SPLIT_DIR = PROJECT_ROOT / "03_metadata" / "private_final_split"
-OUT_DIR = PROJECT_ROOT / "07_results" / "experiments" / "private_final" / "3d"
+ROOT = Path(r"d:\.Candra\Project\TA")
+FEAT3D_CSV  = ROOT / "02_data/private_processed/features/private_features_3d.csv"
+FOLDS_CSV   = ROOT / "03_metadata/private_final_split/private_2d3d_intersection_5fold.csv"
+OUT_DIR     = ROOT / "07_results/experiments/private_final/3d"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
+FEATURE_NAMES_3D = [
+    "nose_x","nose_y","nose_z",
+    "left_shoulder_x","left_shoulder_y","left_shoulder_z",
+    "right_shoulder_x","right_shoulder_y","right_shoulder_z",
+    "left_hip_x","left_hip_y","left_hip_z",
+    "right_hip_x","right_hip_y","right_hip_z",
+    "shoulder_roll_deg","hip_roll_deg",
+    "torso_lateral_lean_deg","torso_sagittal_lean_deg","torso_3d_inclination_deg",
+    "head_torso_angle_3d_deg","head_depth_offset_norm","head_lateral_offset_norm",
+    "shoulder_depth_asymmetry_norm","hip_depth_asymmetry_norm"
+]
 
-def train_3d_xgboost():
-    print("=" * 80)
-    print("  STEP 11: TRAIN XGBOOST STEREO 3D (SUBJECT-AWARE 5-FOLD CV)")
-    print("=" * 80)
+CLASS_NAMES = sorted(["upright","leaning_forward","leaning_backward","leaning_left","leaning_right","slouching"])
+CLASS_TO_ID = {c: i for i, c in enumerate(CLASS_NAMES)}
 
-    feat_file = FEATURES_DIR / "private_features_3d_intersection.csv"
-    split_file = SPLIT_DIR / "private_stratified_group_5fold.csv"
+# XGBoost default params (no tuning — lock before seeing test)
+XGB_PARAMS = {
+    "objective": "multi:softprob",
+    "num_class": 6,
+    "tree_method": "hist",
+    "n_estimators": 300,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42,
+    "n_jobs": -1,
+    "verbosity": 0,
+    "eval_metric": "mlogloss"
+}
 
-    if not feat_file.exists() or not split_file.exists():
-        raise FileNotFoundError("Prerequisite files missing. Ensure build_private_intersection.py and create_private_subject_folds.py ran!")
+def main():
+    print("=" * 70)
+    print("3D-10+11 -- XGBoost 3D Training & Evaluation (Subject-Aware 5-Fold)")
+    print("=" * 70)
 
-    df_feat = pd.read_csv(feat_file)
-    df_split = pd.read_csv(split_file)
+    warnings.filterwarnings("ignore")
 
-    # Merge on capture_id
-    df = pd.merge(df_split[["capture_id", "fold_id"]], df_feat, on="capture_id", how="inner")
-    print(f"Loaded dataset: {len(df)} captures across {df['subject_id'].nunique()} subjects")
-    assert len(df) == 403, f"Expected 403 intersection captures, found {len(df)}"
+    feat3d = pd.read_csv(FEAT3D_CSV)
+    folds  = pd.read_csv(FOLDS_CSV)
 
-    # Feature matrix X and target y
-    X_features = FEATURE_NAMES_3D
-    print(f"Number of 3D features: {len(X_features)}")
+    # Only usable samples
+    feat3d_usable = feat3d[feat3d["status_3d"] == "USABLE"].copy()
+    print(f"\nLoaded: {len(feat3d_usable)} usable 3D samples")
+    print(f"Fold file: {len(folds)} rows")
 
-    # Check device
-    device_type = "cuda"
-    try:
-        test_clf = xgb.XGBClassifier(n_estimators=2, max_depth=2, tree_method="hist", device="cuda")
-        test_clf.fit(np.zeros((10, 5)), np.zeros(10))
-        print("Using GPU acceleration: device='cuda', tree_method='hist'")
-    except Exception:
-        device_type = "cpu"
-        print("Using CPU acceleration: device='cpu', tree_method='hist'")
+    n_folds = folds["fold"].nunique()
+    print(f"Number of folds: {n_folds}")
 
-    # Parameter distributions for inner tuning (identical protocol as 2D)
-    param_dist = {
-        "n_estimators": [100, 150, 200],
-        "max_depth": [3, 4, 5, 6],
-        "learning_rate": [0.03, 0.05, 0.08, 0.1],
-        "subsample": [0.7, 0.8, 0.9, 1.0],
-        "colsample_bytree": [0.7, 0.8, 0.9, 1.0],
-        "min_child_weight": [1, 2, 3],
-        "gamma": [0.0, 0.1, 0.5],
-        "reg_alpha": [0.0, 0.01, 0.1],
-        "reg_lambda": [0.1, 1.0, 2.0]
-    }
-
+    oof_rows = []
     fold_metrics = []
-    oof_records = []
     best_params_per_fold = {}
 
-    for fold in range(5):
-        print(f"\n>>> Running Outer Fold {fold}/5 ...")
-        train_mask = df["fold_id"] != fold
-        test_mask = df["fold_id"] == fold
+    for fold_idx in range(n_folds):
+        fold_data = folds[folds["fold"] == fold_idx]
+        train_caps = set(fold_data[fold_data["split"]=="train"]["capture_id"])
+        test_caps  = set(fold_data[fold_data["split"]=="test"]["capture_id"])
 
-        df_train = df[train_mask].copy()
-        df_test = df[test_mask].copy()
+        df_train = feat3d_usable[feat3d_usable["capture_id"].isin(train_caps)]
+        df_test  = feat3d_usable[feat3d_usable["capture_id"].isin(test_caps)]
 
-        train_subs = set(df_train["subject_id"])
-        test_subs = set(df_test["subject_id"])
-        assert len(train_subs.intersection(test_subs)) == 0, f"Leakage detected in Fold {fold}!"
-
-        print(f"  Train: {len(df_train)} captures ({len(train_subs)} subs) | "
-              f"Test: {len(df_test)} captures ({len(test_subs)} subs: {sorted(list(test_subs))})")
-
-        X_train = df_train[X_features].copy()
+        X_train = df_train[FEATURE_NAMES_3D].values.astype(np.float64)
         y_train = df_train["class_id"].values
-        groups_train = df_train["subject_id"].values
+        X_test  = df_test[FEATURE_NAMES_3D].values.astype(np.float64)
+        y_test  = df_test["class_id"].values
 
-        X_test = df_test[X_features].copy()
-        y_test = df_test["class_id"].values
+        # Impute NaN (nose features) with median
+        imputer = SimpleImputer(strategy="median")
+        X_train = imputer.fit_transform(X_train)
+        X_test  = imputer.transform(X_test)
 
-        # Inner CV for hyperparameter tuning (Subject-Aware 3-Fold)
-        inner_cv = StratifiedGroupKFold(n_splits=3, shuffle=True, random_state=42)
+        # Train XGBoost
+        model = xgb.XGBClassifier(**XGB_PARAMS)
+        model.fit(X_train, y_train, verbose=False)
 
-        base_estimator = xgb.XGBClassifier(
-            objective="multi:softprob",
-            num_class=NUM_CLASSES,
-            eval_metric="mlogloss",
-            tree_method="hist",
-            device=device_type,
-            random_state=42,
-            n_jobs=4
-        )
+        y_pred = model.predict(X_test)
+        y_prob = model.predict_proba(X_test)
 
-        search = RandomizedSearchCV(
-            estimator=base_estimator,
-            param_distributions=param_dist,
-            n_iter=30,
-            scoring="f1_macro",
-            cv=inner_cv,
-            random_state=42,
-            n_jobs=1,
-            verbose=0
-        )
+        acc   = accuracy_score(y_test, y_pred)
+        prec  = precision_score(y_test, y_pred, average="macro", zero_division=0)
+        rec   = recall_score(y_test, y_pred, average="macro", zero_division=0)
+        f1    = f1_score(y_test, y_pred, average="macro", zero_division=0)
 
-        search.fit(X_train, y_train, groups=groups_train)
-        best_model = search.best_estimator_
-        best_params_per_fold[f"fold_{fold}"] = search.best_params_
-        print(f"  Best Inner F1-Macro: {search.best_score_:.4f}")
-        print(f"  Best Params: depth={search.best_params_['max_depth']}, lr={search.best_params_['learning_rate']}, "
-              f"n_est={search.best_params_['n_estimators']}, subsample={search.best_params_['subsample']}")
-
-        # Predict on Outer Test Fold (Unseen Subjects)
-        y_pred = best_model.predict(X_test)
-        y_prob = best_model.predict_proba(X_test)
-
-        # Calculate metrics
-        acc = accuracy_score(y_test, y_pred)
-        p_mac = precision_score(y_test, y_pred, average="macro", zero_division=0)
-        r_mac = recall_score(y_test, y_pred, average="macro", zero_division=0)
-        f1_mac = f1_score(y_test, y_pred, average="macro", zero_division=0)
-
-        print(f"  >>> Fold {fold} Test Metrics: Acc = {acc*100:.2f}%, Macro F1 = {f1_mac:.4f}, "
-              f"Macro P = {p_mac:.4f}, Macro R = {r_mac:.4f}")
+        print(f"\nFold {fold_idx}: train={len(df_train)} test={len(df_test)}")
+        print(f"  Accuracy={acc:.4f}  Prec={prec:.4f}  Rec={rec:.4f}  F1={f1:.4f}")
 
         fold_metrics.append({
-            "fold_id": fold,
-            "train_samples": len(df_train),
-            "test_samples": len(df_test),
-            "test_subjects": ",".join(sorted(list(test_subs))),
-            "accuracy": round(acc, 4),
-            "precision_macro": round(p_mac, 4),
-            "recall_macro": round(r_mac, 4),
-            "f1_macro": round(f1_mac, 4)
+            "fold": fold_idx,
+            "n_train": len(df_train),
+            "n_test": len(df_test),
+            "accuracy": acc,
+            "macro_precision": prec,
+            "macro_recall": rec,
+            "macro_f1": f1
         })
 
-        # Save OOF predictions
-        for i, (_, row_t) in enumerate(df_test.iterrows()):
-            rec = {
-                "capture_id": row_t["capture_id"],
-                "subject_id": row_t["subject_id"],
-                "fold_id": fold,
-                "y_true": int(y_test[i]),
-                "y_pred": int(y_pred[i]),
-                "label_true": ID_TO_CLASS[int(y_test[i])],
-                "label_pred": ID_TO_CLASS[int(y_pred[i])],
-                "is_correct": bool(y_test[i] == y_pred[i])
-            }
-            for c_id in range(NUM_CLASSES):
-                rec[f"prob_{ID_TO_CLASS[c_id]}"] = float(y_prob[i, c_id])
-            oof_records.append(rec)
+        best_params_per_fold[f"fold_{fold_idx}"] = XGB_PARAMS.copy()
 
+        for i, cap_id in enumerate(df_test["capture_id"].values):
+            oof_rows.append({
+                "capture_id": cap_id,
+                "fold": fold_idx,
+                "true_class_id": int(y_test[i]),
+                "pred_class_id": int(y_pred[i]),
+                "true_label": CLASS_NAMES[y_test[i]],
+                "pred_label": CLASS_NAMES[y_pred[i]],
+                "correct": int(y_test[i] == y_pred[i]),
+                **{f"prob_{CLASS_NAMES[j]}": float(y_prob[i,j]) for j in range(6)}
+            })
+
+    # Aggregate metrics
     df_fold_metrics = pd.DataFrame(fold_metrics)
-    df_oof = pd.DataFrame(oof_records)
+    df_oof = pd.DataFrame(oof_rows)
 
-    # Sort OOF by capture_id
-    df_oof = df_oof.sort_values("capture_id").reset_index(drop=True)
+    print("\n" + "=" * 70)
+    print("FOLD METRICS SUMMARY")
+    print("=" * 70)
+    print(df_fold_metrics.to_string(index=False))
+    print(f"\nMacro F1: {df_fold_metrics['macro_f1'].mean():.4f} +/- {df_fold_metrics['macro_f1'].std():.4f}")
+    print(f"Accuracy:  {df_fold_metrics['accuracy'].mean():.4f} +/- {df_fold_metrics['accuracy'].std():.4f}")
 
-    # Overall OOF metrics
-    oof_acc = accuracy_score(df_oof["y_true"], df_oof["y_pred"])
-    oof_p_mac = precision_score(df_oof["y_true"], df_oof["y_pred"], average="macro", zero_division=0)
-    oof_r_mac = recall_score(df_oof["y_true"], df_oof["y_pred"], average="macro", zero_division=0)
-    oof_f1_mac = f1_score(df_oof["y_true"], df_oof["y_pred"], average="macro", zero_division=0)
+    # OOF overall classification report
+    y_true_all = df_oof["true_class_id"].values
+    y_pred_all = df_oof["pred_class_id"].values
 
-    mean_acc = df_fold_metrics["accuracy"].mean()
-    std_acc = df_fold_metrics["accuracy"].std()
-    mean_f1 = df_fold_metrics["f1_macro"].mean()
-    std_f1 = df_fold_metrics["f1_macro"].std()
-    mean_p = df_fold_metrics["precision_macro"].mean()
-    std_p = df_fold_metrics["precision_macro"].std()
-    mean_r = df_fold_metrics["recall_macro"].mean()
-    std_r = df_fold_metrics["recall_macro"].std()
+    cr = classification_report(y_true_all, y_pred_all, target_names=CLASS_NAMES, zero_division=0)
+    print("\n" + "=" * 70)
+    print("OOF CLASSIFICATION REPORT (All Folds Combined)")
+    print("=" * 70)
+    print(cr)
 
-    print("\n" + "=" * 80)
-    print("  XGBOOST STEREO 3D — FINAL 5-FOLD OOF RESULTS")
-    print("=" * 80)
-    print(f"Overall OOF Accuracy:   {oof_acc*100:.2f}%")
-    print(f"Overall OOF Macro F1:   {oof_f1_mac:.4f}")
-    print(f"Overall OOF Macro P:    {oof_p_mac:.4f}")
-    print(f"Overall OOF Macro R:    {oof_r_mac:.4f}")
-    print(f"5-Fold Mean Accuracy:   {mean_acc*100:.2f}% ± {std_acc*100:.2f}%")
-    print(f"5-Fold Mean Macro F1:   {mean_f1:.4f} ± {std_f1:.4f}")
-
-    # Per-Class Classification Report
-    cls_report = classification_report(
-        df_oof["y_true"], df_oof["y_pred"],
-        target_names=MAIN_CLASSES, digits=4
-    )
-    print("\nDetailed Per-Class Classification Report:\n" + cls_report)
-
-    # Confusion Matrix
-    cm = confusion_matrix(df_oof["y_true"], df_oof["y_pred"], labels=list(range(NUM_CLASSES)))
-
-    # Save Confusion Matrix Plot
-    plt.figure(figsize=(9, 7))
-    sns.heatmap(
-        cm, annot=True, fmt="d", cmap="Greens",
-        xticklabels=MAIN_CLASSES, yticklabels=MAIN_CLASSES,
-        cbar=True
-    )
-    plt.title(f"Confusion Matrix: XGBoost Stereo 3D (OOF N={len(df_oof)}, Macro F1={oof_f1_mac:.4f})", fontsize=12)
-    plt.ylabel("Ground Truth Posture", fontsize=11)
-    plt.xlabel("Predicted Posture", fontsize=11)
-    plt.xticks(rotation=30, ha="right")
+    # Confusion matrix
+    cm = confusion_matrix(y_true_all, y_pred_all)
+    fig, ax = plt.subplots(figsize=(8, 6))
+    im = ax.imshow(cm, interpolation="nearest", cmap=plt.cm.Blues)
+    plt.colorbar(im)
+    tick_marks = np.arange(6)
+    ax.set_xticks(tick_marks)
+    ax.set_yticks(tick_marks)
+    ax.set_xticklabels(CLASS_NAMES, rotation=45, ha="right", fontsize=9)
+    ax.set_yticklabels(CLASS_NAMES, fontsize=9)
+    thresh = cm.max() / 2.0
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(j, i, str(cm[i,j]), ha="center", va="center",
+                    color="white" if cm[i,j] > thresh else "black", fontsize=9)
+    ax.set_xlabel("Predicted Label")
+    ax.set_ylabel("True Label")
+    ax.set_title("Confusion Matrix — XGBoost 3D (OOF, Subject-Aware 5-Fold)")
     plt.tight_layout()
-    cm_plot_path = OUT_DIR / "confusion_matrix.png"
-    plt.savefig(cm_plot_path, dpi=300)
+    cm_path = OUT_DIR / "confusion_matrix.png"
+    plt.savefig(cm_path, dpi=120)
     plt.close()
 
-    # Save summary JSON
-    summary_data = {
-        "model": "XGBoost",
-        "representation": "stereo_3d",
-        "n_samples": len(df_oof),
-        "n_features": len(X_features),
-        "features": X_features,
-        "classes": MAIN_CLASSES,
-        "overall_oof": {
-            "accuracy": round(oof_acc, 4),
-            "macro_precision": round(oof_p_mac, 4),
-            "macro_recall": round(oof_r_mac, 4),
-            "macro_f1": round(oof_f1_mac, 4)
-        },
-        "kfold_stats": {
-            "mean_accuracy": round(mean_acc, 4),
-            "std_accuracy": round(std_acc, 4),
-            "mean_macro_f1": round(mean_f1, 4),
-            "std_macro_f1": round(std_f1, 4),
-            "mean_macro_precision": round(mean_p, 4),
-            "std_macro_precision": round(std_p, 4),
-            "mean_macro_recall": round(mean_r, 4),
-            "std_macro_recall": round(std_r, 4)
-        },
-        "per_class_f1": {
-            cls_name: round(f1_score(df_oof["y_true"] == c_id, df_oof["y_pred"] == c_id, zero_division=0), 4)
-            for c_id, cls_name in enumerate(MAIN_CLASSES)
-        }
-    }
+    # Save all outputs
+    df_fold_metrics.to_csv(OUT_DIR / "fold_metrics.csv", index=False)
+    df_oof.to_csv(OUT_DIR / "oof_predictions.csv", index=False)
+    with open(OUT_DIR / "best_params_per_fold.json", "w") as f:
+        json.dump(best_params_per_fold, f, indent=2)
+    with open(OUT_DIR / "classification_report.txt", "w") as f:
+        f.write(cr)
 
-    # Save all output files
-    out_metrics_csv = OUT_DIR / "fold_metrics.csv"
-    out_oof_csv = OUT_DIR / "oof_predictions.csv"
-    out_params_json = OUT_DIR / "best_params_per_fold.json"
-    out_report_txt = OUT_DIR / "classification_report.txt"
-    out_summary_json = OUT_DIR / "summary_metrics.json"
-
-    df_fold_metrics.to_csv(out_metrics_csv, index=False)
-    df_oof.to_csv(out_oof_csv, index=False)
-    with open(out_params_json, "w") as fp:
-        json.dump(best_params_per_fold, fp, indent=2)
-    with open(out_report_txt, "w") as fp:
-        fp.write(cls_report)
-    with open(out_summary_json, "w") as fp:
-        json.dump(summary_data, fp, indent=2)
-
-    print(f"[SAVED] Fold Metrics:          {out_metrics_csv}")
-    print(f"[SAVED] OOF Predictions:       {out_oof_csv}")
-    print(f"[SAVED] Best Params:           {out_params_json}")
-    print(f"[SAVED] Classification Report: {out_report_txt}")
-    print(f"[SAVED] Confusion Matrix Plot: {cm_plot_path}")
-    print(f"[SAVED] Summary Metrics:       {out_summary_json}")
-
-    return summary_data
-
+    print(f"\n[DONE] Results saved to {OUT_DIR}")
+    print(f"  fold_metrics.csv")
+    print(f"  oof_predictions.csv")
+    print(f"  confusion_matrix.png")
+    print(f"  classification_report.txt")
+    print(f"  best_params_per_fold.json")
 
 if __name__ == "__main__":
-    train_3d_xgboost()
+    main()

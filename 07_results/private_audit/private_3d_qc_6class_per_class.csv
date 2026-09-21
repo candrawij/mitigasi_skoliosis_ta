@@ -1,0 +1,7 @@
+label,raw,full,masking,usable,exclude,usable_pct
+leaning_backward,118,80,25,105,13,89.0
+leaning_forward,124,86,28,114,10,91.9
+leaning_left,119,67,36,103,16,86.6
+leaning_right,120,72,38,110,10,91.7
+slouching,120,77,33,110,10,91.7
+upright,126,86,29,115,11,91.3

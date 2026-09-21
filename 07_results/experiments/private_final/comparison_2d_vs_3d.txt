@@ -1,0 +1,48 @@
+======================================================================
+2D vs 3D COMPARISON
+======================================================================
+
+Metric                      2D Multi-View       3D Stereo
+-------------------------------------------------------
+accuracy                           0.7047          0.6179
+macro_precision                    0.7189          0.6462
+macro_recall                       0.7139          0.6267
+macro_f1                           0.7122          0.6182
+
+
+PER-CLASS F1:
+           class    f1_2d    f1_3d  f1_delta_3d_minus_2d  precision_2d  precision_3d  recall_2d  recall_3d
+leaning_backward 0.644444 0.680000              0.035556      0.591837      0.809524   0.707317   0.586207
+ leaning_forward 0.549296 0.544000             -0.005296      0.582090      0.680000   0.520000   0.453333
+    leaning_left 0.677165 0.739496              0.062330      0.623188      0.771930   0.741379   0.709677
+   leaning_right 0.857143 0.686047             -0.171096      0.894737      0.531532   0.822581   0.967213
+       slouching 0.983871 0.483333             -0.500538      0.968254      0.527273   1.000000   0.446154
+         upright 0.561404 0.576471              0.015067      0.653061      0.556818   0.492308   0.597561
+
+2D CLASSIFICATION REPORT (on intersection):
+                  precision    recall  f1-score   support
+
+leaning_backward       0.59      0.71      0.64        82
+ leaning_forward       0.58      0.52      0.55        75
+    leaning_left       0.62      0.74      0.68        58
+   leaning_right       0.89      0.82      0.86        62
+       slouching       0.97      1.00      0.98        61
+         upright       0.65      0.49      0.56        65
+
+        accuracy                           0.70       403
+       macro avg       0.72      0.71      0.71       403
+    weighted avg       0.71      0.70      0.70       403
+
+3D CLASSIFICATION REPORT (OOF):
+                  precision    recall  f1-score   support
+
+leaning_backward       0.81      0.59      0.68        58
+ leaning_forward       0.68      0.45      0.54        75
+    leaning_left       0.77      0.71      0.74        62
+   leaning_right       0.53      0.97      0.69        61
+       slouching       0.53      0.45      0.48        65
+         upright       0.56      0.60      0.58        82
+
+        accuracy                           0.62       403
+       macro avg       0.65      0.63      0.62       403
+    weighted avg       0.64      0.62      0.61       403

@@ -1,0 +1,728 @@
+capture_id,subject_id,session_id,calibration_id,label,repetition,subset,lateral_side,class_id,decision,valid_3d_joints_core,valid_3d_joints_total,core_reproj_error_640p_px,shoulder_width_m,torso_length_m,depth_z_m,reason,rig_qc_status,rig_reproj_err_px
+CAP000001,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,11,14,35.01,0.196,0.438,0.832,"Full 3D: 11/17 core joints, core_err=35.0px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000002,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,11,14,36.45,0.192,0.437,0.828,"Full 3D: 11/17 core joints, core_err=36.4px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000003,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,11,14,35.6,0.194,0.433,0.829,"Full 3D: 11/17 core joints, core_err=35.6px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000004,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,11,14,36.5,0.195,0.437,0.828,"Full 3D: 11/17 core joints, core_err=36.5px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000005,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,11,14,35.73,0.195,0.433,0.829,"Full 3D: 11/17 core joints, core_err=35.7px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000006,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,11,12,33.4,0.21,0.425,0.795,"Full 3D: 11/17 core joints, core_err=33.4px, Z=0.80m",WARNING_RECHECK,47.67
+CAP000007,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,11,12,33.39,0.205,0.423,0.793,"Full 3D: 11/17 core joints, core_err=33.4px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000008,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,12,12,34.93,0.207,0.426,0.79,"Full 3D: 12/17 core joints, core_err=34.9px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000009,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,12,12,35.3,0.206,0.425,0.787,"Full 3D: 12/17 core joints, core_err=35.3px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000010,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,12,12,35.41,0.206,0.424,0.786,"Full 3D: 12/17 core joints, core_err=35.4px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000011,S001,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,10,12,39.65,0.199,0.465,0.843,"Full 3D: 10/17 core joints, core_err=39.7px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000012,S001,SE01,CAL_001,upright,2,pilot,left,5,INCLUDE_3D_FULL,11,12,38.84,0.206,0.442,0.848,"Full 3D: 11/17 core joints, core_err=38.8px, Z=0.85m",WARNING_RECHECK,47.67
+CAP000013,S001,SE01,CAL_001,upright,3,pilot,left,5,INCLUDE_3D_FULL,10,12,38.31,0.212,0.449,0.857,"Full 3D: 10/17 core joints, core_err=38.3px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000014,S001,SE01,CAL_001,upright,4,pilot,left,5,INCLUDE_3D_FULL,11,12,39.53,0.217,0.45,0.858,"Full 3D: 11/17 core joints, core_err=39.5px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000015,S001,SE01,CAL_001,upright,5,pilot,left,5,INCLUDE_3D_FULL,10,12,40.53,0.22,0.458,0.857,"Full 3D: 10/17 core joints, core_err=40.5px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000016,S001,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,12,12,17.57,0.198,0.399,0.803,"Full 3D: 12/17 core joints, core_err=17.6px, Z=0.80m",WARNING_RECHECK,47.67
+CAP000017,S001,SE01,CAL_001,leaning_forward,2,pilot,left,1,INCLUDE_3D_FULL,12,12,18.64,0.218,0.398,0.797,"Full 3D: 12/17 core joints, core_err=18.6px, Z=0.80m",WARNING_RECHECK,47.67
+CAP000018,S001,SE01,CAL_001,leaning_forward,3,pilot,left,1,INCLUDE_3D_FULL,12,12,23.43,0.231,0.434,0.794,"Full 3D: 12/17 core joints, core_err=23.4px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000019,S001,SE01,CAL_001,leaning_forward,4,pilot,left,1,INCLUDE_3D_FULL,11,11,20.1,0.228,0.418,0.794,"Full 3D: 11/17 core joints, core_err=20.1px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000020,S001,SE01,CAL_001,leaning_forward,5,pilot,left,1,INCLUDE_3D_FULL,12,12,24.28,0.234,0.44,0.793,"Full 3D: 12/17 core joints, core_err=24.3px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000021,S001,SE01,CAL_001,leaning_backward,1,pilot,left,0,INCLUDE_3D_FULL,11,12,36.0,0.228,0.432,0.867,"Full 3D: 11/17 core joints, core_err=36.0px, Z=0.87m",WARNING_RECHECK,47.67
+CAP000022,S001,SE01,CAL_001,leaning_backward,2,pilot,left,0,INCLUDE_3D_FULL,12,12,41.16,0.214,0.43,0.852,"Full 3D: 12/17 core joints, core_err=41.2px, Z=0.85m",WARNING_RECHECK,47.67
+CAP000023,S001,SE01,CAL_001,leaning_backward,3,pilot,left,0,INCLUDE_3D_FULL,12,12,37.75,0.209,0.435,0.859,"Full 3D: 12/17 core joints, core_err=37.8px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000024,S001,SE01,CAL_001,leaning_backward,4,pilot,left,0,INCLUDE_3D_FULL,13,14,35.36,0.215,0.434,0.848,"Full 3D: 13/17 core joints, core_err=35.4px, Z=0.85m",WARNING_RECHECK,47.67
+CAP000025,S001,SE01,CAL_001,leaning_backward,5,pilot,left,0,INCLUDE_3D_FULL,12,12,36.29,0.212,0.432,0.861,"Full 3D: 12/17 core joints, core_err=36.3px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000026,S001,SE01,CAL_001,leaning_left,1,pilot,left,2,INCLUDE_3D_FULL,9,13,30.25,0.203,0.423,0.865,"Full 3D: 9/17 core joints, core_err=30.2px, Z=0.87m",WARNING_RECHECK,47.67
+CAP000027,S001,SE01,CAL_001,leaning_left,2,pilot,left,2,INCLUDE_3D_FULL,10,14,33.61,0.198,0.415,0.879,"Full 3D: 10/17 core joints, core_err=33.6px, Z=0.88m",WARNING_RECHECK,47.67
+CAP000028,S001,SE01,CAL_001,leaning_left,3,pilot,left,2,INCLUDE_3D_FULL,10,14,28.05,0.21,0.42,0.875,"Full 3D: 10/17 core joints, core_err=28.0px, Z=0.87m",WARNING_RECHECK,47.67
+CAP000029,S001,SE01,CAL_001,leaning_left,4,pilot,left,2,INCLUDE_3D_FULL,10,14,29.52,0.211,0.422,0.874,"Full 3D: 10/17 core joints, core_err=29.5px, Z=0.87m",WARNING_RECHECK,47.67
+CAP000030,S001,SE01,CAL_001,leaning_left,5,pilot,left,2,INCLUDE_3D_FULL,10,14,26.8,0.199,0.414,0.864,"Full 3D: 10/17 core joints, core_err=26.8px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000031,S001,SE01,CAL_001,leaning_right,1,pilot,left,3,INCLUDE_3D_FULL,12,12,18.89,0.198,0.399,0.783,"Full 3D: 12/17 core joints, core_err=18.9px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000032,S001,SE01,CAL_001,leaning_right,2,pilot,left,3,INCLUDE_3D_FULL,12,12,20.3,0.196,0.402,0.781,"Full 3D: 12/17 core joints, core_err=20.3px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000033,S001,SE01,CAL_001,leaning_right,3,pilot,left,3,INCLUDE_3D_FULL,12,12,21.57,0.191,0.397,0.783,"Full 3D: 12/17 core joints, core_err=21.6px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000034,S001,SE01,CAL_001,leaning_right,4,pilot,left,3,INCLUDE_3D_FULL,11,11,22.26,0.227,,0.789,"Full 3D: 11/17 core joints, core_err=22.3px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000035,S001,SE01,CAL_001,leaning_right,5,pilot,left,3,INCLUDE_3D_FULL,11,11,21.04,0.228,,0.781,"Full 3D: 11/17 core joints, core_err=21.0px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000036,S001,SE01,CAL_001,slouching,1,pilot,left,4,INCLUDE_3D_FULL,12,12,29.73,0.211,0.406,0.829,"Full 3D: 12/17 core joints, core_err=29.7px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000037,S001,SE01,CAL_001,slouching,2,pilot,left,4,INCLUDE_3D_FULL,14,14,30.18,0.207,0.394,0.841,"Full 3D: 14/17 core joints, core_err=30.2px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000038,S001,SE01,CAL_001,slouching,3,pilot,left,4,INCLUDE_3D_FULL,12,12,25.84,0.204,0.393,0.837,"Full 3D: 12/17 core joints, core_err=25.8px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000039,S001,SE01,CAL_001,slouching,4,pilot,left,4,INCLUDE_3D_FULL,14,14,22.29,0.205,0.361,0.833,"Full 3D: 14/17 core joints, core_err=22.3px, Z=0.83m",WARNING_RECHECK,47.67
+CAP000040,S001,SE01,CAL_001,slouching,5,pilot,left,4,INCLUDE_3D_FULL,14,14,31.26,0.19,0.398,0.835,"Full 3D: 14/17 core joints, core_err=31.3px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000048,S002,SE01,CAL_001,upright,1,pilot,left,5,INCLUDE_3D_FULL,12,12,29.68,0.226,0.476,0.818,"Full 3D: 12/17 core joints, core_err=29.7px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000049,S002,SE01,CAL_001,upright,2,pilot,left,5,INCLUDE_3D_FULL,12,12,28.53,0.229,0.476,0.823,"Full 3D: 12/17 core joints, core_err=28.5px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000050,S002,SE01,CAL_001,upright,3,pilot,left,5,INCLUDE_3D_FULL,12,12,28.92,0.228,0.474,0.822,"Full 3D: 12/17 core joints, core_err=28.9px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000051,S002,SE01,CAL_001,upright,4,pilot,left,5,INCLUDE_3D_FULL,12,12,27.38,0.224,0.481,0.824,"Full 3D: 12/17 core joints, core_err=27.4px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000052,S002,SE01,CAL_001,upright,5,pilot,left,5,INCLUDE_3D_FULL,12,12,28.05,0.226,0.479,0.82,"Full 3D: 12/17 core joints, core_err=28.1px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000053,S002,SE01,CAL_001,leaning_forward,1,pilot,left,1,INCLUDE_3D_FULL,12,12,26.3,0.242,0.487,0.791,"Full 3D: 12/17 core joints, core_err=26.3px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000054,S002,SE01,CAL_001,leaning_forward,2,pilot,left,1,INCLUDE_3D_FULL,12,12,29.1,0.253,0.476,0.791,"Full 3D: 12/17 core joints, core_err=29.1px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000055,S002,SE01,CAL_001,leaning_forward,3,pilot,left,1,INCLUDE_3D_FULL,12,12,28.07,0.258,0.475,0.792,"Full 3D: 12/17 core joints, core_err=28.1px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000056,S002,SE01,CAL_001,leaning_forward,4,pilot,left,1,INCLUDE_3D_FULL,12,12,28.76,0.255,0.476,0.791,"Full 3D: 12/17 core joints, core_err=28.8px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000057,S002,SE01,CAL_001,leaning_forward,5,pilot,left,1,INCLUDE_3D_FULL,12,12,28.92,0.256,0.478,0.792,"Full 3D: 12/17 core joints, core_err=28.9px, Z=0.79m",WARNING_RECHECK,47.67
+CAP000058,S002,SE01,CAL_001,leaning_backward,1,pilot,left,0,INCLUDE_3D_FULL,12,12,24.15,0.23,0.431,0.836,"Full 3D: 12/17 core joints, core_err=24.1px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000059,S002,SE01,CAL_001,leaning_backward,2,pilot,left,0,INCLUDE_3D_FULL,12,12,24.71,0.227,0.422,0.84,"Full 3D: 12/17 core joints, core_err=24.7px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000060,S002,SE01,CAL_001,leaning_backward,3,pilot,left,0,INCLUDE_3D_FULL,12,12,24.39,0.229,0.423,0.84,"Full 3D: 12/17 core joints, core_err=24.4px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000061,S002,SE01,CAL_001,leaning_backward,4,pilot,left,0,INCLUDE_3D_FULL,12,12,24.46,0.229,0.423,0.841,"Full 3D: 12/17 core joints, core_err=24.5px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000062,S002,SE01,CAL_001,leaning_backward,5,pilot,left,0,INCLUDE_3D_FULL,12,12,24.44,0.23,0.432,0.842,"Full 3D: 12/17 core joints, core_err=24.4px, Z=0.84m",WARNING_RECHECK,47.67
+CAP000063,S002,SE01,CAL_001,leaning_left,1,pilot,left,2,INCLUDE_3D_FULL,10,12,26.94,0.246,0.472,0.857,"Full 3D: 10/17 core joints, core_err=26.9px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000064,S002,SE01,CAL_001,leaning_left,2,pilot,left,2,INCLUDE_3D_FULL,10,12,26.99,0.244,0.457,0.861,"Full 3D: 10/17 core joints, core_err=27.0px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000065,S002,SE01,CAL_001,leaning_left,3,pilot,left,2,INCLUDE_3D_FULL,11,12,30.23,0.241,0.455,0.857,"Full 3D: 11/17 core joints, core_err=30.2px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000066,S002,SE01,CAL_001,leaning_left,4,pilot,left,2,INCLUDE_3D_FULL,10,12,27.44,0.242,0.456,0.86,"Full 3D: 10/17 core joints, core_err=27.4px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000067,S002,SE01,CAL_001,leaning_left,5,pilot,left,2,INCLUDE_3D_FULL,10,12,27.35,0.241,0.453,0.859,"Full 3D: 10/17 core joints, core_err=27.3px, Z=0.86m",WARNING_RECHECK,47.67
+CAP000068,S002,SE01,CAL_001,leaning_right,1,pilot,left,3,INCLUDE_3D_FULL,12,12,18.1,0.223,0.433,0.782,"Full 3D: 12/17 core joints, core_err=18.1px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000069,S002,SE01,CAL_001,leaning_right,2,pilot,left,3,INCLUDE_3D_FULL,12,12,19.05,0.218,0.43,0.78,"Full 3D: 12/17 core joints, core_err=19.0px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000070,S002,SE01,CAL_001,leaning_right,3,pilot,left,3,INCLUDE_3D_FULL,12,12,18.52,0.224,0.431,0.784,"Full 3D: 12/17 core joints, core_err=18.5px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000071,S002,SE01,CAL_001,leaning_right,4,pilot,left,3,INCLUDE_3D_FULL,12,12,18.6,0.223,0.432,0.783,"Full 3D: 12/17 core joints, core_err=18.6px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000072,S002,SE01,CAL_001,leaning_right,5,pilot,left,3,INCLUDE_3D_FULL,12,12,18.02,0.222,0.429,0.783,"Full 3D: 12/17 core joints, core_err=18.0px, Z=0.78m",WARNING_RECHECK,47.67
+CAP000073,S002,SE01,CAL_001,slouching,5,pilot,left,4,INCLUDE_3D_FULL,12,12,23.37,0.238,0.41,0.822,"Full 3D: 12/17 core joints, core_err=23.4px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000074,S002,SE01,CAL_001,slouching,1,pilot,left,4,INCLUDE_3D_FULL,12,12,23.24,0.24,0.41,0.823,"Full 3D: 12/17 core joints, core_err=23.2px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000075,S002,SE01,CAL_001,slouching,2,pilot,left,4,INCLUDE_3D_FULL,12,12,23.08,0.239,0.413,0.824,"Full 3D: 12/17 core joints, core_err=23.1px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000076,S002,SE01,CAL_001,slouching,3,pilot,left,4,INCLUDE_3D_FULL,12,12,23.88,0.234,0.408,0.819,"Full 3D: 12/17 core joints, core_err=23.9px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000077,S002,SE01,CAL_001,slouching,4,pilot,left,4,INCLUDE_3D_FULL,12,12,23.23,0.24,0.41,0.823,"Full 3D: 12/17 core joints, core_err=23.2px, Z=0.82m",WARNING_RECHECK,47.67
+CAP000083,S003,SE01,CAL_004,upright,1,pilot,left,5,INCLUDE_3D_WITH_MASKING,14,14,29.35,0.147,0.556,1.446,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000084,S003,SE01,CAL_004,upright,2,pilot,left,5,INCLUDE_3D_WITH_MASKING,14,14,29.34,0.146,0.554,1.445,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000085,S003,SE01,CAL_004,upright,3,pilot,left,5,INCLUDE_3D_WITH_MASKING,14,14,29.23,0.147,0.553,1.444,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000086,S003,SE01,CAL_004,upright,4,pilot,left,5,INCLUDE_3D_WITH_MASKING,14,14,29.7,0.149,0.556,1.444,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000087,S003,SE01,CAL_004,upright,5,pilot,left,5,INCLUDE_3D_WITH_MASKING,14,14,29.39,0.148,0.559,1.446,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000088,S003,SE01,CAL_004,leaning_forward,1,pilot,left,1,INCLUDE_3D_WITH_MASKING,13,14,38.72,0.114,0.627,1.286,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000089,S003,SE01,CAL_004,leaning_forward,2,pilot,left,1,INCLUDE_3D_WITH_MASKING,13,14,38.05,0.113,0.633,1.289,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000090,S003,SE01,CAL_004,leaning_forward,3,pilot,left,1,INCLUDE_3D_WITH_MASKING,12,13,36.62,0.115,0.633,1.284,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000091,S003,SE01,CAL_004,leaning_forward,4,pilot,left,1,INCLUDE_3D_WITH_MASKING,12,14,36.26,0.116,0.627,1.285,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000092,S003,SE01,CAL_004,leaning_forward,5,pilot,left,1,INCLUDE_3D_WITH_MASKING,12,14,36.21,0.115,0.628,1.286,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000093,S003,SE01,CAL_004,leaning_backward,1,pilot,left,0,INCLUDE_3D_FULL,12,14,25.58,0.154,0.529,1.473,"Full 3D: 12/17 core joints, core_err=25.6px, Z=1.47m",WARNING_RECHECK,29.06
+CAP000094,S003,SE01,CAL_004,leaning_backward,2,pilot,left,0,INCLUDE_3D_FULL,13,15,27.94,0.172,0.526,1.453,"Full 3D: 13/17 core joints, core_err=27.9px, Z=1.45m",WARNING_RECHECK,29.06
+CAP000095,S003,SE01,CAL_004,leaning_backward,3,pilot,left,0,INCLUDE_3D_FULL,12,14,25.21,0.166,0.523,1.48,"Full 3D: 12/17 core joints, core_err=25.2px, Z=1.48m",WARNING_RECHECK,29.06
+CAP000096,S003,SE01,CAL_004,leaning_backward,4,pilot,left,0,INCLUDE_3D_FULL,12,14,25.25,0.162,0.531,1.481,"Full 3D: 12/17 core joints, core_err=25.2px, Z=1.48m",WARNING_RECHECK,29.06
+CAP000097,S003,SE01,CAL_004,leaning_backward,5,pilot,left,0,INCLUDE_3D_FULL,12,14,25.3,0.16,0.531,1.483,"Full 3D: 12/17 core joints, core_err=25.3px, Z=1.48m",WARNING_RECHECK,29.06
+CAP000098,S003,SE01,CAL_004,leaning_left,1,pilot,left,2,INCLUDE_3D_WITH_MASKING,12,12,30.57,0.126,0.634,1.445,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000099,S003,SE01,CAL_004,leaning_left,2,pilot,left,2,INCLUDE_3D_WITH_MASKING,13,13,33.4,0.127,0.624,1.422,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000100,S003,SE01,CAL_004,leaning_left,3,pilot,left,2,INCLUDE_3D_WITH_MASKING,13,13,33.59,0.128,0.622,1.419,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000101,S003,SE01,CAL_004,leaning_left,4,pilot,left,2,INCLUDE_3D_WITH_MASKING,12,12,30.94,0.126,0.628,1.443,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000102,S003,SE01,CAL_004,leaning_left,5,pilot,left,2,INCLUDE_3D_WITH_MASKING,12,12,31.09,0.127,0.623,1.444,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000103,S003,SE01,CAL_004,leaning_right,1,pilot,left,3,INCLUDE_3D_FULL,14,14,31.0,0.169,0.515,1.44,"Full 3D: 14/17 core joints, core_err=31.0px, Z=1.44m",WARNING_RECHECK,29.06
+CAP000104,S003,SE01,CAL_004,leaning_right,2,pilot,left,3,INCLUDE_3D_FULL,14,14,30.68,0.172,0.511,1.442,"Full 3D: 14/17 core joints, core_err=30.7px, Z=1.44m",WARNING_RECHECK,29.06
+CAP000105,S003,SE01,CAL_004,leaning_right,3,pilot,left,3,INCLUDE_3D_FULL,14,14,30.34,0.161,0.516,1.447,"Full 3D: 14/17 core joints, core_err=30.3px, Z=1.45m",WARNING_RECHECK,29.06
+CAP000106,S003,SE01,CAL_004,leaning_right,4,pilot,left,3,INCLUDE_3D_FULL,14,14,30.23,0.175,0.509,1.442,"Full 3D: 14/17 core joints, core_err=30.2px, Z=1.44m",WARNING_RECHECK,29.06
+CAP000107,S003,SE01,CAL_004,leaning_right,5,pilot,left,3,INCLUDE_3D_FULL,14,14,30.82,0.186,0.507,1.439,"Full 3D: 14/17 core joints, core_err=30.8px, Z=1.44m",WARNING_RECHECK,29.06
+CAP000108,S003,SE01,CAL_004,slouching,1,pilot,left,4,INCLUDE_3D_WITH_MASKING,9,12,39.67,0.112,,1.113,Partial 3D: 9/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000109,S003,SE01,CAL_004,slouching,2,pilot,left,4,INCLUDE_3D_WITH_MASKING,9,12,39.54,0.111,,1.117,Partial 3D: 9/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000110,S003,SE01,CAL_004,slouching,3,pilot,left,4,INCLUDE_3D_WITH_MASKING,10,12,41.95,0.112,,1.16,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000111,S003,SE01,CAL_004,slouching,4,pilot,left,4,INCLUDE_3D_WITH_MASKING,10,12,41.81,0.112,,1.161,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000112,S003,SE01,CAL_004,slouching,5,pilot,left,4,INCLUDE_3D_WITH_MASKING,9,12,39.76,0.11,,1.117,Partial 3D: 9/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000122,S004,SE01,CAL_004,upright,1,pilot,left,5,INCLUDE_3D_WITH_MASKING,11,14,31.46,0.141,0.575,1.152,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000123,S004,SE01,CAL_004,upright,2,pilot,left,5,INCLUDE_3D_WITH_MASKING,11,14,32.91,0.144,0.571,1.151,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000124,S004,SE01,CAL_004,upright,3,pilot,left,5,INCLUDE_3D_WITH_MASKING,11,14,33.13,0.141,0.581,1.155,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000125,S004,SE01,CAL_004,upright,4,pilot,left,5,INCLUDE_3D_WITH_MASKING,11,14,31.74,0.139,0.573,1.154,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000126,S004,SE01,CAL_004,upright,5,pilot,left,5,INCLUDE_3D_WITH_MASKING,11,14,32.43,0.139,0.58,1.154,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000127,S004,SE01,CAL_004,leaning_forward,1,pilot,left,1,INCLUDE_3D_WITH_MASKING,10,14,44.66,0.135,0.626,1.032,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000128,S004,SE01,CAL_004,leaning_forward,2,pilot,left,1,INCLUDE_3D_WITH_MASKING,10,14,44.13,0.136,0.636,1.038,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000129,S004,SE01,CAL_004,leaning_forward,3,pilot,left,1,INCLUDE_3D_WITH_MASKING,10,14,43.74,0.135,0.626,1.037,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000130,S004,SE01,CAL_004,leaning_forward,4,pilot,left,1,INCLUDE_3D_WITH_MASKING,10,14,44.2,0.136,0.63,1.038,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000131,S004,SE01,CAL_004,leaning_forward,5,pilot,left,1,INCLUDE_3D_WITH_MASKING,10,14,43.85,0.137,0.634,1.037,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000132,S004,SE01,CAL_004,leaning_backward,1,pilot,left,0,INCLUDE_3D_FULL,12,14,27.11,0.177,0.565,1.325,"Full 3D: 12/17 core joints, core_err=27.1px, Z=1.32m",WARNING_RECHECK,29.06
+CAP000133,S004,SE01,CAL_004,leaning_backward,2,pilot,left,0,INCLUDE_3D_FULL,12,14,26.37,0.176,0.566,1.33,"Full 3D: 12/17 core joints, core_err=26.4px, Z=1.33m",WARNING_RECHECK,29.06
+CAP000134,S004,SE01,CAL_004,leaning_backward,3,pilot,left,0,INCLUDE_3D_FULL,12,14,26.55,0.184,0.57,1.329,"Full 3D: 12/17 core joints, core_err=26.6px, Z=1.33m",WARNING_RECHECK,29.06
+CAP000135,S004,SE01,CAL_004,leaning_backward,4,pilot,left,0,INCLUDE_3D_FULL,12,14,26.71,0.186,0.565,1.332,"Full 3D: 12/17 core joints, core_err=26.7px, Z=1.33m",WARNING_RECHECK,29.06
+CAP000136,S004,SE01,CAL_004,leaning_backward,5,pilot,left,0,INCLUDE_3D_FULL,12,14,26.11,0.179,0.569,1.333,"Full 3D: 12/17 core joints, core_err=26.1px, Z=1.33m",WARNING_RECHECK,29.06
+CAP000137,S004,SE01,CAL_004,leaning_left,1,pilot,left,2,INCLUDE_3D_FULL,10,13,32.31,0.201,0.536,1.184,"Full 3D: 10/17 core joints, core_err=32.3px, Z=1.18m",WARNING_RECHECK,29.06
+CAP000138,S004,SE01,CAL_004,leaning_left,2,pilot,left,2,INCLUDE_3D_FULL,10,13,33.47,0.203,0.538,1.188,"Full 3D: 10/17 core joints, core_err=33.5px, Z=1.19m",WARNING_RECHECK,29.06
+CAP000139,S004,SE01,CAL_004,leaning_left,3,pilot,left,2,INCLUDE_3D_FULL,10,13,35.26,0.171,0.569,1.181,"Full 3D: 10/17 core joints, core_err=35.3px, Z=1.18m",WARNING_RECHECK,29.06
+CAP000140,S004,SE01,CAL_004,leaning_left,4,pilot,left,2,INCLUDE_3D_FULL,9,13,32.5,0.181,0.55,1.161,"Full 3D: 9/17 core joints, core_err=32.5px, Z=1.16m",WARNING_RECHECK,29.06
+CAP000141,S004,SE01,CAL_004,leaning_left,5,pilot,left,2,INCLUDE_3D_FULL,10,13,32.96,0.189,0.542,1.175,"Full 3D: 10/17 core joints, core_err=33.0px, Z=1.18m",WARNING_RECHECK,29.06
+CAP000142,S004,SE01,CAL_004,leaning_right,1,pilot,left,3,INCLUDE_3D_WITH_MASKING,12,13,31.18,0.147,0.561,1.262,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000143,S004,SE01,CAL_004,leaning_right,2,pilot,left,3,INCLUDE_3D_WITH_MASKING,13,14,30.04,0.134,0.547,1.241,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000144,S004,SE01,CAL_004,leaning_right,3,pilot,left,3,INCLUDE_3D_WITH_MASKING,13,14,30.39,0.133,0.545,1.24,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000145,S004,SE01,CAL_004,leaning_right,4,pilot,left,3,INCLUDE_3D_WITH_MASKING,13,14,30.6,0.135,0.554,1.242,Partial 3D: 13/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000146,S004,SE01,CAL_004,leaning_right,5,pilot,left,3,INCLUDE_3D_WITH_MASKING,12,14,27.97,0.137,0.549,1.244,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000147,S004,SE01,CAL_004,slouching,1,pilot,left,4,INCLUDE_3D_WITH_MASKING,12,14,43.18,0.139,0.656,1.139,Partial 3D: 12/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000148,S004,SE01,CAL_004,slouching,2,pilot,left,4,INCLUDE_3D_WITH_MASKING,11,14,34.06,0.141,0.594,1.153,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000149,S004,SE01,CAL_004,slouching,3,pilot,left,4,INCLUDE_3D_WITH_MASKING,11,13,35.58,0.141,0.603,1.151,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000150,S004,SE01,CAL_004,slouching,4,pilot,left,4,INCLUDE_3D_WITH_MASKING,11,14,34.92,0.139,0.602,1.149,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000151,S004,SE01,CAL_004,slouching,5,pilot,left,4,INCLUDE_3D_WITH_MASKING,11,13,35.59,0.139,0.594,1.147,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,29.06
+CAP000157,S005,SE01,CAL_005,upright,1,controlled,right,5,INCLUDE_3D_FULL,14,14,24.44,0.566,0.463,0.982,"Full 3D: 14/17 core joints, core_err=24.4px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000158,S005,SE01,CAL_005,upright,2,controlled,right,5,INCLUDE_3D_FULL,14,14,24.59,0.566,0.461,0.978,"Full 3D: 14/17 core joints, core_err=24.6px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000159,S005,SE01,CAL_005,upright,3,controlled,right,5,INCLUDE_3D_FULL,14,14,24.1,0.559,0.458,0.981,"Full 3D: 14/17 core joints, core_err=24.1px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000160,S005,SE01,CAL_005,upright,4,controlled,right,5,INCLUDE_3D_FULL,14,14,24.44,0.567,0.46,0.983,"Full 3D: 14/17 core joints, core_err=24.4px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000161,S005,SE01,CAL_005,upright,5,controlled,right,5,INCLUDE_3D_FULL,14,14,24.13,0.565,0.461,0.981,"Full 3D: 14/17 core joints, core_err=24.1px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000162,S005,SE01,CAL_005,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,11,26.8,0.566,0.436,0.978,"Full 3D: 11/17 core joints, core_err=26.8px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000163,S005,SE01,CAL_005,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,13,13,25.17,0.528,0.42,0.985,"Full 3D: 13/17 core joints, core_err=25.2px, Z=0.99m",WARNING_RECHECK,19.21
+CAP000164,S005,SE01,CAL_005,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,13,13,26.21,0.534,0.425,0.988,"Full 3D: 13/17 core joints, core_err=26.2px, Z=0.99m",WARNING_RECHECK,19.21
+CAP000165,S005,SE01,CAL_005,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,12,12,26.21,0.544,0.435,0.965,"Full 3D: 12/17 core joints, core_err=26.2px, Z=0.97m",WARNING_RECHECK,19.21
+CAP000166,S005,SE01,CAL_005,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,12,12,26.41,0.54,0.43,0.966,"Full 3D: 12/17 core joints, core_err=26.4px, Z=0.97m",WARNING_RECHECK,19.21
+CAP000167,S005,SE01,CAL_005,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,14,14,24.06,0.491,0.443,1.013,"Full 3D: 14/17 core joints, core_err=24.1px, Z=1.01m",WARNING_RECHECK,19.21
+CAP000168,S005,SE01,CAL_005,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,14,14,21.29,0.515,0.467,1.002,"Full 3D: 14/17 core joints, core_err=21.3px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000169,S005,SE01,CAL_005,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,14,14,22.16,0.582,0.486,1.018,"Full 3D: 14/17 core joints, core_err=22.2px, Z=1.02m",WARNING_RECHECK,19.21
+CAP000170,S005,SE01,CAL_005,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,14,14,22.65,0.583,0.476,1.017,"Full 3D: 14/17 core joints, core_err=22.6px, Z=1.02m",WARNING_RECHECK,19.21
+CAP000171,S005,SE01,CAL_005,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,14,14,22.83,0.574,0.484,1.021,"Full 3D: 14/17 core joints, core_err=22.8px, Z=1.02m",WARNING_RECHECK,19.21
+CAP000172,S005,SE01,CAL_005,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,14,14,33.56,0.702,0.554,1.162,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,19.21
+CAP000173,S005,SE01,CAL_005,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,14,14,33.38,0.69,0.542,1.163,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,19.21
+CAP000174,S005,SE01,CAL_005,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,14,14,32.58,0.671,0.539,1.156,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,19.21
+CAP000175,S005,SE01,CAL_005,leaning_left,4,controlled,right,2,INCLUDE_3D_WITH_MASKING,14,14,33.49,0.684,0.543,1.159,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,19.21
+CAP000176,S005,SE01,CAL_005,leaning_left,5,controlled,right,2,INCLUDE_3D_WITH_MASKING,14,14,32.57,0.677,0.527,1.157,Partial 3D: 14/17 core joints - usable with NaN masking,WARNING_RECHECK,19.21
+CAP000177,S005,SE01,CAL_005,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,14,14,34.08,0.358,0.397,0.875,"Full 3D: 14/17 core joints, core_err=34.1px, Z=0.87m",WARNING_RECHECK,19.21
+CAP000178,S005,SE01,CAL_005,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,14,14,33.71,0.367,0.396,0.88,"Full 3D: 14/17 core joints, core_err=33.7px, Z=0.88m",WARNING_RECHECK,19.21
+CAP000179,S005,SE01,CAL_005,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,14,14,33.23,0.367,0.394,0.879,"Full 3D: 14/17 core joints, core_err=33.2px, Z=0.88m",WARNING_RECHECK,19.21
+CAP000180,S005,SE01,CAL_005,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,14,14,33.98,0.379,0.399,0.881,"Full 3D: 14/17 core joints, core_err=34.0px, Z=0.88m",WARNING_RECHECK,19.21
+CAP000181,S005,SE01,CAL_005,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,13,14,32.22,0.371,,0.862,"Full 3D: 13/17 core joints, core_err=32.2px, Z=0.86m",WARNING_RECHECK,19.21
+CAP000182,S005,SE01,CAL_005,slouching,1,controlled,right,4,INCLUDE_3D_FULL,14,14,21.97,0.523,0.433,1.002,"Full 3D: 14/17 core joints, core_err=22.0px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000183,S005,SE01,CAL_005,slouching,2,controlled,right,4,INCLUDE_3D_FULL,14,14,21.84,0.526,0.437,1.002,"Full 3D: 14/17 core joints, core_err=21.8px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000184,S005,SE01,CAL_005,slouching,3,controlled,right,4,INCLUDE_3D_FULL,14,14,21.55,0.528,0.431,1.0,"Full 3D: 14/17 core joints, core_err=21.5px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000185,S005,SE01,CAL_005,slouching,4,controlled,right,4,INCLUDE_3D_FULL,14,14,22.07,0.52,0.432,0.999,"Full 3D: 14/17 core joints, core_err=22.1px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000186,S005,SE01,CAL_005,slouching,5,controlled,right,4,INCLUDE_3D_FULL,14,14,21.93,0.518,0.434,1.0,"Full 3D: 14/17 core joints, core_err=21.9px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000193,S006,SE01,CAL_005,upright,1,controlled,right,5,INCLUDE_3D_FULL,14,14,22.12,0.482,0.455,0.978,"Full 3D: 14/17 core joints, core_err=22.1px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000194,S006,SE01,CAL_005,upright,2,controlled,right,5,INCLUDE_3D_FULL,14,14,21.99,0.488,0.455,0.981,"Full 3D: 14/17 core joints, core_err=22.0px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000195,S006,SE01,CAL_005,upright,3,controlled,right,5,INCLUDE_3D_FULL,14,14,22.73,0.487,0.454,0.981,"Full 3D: 14/17 core joints, core_err=22.7px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000196,S006,SE01,CAL_005,upright,4,controlled,right,5,INCLUDE_3D_FULL,13,13,24.11,0.487,0.453,0.977,"Full 3D: 13/17 core joints, core_err=24.1px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000197,S006,SE01,CAL_005,upright,5,controlled,right,5,INCLUDE_3D_FULL,13,13,24.16,0.489,0.456,0.98,"Full 3D: 13/17 core joints, core_err=24.2px, Z=0.98m",WARNING_RECHECK,19.21
+CAP000198,S006,SE01,CAL_005,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,13,13,24.97,0.48,0.432,0.96,"Full 3D: 13/17 core joints, core_err=25.0px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000199,S006,SE01,CAL_005,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,14,14,23.11,0.457,0.432,0.959,"Full 3D: 14/17 core joints, core_err=23.1px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000200,S006,SE01,CAL_005,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,14,14,22.68,0.458,0.429,0.962,"Full 3D: 14/17 core joints, core_err=22.7px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000201,S006,SE01,CAL_005,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,14,14,23.52,0.467,0.437,0.963,"Full 3D: 14/17 core joints, core_err=23.5px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000202,S006,SE01,CAL_005,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,14,14,23.07,0.469,0.424,0.964,"Full 3D: 14/17 core joints, core_err=23.1px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000203,S006,SE01,CAL_005,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,14,14,22.59,0.399,0.464,1.0,"Full 3D: 14/17 core joints, core_err=22.6px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000204,S006,SE01,CAL_005,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,14,14,22.55,0.401,0.46,0.997,"Full 3D: 14/17 core joints, core_err=22.6px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000205,S006,SE01,CAL_005,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,14,14,23.15,0.401,0.464,0.996,"Full 3D: 14/17 core joints, core_err=23.2px, Z=1.00m",WARNING_RECHECK,19.21
+CAP000206,S006,SE01,CAL_005,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,14,14,23.08,0.409,0.462,0.995,"Full 3D: 14/17 core joints, core_err=23.1px, Z=0.99m",WARNING_RECHECK,19.21
+CAP000207,S006,SE01,CAL_005,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,14,14,22.8,0.406,0.455,0.995,"Full 3D: 14/17 core joints, core_err=22.8px, Z=0.99m",WARNING_RECHECK,19.21
+CAP000208,S006,SE01,CAL_005,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,14,14,26.81,0.526,0.479,1.083,"Full 3D: 14/17 core joints, core_err=26.8px, Z=1.08m",WARNING_RECHECK,19.21
+CAP000209,S006,SE01,CAL_005,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,14,14,26.99,0.528,0.485,1.077,"Full 3D: 14/17 core joints, core_err=27.0px, Z=1.08m",WARNING_RECHECK,19.21
+CAP000210,S006,SE01,CAL_005,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,14,14,26.39,0.515,0.478,1.069,"Full 3D: 14/17 core joints, core_err=26.4px, Z=1.07m",WARNING_RECHECK,19.21
+CAP000211,S006,SE01,CAL_005,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,14,14,25.57,0.501,0.469,1.056,"Full 3D: 14/17 core joints, core_err=25.6px, Z=1.06m",WARNING_RECHECK,19.21
+CAP000212,S006,SE01,CAL_005,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,14,14,25.78,0.5,0.469,1.048,"Full 3D: 14/17 core joints, core_err=25.8px, Z=1.05m",WARNING_RECHECK,19.21
+CAP000213,S006,SE01,CAL_005,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,13,13,29.61,0.352,0.416,0.907,"Full 3D: 13/17 core joints, core_err=29.6px, Z=0.91m",WARNING_RECHECK,19.21
+CAP000214,S006,SE01,CAL_005,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,13,13,29.67,0.346,0.412,0.903,"Full 3D: 13/17 core joints, core_err=29.7px, Z=0.90m",WARNING_RECHECK,19.21
+CAP000215,S006,SE01,CAL_005,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,13,13,29.51,0.339,0.41,0.901,"Full 3D: 13/17 core joints, core_err=29.5px, Z=0.90m",WARNING_RECHECK,19.21
+CAP000216,S006,SE01,CAL_005,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,13,13,29.38,0.358,0.415,0.909,"Full 3D: 13/17 core joints, core_err=29.4px, Z=0.91m",WARNING_RECHECK,19.21
+CAP000217,S006,SE01,CAL_005,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,13,13,29.71,0.357,0.415,0.906,"Full 3D: 13/17 core joints, core_err=29.7px, Z=0.91m",WARNING_RECHECK,19.21
+CAP000218,S006,SE01,CAL_005,slouching,1,controlled,right,4,INCLUDE_3D_FULL,13,13,27.23,0.401,0.426,0.965,"Full 3D: 13/17 core joints, core_err=27.2px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000219,S006,SE01,CAL_005,slouching,2,controlled,right,4,INCLUDE_3D_FULL,14,14,25.25,0.421,0.433,0.971,"Full 3D: 14/17 core joints, core_err=25.3px, Z=0.97m",WARNING_RECHECK,19.21
+CAP000220,S006,SE01,CAL_005,slouching,3,controlled,right,4,INCLUDE_3D_FULL,13,14,22.72,0.432,,0.964,"Full 3D: 13/17 core joints, core_err=22.7px, Z=0.96m",WARNING_RECHECK,19.21
+CAP000221,S006,SE01,CAL_005,slouching,4,controlled,right,4,INCLUDE_3D_FULL,14,14,25.4,0.432,0.432,0.971,"Full 3D: 14/17 core joints, core_err=25.4px, Z=0.97m",WARNING_RECHECK,19.21
+CAP000222,S006,SE01,CAL_005,slouching,5,controlled,right,4,INCLUDE_3D_FULL,14,14,25.27,0.421,0.431,0.972,"Full 3D: 14/17 core joints, core_err=25.3px, Z=0.97m",WARNING_RECHECK,19.21
+CAP000229,S007,SE01,CAL_006,upright,1,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000230,S007,SE01,CAL_006,upright,1,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000231,S007,SE01,CAL_006,upright,2,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000232,S007,SE01,CAL_006,upright,3,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000233,S007,SE01,CAL_006,upright,4,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000234,S007,SE01,CAL_006,upright,5,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000235,S007,SE01,CAL_006,leaning_forward,1,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000236,S007,SE01,CAL_006,leaning_forward,2,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000237,S007,SE01,CAL_006,leaning_forward,3,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000238,S007,SE01,CAL_006,leaning_forward,4,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000239,S007,SE01,CAL_006,leaning_forward,5,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000240,S007,SE01,CAL_006,leaning_backward,1,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000241,S007,SE01,CAL_006,leaning_backward,2,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000242,S007,SE01,CAL_006,leaning_backward,3,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000243,S007,SE01,CAL_006,leaning_backward,4,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000244,S007,SE01,CAL_006,leaning_backward,5,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000245,S007,SE01,CAL_006,leaning_left,1,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000246,S007,SE01,CAL_006,leaning_left,2,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000247,S007,SE01,CAL_006,leaning_left,3,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000248,S007,SE01,CAL_006,leaning_left,4,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000249,S007,SE01,CAL_006,leaning_left,5,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000250,S007,SE01,CAL_006,leaning_right,1,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000251,S007,SE01,CAL_006,leaning_right,2,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000252,S007,SE01,CAL_006,leaning_right,3,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000253,S007,SE01,CAL_006,leaning_right,4,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000254,S007,SE01,CAL_006,leaning_right,5,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000255,S007,SE01,CAL_006,slouching,1,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000256,S007,SE01,CAL_006,slouching,2,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000257,S007,SE01,CAL_006,slouching,3,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000258,S007,SE01,CAL_006,slouching,4,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000259,S007,SE01,CAL_006,slouching,5,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_006 excluded (Baseline=4.5m),WARNING_RECHECK,41.39
+CAP000268,S008,SE01,CAL_008,upright,1,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,12,25.58,0.25,,1.014,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000269,S008,SE01,CAL_008,upright,2,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,12,25.83,0.247,,1.012,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000270,S008,SE01,CAL_008,upright,3,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,12,25.32,0.249,,1.006,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000271,S008,SE01,CAL_008,upright,4,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,12,25.61,0.258,,1.011,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000272,S008,SE01,CAL_008,upright,5,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,12,25.47,0.25,,1.007,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000273,S008,SE01,CAL_008,leaning_forward,1,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,12,20.29,0.357,,1.207,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000274,S008,SE01,CAL_008,leaning_forward,2,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,13,17.83,0.326,,1.183,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000275,S008,SE01,CAL_008,leaning_forward,3,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,12,18.81,0.357,,1.213,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000276,S008,SE01,CAL_008,leaning_forward,4,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,12,18.81,0.35,,1.207,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000277,S008,SE01,CAL_008,leaning_forward,5,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,12,18.91,0.339,,1.212,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000278,S008,SE01,CAL_008,leaning_backward,1,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,15.16,0.182,,0.877,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000279,S008,SE01,CAL_008,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,5,12,16.62,0.186,,0.885,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000280,S008,SE01,CAL_008,leaning_backward,3,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,14.89,0.186,,0.894,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000281,S008,SE01,CAL_008,leaning_backward,4,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,13.81,0.189,,0.894,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000282,S008,SE01,CAL_008,leaning_backward,5,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,14.19,0.188,,0.902,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000283,S008,SE01,CAL_008,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,33.11,0.22,,0.918,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000284,S008,SE01,CAL_008,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,31.71,0.212,,0.917,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000285,S008,SE01,CAL_008,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,31.63,0.214,,0.917,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000286,S008,SE01,CAL_008,leaning_left,4,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,33.04,0.215,,0.915,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000287,S008,SE01,CAL_008,leaning_left,5,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,32.6,0.217,,0.916,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000288,S008,SE01,CAL_008,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,6,12,49.51,0.049,,1.034,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000289,S008,SE01,CAL_008,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,4,13,41.8,0.041,,1.052,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000290,S008,SE01,CAL_008,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,12,44.51,0.032,,1.066,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000291,S008,SE01,CAL_008,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,12,43.72,0.04,,1.058,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000292,S008,SE01,CAL_008,leaning_right,5,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,12,43.9,0.033,,1.055,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000293,S008,SE01,CAL_008,slouching,1,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,11,24.39,0.212,,0.971,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000294,S008,SE01,CAL_008,slouching,2,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,23.1,0.215,,0.98,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000295,S008,SE01,CAL_008,slouching,3,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,12,25.58,0.215,,0.979,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000296,S008,SE01,CAL_008,slouching,4,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,12,25.21,0.216,,0.979,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000297,S008,SE01,CAL_008,slouching,5,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,11,24.62,0.218,,0.977,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000304,S009,SE01,CAL_008,upright,1,controlled,right,5,INCLUDE_3D_FULL,8,12,37.12,0.244,,1.021,"Full 3D: 8/17 core joints, core_err=37.1px, Z=1.02m",WARNING_RECHECK,18.92
+CAP000305,S009,SE01,CAL_008,upright,2,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,32.89,0.253,,1.02,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000306,S009,SE01,CAL_008,upright,3,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,31.33,0.249,,1.01,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000307,S009,SE01,CAL_008,upright,4,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,31.74,0.248,,1.008,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000308,S009,SE01,CAL_008,upright,5,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,31.48,0.249,,1.011,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000309,S009,SE01,CAL_008,leaning_forward,1,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,36.48,0.32,,1.21,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000310,S009,SE01,CAL_008,leaning_forward,2,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,35.79,0.313,,1.203,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000311,S009,SE01,CAL_008,leaning_forward,3,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,35.82,0.314,,1.202,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000312,S009,SE01,CAL_008,leaning_forward,4,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,35.39,0.312,,1.206,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000313,S009,SE01,CAL_008,leaning_forward,5,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,36.05,0.313,,1.208,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000314,S009,SE01,CAL_008,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,8,12,35.44,0.226,,0.948,"Full 3D: 8/17 core joints, core_err=35.4px, Z=0.95m",WARNING_RECHECK,18.92
+CAP000315,S009,SE01,CAL_008,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,31.59,0.225,,0.948,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000316,S009,SE01,CAL_008,leaning_backward,3,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,30.93,0.222,,0.94,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000317,S009,SE01,CAL_008,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,8,12,35.14,0.223,,0.935,"Full 3D: 8/17 core joints, core_err=35.1px, Z=0.94m",WARNING_RECHECK,18.92
+CAP000318,S009,SE01,CAL_008,leaning_backward,5,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,30.94,0.228,,0.952,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000319,S009,SE01,CAL_008,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,7,13,15.1,0.275,,0.947,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000320,S009,SE01,CAL_008,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,7,13,16.64,0.265,,0.948,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000321,S009,SE01,CAL_008,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,8,12,20.48,0.266,,0.962,"Full 3D: 8/17 core joints, core_err=20.5px, Z=0.96m",WARNING_RECHECK,18.92
+CAP000322,S009,SE01,CAL_008,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,8,13,20.34,0.264,,0.958,"Full 3D: 8/17 core joints, core_err=20.3px, Z=0.96m",WARNING_RECHECK,18.92
+CAP000323,S009,SE01,CAL_008,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,8,13,20.35,0.265,,0.958,"Full 3D: 8/17 core joints, core_err=20.3px, Z=0.96m",WARNING_RECHECK,18.92
+CAP000324,S009,SE01,CAL_008,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,12,47.96,0.081,,1.031,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000325,S009,SE01,CAL_008,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,11,45.11,0.068,,1.036,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000326,S009,SE01,CAL_008,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,5,11,47.47,0.085,,1.04,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000327,S009,SE01,CAL_008,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,4,11,46.23,0.079,,1.011,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000328,S009,SE01,CAL_008,leaning_right,5,controlled,right,3,INCLUDE_3D_WITH_MASKING,4,10,45.38,0.087,,1.01,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000329,S009,SE01,CAL_008,slouching,1,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,13,28.71,0.244,,1.014,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000330,S009,SE01,CAL_008,slouching,2,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,13,22.51,0.249,,1.023,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000331,S009,SE01,CAL_008,slouching,3,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,13,21.66,0.248,,1.012,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000332,S009,SE01,CAL_008,slouching,4,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,13,27.36,0.23,,0.991,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000333,S009,SE01,CAL_008,slouching,5,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,13,22.19,0.248,,1.009,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000341,S010,SE01,CAL_008,upright,1,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,25.16,0.212,,1.02,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000342,S010,SE01,CAL_008,upright,2,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,25.31,0.205,,1.011,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000343,S010,SE01,CAL_008,upright,3,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,24.74,0.206,,1.006,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000344,S010,SE01,CAL_008,upright,4,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,25.66,0.207,,1.012,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000345,S010,SE01,CAL_008,upright,5,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,25.49,0.208,,1.016,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000346,S010,SE01,CAL_008,leaning_forward,1,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,11,28.22,0.297,,1.125,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000347,S010,SE01,CAL_008,leaning_forward,2,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,11,27.67,0.301,,1.13,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000348,S010,SE01,CAL_008,leaning_forward,3,controlled,right,1,INCLUDE_3D_WITH_MASKING,6,11,27.89,0.289,,1.13,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000349,S010,SE01,CAL_008,leaning_forward,4,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,28.39,0.289,,1.137,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000350,S010,SE01,CAL_008,leaning_forward,5,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,12,28.2,0.299,,1.131,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000351,S010,SE01,CAL_008,leaning_backward,1,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,11,24.16,0.18,,0.896,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000352,S010,SE01,CAL_008,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,24.56,0.179,,0.917,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000353,S010,SE01,CAL_008,leaning_backward,3,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,24.29,0.182,,0.928,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000354,S010,SE01,CAL_008,leaning_backward,4,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,24.49,0.184,,0.943,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000355,S010,SE01,CAL_008,leaning_backward,5,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,12,25.06,0.186,,0.947,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000356,S010,SE01,CAL_008,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,11,15.87,0.202,,1.022,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000357,S010,SE01,CAL_008,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,12,19.06,0.206,,1.005,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000358,S010,SE01,CAL_008,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,19.53,0.204,,1.011,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000359,S010,SE01,CAL_008,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,8,13,20.73,0.22,,1.085,"Full 3D: 8/17 core joints, core_err=20.7px, Z=1.09m",WARNING_RECHECK,18.92
+CAP000360,S010,SE01,CAL_008,leaning_left,5,controlled,right,2,INCLUDE_3D_WITH_MASKING,6,13,19.54,0.223,,0.997,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000361,S010,SE01,CAL_008,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,9,14,39.39,0.211,,1.007,"Full 3D: 9/17 core joints, core_err=39.4px, Z=1.01m",WARNING_RECHECK,18.92
+CAP000362,S010,SE01,CAL_008,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,11,28.52,0.21,,1.082,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000363,S010,SE01,CAL_008,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,13,28.9,,,1.062,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000364,S010,SE01,CAL_008,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,13,28.56,,,1.062,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000365,S010,SE01,CAL_008,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,14,42.42,,,1.041,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000366,S010,SE01,CAL_008,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,9,14,37.98,0.23,,1.03,"Full 3D: 9/17 core joints, core_err=38.0px, Z=1.03m",WARNING_RECHECK,18.92
+CAP000367,S010,SE01,CAL_008,slouching,1,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,12,22.16,0.214,,1.03,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000368,S010,SE01,CAL_008,slouching,2,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,11,23.71,0.213,,1.043,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000369,S010,SE01,CAL_008,slouching,3,controlled,right,4,INCLUDE_3D_WITH_MASKING,6,11,22.78,0.209,,1.031,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000370,S010,SE01,CAL_008,slouching,4,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,22.25,0.209,,1.034,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.92
+CAP000371,S010,SE01,CAL_008,slouching,5,controlled,right,4,INCLUDE_3D_FULL,8,13,29.92,0.222,,1.049,"Full 3D: 8/17 core joints, core_err=29.9px, Z=1.05m",WARNING_RECHECK,18.92
+CAP000379,S011,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,12,12,23.14,0.305,0.265,0.902,"Full 3D: 12/17 core joints, core_err=23.1px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000380,S011,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,10,10,22.67,0.307,,0.901,"Full 3D: 10/17 core joints, core_err=22.7px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000381,S011,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,12,12,22.96,0.304,0.265,0.902,"Full 3D: 12/17 core joints, core_err=23.0px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000382,S011,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,12,12,23.19,0.304,0.265,0.903,"Full 3D: 12/17 core joints, core_err=23.2px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000383,S011,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,12,23.32,0.304,0.265,0.903,"Full 3D: 12/17 core joints, core_err=23.3px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000384,S011,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,10,10,23.84,0.328,0.239,0.867,"Full 3D: 10/17 core joints, core_err=23.8px, Z=0.87m",WARNING_RECHECK,23.03
+CAP000385,S011,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,9,9,21.5,0.324,,0.852,"Full 3D: 9/17 core joints, core_err=21.5px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000386,S011,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,9,9,20.29,0.325,,0.854,"Full 3D: 9/17 core joints, core_err=20.3px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000387,S011,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,9,9,21.46,0.329,,0.855,"Full 3D: 9/17 core joints, core_err=21.5px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000388,S011,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,10,10,21.69,0.325,0.242,0.867,"Full 3D: 10/17 core joints, core_err=21.7px, Z=0.87m",WARNING_RECHECK,23.03
+CAP000389,S011,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,12,12,39.6,0.29,0.261,0.941,"Full 3D: 12/17 core joints, core_err=39.6px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000390,S011,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,12,12,38.15,0.291,0.258,0.931,"Full 3D: 12/17 core joints, core_err=38.2px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000391,S011,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,12,12,37.89,0.286,0.258,0.931,"Full 3D: 12/17 core joints, core_err=37.9px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000392,S011,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,12,12,37.64,0.281,0.255,0.931,"Full 3D: 12/17 core joints, core_err=37.6px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000393,S011,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,12,12,37.95,0.283,0.257,0.931,"Full 3D: 12/17 core joints, core_err=38.0px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000394,S011,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,11,11,35.68,0.318,0.33,1.05,"Full 3D: 11/17 core joints, core_err=35.7px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000395,S011,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,11,11,34.26,0.325,0.326,1.049,"Full 3D: 11/17 core joints, core_err=34.3px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000396,S011,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,11,11,33.61,0.295,0.326,1.038,"Full 3D: 11/17 core joints, core_err=33.6px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000397,S011,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,11,11,32.96,0.294,0.326,1.037,"Full 3D: 11/17 core joints, core_err=33.0px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000398,S011,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,12,12,33.67,0.291,0.325,1.054,"Full 3D: 12/17 core joints, core_err=33.7px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000399,S011,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,10,10,19.29,0.285,,0.756,"Full 3D: 10/17 core joints, core_err=19.3px, Z=0.76m",WARNING_RECHECK,23.03
+CAP000400,S011,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,11,16.71,0.281,,0.756,"Full 3D: 11/17 core joints, core_err=16.7px, Z=0.76m",WARNING_RECHECK,23.03
+CAP000401,S011,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,11,11,17.5,0.284,,0.755,"Full 3D: 11/17 core joints, core_err=17.5px, Z=0.75m",WARNING_RECHECK,23.03
+CAP000402,S011,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,11,18.28,0.281,,0.751,"Full 3D: 11/17 core joints, core_err=18.3px, Z=0.75m",WARNING_RECHECK,23.03
+CAP000403,S011,SE01,CAL_009,leaning_right,6,controlled,right,3,INCLUDE_3D_FULL,10,10,17.78,0.282,,0.739,"Full 3D: 10/17 core joints, core_err=17.8px, Z=0.74m",WARNING_RECHECK,23.03
+CAP000404,S011,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,12,12,20.2,0.318,0.253,0.9,"Full 3D: 12/17 core joints, core_err=20.2px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000405,S011,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,12,12,20.03,0.317,0.256,0.902,"Full 3D: 12/17 core joints, core_err=20.0px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000406,S011,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,12,12,20.23,0.318,0.258,0.901,"Full 3D: 12/17 core joints, core_err=20.2px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000407,S011,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,12,12,19.74,0.319,0.255,0.901,"Full 3D: 12/17 core joints, core_err=19.7px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000408,S011,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,12,12,20.01,0.319,0.257,0.904,"Full 3D: 12/17 core joints, core_err=20.0px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000416,S012,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,11,11,18.16,0.463,0.386,0.947,"Full 3D: 11/17 core joints, core_err=18.2px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000417,S012,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,12,12,17.54,0.464,0.384,0.953,"Full 3D: 12/17 core joints, core_err=17.5px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000418,S012,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,11,11,18.82,0.466,0.39,0.947,"Full 3D: 11/17 core joints, core_err=18.8px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000419,S012,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,11,11,18.96,0.466,0.386,0.948,"Full 3D: 11/17 core joints, core_err=19.0px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000420,S012,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,10,10,20.32,0.465,0.386,0.939,"Full 3D: 10/17 core joints, core_err=20.3px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000421,S012,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,12,16.07,0.44,0.372,0.943,"Full 3D: 11/17 core joints, core_err=16.1px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000422,S012,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,11,12,19.3,0.436,0.382,0.943,"Full 3D: 11/17 core joints, core_err=19.3px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000423,S012,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,11,12,16.36,0.436,0.374,0.942,"Full 3D: 11/17 core joints, core_err=16.4px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000424,S012,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,11,12,16.02,0.44,0.37,0.941,"Full 3D: 11/17 core joints, core_err=16.0px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000425,S012,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,12,15.95,0.438,0.376,0.94,"Full 3D: 11/17 core joints, core_err=16.0px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000426,S012,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,9,12,38.52,,,0.926,"Full 3D: 9/17 core joints, core_err=38.5px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000427,S012,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,9,12,38.72,,,0.935,"Full 3D: 9/17 core joints, core_err=38.7px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000428,S012,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,9,12,39.62,,,0.93,"Full 3D: 9/17 core joints, core_err=39.6px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000429,S012,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,9,12,39.23,,,0.929,"Full 3D: 9/17 core joints, core_err=39.2px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000430,S012,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,10,12,41.11,0.363,,0.955,"Full 3D: 10/17 core joints, core_err=41.1px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000431,S012,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,10,11,36.46,0.399,,1.01,"Full 3D: 10/17 core joints, core_err=36.5px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000432,S012,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,10,12,36.45,0.393,,1.013,"Full 3D: 10/17 core joints, core_err=36.5px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000433,S012,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,10,12,35.9,0.389,,1.016,"Full 3D: 10/17 core joints, core_err=35.9px, Z=1.02m",WARNING_RECHECK,23.03
+CAP000434,S012,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,10,12,35.85,0.396,,1.012,"Full 3D: 10/17 core joints, core_err=35.8px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000435,S012,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,10,12,35.37,0.392,,1.011,"Full 3D: 10/17 core joints, core_err=35.4px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000436,S012,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,11,12,21.65,0.393,0.327,0.896,"Full 3D: 11/17 core joints, core_err=21.7px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000437,S012,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,12,21.03,0.396,0.324,0.895,"Full 3D: 11/17 core joints, core_err=21.0px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000438,S012,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,12,21.76,0.394,0.324,0.897,"Full 3D: 11/17 core joints, core_err=21.8px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000439,S012,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,11,12,21.42,0.394,0.322,0.898,"Full 3D: 11/17 core joints, core_err=21.4px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000440,S012,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,12,21.61,0.394,0.324,0.896,"Full 3D: 11/17 core joints, core_err=21.6px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000441,S012,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,11,12,22.98,0.407,0.337,0.952,"Full 3D: 11/17 core joints, core_err=23.0px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000442,S012,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,11,12,22.15,0.41,0.332,0.954,"Full 3D: 11/17 core joints, core_err=22.2px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000443,S012,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,11,12,22.15,0.406,0.33,0.951,"Full 3D: 11/17 core joints, core_err=22.2px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000444,S012,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,11,12,22.24,0.409,0.33,0.951,"Full 3D: 11/17 core joints, core_err=22.2px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000445,S012,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,11,12,21.62,0.408,0.328,0.95,"Full 3D: 11/17 core joints, core_err=21.6px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000453,S013,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,11,11,18.85,0.381,0.342,0.894,"Full 3D: 11/17 core joints, core_err=18.9px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000454,S013,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,11,11,17.65,0.376,0.354,0.904,"Full 3D: 11/17 core joints, core_err=17.6px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000455,S013,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,12,13,18.81,0.355,0.323,0.892,"Full 3D: 12/17 core joints, core_err=18.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000456,S013,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,12,13,18.77,0.354,0.323,0.887,"Full 3D: 12/17 core joints, core_err=18.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000457,S013,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,13,16.03,0.352,0.328,0.891,"Full 3D: 12/17 core joints, core_err=16.0px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000458,S013,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,12,24.3,0.44,0.3,0.864,"Full 3D: 11/17 core joints, core_err=24.3px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000459,S013,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,10,24.85,0.446,0.282,0.858,"Full 3D: 10/17 core joints, core_err=24.9px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000460,S013,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,10,10,33.84,0.436,0.271,0.858,"Full 3D: 10/17 core joints, core_err=33.8px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000461,S013,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,9,9,28.91,0.434,0.277,0.861,"Full 3D: 9/17 core joints, core_err=28.9px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000462,S013,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,10,10,28.48,0.433,0.28,0.846,"Full 3D: 10/17 core joints, core_err=28.5px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000463,S013,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,12,13,21.73,0.364,0.328,0.882,"Full 3D: 12/17 core joints, core_err=21.7px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000464,S013,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,12,13,22.5,0.362,0.321,0.881,"Full 3D: 12/17 core joints, core_err=22.5px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000465,S013,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,12,13,23.79,0.36,0.32,0.88,"Full 3D: 12/17 core joints, core_err=23.8px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000466,S013,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,12,13,21.66,0.361,0.321,0.878,"Full 3D: 12/17 core joints, core_err=21.7px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000467,S013,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,11,11,24.95,0.402,0.356,0.994,"Full 3D: 11/17 core joints, core_err=25.0px, Z=0.99m",WARNING_RECHECK,23.03
+CAP000468,S013,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,11,11,26.33,0.415,0.369,1.001,"Full 3D: 11/17 core joints, core_err=26.3px, Z=1.00m",WARNING_RECHECK,23.03
+CAP000469,S013,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,12,13,24.6,0.371,0.355,0.973,"Full 3D: 12/17 core joints, core_err=24.6px, Z=0.97m",WARNING_RECHECK,23.03
+CAP000470,S013,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,11,11,26.46,0.383,0.366,0.988,"Full 3D: 11/17 core joints, core_err=26.5px, Z=0.99m",WARNING_RECHECK,23.03
+CAP000471,S013,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,11,11,23.5,0.399,0.345,0.99,"Full 3D: 11/17 core joints, core_err=23.5px, Z=0.99m",WARNING_RECHECK,23.03
+CAP000472,S013,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,11,11,24.83,0.366,0.321,0.821,"Full 3D: 11/17 core joints, core_err=24.8px, Z=0.82m",WARNING_RECHECK,23.03
+CAP000473,S013,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,11,21.54,0.36,0.323,0.826,"Full 3D: 11/17 core joints, core_err=21.5px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000474,S013,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,12,13,20.88,0.348,0.32,0.829,"Full 3D: 12/17 core joints, core_err=20.9px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000475,S013,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,12,13,20.76,0.352,0.322,0.832,"Full 3D: 12/17 core joints, core_err=20.8px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000476,S013,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,12,21.52,0.372,0.327,0.825,"Full 3D: 11/17 core joints, core_err=21.5px, Z=0.82m",WARNING_RECHECK,23.03
+CAP000477,S013,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,10,11,17.26,0.392,0.351,0.875,"Full 3D: 10/17 core joints, core_err=17.3px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000478,S013,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,11,11,20.2,0.378,0.334,0.881,"Full 3D: 11/17 core joints, core_err=20.2px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000479,S013,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,11,11,17.52,0.364,0.319,0.873,"Full 3D: 11/17 core joints, core_err=17.5px, Z=0.87m",WARNING_RECHECK,23.03
+CAP000480,S013,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,11,11,17.95,0.362,0.324,0.868,"Full 3D: 11/17 core joints, core_err=17.9px, Z=0.87m",WARNING_RECHECK,23.03
+CAP000481,S013,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,11,11,18.9,0.383,0.323,0.876,"Full 3D: 11/17 core joints, core_err=18.9px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000488,S014,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,11,11,24.69,0.394,0.366,0.911,"Full 3D: 11/17 core joints, core_err=24.7px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000489,S014,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,10,11,23.46,0.385,0.37,0.889,"Full 3D: 10/17 core joints, core_err=23.5px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000490,S014,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,11,11,24.48,0.385,0.37,0.917,"Full 3D: 11/17 core joints, core_err=24.5px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000491,S014,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,10,11,18.24,0.388,0.358,0.903,"Full 3D: 10/17 core joints, core_err=18.2px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000492,S014,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,11,11,21.85,0.382,0.362,0.912,"Full 3D: 11/17 core joints, core_err=21.8px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000493,S014,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,11,11.12,0.409,0.295,0.875,"Full 3D: 10/17 core joints, core_err=11.1px, Z=0.87m",WARNING_RECHECK,23.03
+CAP000494,S014,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,10,11,11.37,0.412,0.296,0.876,"Full 3D: 10/17 core joints, core_err=11.4px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000495,S014,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,10,11,11.12,0.412,0.297,0.876,"Full 3D: 10/17 core joints, core_err=11.1px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000496,S014,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,11,15.37,0.411,0.299,0.89,"Full 3D: 11/17 core joints, core_err=15.4px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000497,S014,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,9,11,29.76,0.339,,0.879,"Full 3D: 9/17 core joints, core_err=29.8px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000498,S014,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,8,11,27.38,,,0.844,"Full 3D: 8/17 core joints, core_err=27.4px, Z=0.84m",WARNING_RECHECK,23.03
+CAP000499,S014,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,8,11,27.44,,,0.844,"Full 3D: 8/17 core joints, core_err=27.4px, Z=0.84m",WARNING_RECHECK,23.03
+CAP000500,S014,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,8,11,26.35,,,0.846,"Full 3D: 8/17 core joints, core_err=26.4px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000501,S014,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,8,11,25.22,,,0.847,"Full 3D: 8/17 core joints, core_err=25.2px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000502,S014,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,12,12,30.5,0.393,0.365,1.014,"Full 3D: 12/17 core joints, core_err=30.5px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000503,S014,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,12,12,30.37,0.402,0.363,1.015,"Full 3D: 12/17 core joints, core_err=30.4px, Z=1.02m",WARNING_RECHECK,23.03
+CAP000504,S014,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,12,12,29.61,0.392,0.364,1.039,"Full 3D: 12/17 core joints, core_err=29.6px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000505,S014,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,12,12,28.48,0.392,0.355,1.034,"Full 3D: 12/17 core joints, core_err=28.5px, Z=1.03m",WARNING_RECHECK,23.03
+CAP000506,S014,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,12,12,29.76,0.383,0.37,1.037,"Full 3D: 12/17 core joints, core_err=29.8px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000507,S014,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,11,18.66,0.319,0.345,0.809,"Full 3D: 11/17 core joints, core_err=18.7px, Z=0.81m",WARNING_RECHECK,23.03
+CAP000508,S014,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,11,18.43,0.318,0.35,0.81,"Full 3D: 11/17 core joints, core_err=18.4px, Z=0.81m",WARNING_RECHECK,23.03
+CAP000509,S014,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,11,11,17.75,0.321,0.352,0.811,"Full 3D: 11/17 core joints, core_err=17.7px, Z=0.81m",WARNING_RECHECK,23.03
+CAP000510,S014,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,11,19.14,0.318,0.349,0.809,"Full 3D: 11/17 core joints, core_err=19.1px, Z=0.81m",WARNING_RECHECK,23.03
+CAP000511,S014,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,10,11,21.94,0.383,0.353,0.881,"Full 3D: 10/17 core joints, core_err=21.9px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000512,S014,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,11,11,24.65,0.379,0.333,0.9,"Full 3D: 11/17 core joints, core_err=24.6px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000513,S014,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,11,11,22.69,0.383,0.335,0.898,"Full 3D: 11/17 core joints, core_err=22.7px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000514,S014,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,9,11,18.13,0.389,,0.861,"Full 3D: 9/17 core joints, core_err=18.1px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000515,S014,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,9,11,16.51,0.386,,0.862,"Full 3D: 9/17 core joints, core_err=16.5px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000523,S015,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,9,11,23.67,0.376,,0.922,"Full 3D: 9/17 core joints, core_err=23.7px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000524,S015,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,9,11,23.01,0.371,,0.922,"Full 3D: 9/17 core joints, core_err=23.0px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000525,S015,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,9,11,21.81,0.369,,0.92,"Full 3D: 9/17 core joints, core_err=21.8px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000526,S015,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,10,12,20.8,0.37,,0.928,"Full 3D: 10/17 core joints, core_err=20.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000527,S015,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,9,11,22.24,0.373,,0.923,"Full 3D: 9/17 core joints, core_err=22.2px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000528,S015,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,10,11,20.76,0.387,0.365,0.928,"Full 3D: 10/17 core joints, core_err=20.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000529,S015,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,11,21.15,0.406,0.368,0.93,"Full 3D: 10/17 core joints, core_err=21.2px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000530,S015,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,10,11,21.76,0.395,0.366,0.929,"Full 3D: 10/17 core joints, core_err=21.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000531,S015,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,10,11,21.4,0.401,0.373,0.928,"Full 3D: 10/17 core joints, core_err=21.4px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000532,S015,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,10,11,22.58,0.404,0.371,0.929,"Full 3D: 10/17 core joints, core_err=22.6px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000533,S015,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,8,11,24.35,,,0.893,"Full 3D: 8/17 core joints, core_err=24.4px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000534,S015,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,9,12,26.08,,,0.909,"Full 3D: 9/17 core joints, core_err=26.1px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000535,S015,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,8,11,25.87,,,0.893,"Full 3D: 8/17 core joints, core_err=25.9px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000536,S015,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,8,11,27.39,,,0.895,"Full 3D: 8/17 core joints, core_err=27.4px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000537,S015,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,8,11,26.85,,,0.892,"Full 3D: 8/17 core joints, core_err=26.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000538,S015,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,11,12,35.16,0.371,,1.054,"Full 3D: 11/17 core joints, core_err=35.2px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000539,S015,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,11,12,34.09,0.37,,1.051,"Full 3D: 11/17 core joints, core_err=34.1px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000540,S015,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,11,12,34.54,0.376,,1.059,"Full 3D: 11/17 core joints, core_err=34.5px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000541,S015,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,11,12,35.29,0.381,,1.061,"Full 3D: 11/17 core joints, core_err=35.3px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000542,S015,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,11,12,35.75,0.37,,1.06,"Full 3D: 11/17 core joints, core_err=35.7px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000543,S015,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,11,12,15.14,0.313,,0.84,"Full 3D: 11/17 core joints, core_err=15.1px, Z=0.84m",WARNING_RECHECK,23.03
+CAP000544,S015,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,12,15.11,0.334,,0.836,"Full 3D: 11/17 core joints, core_err=15.1px, Z=0.84m",WARNING_RECHECK,23.03
+CAP000545,S015,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,12,12,18.12,0.338,0.352,0.85,"Full 3D: 12/17 core joints, core_err=18.1px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000546,S015,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,12,12,19.69,0.317,0.35,0.853,"Full 3D: 12/17 core joints, core_err=19.7px, Z=0.85m",WARNING_RECHECK,23.03
+CAP000547,S015,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,11,18.78,0.314,0.358,0.855,"Full 3D: 11/17 core joints, core_err=18.8px, Z=0.86m",WARNING_RECHECK,23.03
+CAP000548,S015,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,11,11,14.43,0.344,,0.904,"Full 3D: 11/17 core joints, core_err=14.4px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000549,S015,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,11,11,14.47,0.346,,0.907,"Full 3D: 11/17 core joints, core_err=14.5px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000550,S015,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,10,10,14.22,0.345,,0.917,"Full 3D: 10/17 core joints, core_err=14.2px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000551,S015,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,10,10,15.33,0.349,,0.922,"Full 3D: 10/17 core joints, core_err=15.3px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000552,S015,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,10,11,17.94,0.369,,0.908,"Full 3D: 10/17 core joints, core_err=17.9px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000561,S016,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,12,14,40.01,0.444,,1.091,"Full 3D: 12/17 core joints, core_err=40.0px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000562,S016,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,12,14,39.86,0.443,,1.086,"Full 3D: 12/17 core joints, core_err=39.9px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000563,S016,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,11,14,37.09,0.448,,1.063,"Full 3D: 11/17 core joints, core_err=37.1px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000564,S016,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,12,14,39.12,0.447,,1.085,"Full 3D: 12/17 core joints, core_err=39.1px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000565,S016,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,14,39.2,0.449,,1.087,"Full 3D: 12/17 core joints, core_err=39.2px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000566,S016,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,13,28.33,0.487,,1.055,"Full 3D: 11/17 core joints, core_err=28.3px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000567,S016,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,11,13,28.62,0.486,,1.053,"Full 3D: 11/17 core joints, core_err=28.6px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000568,S016,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,12,14,28.64,0.486,,1.077,"Full 3D: 12/17 core joints, core_err=28.6px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000569,S016,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,12,14,28.46,0.483,,1.081,"Full 3D: 12/17 core joints, core_err=28.5px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000570,S016,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,13,28.36,0.486,,1.055,"Full 3D: 11/17 core joints, core_err=28.4px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000571,S016,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_WITH_MASKING,10,14,46.39,,,1.04,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000572,S016,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,10,14,46.66,,,1.038,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000573,S016,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_WITH_MASKING,10,14,47.27,,,1.037,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000574,S016,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_WITH_MASKING,10,14,47.88,,,1.04,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000575,S016,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_WITH_MASKING,10,14,47.88,,,1.044,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000576,S016,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,47.1,,,1.174,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000577,S016,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,45.72,,,1.17,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000578,S016,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,46.14,,,1.17,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000579,S016,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,46.59,,,1.171,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000580,S016,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,46.34,,,1.171,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000581,S016,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,10,13,26.39,0.388,,0.896,"Full 3D: 10/17 core joints, core_err=26.4px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000582,S016,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,10,13,25.99,0.38,,0.882,"Full 3D: 10/17 core joints, core_err=26.0px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000583,S016,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,13,29.67,0.387,0.337,0.91,"Full 3D: 11/17 core joints, core_err=29.7px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000584,S016,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,10,13,27.83,0.402,,0.889,"Full 3D: 10/17 core joints, core_err=27.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000585,S016,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,13,30.6,0.393,0.339,0.913,"Full 3D: 11/17 core joints, core_err=30.6px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000586,S016,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,12,14,27.61,0.459,,1.051,"Full 3D: 12/17 core joints, core_err=27.6px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000587,S016,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,11,13,28.71,0.463,,1.053,"Full 3D: 11/17 core joints, core_err=28.7px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000588,S016,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,12,14,27.35,0.46,,1.055,"Full 3D: 12/17 core joints, core_err=27.3px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000589,S016,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,12,14,28.97,0.457,,1.059,"Full 3D: 12/17 core joints, core_err=29.0px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000590,S016,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,12,14,28.73,0.456,,1.059,"Full 3D: 12/17 core joints, core_err=28.7px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000597,S017,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,9,18.96,0.438,0.409,0.961,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000598,S017,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,9,9,19.11,0.445,0.401,0.935,"Full 3D: 9/17 core joints, core_err=19.1px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000599,S017,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,9,9,16.94,0.447,0.397,0.931,"Full 3D: 9/17 core joints, core_err=16.9px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000600,S017,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,9,10,17.18,0.444,0.389,0.936,"Full 3D: 9/17 core joints, core_err=17.2px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000601,S017,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,9,9,17.1,0.437,0.387,0.933,"Full 3D: 9/17 core joints, core_err=17.1px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000602,S017,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,9,9,16.2,0.493,,0.934,"Full 3D: 9/17 core joints, core_err=16.2px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000603,S017,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,10,15.25,0.491,0.403,0.955,"Full 3D: 10/17 core joints, core_err=15.3px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000604,S017,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,10,11,16.02,0.49,0.401,0.955,"Full 3D: 10/17 core joints, core_err=16.0px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000605,S017,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,10,11,18.02,0.515,0.425,0.962,"Full 3D: 10/17 core joints, core_err=18.0px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000606,S017,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,10,11,20.93,0.503,0.416,0.963,"Full 3D: 10/17 core joints, core_err=20.9px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000607,S017,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,9,9,27.89,0.376,0.38,0.939,"Full 3D: 9/17 core joints, core_err=27.9px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000608,S017,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,9,9,29.77,0.376,0.379,0.934,"Full 3D: 9/17 core joints, core_err=29.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000609,S017,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,9,9,28.46,0.387,0.383,0.935,"Full 3D: 9/17 core joints, core_err=28.5px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000610,S017,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,9,10,27.84,0.38,0.381,0.935,"Full 3D: 9/17 core joints, core_err=27.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000611,S017,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,9,9,28.33,0.377,0.382,0.93,"Full 3D: 9/17 core joints, core_err=28.3px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000612,S017,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,12,12,23.07,0.432,0.427,1.083,"Full 3D: 12/17 core joints, core_err=23.1px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000613,S017,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,11,11,25.02,0.468,0.446,1.105,"Full 3D: 11/17 core joints, core_err=25.0px, Z=1.11m",WARNING_RECHECK,23.03
+CAP000614,S017,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,10,10,24.79,0.442,0.442,1.086,"Full 3D: 10/17 core joints, core_err=24.8px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000615,S017,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,11,11,20.88,0.432,0.43,1.077,"Full 3D: 11/17 core joints, core_err=20.9px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000616,S017,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,11,11,22.16,0.429,0.436,1.079,"Full 3D: 11/17 core joints, core_err=22.2px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000617,S017,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,7,22.67,0.342,,0.744,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000618,S017,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,7,22.97,0.322,,0.738,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000619,S017,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,7,21.61,0.315,,0.738,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000620,S017,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,7,22.51,0.315,,0.735,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000621,S017,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,7,21.43,0.318,,0.741,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000622,S017,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,9,10,14.73,0.432,0.345,0.934,"Full 3D: 9/17 core joints, core_err=14.7px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000623,S017,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,9,9,15.39,0.432,0.35,0.936,"Full 3D: 9/17 core joints, core_err=15.4px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000624,S017,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,9,9,14.67,0.429,0.353,0.934,"Full 3D: 9/17 core joints, core_err=14.7px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000625,S017,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,9,9,16.06,0.423,0.354,0.934,"Full 3D: 9/17 core joints, core_err=16.1px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000626,S017,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,9,9,16.01,0.43,0.351,0.932,"Full 3D: 9/17 core joints, core_err=16.0px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000633,S018,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,12,12,23.8,0.42,0.349,0.955,"Full 3D: 12/17 core joints, core_err=23.8px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000634,S018,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,12,12,21.94,0.42,0.347,0.955,"Full 3D: 12/17 core joints, core_err=21.9px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000635,S018,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,12,12,23.34,0.423,0.35,0.957,"Full 3D: 12/17 core joints, core_err=23.3px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000636,S018,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,12,12,22.24,0.41,0.348,0.951,"Full 3D: 12/17 core joints, core_err=22.2px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000637,S018,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,12,23.11,0.413,0.347,0.955,"Full 3D: 12/17 core joints, core_err=23.1px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000638,S018,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,12,12,24.05,0.404,0.345,0.974,"Full 3D: 12/17 core joints, core_err=24.1px, Z=0.97m",WARNING_RECHECK,23.03
+CAP000639,S018,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,13,21.6,0.375,0.332,0.923,"Full 3D: 10/17 core joints, core_err=21.6px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000640,S018,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,11,12,26.71,0.366,0.341,0.929,"Full 3D: 11/17 core joints, core_err=26.7px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000641,S018,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,12,12,19.87,0.409,0.344,0.977,"Full 3D: 12/17 core joints, core_err=19.9px, Z=0.98m",WARNING_RECHECK,23.03
+CAP000642,S018,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,11,19.08,0.411,0.34,0.975,"Full 3D: 11/17 core joints, core_err=19.1px, Z=0.98m",WARNING_RECHECK,23.03
+CAP000643,S018,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,12,12,36.51,0.362,0.313,0.934,"Full 3D: 12/17 core joints, core_err=36.5px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000644,S018,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,12,13,34.72,0.357,0.313,0.96,"Full 3D: 12/17 core joints, core_err=34.7px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000645,S018,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,12,12,36.33,0.358,0.317,0.966,"Full 3D: 12/17 core joints, core_err=36.3px, Z=0.97m",WARNING_RECHECK,23.03
+CAP000646,S018,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,12,12,36.06,0.358,0.317,0.963,"Full 3D: 12/17 core joints, core_err=36.1px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000647,S018,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,14,14,36.28,0.354,0.311,0.961,"Full 3D: 14/17 core joints, core_err=36.3px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000648,S018,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,11,12,29.96,0.454,0.364,1.084,"Full 3D: 11/17 core joints, core_err=30.0px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000649,S018,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,11,12,31.53,0.44,0.349,1.075,"Full 3D: 11/17 core joints, core_err=31.5px, Z=1.07m",WARNING_RECHECK,23.03
+CAP000650,S018,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,11,12,32.55,0.446,0.351,1.076,"Full 3D: 11/17 core joints, core_err=32.5px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000651,S018,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,11,12,32.46,0.454,0.353,1.079,"Full 3D: 11/17 core joints, core_err=32.5px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000652,S018,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,12,13,32.94,0.455,0.358,1.1,"Full 3D: 12/17 core joints, core_err=32.9px, Z=1.10m",WARNING_RECHECK,23.03
+CAP000653,S018,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,11,11,18.85,0.381,0.329,0.83,"Full 3D: 11/17 core joints, core_err=18.8px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000654,S018,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,11,18.89,0.375,0.329,0.828,"Full 3D: 11/17 core joints, core_err=18.9px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000655,S018,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,11,19.08,0.377,0.323,0.828,"Full 3D: 11/17 core joints, core_err=19.1px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000656,S018,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,12,12,17.93,0.38,0.322,0.829,"Full 3D: 12/17 core joints, core_err=17.9px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000657,S018,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,12,12,17.95,0.384,0.324,0.832,"Full 3D: 12/17 core joints, core_err=17.9px, Z=0.83m",WARNING_RECHECK,23.03
+CAP000658,S018,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,12,12,22.0,0.408,0.297,0.949,"Full 3D: 12/17 core joints, core_err=22.0px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000659,S018,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,12,12,21.5,0.407,0.295,0.947,"Full 3D: 12/17 core joints, core_err=21.5px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000660,S018,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,12,12,21.25,0.406,0.3,0.947,"Full 3D: 12/17 core joints, core_err=21.3px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000661,S018,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,12,12,20.58,0.412,0.294,0.946,"Full 3D: 12/17 core joints, core_err=20.6px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000662,S018,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,12,12,20.9,0.409,0.296,0.946,"Full 3D: 12/17 core joints, core_err=20.9px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000669,S019,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,11,11,17.93,0.387,0.336,0.889,"Full 3D: 11/17 core joints, core_err=17.9px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000670,S019,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,12,12,15.77,0.385,0.332,0.888,"Full 3D: 12/17 core joints, core_err=15.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000671,S019,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,11,11,16.78,0.386,0.331,0.886,"Full 3D: 11/17 core joints, core_err=16.8px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000672,S019,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,11,11,17.59,0.384,0.334,0.887,"Full 3D: 11/17 core joints, core_err=17.6px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000673,S019,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,12,16.62,0.382,0.332,0.888,"Full 3D: 12/17 core joints, core_err=16.6px, Z=0.89m",WARNING_RECHECK,23.03
+CAP000674,S019,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,9,13,40.83,,,1.178,"Full 3D: 9/17 core joints, core_err=40.8px, Z=1.18m",WARNING_RECHECK,23.03
+CAP000675,S019,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,10,13,42.69,,,1.164,"Full 3D: 10/17 core joints, core_err=42.7px, Z=1.16m",WARNING_RECHECK,23.03
+CAP000676,S019,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,10,13,38.93,,,1.148,"Full 3D: 10/17 core joints, core_err=38.9px, Z=1.15m",WARNING_RECHECK,23.03
+CAP000677,S019,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,10,13,39.44,,,1.148,"Full 3D: 10/17 core joints, core_err=39.4px, Z=1.15m",WARNING_RECHECK,23.03
+CAP000678,S019,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,10,13,39.84,,,1.146,"Full 3D: 10/17 core joints, core_err=39.8px, Z=1.15m",WARNING_RECHECK,23.03
+CAP000679,S019,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,13,52.69,,,1.096,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000680,S019,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,5,13,48.42,,,1.108,Partial 3D: 5/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000681,S019,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_WITH_MASKING,4,12,56.23,,,1.124,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000682,S019,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_WITH_MASKING,7,13,53.22,,,1.108,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000683,S019,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,51.09,,,1.119,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000684,S019,SE01,CAL_009,leaning_left,1,controlled,right,2,EXCLUDE_3D,1,12,44.76,,,1.101,Insufficient core joints (1/17) or depth anomaly (Z=1.10m),WARNING_RECHECK,23.03
+CAP000685,S019,SE01,CAL_009,leaning_left,2,controlled,right,2,EXCLUDE_3D,3,13,37.7,,,1.071,Insufficient core joints (3/17) or depth anomaly (Z=1.07m),WARNING_RECHECK,23.03
+CAP000686,S019,SE01,CAL_009,leaning_left,3,controlled,right,2,EXCLUDE_3D,3,13,38.07,,,1.067,Insufficient core joints (3/17) or depth anomaly (Z=1.07m),WARNING_RECHECK,23.03
+CAP000687,S019,SE01,CAL_009,leaning_left,4,controlled,right,2,EXCLUDE_3D,3,13,38.92,,,1.068,Insufficient core joints (3/17) or depth anomaly (Z=1.07m),WARNING_RECHECK,23.03
+CAP000688,S019,SE01,CAL_009,leaning_left,5,controlled,right,2,EXCLUDE_3D,3,13,39.31,,,1.068,Insufficient core joints (3/17) or depth anomaly (Z=1.07m),WARNING_RECHECK,23.03
+CAP000689,S019,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,41.08,,,1.043,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000690,S019,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,41.22,,,1.046,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000691,S019,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,41.85,,,1.047,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000692,S019,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,40.74,,,1.043,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000693,S019,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,40.89,,,1.044,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000694,S019,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,49.57,,,1.123,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000695,S019,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,49.03,,,1.124,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000696,S019,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,49.95,,,1.122,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000697,S019,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,49.27,,,1.127,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000698,S019,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_WITH_MASKING,7,12,49.59,,,1.126,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000704,S020,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,8,12,42.4,,,1.175,"Full 3D: 8/17 core joints, core_err=42.4px, Z=1.18m",WARNING_RECHECK,23.03
+CAP000705,S020,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_WITH_MASKING,6,11,49.69,,,1.135,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000706,S020,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,51.24,,,1.168,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000707,S020,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,50.88,,,1.168,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000708,S020,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_WITH_MASKING,7,12,51.43,,,1.163,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000709,S020,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,13,37.16,0.496,,1.259,"Full 3D: 11/17 core joints, core_err=37.2px, Z=1.26m",WARNING_RECHECK,23.03
+CAP000710,S020,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,11,43.66,,,1.168,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000711,S020,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,11,38.88,,,1.18,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000712,S020,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_WITH_MASKING,7,11,42.55,,,1.173,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000713,S020,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,8,13,37.66,,,1.15,"Full 3D: 8/17 core joints, core_err=37.7px, Z=1.15m",WARNING_RECHECK,23.03
+CAP000714,S020,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_WITH_MASKING,6,13,54.15,,,1.148,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000715,S020,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_WITH_MASKING,4,12,58.27,,,1.137,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000716,S020,SE01,CAL_009,leaning_backward,3,controlled,right,0,EXCLUDE_3D,3,12,55.97,,,1.188,Insufficient core joints (3/17) or depth anomaly (Z=1.19m),WARNING_RECHECK,23.03
+CAP000717,S020,SE01,CAL_009,leaning_backward,4,controlled,right,0,EXCLUDE_3D,3,12,56.3,,,1.188,Insufficient core joints (3/17) or depth anomaly (Z=1.19m),WARNING_RECHECK,23.03
+CAP000718,S020,SE01,CAL_009,leaning_backward,5,controlled,right,0,EXCLUDE_3D,3,12,56.09,,,1.189,Insufficient core joints (3/17) or depth anomaly (Z=1.19m),WARNING_RECHECK,23.03
+CAP000719,S020,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,4,13,38.24,,,1.125,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000720,S020,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,4,13,38.47,,,1.13,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000721,S020,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,4,13,40.18,,,1.128,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000722,S020,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_WITH_MASKING,4,13,40.4,,,1.131,Partial 3D: 4/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000723,S020,SE01,CAL_009,leaning_left,5,controlled,right,2,EXCLUDE_3D,3,13,32.42,,,1.081,Insufficient core joints (3/17) or depth anomaly (Z=1.08m),WARNING_RECHECK,23.03
+CAP000724,S020,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,6,11,39.53,,,1.025,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000725,S020,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,6,11,38.91,,,1.023,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000726,S020,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,6,11,39.05,,,1.027,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000727,S020,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,6,11,40.07,,,1.032,Partial 3D: 6/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000728,S020,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_WITH_MASKING,7,12,41.19,,,1.053,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000729,S020,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,8,12,39.21,,,1.18,"Full 3D: 8/17 core joints, core_err=39.2px, Z=1.18m",WARNING_RECHECK,23.03
+CAP000730,S020,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_WITH_MASKING,8,13,47.34,,,1.163,Partial 3D: 8/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000731,S020,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_WITH_MASKING,8,13,47.06,,,1.16,Partial 3D: 8/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000732,S020,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_WITH_MASKING,8,13,47.12,,,1.162,Partial 3D: 8/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000733,S020,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_WITH_MASKING,8,13,47.28,,,1.164,Partial 3D: 8/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000742,S021,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,11,11,25.31,0.453,0.376,0.933,"Full 3D: 11/17 core joints, core_err=25.3px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000743,S021,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,12,12,26.64,0.466,0.387,0.921,"Full 3D: 12/17 core joints, core_err=26.6px, Z=0.92m",WARNING_RECHECK,23.03
+CAP000744,S021,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,11,11,23.46,0.442,0.381,0.937,"Full 3D: 11/17 core joints, core_err=23.5px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000745,S021,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,12,12,25.41,0.452,0.387,0.931,"Full 3D: 12/17 core joints, core_err=25.4px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000746,S021,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,11,11,26.99,0.451,0.384,0.935,"Full 3D: 11/17 core joints, core_err=27.0px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000747,S021,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,11,23.37,0.46,0.379,0.932,"Full 3D: 11/17 core joints, core_err=23.4px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000748,S021,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,11,11,24.83,0.464,0.385,0.933,"Full 3D: 11/17 core joints, core_err=24.8px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000749,S021,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,11,11,26.59,0.458,0.386,0.926,"Full 3D: 11/17 core joints, core_err=26.6px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000750,S021,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,11,11,23.35,0.459,0.389,0.935,"Full 3D: 11/17 core joints, core_err=23.4px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000751,S021,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,11,26.13,0.455,0.387,0.925,"Full 3D: 11/17 core joints, core_err=26.1px, Z=0.93m",WARNING_RECHECK,23.03
+CAP000752,S021,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,11,11,28.73,0.452,0.388,0.941,"Full 3D: 11/17 core joints, core_err=28.7px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000753,S021,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,11,11,27.24,0.44,0.378,0.944,"Full 3D: 11/17 core joints, core_err=27.2px, Z=0.94m",WARNING_RECHECK,23.03
+CAP000754,S021,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,11,11,27.71,0.442,0.378,0.946,"Full 3D: 11/17 core joints, core_err=27.7px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000755,S021,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,12,12,28.38,0.454,0.391,0.95,"Full 3D: 12/17 core joints, core_err=28.4px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000756,S021,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,11,11,28.87,0.458,0.385,0.946,"Full 3D: 11/17 core joints, core_err=28.9px, Z=0.95m",WARNING_RECHECK,23.03
+CAP000757,S021,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_FULL,10,11,35.12,0.471,0.397,1.002,"Full 3D: 10/17 core joints, core_err=35.1px, Z=1.00m",WARNING_RECHECK,23.03
+CAP000758,S021,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,10,11,35.57,0.473,0.405,1.007,"Full 3D: 10/17 core joints, core_err=35.6px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000759,S021,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,10,11,34.99,0.476,,1.021,"Full 3D: 10/17 core joints, core_err=35.0px, Z=1.02m",WARNING_RECHECK,23.03
+CAP000760,S021,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,10,11,35.52,0.474,0.407,1.006,"Full 3D: 10/17 core joints, core_err=35.5px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000761,S021,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_FULL,10,11,35.62,0.478,0.407,1.005,"Full 3D: 10/17 core joints, core_err=35.6px, Z=1.01m",WARNING_RECHECK,23.03
+CAP000762,S021,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,11,11,18.64,0.397,0.367,0.783,"Full 3D: 11/17 core joints, core_err=18.6px, Z=0.78m",WARNING_RECHECK,23.03
+CAP000763,S021,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,11,17.94,0.382,0.366,0.784,"Full 3D: 11/17 core joints, core_err=17.9px, Z=0.78m",WARNING_RECHECK,23.03
+CAP000764,S021,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,11,19.41,0.395,0.364,0.787,"Full 3D: 11/17 core joints, core_err=19.4px, Z=0.79m",WARNING_RECHECK,23.03
+CAP000765,S021,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,11,11,19.35,0.385,0.357,0.785,"Full 3D: 11/17 core joints, core_err=19.4px, Z=0.79m",WARNING_RECHECK,23.03
+CAP000766,S021,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,11,18.7,0.388,0.36,0.791,"Full 3D: 11/17 core joints, core_err=18.7px, Z=0.79m",WARNING_RECHECK,23.03
+CAP000767,S021,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,12,12,21.63,0.441,0.354,0.912,"Full 3D: 12/17 core joints, core_err=21.6px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000768,S021,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,12,12,20.85,0.45,0.341,0.913,"Full 3D: 12/17 core joints, core_err=20.9px, Z=0.91m",WARNING_RECHECK,23.03
+CAP000769,S021,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,10,11,17.63,0.456,0.337,0.882,"Full 3D: 10/17 core joints, core_err=17.6px, Z=0.88m",WARNING_RECHECK,23.03
+CAP000770,S021,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,11,11,18.33,0.452,,0.9,"Full 3D: 11/17 core joints, core_err=18.3px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000771,S021,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,11,12,18.4,0.443,,0.897,"Full 3D: 11/17 core joints, core_err=18.4px, Z=0.90m",WARNING_RECHECK,23.03
+CAP000779,S022,SE01,CAL_009,upright,1,controlled,right,5,INCLUDE_3D_FULL,12,13,41.47,0.522,0.418,1.08,"Full 3D: 12/17 core joints, core_err=41.5px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000780,S022,SE01,CAL_009,upright,2,controlled,right,5,INCLUDE_3D_FULL,11,13,39.02,0.521,,1.061,"Full 3D: 11/17 core joints, core_err=39.0px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000781,S022,SE01,CAL_009,upright,3,controlled,right,5,INCLUDE_3D_FULL,13,13,38.82,0.529,0.413,1.106,"Full 3D: 13/17 core joints, core_err=38.8px, Z=1.11m",WARNING_RECHECK,23.03
+CAP000782,S022,SE01,CAL_009,upright,4,controlled,right,5,INCLUDE_3D_FULL,11,13,38.35,0.52,,1.061,"Full 3D: 11/17 core joints, core_err=38.4px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000783,S022,SE01,CAL_009,upright,5,controlled,right,5,INCLUDE_3D_FULL,12,13,41.34,0.518,0.413,1.077,"Full 3D: 12/17 core joints, core_err=41.3px, Z=1.08m",WARNING_RECHECK,23.03
+CAP000784,S022,SE01,CAL_009,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,11,13,30.22,0.533,,1.055,"Full 3D: 11/17 core joints, core_err=30.2px, Z=1.06m",WARNING_RECHECK,23.03
+CAP000785,S022,SE01,CAL_009,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,11,13,30.6,0.532,,1.053,"Full 3D: 11/17 core joints, core_err=30.6px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000786,S022,SE01,CAL_009,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,11,13,31.46,0.502,,1.053,"Full 3D: 11/17 core joints, core_err=31.5px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000787,S022,SE01,CAL_009,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,11,13,31.27,0.504,,1.054,"Full 3D: 11/17 core joints, core_err=31.3px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000788,S022,SE01,CAL_009,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,11,13,31.31,0.502,,1.055,"Full 3D: 11/17 core joints, core_err=31.3px, Z=1.05m",WARNING_RECHECK,23.03
+CAP000789,S022,SE01,CAL_009,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,10,13,42.23,,,1.04,"Full 3D: 10/17 core joints, core_err=42.2px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000790,S022,SE01,CAL_009,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,10,13,42.84,,,1.039,"Full 3D: 10/17 core joints, core_err=42.8px, Z=1.04m",WARNING_RECHECK,23.03
+CAP000791,S022,SE01,CAL_009,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,11,14,40.68,,,1.073,"Full 3D: 11/17 core joints, core_err=40.7px, Z=1.07m",WARNING_RECHECK,23.03
+CAP000792,S022,SE01,CAL_009,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,11,14,41.21,,,1.072,"Full 3D: 11/17 core joints, core_err=41.2px, Z=1.07m",WARNING_RECHECK,23.03
+CAP000793,S022,SE01,CAL_009,leaning_backward,5,controlled,right,0,INCLUDE_3D_FULL,11,14,41.23,,,1.073,"Full 3D: 11/17 core joints, core_err=41.2px, Z=1.07m",WARNING_RECHECK,23.03
+CAP000794,S022,SE01,CAL_009,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,48.18,,,1.172,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000795,S022,SE01,CAL_009,leaning_left,2,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,46.99,,,1.17,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000796,S022,SE01,CAL_009,leaning_left,3,controlled,right,2,INCLUDE_3D_WITH_MASKING,11,14,46.41,,,1.169,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000797,S022,SE01,CAL_009,leaning_left,4,controlled,right,2,INCLUDE_3D_WITH_MASKING,10,13,47.7,,,1.142,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000798,S022,SE01,CAL_009,leaning_left,5,controlled,right,2,INCLUDE_3D_WITH_MASKING,10,13,48.4,,,1.142,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,23.03
+CAP000799,S022,SE01,CAL_009,leaning_right,1,controlled,right,3,INCLUDE_3D_FULL,10,12,28.8,0.446,,0.977,"Full 3D: 10/17 core joints, core_err=28.8px, Z=0.98m",WARNING_RECHECK,23.03
+CAP000800,S022,SE01,CAL_009,leaning_right,2,controlled,right,3,INCLUDE_3D_FULL,11,13,32.01,0.442,,0.961,"Full 3D: 11/17 core joints, core_err=32.0px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000801,S022,SE01,CAL_009,leaning_right,3,controlled,right,3,INCLUDE_3D_FULL,11,13,32.06,0.443,,0.961,"Full 3D: 11/17 core joints, core_err=32.1px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000802,S022,SE01,CAL_009,leaning_right,4,controlled,right,3,INCLUDE_3D_FULL,12,13,32.95,0.45,,0.989,"Full 3D: 12/17 core joints, core_err=32.9px, Z=0.99m",WARNING_RECHECK,23.03
+CAP000803,S022,SE01,CAL_009,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,11,13,31.89,0.442,,0.961,"Full 3D: 11/17 core joints, core_err=31.9px, Z=0.96m",WARNING_RECHECK,23.03
+CAP000804,S022,SE01,CAL_009,slouching,1,controlled,right,4,INCLUDE_3D_FULL,13,13,38.34,0.48,0.38,1.089,"Full 3D: 13/17 core joints, core_err=38.3px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000805,S022,SE01,CAL_009,slouching,2,controlled,right,4,INCLUDE_3D_FULL,13,13,36.42,0.475,0.375,1.097,"Full 3D: 13/17 core joints, core_err=36.4px, Z=1.10m",WARNING_RECHECK,23.03
+CAP000806,S022,SE01,CAL_009,slouching,3,controlled,right,4,INCLUDE_3D_FULL,13,13,37.1,0.471,0.374,1.092,"Full 3D: 13/17 core joints, core_err=37.1px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000807,S022,SE01,CAL_009,slouching,4,controlled,right,4,INCLUDE_3D_FULL,13,13,37.46,0.474,0.375,1.093,"Full 3D: 13/17 core joints, core_err=37.5px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000808,S022,SE01,CAL_009,slouching,5,controlled,right,4,INCLUDE_3D_FULL,13,13,37.12,0.474,0.38,1.092,"Full 3D: 13/17 core joints, core_err=37.1px, Z=1.09m",WARNING_RECHECK,23.03
+CAP000815,S023,SE01,CAL_010,upright,1,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000816,S023,SE01,CAL_010,upright,2,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000817,S023,SE01,CAL_010,upright,3,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000818,S023,SE01,CAL_010,upright,4,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000819,S023,SE01,CAL_010,upright,5,controlled,right,5,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000820,S023,SE01,CAL_010,leaning_forward,1,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000821,S023,SE01,CAL_010,leaning_forward,2,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000822,S023,SE01,CAL_010,leaning_forward,3,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000823,S023,SE01,CAL_010,leaning_forward,4,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000824,S023,SE01,CAL_010,leaning_forward,5,controlled,right,1,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000825,S023,SE01,CAL_010,leaning_backward,1,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000826,S023,SE01,CAL_010,leaning_backward,2,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000827,S023,SE01,CAL_010,leaning_backward,3,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000828,S023,SE01,CAL_010,leaning_backward,4,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000829,S023,SE01,CAL_010,leaning_backward,5,controlled,right,0,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000830,S023,SE01,CAL_010,leaning_left,1,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000831,S023,SE01,CAL_010,leaning_left,2,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000832,S023,SE01,CAL_010,leaning_left,3,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000833,S023,SE01,CAL_010,leaning_left,4,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000834,S023,SE01,CAL_010,leaning_left,5,controlled,right,2,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000835,S023,SE01,CAL_010,leaning_right,1,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000836,S023,SE01,CAL_010,leaning_right,2,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000837,S023,SE01,CAL_010,leaning_right,3,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000838,S023,SE01,CAL_010,leaning_right,4,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000839,S023,SE01,CAL_010,leaning_right,5,controlled,right,3,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000840,S023,SE01,CAL_010,slouching,1,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000841,S023,SE01,CAL_010,slouching,2,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000842,S023,SE01,CAL_010,slouching,3,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000843,S023,SE01,CAL_010,slouching,4,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000844,S023,SE01,CAL_010,slouching,5,controlled,right,4,EXCLUDE_3D_DEGENERATE_RIG,0,0,,,,,Rig CAL_010 excluded (Baseline=124.8m),WARNING_RECHECK,36.36
+CAP000852,S024,SE01,CAL_011,upright,1,controlled,right,5,INCLUDE_3D_FULL,8,12,34.23,0.181,0.672,0.864,"Full 3D: 8/17 core joints, core_err=34.2px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000853,S024,SE01,CAL_011,upright,2,controlled,right,5,INCLUDE_3D_FULL,8,12,35.29,0.183,0.676,0.86,"Full 3D: 8/17 core joints, core_err=35.3px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000854,S024,SE01,CAL_011,upright,3,controlled,right,5,INCLUDE_3D_FULL,8,13,34.72,0.179,0.673,0.863,"Full 3D: 8/17 core joints, core_err=34.7px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000855,S024,SE01,CAL_011,upright,4,controlled,right,5,INCLUDE_3D_FULL,8,14,34.02,0.173,0.671,0.869,"Full 3D: 8/17 core joints, core_err=34.0px, Z=0.87m",WARNING_RECHECK,18.49
+CAP000856,S024,SE01,CAL_011,upright,5,controlled,right,5,INCLUDE_3D_FULL,8,14,34.74,0.178,0.666,0.865,"Full 3D: 8/17 core joints, core_err=34.7px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000857,S024,SE01,CAL_011,leaning_forward,1,controlled,right,1,INCLUDE_3D_FULL,8,13,33.66,0.18,0.67,0.876,"Full 3D: 8/17 core joints, core_err=33.7px, Z=0.88m",WARNING_RECHECK,18.49
+CAP000858,S024,SE01,CAL_011,leaning_forward,2,controlled,right,1,INCLUDE_3D_FULL,8,12,33.25,0.186,0.72,0.867,"Full 3D: 8/17 core joints, core_err=33.2px, Z=0.87m",WARNING_RECHECK,18.49
+CAP000859,S024,SE01,CAL_011,leaning_forward,3,controlled,right,1,INCLUDE_3D_FULL,8,12,33.41,0.192,0.71,0.871,"Full 3D: 8/17 core joints, core_err=33.4px, Z=0.87m",WARNING_RECHECK,18.49
+CAP000860,S024,SE01,CAL_011,leaning_forward,4,controlled,right,1,INCLUDE_3D_FULL,8,12,32.98,0.191,0.709,0.871,"Full 3D: 8/17 core joints, core_err=33.0px, Z=0.87m",WARNING_RECHECK,18.49
+CAP000861,S024,SE01,CAL_011,leaning_forward,5,controlled,right,1,INCLUDE_3D_FULL,8,12,34.22,0.194,0.718,0.865,"Full 3D: 8/17 core joints, core_err=34.2px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000862,S024,SE01,CAL_011,leaning_backward,1,controlled,right,0,INCLUDE_3D_FULL,8,14,34.34,0.162,0.657,0.896,"Full 3D: 8/17 core joints, core_err=34.3px, Z=0.90m",WARNING_RECHECK,18.49
+CAP000863,S024,SE01,CAL_011,leaning_backward,2,controlled,right,0,INCLUDE_3D_FULL,9,14,37.77,0.166,0.67,0.91,"Full 3D: 9/17 core joints, core_err=37.8px, Z=0.91m",WARNING_RECHECK,18.49
+CAP000864,S024,SE01,CAL_011,leaning_backward,3,controlled,right,0,INCLUDE_3D_FULL,9,14,37.53,0.165,0.665,0.911,"Full 3D: 9/17 core joints, core_err=37.5px, Z=0.91m",WARNING_RECHECK,18.49
+CAP000865,S024,SE01,CAL_011,leaning_backward,4,controlled,right,0,INCLUDE_3D_FULL,9,14,36.85,0.165,0.657,0.912,"Full 3D: 9/17 core joints, core_err=36.8px, Z=0.91m",WARNING_RECHECK,18.49
+CAP000866,S024,SE01,CAL_011,leaning_left,1,controlled,right,2,INCLUDE_3D_WITH_MASKING,7,13,32.68,,,0.923,Partial 3D: 7/17 core joints - usable with NaN masking,WARNING_RECHECK,18.49
+CAP000867,S024,SE01,CAL_011,leaning_left,2,controlled,right,2,INCLUDE_3D_FULL,8,13,36.88,0.181,0.643,0.925,"Full 3D: 8/17 core joints, core_err=36.9px, Z=0.92m",WARNING_RECHECK,18.49
+CAP000868,S024,SE01,CAL_011,leaning_left,3,controlled,right,2,INCLUDE_3D_FULL,8,13,37.18,0.178,0.642,0.922,"Full 3D: 8/17 core joints, core_err=37.2px, Z=0.92m",WARNING_RECHECK,18.49
+CAP000869,S024,SE01,CAL_011,leaning_left,4,controlled,right,2,INCLUDE_3D_FULL,8,14,36.77,0.18,0.647,0.929,"Full 3D: 8/17 core joints, core_err=36.8px, Z=0.93m",WARNING_RECHECK,18.49
+CAP000870,S024,SE01,CAL_011,leaning_right,1,controlled,right,3,INCLUDE_3D_WITH_MASKING,11,14,41.94,0.145,0.678,0.786,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,18.49
+CAP000871,S024,SE01,CAL_011,leaning_right,2,controlled,right,3,INCLUDE_3D_WITH_MASKING,10,13,39.78,0.146,0.676,0.806,Partial 3D: 10/17 core joints - usable with NaN masking,WARNING_RECHECK,18.49
+CAP000872,S024,SE01,CAL_011,leaning_right,3,controlled,right,3,INCLUDE_3D_WITH_MASKING,11,14,42.16,0.15,0.675,0.783,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,18.49
+CAP000873,S024,SE01,CAL_011,leaning_right,4,controlled,right,3,INCLUDE_3D_WITH_MASKING,11,14,41.58,0.146,0.684,0.784,Partial 3D: 11/17 core joints - usable with NaN masking,WARNING_RECHECK,18.49
+CAP000874,S024,SE01,CAL_011,leaning_right,5,controlled,right,3,INCLUDE_3D_FULL,12,14,42.52,0.155,0.67,0.772,"Full 3D: 12/17 core joints, core_err=42.5px, Z=0.77m",WARNING_RECHECK,18.49
+CAP000875,S024,SE01,CAL_011,slouching,1,controlled,right,4,INCLUDE_3D_FULL,10,13,37.4,0.176,0.672,0.854,"Full 3D: 10/17 core joints, core_err=37.4px, Z=0.85m",WARNING_RECHECK,18.49
+CAP000876,S024,SE01,CAL_011,slouching,2,controlled,right,4,INCLUDE_3D_FULL,10,14,37.07,0.176,0.66,0.856,"Full 3D: 10/17 core joints, core_err=37.1px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000877,S024,SE01,CAL_011,slouching,3,controlled,right,4,INCLUDE_3D_FULL,10,14,37.55,0.174,0.661,0.853,"Full 3D: 10/17 core joints, core_err=37.6px, Z=0.85m",WARNING_RECHECK,18.49
+CAP000878,S024,SE01,CAL_011,slouching,4,controlled,right,4,INCLUDE_3D_FULL,10,14,37.88,0.174,0.67,0.858,"Full 3D: 10/17 core joints, core_err=37.9px, Z=0.86m",WARNING_RECHECK,18.49
+CAP000879,S024,SE01,CAL_011,slouching,5,controlled,right,4,INCLUDE_3D_FULL,10,13,37.48,0.172,0.665,0.854,"Full 3D: 10/17 core joints, core_err=37.5px, Z=0.85m",WARNING_RECHECK,18.49

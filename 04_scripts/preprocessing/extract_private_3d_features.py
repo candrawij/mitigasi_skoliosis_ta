@@ -75,16 +75,20 @@ def run_extraction():
     print("  STEP 7: EXTRACT 25 STEREO 3D SPATIAL GEOMETRY FEATURES (727 CAPTURES)")
     print("=" * 80)
 
-    manifest_file = MANIFESTS_DIR / "private_6class_all.csv"
+    # Use 6-class 3D manifest (produced by 3D-02)
+    manifest_file = MANIFESTS_DIR / "private_6class_3d_manifest.csv"
     if not manifest_file.exists():
-        raise FileNotFoundError(f"Manifest not found: {manifest_file}. Run build_private_6class_manifest.py first!")
+        raise FileNotFoundError(f"Manifest not found: {manifest_file}. Run build_private_6class_3d_manifest.py first!")
 
     df_manifest = pd.read_csv(manifest_file)
     print(f"Loaded manifest: {len(df_manifest)} captures")
     assert len(df_manifest) == 727, f"Manifest must contain exactly 727 captures, found {len(df_manifest)}"
 
-    # Load QC 3D status from private_3d_qc_final.csv
-    qc_3d_file = RESULTS_DIR / "private_3d_qc_final.csv"
+    # Load QC 3D status from private_3d_qc_6class_final.csv (produced by 3D-03)
+    qc_3d_file = RESULTS_DIR / "private_3d_qc_6class_final.csv"
+    if not qc_3d_file.exists():
+        # Fall back to older file
+        qc_3d_file = RESULTS_DIR / "private_3d_qc_final.csv"
     qc3d_lookup = {}
     if qc_3d_file.exists():
         df_qc3d = pd.read_csv(qc_3d_file)

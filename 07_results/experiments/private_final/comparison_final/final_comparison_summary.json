@@ -1,0 +1,61 @@
+{
+  "2d_best": {
+    "name": "2D Best (42 feat)",
+    "pooled_accuracy": 0.6401985111662531,
+    "pooled_macro_prec": 0.6517727378332183,
+    "pooled_macro_rec": 0.6561882878690172,
+    "pooled_macro_f1": 0.6526323202177386,
+    "mean_fold_f1": 0.6536720291608226,
+    "std_fold_f1": 0.10150232902204083,
+    "fold3_f1": 0.5046650209693687,
+    "per_class_f1": {
+      "leaning_backward": 0.6788990825688074,
+      "leaning_forward": 0.34532374100719426,
+      "leaning_left": 0.928,
+      "leaning_right": 0.9606299212598425,
+      "slouching": 0.4264705882352941,
+      "upright": 0.5764705882352941
+    }
+  },
+  "3d_current": {
+    "name": "3D Current (25 feat)",
+    "pooled_accuracy": 0.6178660049627791,
+    "pooled_macro_prec": 0.6461793457846089,
+    "pooled_macro_rec": 0.6266909309595995,
+    "pooled_macro_f1": 0.6182243719193105,
+    "mean_fold_f1": 0.6045895760013407,
+    "std_fold_f1": 0.25190909610532847,
+    "fold3_f1": 0.10523504273504274,
+    "per_class_f1": {
+      "leaning_backward": 0.68,
+      "leaning_forward": 0.544,
+      "leaning_left": 0.7394957983193278,
+      "leaning_right": 0.686046511627907,
+      "slouching": 0.48333333333333334,
+      "upright": 0.5764705882352941
+    }
+  },
+  "3d_canonical": {
+    "name": "3D Canonical (22 feat)",
+    "pooled_accuracy": 0.33002481389578164,
+    "pooled_macro_prec": 0.3378353022038752,
+    "pooled_macro_rec": 0.3304744002782029,
+    "pooled_macro_f1": 0.325933543138944,
+    "mean_fold_f1": 0.3236977496461634,
+    "std_fold_f1": 0.12413289072572332,
+    "fold3_f1": 0.124613779543357,
+    "per_class_f1": {
+      "leaning_backward": 0.14414414414414414,
+      "leaning_forward": 0.25316455696202533,
+      "leaning_left": 0.543859649122807,
+      "leaning_right": 0.39263803680981596,
+      "slouching": 0.25,
+      "upright": 0.3717948717948718
+    }
+  },
+  "conclusion": {
+    "canonical_vs_current_delta_f1": -0.29229082878036644,
+    "canonical_fold3_improvement": 0.01937873680831427,
+    "canonical_worse_overall": true
+  }
+}

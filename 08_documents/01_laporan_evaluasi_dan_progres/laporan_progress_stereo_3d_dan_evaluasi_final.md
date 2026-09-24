@@ -3,7 +3,7 @@
 **Judul Penelitian:** Sistem Deteksi dan Klasifikasi Postur Duduk Berbasis *Multi-View 2D Keypoint* dan *Stereo 3D Reconstruction* Menggunakan XGBoost untuk Mitigasi Risiko Masalah Tulang Belakang  
 **Tanggal:** 24 September 2026 (Revisi Final — Eksperimen Canonicalization & Deployment Selesai)  
 **Status Progres:** FIX-01 s/d FIX-06 + 3D-15 + 3D-16 Selesai | 3D-17 (Artikel) — In Progress  
-**Tautan Master Plan:** [RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md](file:///d:/.Candra/Project/TA/08_documents/methodology/RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md)  
+**Tautan Master Plan:** [RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md](../04_perencanaan_dan_task/RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md)  
 
 ---
 
@@ -136,24 +136,13 @@ Tabel klasifikasi integritas dataset privat 6-kelas:
 
 ---
 
-## VI. Penegasan Status Pengujian Single-Capture
+## VI. Eksperimen Canonicalization 3D (FIX-01 s/d FIX-06)
 
-- Pengujian inferensi 18 sampel tunggal yang mencatatkan akurasi 18/18 (100%) ditegaskan sebagai **Pipeline Integrity / Smoke Test**.
-- Uji ini membuktikan bahwa:
-  1. Pipeline scikit-learn `[SimpleImputer -> XGBClassifier]` dapat menerima input matriks 3D tanpa terjadi eksepsi runtime.
-  2. Logika konvensi koordinat CAM01 (X-lateral, Y-vertical downward, Z-depth) terintegrasi dengan benar pada modul inferensi.
-  3. Format serialisasi model `xgboost_3d.pkl`, skema fitur `feature_schema.json`, dan pemetaan kelas `class_map.json` sinkron secara utuh.
-- Pengujian ini **bukan** bukti generalisasi performa pada subjek baru; bukti generalisasi tetap mengacu pada OOF *Subject-Aware Cross-Validation* (Macro F1 = 0.6046 ± 0.2519).
-
----
-
-## VII. Eksperimen Canonicalization 3D (FIX-01 s/d FIX-06)
-
-### 7.1 Motivasi
+### 6.1 Motivasi
 
 Berdasarkan investigasi Fold 3 yang telah dilakukan, hipotesis awal adalah bahwa kegagalan model 3D berasal dari **domain shift orientasi rig kalibrasi** (*coordinate frame shift*). Jika benar, maka penerapan canonicalization — transformasi pose 3D ke reference frame yang berlandaskan geometri tubuh (*body-aligned frame*) — seharusnya mampu memperbaiki generalisasi model.
 
-### 7.2 Implementasi Canonicalization
+### 6.2 Implementasi Canonicalization
 
 Modul [`canonicalize_private_3d_pose.py`](file:///d:/.Candra/Project/TA/04_scripts/preprocessing/canonicalize_private_3d_pose.py) menerapkan rotasi pose ke *body-aligned canonical frame*:
 
@@ -168,7 +157,7 @@ Canonical Reference Frame:
 
 > **Prinsip Kunci:** Transformasi ditentukan **murni dari geometri sendi**, bukan dari label kelas atau error prediksi. Ini mencegah data leakage pada fold uji.
 
-### 7.3 Verifikasi Pra-Training
+### 6.3 Verifikasi Pra-Training
 
 | Kriteria Akseptabilitas | Hasil |
 |---|:---:|
@@ -184,7 +173,7 @@ Canonical Reference Frame:
 | CAL_009 | +109.07° | -12.11° |
 | CAL_011 | +130.97° | +9.66° |
 
-### 7.4 Penemuan: Fitur Degenerate dalam Canonical Frame
+### 6.4 Penemuan: Fitur Degenerate dalam Canonical Frame
 
 Setelah analisis empiris, ditemukan bahwa **3 dari 25 fitur original menjadi konstanta sempurna** dalam canonical frame:
 
@@ -197,7 +186,7 @@ Setelah analisis empiris, ditemukan bahwa **3 dari 25 fitur original menjadi kon
 
 Akibatnya, skema fitur direvisi dari **25 → 22 fitur** (3 fitur degenerate dihapus, diganti fitur yang tetap bervariasi dalam canonical frame).
 
-### 7.5 Hasil Eksperimen Canonicalization vs Current
+### 6.5 Hasil Eksperimen Canonicalization vs Current
 
 | Metrik | 2D Best (42f) | 3D Current (25f) | **3D Canonical (22f)** |
 |---|:---:|:---:|:---:|
@@ -210,7 +199,7 @@ Akibatnya, skema fitur direvisi dari **25 → 22 fitur** (3 fitur degenerate dih
 > **Temuan Ilmiah Kritis (FIX-06):**
 > Canonicalization berhasil menghilangkan domain shift rig (terbukti dari shoulder_roll CAL_004 yang kini normal). Namun, kinerja model justru **turun drastis dari F1 0.6182 menjadi 0.3259**. Fold 3 hanya membaik sedikit (+0.019), jauh dari perbaikan substansial.
 
-### 7.6 Interpretasi Hasil Canonicalization
+### 6.6 Interpretasi Hasil Canonicalization
 
 **Mengapa canonical lebih buruk?**
 
@@ -231,9 +220,9 @@ Ini juga menjelaskan mengapa Fold 3 hanya sedikit membaik: masalah fundamental b
 
 ---
 
-## VIII. Deployment Pipeline Test (3D-15 & 3D-16)
+## VII. Deployment Pipeline Test (3D-15 & 3D-16)
 
-### 8.1 Task 3D-15 — Raw Stereo Image Pair Test
+### 7.1 Task 3D-15 — Raw Stereo Image Pair Test
 
 Pengujian end-to-end pipeline dari piksel mentah hingga prediksi label, menggunakan 6 pasang gambar (S011, CAL_009, satu per kelas postur):
 
@@ -256,7 +245,7 @@ Pengujian end-to-end pipeline dari piksel mentah hingga prediksi label, mengguna
 > [!NOTE]
 > Hasil 3D-15 merupakan **smoke test deployment**, bukan evaluasi akurasi. Akurasi model pada S011 yang merupakan subjek *dalam* training set (Fold 4) seharusnya lebih tinggi dari yang ditunjukkan di sini. Perbedaan ini kemungkinan berasal dari reprojection error yang tinggi menyebabkan geometri 3D yang tidak representatif pada sesi pengujian ini.
 
-### 8.2 Task 3D-16 — Real-Time Latency Benchmark
+### 7.2 Task 3D-16 — Real-Time Latency Benchmark
 
 Benchmark headless 30 iterasi mengukur setiap komponen pipeline (CPU, tanpa GPU):
 
@@ -280,9 +269,9 @@ Benchmark headless 30 iterasi mengukur setiap komponen pipeline (CPU, tanpa GPU)
 
 ---
 
-## IX. Ringkasan Akhir: Semua Hasil Terkunci
+## VIII. Ringkasan Akhir: Semua Hasil Terkunci
 
-### 9.1 Tabel Perbandingan Final (4 Model)
+### 8.1 Tabel Perbandingan Final (4 Model)
 
 | Model | Fitur | Pooled Macro F1 | Fold Mean Macro F1 | Fold 3 F1 |
 |---|:---:|:---:|:---:|:---:|
@@ -293,14 +282,14 @@ Benchmark headless 30 iterasi mengukur setiap komponen pipeline (CPU, tanpa GPU)
 
 *\*Pooled F1 pada 2D Best menggunakan OOF dari tri-model comparison (403 sampel), sedikit berbeda dari training set penuh.*
 
-### 9.2 Temuan Ilmiah Final
+### 8.2 Temuan Ilmiah Final
 
 1. **Representasi 2D Multi-View lebih stabil** dari 3D dalam kondisi rig heterogen — terbukti dari standar deviasi fold yang jauh lebih kecil (0.0701 vs 0.2519).
 2. **Canonicalization 3D berhasil menghilangkan domain shift rig** (shoulder_roll CAL_004: 125° → 1°) tetapi justru menurunkan akurasi secara drastis, membuktikan bahwa sinyal diskriminatif model 3D Current sebagian berasal dari artefak frame kamera.
 3. **Fold 3 collapse** bukan semata-mata masalah coordinate-frame — penyebab utama adalah kombinasi kualitas triangulasi, coverage right_hip yang rendah, dan rig-specific domain shift.
 4. **Sistem 3D dapat dijalankan secara real-time pada CPU** dengan 5.2 FPS (dominasi YOLO); komponen 3D (triangulasi + fitur + XGBoost) hanya 3.4 ms gabungan.
 
-### 9.3 Batasan yang Didokumentasikan
+### 8.3 Batasan yang Didokumentasikan
 
 - Coverage 3D: hanya 403/727 (55.4%) sampel model-ready (right_hip NaN pada 254 sampel)
 - Rig CAL_004 (S003, S004) dan CAL_006/010 excluded atau degenerate

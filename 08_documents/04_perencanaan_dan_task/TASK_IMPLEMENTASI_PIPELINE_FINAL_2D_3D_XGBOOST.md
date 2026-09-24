@@ -1,7 +1,7 @@
 # TASK TRACKING IMPLEMENTASI PIPELINE FINAL 2D–3D XGBOOST
 ## Repositori: `mitigasi_skoliosis_ta`
 
-Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md](file:///e:/TA/mitigasi_skoliosis_ta/08_documents/methodology/PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md).
+Dokumen ini memantau progres pelaksanaan panduan implementasi teknis [PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md](../03_panduan_dan_sop/PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md).
 
 ---
 

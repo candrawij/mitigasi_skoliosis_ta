@@ -12,51 +12,56 @@ Seluruh dokumentasi laporan, panduan teknis, kontrol kualitas, dan naskah publik
 
 ```text
 08_documents/
-│
-├── README.md                                  <-- (Dokumen ini) Master Indeks & Panduan Navigasi
-│
-├── 01_laporan_evaluasi_dan_progres/           <-- Laporan Evaluasi, Progres Berkala & Temuan Ilmiah
-│   ├── README.md                              (Panduan direktori laporan evaluasi)
-│   ├── laporan_progress_stereo_3d_dan_evaluasi_final.md  <-- ⭐ [DOKUMEN UTAMA] Fair Comparison, 3D Canonicalization, Latency
-│   ├── LAPORAN_PROGRES_TA_20260922.md         <-- Laporan pengujian live dual camera (Akurasi 93.1%)
-│   ├── laporan_progres_komprehensif_penelitian.md
-│   ├── laporan_akhir_pipeline_final_skripsi.md
-│   ├── laporan_hasil_eksperimen_holistik.md
-│   ├── laporan_pengecekan_dan_kalibrasi_kamera.md
-│   └── laporan_fase_5c_target_person_selection_dan_qc.md
-│
-├── 02_laporan_qc_dataset/                     <-- Kontrol Kualitas & Kurasi Dataset Subjek Riil
-│   ├── README.md                              (Panduan evolusi audit dataset)
-│   ├── laporan_qc_dataset_keseluruhan_24_subjek.md  <-- ⭐ [FINAL DATASET] Audit lengkap 24 subjek
-│   └── arsip_historis_qc/                     (Arsip kemajuan QC bertahap)
-│       ├── laporan_qc_dataset_keseluruhan_23_subjek.md
-│       ├── laporan_qc_dataset_keseluruhan_21_subjek.md
-│       ├── laporan_qc_dataset_keseluruhan_10_subjek.md
-│       ├── laporan_komprehensif_dataset_6_subjek_dan_evaluasi_pipeline.md
-│       ├── pilot_dataset_quality_report.md
-│       └── private_dataset_pilot_qc_report.md
-│
-├── 03_panduan_dan_sop/                        <-- Prosedur Operasional Standar & Panduan Teknis
-│   ├── README.md                              (Panduan SOP & eksekusi)
-│   ├── Panduan_Pengumpulan_Dataset_Privat_Postur_Duduk.md  <-- ⭐ SOP Protokol Pengambilan Data Subjek
-│   ├── PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md <-- ⭐ Arsitektur & Spesifikasi Pipeline
-│   └── panduan_eksekusi_training_pc_gpu.md    <-- Panduan training pada PC GPU
-│
-├── 04_perencanaan_dan_task/                   <-- Roadmap Riset, Desain Sistem & Pelacak Tugas
-│   ├── README.md                              (Panduan roadmap & task tracking)
-│   ├── RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md  <-- ⭐ Roadmap Penyelesaian Pasca Evaluasi 3D
-│   ├── TASK_PENYELESAIAN_STEREO_3D_FINAL.md   <-- Tracker eksekusi tugas stereo 3D (3D-01 s/d 3D-17)
-│   ├── TASK_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md <-- Tracker tugas pipeline 2D/3D XGBoost
-│   ├── rencana_penelitian_postur_duduk_revisi.md
-│   └── pipeline_penelitian_deteksi_postur.md
-│
-├── 05_naskah_dan_publikasi/                   <-- Naskah Publikasi & Outline Artikel Ilmiah
-│   ├── README.md                              (Panduan penulisan naskah publikasi)
-│   └── OUTLINE_ARTIKEL_ILMIAH_POSTUR.md       <-- ⭐ Outline lengkap artikel jurnal/prosiding internasional
-│
-└── methodology/                               <-- Direktori migrasi lama (dipertahankan untuk kompatibilitas)
-    └── README.md                              (Peta migrasi file lama ke lokasi baru)
-```
+15: │
+16: ├── README.md                                  <-- (Dokumen ini) Master Indeks & Panduan Navigasi
+17: │
+18: ├── 01_laporan_evaluasi_dan_progres/           <-- Laporan Evaluasi, Progres Berkala & Temuan Ilmiah
+19: │   ├── README.md                              (Panduan direktori laporan evaluasi)
+20: │   ├── LAPORAN_KOMPREHENSIF_AWAL_SAMPAI_AKHIR.md <-- ⭐ [NARASI LENGKAP] Perjalanan dari ide awal s.d. freeze
+21: │   ├── laporan_progress_stereo_3d_dan_evaluasi_final.md  <-- ⭐ [DOKUMEN TEKNIS UTAMA] Fair Comparison, 3D Canonicalization, Latency
+22: │   ├── LAPORAN_PROGRES_TA_20260922.md         <-- Laporan pengujian live dual camera (Akurasi 93.1%)
+23: │   ├── laporan_progres_komprehensif_penelitian.md
+24: │   ├── laporan_akhir_pipeline_final_skripsi.md
+25: │   ├── laporan_hasil_eksperimen_holistik.md
+26: │   ├── laporan_pengecekan_dan_kalibrasi_kamera.md
+27: │   └── laporan_fase_5c_target_person_selection_dan_qc.md
+28: │
+29: ├── 02_laporan_qc_dataset/                     <-- Kontrol Kualitas & Kurasi Dataset Subjek Riil
+30: │   ├── README.md                              (Panduan evolusi audit dataset)
+31: │   ├── laporan_qc_dataset_keseluruhan_24_subjek.md  <-- ⭐ [FINAL DATASET] Audit lengkap 24 subjek
+32: │   └── arsip_historis_qc/                     (Arsip kemajuan QC bertahap)
+33: │       ├── laporan_qc_dataset_keseluruhan_23_subjek.md
+34: │       ├── laporan_qc_dataset_keseluruhan_21_subjek.md
+35: │       ├── laporan_qc_dataset_keseluruhan_10_subjek.md
+36: │       ├── laporan_komprehensif_dataset_6_subjek_dan_evaluasi_pipeline.md
+37: │       ├── pilot_dataset_quality_report.md
+38: │       └── private_dataset_pilot_qc_report.md
+39: │
+40: ├── 03_panduan_dan_sop/                        <-- Prosedur Operasional Standar & Panduan Teknis
+41: │   ├── README.md                              (Panduan SOP & eksekusi)
+42: │   ├── Panduan_Pengumpulan_Dataset_Privat_Postur_Duduk.md  <-- ⭐ SOP Protokol Pengambilan Data Subjek
+43: │   ├── PANDUAN_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md <-- ⭐ Arsitektur & Spesifikasi Pipeline
+44: │   └── panduan_eksekusi_training_pc_gpu.md    <-- Panduan training pada PC GPU
+45: │
+46: ├── 04_perencanaan_dan_task/                   <-- Roadmap Riset, Desain Sistem & Pelacak Tugas
+47: │   ├── README.md                              (Panduan roadmap & task tracking)
+48: │   ├── RENCANA_IMPLEMENTASI_FINAL_SETELAH_EVALUASI_3D.md  <-- ⭐ Roadmap Penyelesaian Pasca Evaluasi 3D
+49: │   ├── TASK_PENYELESAIAN_STEREO_3D_FINAL.md   <-- Tracker eksekusi tugas stereo 3D (3D-01 s/d 3D-17)
+50: │   ├── TASK_IMPLEMENTASI_PIPELINE_FINAL_2D_3D_XGBOOST.md <-- Tracker tugas pipeline 2D/3D XGBoost
+51: │   ├── rencana_penelitian_postur_duduk_revisi.md
+52: │   └── pipeline_penelitian_deteksi_postur.md
+53: │
+54: ├── 05_naskah_dan_publikasi/                   <-- Naskah Publikasi & Outline Artikel Ilmiah
+55: │   ├── README.md                              (Panduan penulisan naskah publikasi)
+56: │   ├── OUTLINE_LENGKAP_SKRIPSI_ARTIKEL.md     <-- ⭐ Outline 6 bab skripsi & artikel lengkap
+57: │   ├── OUTLINE_SINGKAT.md                     <-- ⭐ Outline ringkas & analisis pro/cons pipeline
+58: │   └── OUTLINE_ARTIKEL_ILMIAH_POSTUR.md       <-- Outline artikel jurnal internasional
+59: │
+60: ├── figures/                                   <-- Peta aset gambar visual untuk naskah skripsi
+61: │   └── README.md
+62: └── methodology/                               <-- Direktori migrasi lama (dipertahankan untuk kompatibilitas)
+63:     └── README.md                              (Peta migrasi file lama ke lokasi baru)
+64: ```
 
 ---
 

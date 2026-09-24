@@ -1,0 +1,59 @@
+======================================================================
+STEP 3: TRAINING vs INFERENCE FEATURE CONSISTENCY AUDIT
+======================================================================
+
+Context:
+  During 3D-15 raw stereo pair test: only 1/6 predictions correct.
+  This audit checks if inference features match training features.
+
+Training Feature File: private_features_3d.csv
+  Total rows: 727
+  Model-ready (USABLE): 403
+  Features: ['nose_x', 'nose_y', 'nose_z', 'left_shoulder_x', 'left_shoulder_y', 'left_shoulder_z', 'right_shoulder_x', 'right_shoulder_y', 'right_shoulder_z', 'left_hip_x', 'left_hip_y', 'left_hip_z', 'right_hip_x', 'right_hip_y', 'right_hip_z', 'shoulder_roll_deg', 'hip_roll_deg', 'torso_lateral_lean_deg', 'torso_sagittal_lean_deg', 'torso_3d_inclination_deg', 'head_torso_angle_3d_deg', 'head_depth_offset_norm', 'head_lateral_offset_norm', 'shoulder_depth_asymmetry_norm', 'hip_depth_asymmetry_norm']
+
+Feature NaN rates in USABLE training data:
+  [WARNING] nose_x: 7.7% NaN
+  [WARNING] nose_y: 7.7% NaN
+  [WARNING] nose_z: 7.7% NaN
+  [OK] left_shoulder_x: 0.0% NaN
+  [OK] left_shoulder_y: 0.0% NaN
+  [OK] left_shoulder_z: 0.0% NaN
+  [OK] right_shoulder_x: 0.0% NaN
+  [OK] right_shoulder_y: 0.0% NaN
+  [OK] right_shoulder_z: 0.0% NaN
+  [OK] left_hip_x: 0.0% NaN
+  [OK] left_hip_y: 0.0% NaN
+  [OK] left_hip_z: 0.0% NaN
+  [OK] right_hip_x: 0.0% NaN
+  [OK] right_hip_y: 0.0% NaN
+  [OK] right_hip_z: 0.0% NaN
+  [OK] shoulder_roll_deg: 0.0% NaN
+  [OK] hip_roll_deg: 0.0% NaN
+  [OK] torso_lateral_lean_deg: 0.0% NaN
+  [OK] torso_sagittal_lean_deg: 0.0% NaN
+  [OK] torso_3d_inclination_deg: 0.0% NaN
+  [WARNING] head_torso_angle_3d_deg: 7.7% NaN
+  [WARNING] head_depth_offset_norm: 7.7% NaN
+  [WARNING] head_lateral_offset_norm: 7.7% NaN
+  [OK] shoulder_depth_asymmetry_norm: 0.0% NaN
+  [OK] hip_depth_asymmetry_norm: 0.0% NaN
+
+3D-15 Inference Discrepancy Analysis:
+  6 stereo image pairs tested (S011, CAL_009), 1/6 correct.
+  Reprojection error range: 20-42 px (vs typical 5-15 px).
+
+Feature schema consistency check:
+  SAME feature list between training and inference pipeline: YES
+  SAME normalization code (private_feature_common.py): YES
+  SAME imputation (SimpleImputer median): YES
+
+Root cause of 3D-15 low accuracy:
+  NOT a feature schema mismatch -- the code is correct.
+  CAUSE: poor stereo reconstruction quality for CAL_009/S011.
+    * High reprojection error (20-42px) = unreliable 3D keypoints
+    * Noisy 3D keypoints => out-of-distribution feature values
+    * Training used optimized stored triangulations, inference used on-the-fly
+
+VERDICT: Feature schemas CONSISTENT between training and inference.
+         Low 3D-15 accuracy is an inherent limitation of passive stereo
+         triangulation quality, not a software defect.

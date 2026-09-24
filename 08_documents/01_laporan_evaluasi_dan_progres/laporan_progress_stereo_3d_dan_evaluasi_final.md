@@ -181,19 +181,20 @@ Setelah analisis empiris, ditemukan bahwa **3 dari 25 fitur original menjadi kon
 |---|:---:|---|
 | `torso_lateral_lean_deg` | 0.000 (std=0) | Torso IS sumbu Y_can by construction |
 | `torso_sagittal_lean_deg` | 0.000 (std=0) | Torso IS sumbu Y_can by construction |
-| `torso_3d_inclination_deg` | 0.000 (std=0) | Torso selalu sejajar [0,1,0] |
 | `hip_depth_asymmetry_norm` | 0.000 (std=0) | Hip dipakai membangun X-axis |
 
-Akibatnya, skema fitur direvisi dari **25 → 22 fitur** (3 fitur degenerate dihapus, diganti fitur yang tetap bervariasi dalam canonical frame).
+> **Catatan:** `torso_3d_inclination_deg` **tidak** didegenerate — nilainya tetap bervariasi antar sampel dalam canonical frame (inklinasi sumbu torso terhadap vertikal dunia masih bermakna) dan dipertahankan dalam skema 22 fitur.
+
+Akibatnya, skema fitur direvisi dari **25 → 22 fitur** (**3 fitur degenerate dihapus**).
 
 ### 6.5 Hasil Eksperimen Canonicalization vs Current
 
 | Metrik | 2D Best (42f) | 3D Current (25f) | **3D Canonical (22f)** |
 |---|:---:|:---:|:---:|
-| **Pooled Accuracy** | 64.02% | 61.79% | **33.00% ❌** |
-| **Pooled Macro F1** | **0.6526** | 0.6182 | **0.3259 ❌** |
-| **Fold Mean Macro F1** | 0.6537 ± 0.1015 | 0.6046 ± 0.2519 | 0.3237 ± 0.1241 |
-| **Fold 3 Macro F1** | 0.5047 | 0.1052 | **0.1246** (+0.019) |
+| **Pooled Accuracy** | 69.73% | 61.79% | **33.00% ❌** |
+| **Pooled Macro F1** | **0.7039** | 0.6182 | **0.3259 ❌** |
+| **Fold Mean Macro F1** | 0.6875 ± 0.0701 | 0.6046 ± 0.2519 | 0.3237 ± 0.1241 |
+| **Fold 3 Macro F1** | 0.6187 | 0.1052 | **0.1246** (+0.019) |
 
 > [!IMPORTANT]
 > **Temuan Ilmiah Kritis (FIX-06):**
@@ -269,18 +270,20 @@ Benchmark headless 30 iterasi mengukur setiap komponen pipeline (CPU, tanpa GPU)
 
 ---
 
-## VIII. Ringkasan Akhir: Semua Hasil Terkunci
+## VIII. Ringkasan Akhir: Semua Hasil Terkunci — FROZEN
+
+> [!IMPORTANT]
+> **Sumber Kebenaran Tunggal (*Single Source of Truth*):**  
+> Seluruh angka di bawah berasal dari eksperimen `FINAL_FOUR_MODEL` yang dijalankan secara simultan pada **403 sampel identik**, **fold split identik** (`private_2d3d_intersection_5fold.csv`), dan **parameter XGBoost identik** (seed=42). File referensi: `07_results/experiments/private_final/FINAL_FOUR_MODEL/final_four_model_comparison.csv`
 
 ### 8.1 Tabel Perbandingan Final (4 Model)
 
-| Model | Fitur | Pooled Macro F1 | Fold Mean Macro F1 | Fold 3 F1 |
-|---|:---:|:---:|:---:|:---:|
-| 2D Core Baseline | 36f | 0.6863 | 0.6669 ± 0.0846 | 0.6187 |
-| **2D Best Practical** | **42f** | **0.6526***| 0.6537 ± 0.1015 | **0.5047** |
-| 3D Current (Camera Frame) | 25f | 0.6182 | 0.6046 ± 0.2519 | 0.1052 |
-| 3D Canonical (Body Frame) | 22f | 0.3259 | 0.3237 ± 0.1241 | 0.1246 |
-
-*\*Pooled F1 pada 2D Best menggunakan OOF dari tri-model comparison (403 sampel), sedikit berbeda dari training set penuh.*
+| Model | Fitur | Pooled Acc | Pooled Macro F1 | Fold Mean Macro F1 | Fold 3 F1 |
+|---|:---:|:---:|:---:|:---:|:---:|
+| 2D Core Baseline | 36f | 67.99% | 0.6863 | 0.6669 ± 0.0846 | 0.6187 |
+| **2D Best Practical** | **42f** | **69.73%** | **0.7039** | **0.6875 ± 0.0701** | **0.6187** |
+| 3D Current (Camera Frame) | 25f | 61.79% | 0.6182 | 0.6046 ± 0.2519 | 0.1052 |
+| 3D Canonical (Body Frame) | 22f | 33.00% | 0.3259 | 0.3237 ± 0.1241 | 0.1246 |
 
 ### 8.2 Temuan Ilmiah Final
 
@@ -292,6 +295,7 @@ Benchmark headless 30 iterasi mengukur setiap komponen pipeline (CPU, tanpa GPU)
 ### 8.3 Batasan yang Didokumentasikan
 
 - Coverage 3D: hanya 403/727 (55.4%) sampel model-ready (right_hip NaN pada 254 sampel)
-- Rig CAL_004 (S003, S004) dan CAL_006/010 excluded atau degenerate
+- Rig CAL_004 (S003, S004) — domain shift 3D; CAL_006/010 — excluded (gagal kalibrasi ekstrinsik)
 - Real-time FPS 5.2 (CPU) — membutuhkan GPU untuk aplikasi praktis >10 FPS
 - Model 3D sensitif terhadap perubahan orientasi rig kalibrasi
+- **Skema fitur canonical:** 22 fitur (3 fitur degenerate dihapus: `torso_lateral_lean_deg`, `torso_sagittal_lean_deg`, `hip_depth_asymmetry_norm`)

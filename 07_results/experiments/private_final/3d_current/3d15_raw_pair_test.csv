@@ -1,0 +1,7 @@
+capture_id,true_label,pred_label,correct,confidence,reproj_err_px,status,latency_ms
+CAP000379,upright,leaning_backward,False,0.5566434264183044,29.39,VALID,30560.0
+CAP000384,leaning_forward,leaning_left,False,0.374392569065094,20.11,VALID,169.9
+CAP000389,leaning_backward,leaning_left,False,0.5003756880760193,42.26,VALID,161.9
+CAP000394,leaning_left,leaning_left,True,0.4768114686012268,36.47,VALID,166.5
+CAP000399,leaning_right,REJECT / INVALID_3D,False,0.0,12.702480449675939,REJECTED,163.8
+CAP000404,slouching,leaning_backward,False,0.6051804423332214,24.22,VALID,168.4

@@ -1,0 +1,22 @@
+{
+  "benchmark": "3D-16 Stereo 3D Latency Benchmark",
+  "n_iterations": 30,
+  "n_valid": 30,
+  "n_rejected": 0,
+  "calibration_id": "CAL_009",
+  "hardware_note": "CPU inference, no GPU",
+  "latency_ms": {
+    "yolo_cam01_mean": 97.42235000024569,
+    "yolo_cam02_mean": 90.66535666691682,
+    "yolo_combined_mean": 188.0877066671625,
+    "triangulation_mean": 0.7227333334109668,
+    "feature_mean": 0.2662300001247786,
+    "xgboost_mean": 2.4015166662138654,
+    "end_to_end_mean": 191.50191666655397,
+    "end_to_end_median": 185.64429999969434,
+    "end_to_end_std": 31.930738735734735,
+    "end_to_end_min": 162.09779999917373,
+    "end_to_end_max": 301.61629999929573
+  },
+  "fps_estimate": 5.221879850639903
+}

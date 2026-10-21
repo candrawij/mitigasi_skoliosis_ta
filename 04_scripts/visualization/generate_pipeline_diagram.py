@@ -66,7 +66,7 @@ ax.text(8.0, 9.7, "Deteksi & Klasifikasi Postur Duduk Berisiko Skoliosis: Multi-
 # Box 1: Kalibrasi Kamera Stereo
 draw_box(ax, 0.8, 7.0, 4.0, 2.3,
          "1. Kalibrasi Kamera Stereo",
-         ["• Dual USB Webcam (Logitech C922 Full HD)",
+         ["• Dual USB Webcam (Dual USB Webcams (HD 720p))",
           "• Pola Papan Catur (Checkerboard 9x6)",
           "• Kalibrasi Intrinsik Kamera (K1, K2, D1, D2)",
           "• Kalibrasi Ekstrinsik Stereo (Matriks R, T)",
